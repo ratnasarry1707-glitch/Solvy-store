@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halte — wood-fired kitchen &amp; wine bar</title>
+<style>
+@font-face{font-family:"Young Serif";src:url(../../fonts/YoungSerif-Regular.ttf)}
+@font-face{font-family:"Work Sans";src:url(../../fonts/WorkSans-Regular.ttf);font-weight:400}
+@font-face{font-family:"Work Sans";src:url(../../fonts/WorkSans-Bold.ttf);font-weight:700}
+:root{--forest:#1F3A2E;--forest-2:#2B4D3D;--mustard:#E3A93B;--linen:#EDE6D6;--oxblood:#6E1F24;--ink:#17251E;
+--serif:"Young Serif",Georgia,serif;--sans:"Work Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--forest);color:var(--linen);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+:focus-visible{outline:2px solid var(--mustard);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+nav{display:flex;justify-content:space-between;align-items:center;height:90px;border-bottom:1px solid rgba(237,230,214,.18)}
+nav .links{display:flex;gap:30px;font-size:15px}
+.logo{font-family:var(--serif);font-size:28px}
+.book{background:var(--mustard);color:var(--ink);border-radius:999px;padding:11px 22px;font-weight:700;font-size:15px}
+.open{display:flex;align-items:center;gap:8px;font-size:14px}
+.open i{width:8px;height:8px;border-radius:50%;background:#7BD88F}
+.open.closed i{background:#E0745F}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:end;padding:70px 0 0}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(64px,13vw,210px);line-height:.82;letter-spacing:-.03em;color:var(--linen)}
+.hero .intro{font-family:var(--serif);font-size:clamp(22px,2.2vw,30px);line-height:1.3;margin-top:36px;max-width:22ch}
+.hero .meta{display:flex;gap:40px;margin-top:40px;padding-bottom:70px;font-size:15px;color:rgba(237,230,214,.75)}
+.hero .meta b{display:block;color:var(--linen);font-size:17px}
+.oven{align-self:stretch;display:flex;align-items:flex-end;justify-content:center}
+.oven svg{width:100%;max-width:470px;height:auto;display:block}
+.oven-photo{width:100%;max-width:470px;aspect-ratio:47/52;border-radius:235px 235px 0 0;overflow:hidden;border:2px dashed rgba(237,230,214,.35);padding:10px 10px 0}
+.oven-photo img{width:100%;height:100%;object-fit:cover;border-radius:225px 225px 0 0}
+.flame{transform-origin:50% 100%;animation:flick 2.4s ease-in-out infinite}
+.flame.b{animation-duration:1.9s;animation-delay:.3s}
+@keyframes flick{0%,100%{transform:scaleY(1) skewX(0)}50%{transform:scaleY(1.08) skewX(-3deg)}}
+
+/* strip */
+.strip{background:var(--mustard);color:var(--ink);display:grid;grid-template-columns:repeat(3,1fr)}
+.strip div{padding:30px 32px;border-right:1px solid rgba(23,37,30,.25)}
+.strip div:last-child{border-right:0}
+.strip b{font-family:var(--serif);font-weight:400;font-size:24px;display:block;line-height:1.2}
+.strip span{font-size:15px}
+
+/* menu */
+.menu{background:var(--linen);color:var(--ink);padding:120px 0}
+.menu-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:80px}
+.menu h2,.visit h2,.rsv h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-.02em}
+.menu .side p{margin-top:20px;max-width:32ch;color:#4A5A50}
+.menu .note{margin-top:30px;border-left:3px solid var(--oxblood);padding-left:16px;font-size:15px;color:#4A5A50}
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--ink);margin-bottom:10px;flex-wrap:wrap}
+.tabs button{border:0;background:transparent;padding:12px 18px;font-weight:700;color:#5D6B62;border-radius:10px 10px 0 0;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--linen)}
+.dish{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:baseline;padding:22px 0;border-bottom:1px dashed rgba(23,37,30,.3)}
+.dish h3{font-family:var(--serif);font-weight:400;font-size:24px}
+.dish .dots{border-bottom:2px dotted rgba(23,37,30,.35);transform:translateY(-6px)}
+.dish .p{font-family:var(--serif);font-size:22px}
+.dish p{grid-column:1/-1;color:#4A5A50;font-size:15.5px;margin-top:-6px}
+.dish .v{display:inline-block;font-family:var(--sans);font-size:12px;font-weight:700;background:#D9E6C8;color:var(--forest);border-radius:999px;padding:1px 8px;margin-left:8px;vertical-align:4px}
+.panel[hidden]{display:none}
+.menu-foot{display:flex;justify-content:space-between;margin-top:30px;font-size:15px;color:#4A5A50;flex-wrap:wrap;gap:10px}
+.menu-foot a{color:var(--oxblood);font-weight:700;border-bottom:2px solid var(--oxblood)}
+
+/* story */
+.story{padding:130px 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.story blockquote{font-family:var(--serif);font-size:clamp(28px,3.2vw,44px);line-height:1.2}
+.story p{color:rgba(237,230,214,.8);margin-top:24px;max-width:46ch}
+.story .sig{margin-top:30px;font-weight:700}
+.plates{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.plate{aspect-ratio:1;border-radius:50%;overflow:hidden;position:relative;box-shadow:0 30px 50px -25px rgba(0,0,0,.6)}
+.plate img{width:100%;height:100%;object-fit:cover;transform:scale(1.18)}
+.plate:nth-child(2){transform:translateY(60px)}
+.plate:nth-child(3){transform:translateY(-20px)}
+.plate:nth-child(4){transform:translateY(40px)}
+
+/* visit */
+.visit{background:var(--forest-2);border-radius:40px;padding:90px 70px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.hours{list-style:none;margin-top:34px}
+.hours li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(237,230,214,.18)}
+.hours li.today{color:var(--mustard);font-weight:700}
+.map{border-radius:26px;overflow:hidden;min-height:360px;position:relative;background:#264536}
+.addr{position:absolute;left:20px;bottom:20px;right:20px;background:var(--linen);color:var(--ink);border-radius:18px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.addr b{font-family:var(--serif);font-weight:400;font-size:20px;display:block}
+.addr a{font-weight:700;color:var(--oxblood)}
+
+/* reservation */
+.rsv{padding:130px 0;text-align:center}
+.rsv-head p{color:rgba(237,230,214,.8);margin:18px auto 0;max-width:44ch}
+.form{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:10px;background:var(--linen);border-radius:999px;padding:10px;max-width:860px;margin:44px auto 0}
+.field{display:flex;flex-direction:column;text-align:left;padding:6px 22px;border-right:1px solid rgba(23,37,30,.18)}
+.field:nth-child(3){border-right:0}
+.field label{font-size:12px;font-weight:700;color:#5D6B62}
+.field select,.field input{border:0;background:transparent;color:var(--ink);font-size:17px;padding:2px 0;outline-offset:6px;display:block;width:100%;min-width:0;max-width:100%;text-align:left}
+.field input{-webkit-appearance:none;appearance:none}
+.field input::-webkit-date-and-time-value{text-align:left}
+.field{min-width:0}
+.form button{border:0;background:var(--oxblood);color:var(--linen);border-radius:999px;padding:0 32px;font-weight:700;cursor:pointer}
+.confirm{margin-top:20px;color:var(--mustard);font-weight:700;min-height:1.6em}
+
+footer{border-top:1px solid rgba(237,230,214,.18);padding:50px 0 60px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:15px;color:rgba(237,230,214,.75)}
+.foot .logo{color:var(--linen)}
+.foot nav{height:auto;border:0;gap:24px;display:flex}
+
+@media (max-width:980px){
+  nav .links{display:none}
+  .hero,.menu-grid,.story,.visit{grid-template-columns:1fr}
+  .oven svg{max-width:340px}
+  .visit{padding:60px 30px}
+  .form{grid-template-columns:1fr 1fr;border-radius:28px}
+  .field:nth-child(2){border-right:0}
+  .field{border-bottom:1px solid rgba(23,37,30,.18);padding:12px 18px}
+  .form button{grid-column:1/-1;height:54px}
+}
+@media (max-width:560px){
+  .wrap{padding-inline:20px}
+  .open{display:none}
+  .strip{grid-template-columns:1fr}
+  .strip div{border-right:0;border-bottom:1px solid rgba(23,37,30,.25)}
+  .hero .meta{flex-direction:column;gap:14px}
+  .form{grid-template-columns:1fr}
+  .field{border-right:0}
+  .visit{border-radius:28px;padding:50px 22px}
+  .dish h3{font-size:21px}
+}
+@media (prefers-reduced-motion:reduce){.oven-photo{width:100%;max-width:470px;aspect-ratio:47/52;border-radius:235px 235px 0 0;overflow:hidden;border:2px dashed rgba(237,230,214,.35);padding:10px 10px 0}
+.oven-photo img{width:100%;height:100%;object-fit:cover;border-radius:225px 225px 0 0}
+.flame{animation:none}}
+
+/* ===== upgrade: room, menu book, signatures, chef, gallery, reviews, reservation ===== */
+.kick{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--oxblood)}
+.room{position:relative;height:min(78vh,720px);min-height:420px;overflow:hidden}
+.room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.room::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,37,30,0) 45%,rgba(23,37,30,.85))}
+.room-cap{position:absolute;left:0;right:0;bottom:40px;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.room-cap p{max-width:40ch;font-size:17px;color:rgba(237,230,214,.9)}
+.room-cap b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,44px);color:var(--linen);line-height:1.05;margin-bottom:6px}
+
+/* menu as a book */
+.menu{padding:110px 0 120px}
+.menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:34px}
+.menu-head h2{margin-top:10px}
+.menu-head p{max-width:40ch;color:#4A5A50}
+.ribbons{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:-2px;padding-left:28px;position:relative;z-index:2}
+.ribbons button{border:0;cursor:pointer;background:#D8CDB6;color:#3E4C43;font-weight:700;font-size:14px;padding:12px 18px 16px;border-radius:10px 10px 0 0;transition:background .2s,transform .2s;transform:translateY(6px)}
+.ribbons button[aria-selected="true"]{background:var(--oxblood);color:var(--linen);transform:translateY(0)}
+.bookwrap{background:#2A2119;border-radius:22px;padding:18px;box-shadow:0 50px 80px -40px rgba(23,37,30,.55),inset 0 0 0 1px rgba(255,255,255,.04)}
+.book-spread{position:relative;perspective:2200px}
+.spread{display:grid;grid-template-columns:1fr 1fr;background:#F4ECDC;border-radius:8px;overflow:hidden;position:relative;min-height:640px;
+  background-image:radial-gradient(rgba(23,37,30,.035) 1px,transparent 1.2px);background-size:5px 5px}
+.spread[hidden]{display:none}
+.spread::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:60px;margin-left:-30px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(42,33,25,.16) 45%,rgba(42,33,25,.28) 50%,rgba(42,33,25,.16) 55%,transparent)}
+.pg{padding:30px 44px 54px;position:relative;display:flex;flex-direction:column}
+.pg.right{transform-origin:left center}
+.run{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7A6E58;border-bottom:1px solid rgba(110,31,36,.25);padding-bottom:10px;margin-bottom:24px}
+.pnum{position:absolute;bottom:20px;left:0;right:0;text-align:center;font-family:var(--serif);color:#7A6E58;font-size:14px}
+.hero-dish{flex:1;display:flex;flex-direction:column;margin:0}
+.hero-dish img{width:100%;flex:1;min-height:360px;max-height:520px;object-fit:cover;border-radius:4px;box-shadow:0 18px 30px -18px rgba(42,33,25,.6)}
+.hero-dish figcaption{margin-top:16px;font-family:var(--serif);font-size:20px;color:var(--ink);text-align:center}
+.hero-dish em{display:block;font-family:var(--sans);font-style:normal;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--oxblood);margin-bottom:4px}
+.ch-title{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1;color:var(--ink);text-align:center}
+.ch-sub{text-align:center;font-style:italic;color:#6B604C;margin:8px 0 18px;font-size:15px}
+.ch-sub::after{content:"✦";display:block;color:var(--oxblood);font-style:normal;margin-top:10px;font-size:13px}
+.it{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:13px 0;border-bottom:1px dashed rgba(23,37,30,.22);color:var(--ink)}
+.it.noimg{grid-template-columns:1fr auto}
+.it img{width:64px;height:64px;border-radius:50%;object-fit:cover;box-shadow:0 6px 12px -6px rgba(0,0,0,.4)}
+.it h4{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.15}
+.it p{font-size:14.5px;color:#5B6359;margin-top:2px}
+.it b{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--oxblood)}
+.it .tag{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:700;background:#D9E6C8;color:var(--forest);border-radius:999px;padding:1px 8px;vertical-align:4px;margin-left:4px}
+.flip-in .pg.right{animation:pgflip .65s cubic-bezier(.3,.7,.2,1)}
+.flip-in .pg.left{animation:pgfade .5s ease}
+.flip-back .pg.left{animation:pgflipL .65s cubic-bezier(.3,.7,.2,1);transform-origin:right center}
+.flip-back .pg.right{animation:pgfade .5s ease}
+@keyframes pgflip{0%{transform:rotateY(-85deg);opacity:.2;box-shadow:-30px 0 40px rgba(0,0,0,.25)}100%{transform:rotateY(0);opacity:1}}
+@keyframes pgflipL{0%{transform:rotateY(85deg);opacity:.2}100%{transform:rotateY(0);opacity:1}}
+@keyframes pgfade{from{opacity:0}to{opacity:1}}
+.book-nav{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:16px;color:#D8CDB6;font-size:14px;font-weight:600}
+.pgbtn{width:46px;height:46px;border-radius:50%;border:1px solid rgba(237,230,214,.35);background:transparent;color:var(--linen);font-size:18px;cursor:pointer}
+.pgbtn:hover{background:rgba(237,230,214,.12)}
+.pgbtn:disabled{opacity:.3;cursor:default}
+
+/* signatures */
+.sigs{background:var(--ink);padding:110px 0}
+.sig-head h2,.gal-head h2,.rv-score h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,60px);line-height:1.02;margin-top:10px}
+.sig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.sig{background:var(--forest);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.sig img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .6s}
+.sig:hover img{transform:scale(1.05)}
+.sig>div{padding:20px 22px 24px;position:relative}
+.sig span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mustard)}
+.sig h3{font-family:var(--serif);font-weight:400;font-size:23px;margin-top:6px}
+.sig p{font-size:14.5px;color:rgba(237,230,214,.7)}
+.sig b{position:absolute;right:20px;top:18px;font-family:var(--serif);font-weight:400;font-size:20px;color:var(--mustard)}
+
+/* chef */
+.chef{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;padding:130px 0}
+.chef-pic{margin:0;position:relative}
+.chef-pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 22px 22px}
+.chef-pic figcaption{position:absolute;left:20px;bottom:20px;background:var(--linen);color:var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px}
+.chef blockquote{font-family:var(--serif);font-size:clamp(28px,3vw,42px);line-height:1.2;margin-top:16px}
+.chef p{color:rgba(237,230,214,.8);margin-top:22px;max-width:48ch}
+.chef-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;border-top:1px solid rgba(237,230,214,.2);padding-top:22px}
+.chef-stats div{font-size:14px;color:rgba(237,230,214,.7)}
+.chef-stats b{display:block;font-family:var(--serif);font-weight:400;font-size:30px;color:var(--mustard)}
+.chef-fire{margin:30px 0 0}
+.chef-fire img{width:100%;aspect-ratio:16/7;object-fit:cover;object-position:50% 45%;border-radius:18px}
+
+/* gallery */
+.gallery{padding:20px 0 130px}
+.gal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:40px}
+.gal-head p{max-width:36ch;color:rgba(237,230,214,.75)}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:14px}
+.gal figure{margin:0;position:relative;border-radius:18px;overflow:hidden}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.gal figure:hover img{transform:scale(1.05)}
+.gal figcaption{position:absolute;left:12px;bottom:12px;background:rgba(23,37,30,.75);backdrop-filter:blur(6px);color:var(--linen);font-size:13px;font-weight:600;border-radius:999px;padding:5px 12px}
+.gal .g1{grid-column:1/4;grid-row:1/4}.gal .g2{grid-column:4/6;grid-row:1/5}.gal .g3{grid-column:6/7;grid-row:1/3}
+.gal .g5{grid-column:6/7;grid-row:3/5}.gal .g4{grid-column:1/4;grid-row:4/7}.gal .g6{grid-column:4/7;grid-row:5/7}
+
+/* reviews */
+.reviews{background:var(--linen);color:var(--ink);padding:110px 0}
+.rv-top{display:grid;grid-template-columns:.8fr 2fr;gap:50px;align-items:start}
+.rv-score .big{display:flex;align-items:center;gap:16px;margin-top:14px}
+.rv-score .big>b{font-family:var(--serif);font-weight:400;font-size:84px;line-height:1}
+.st{color:#E0A11B;letter-spacing:2px;font-size:18px}
+.rv-score small{display:block;color:#5B6359;font-size:14px}
+.bars{list-style:none;margin-top:22px;display:grid;gap:8px}
+.bars li{display:grid;grid-template-columns:14px 1fr;gap:10px;align-items:center;font-size:13px;color:#5B6359}
+.bars i{height:8px;border-radius:99px;background:#DCD3C0;position:relative;overflow:hidden}
+.bars i::after{content:"";position:absolute;inset:0;width:var(--w);background:#E0A11B;border-radius:99px}
+.rv-link{display:inline-block;margin-top:24px;font-weight:700;color:var(--oxblood);border-bottom:2px solid var(--oxblood)}
+.rv-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rv{background:#fff;border-radius:20px;padding:22px 24px;box-shadow:0 20px 40px -30px rgba(23,37,30,.45)}
+.rv .who{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.rv .who i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;font-style:normal;font-weight:700}
+.rv .who b{display:block;font-size:15px}
+.rv .who small{color:#7A8178;font-size:13px}
+.rv p{margin-top:8px;font-size:15.5px;color:#2E3A33}
+
+/* reservation */
+.rsv{padding:130px 0;text-align:left}
+.rsv-head{text-align:center;max-width:640px;margin:0 auto 46px}
+.rsv-head p{margin-top:16px}
+.rsv-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:start}
+.rcard{background:var(--linen);color:var(--ink);border-radius:28px;padding:34px;display:grid;gap:18px}
+.row2,.row3{display:grid;gap:14px}.row2{grid-template-columns:1fr 1fr}.row3{grid-template-columns:repeat(3,1fr)}
+.f{display:flex;flex-direction:column;gap:6px;border:0;min-width:0}
+.f label,.f legend{font-size:12.5px;font-weight:700;color:#5D6B62;letter-spacing:.04em;margin-bottom:2px}
+.f input,.f select,.f textarea{width:100%;min-width:0;border:1.5px solid rgba(23,37,30,.2);background:#FBF7EE;border-radius:14px;padding:12px 14px;font-size:16px;color:var(--ink);font-family:var(--sans)}
+.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--mustard);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{border:1.5px solid rgba(23,37,30,.25);background:#FBF7EE;border-radius:999px;padding:9px 15px;font-weight:700;font-size:14px;cursor:pointer;color:var(--ink)}
+.chips button[aria-pressed="true"]{background:var(--forest);color:var(--linen);border-color:var(--forest)}
+.chips button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.seats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seats label{cursor:pointer;position:relative}
+.seats input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;pointer-events:none}
+.seats span{display:block;border:1.5px solid rgba(23,37,30,.2);background:#FBF7EE;border-radius:16px;padding:12px 14px;font-size:13.5px;color:#5B6359;height:100%}
+.seats b{display:block;font-size:15.5px;color:var(--ink)}
+.seats input:checked+span{border-color:var(--oxblood);background:#F6E7DF;box-shadow:inset 0 0 0 1px var(--oxblood)}
+.seats input:focus-visible+span{outline:2px solid var(--mustard)}
+.go{border:0;background:var(--oxblood);color:var(--linen);border-radius:999px;height:58px;font-weight:700;font-size:16.5px;cursor:pointer}
+.small{font-size:13px;color:#5D6B62;text-align:center;margin-top:-6px}
+.rside{display:grid;gap:22px}
+.sum{background:var(--forest-2);border-radius:28px;padding:30px;border:1px solid rgba(237,230,214,.15)}
+.sum .kick{color:var(--mustard)}
+.sum h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;margin-top:10px}
+.sum p{color:var(--mustard);font-weight:700;margin-top:6px}
+.sum ul{list-style:none;margin-top:18px;display:grid;gap:8px;font-size:14.5px;color:rgba(237,230,214,.8)}
+.sum li::before{content:"✓";color:var(--mustard);margin-right:10px}
+.pdr{background:var(--linen);color:var(--ink);border-radius:28px;overflow:hidden}
+.pdr img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pdr>div{padding:22px 26px 26px}
+.pdr b{font-family:var(--serif);font-weight:400;font-size:26px}
+.pdr p{font-size:15px;color:#4A5A50;margin-top:6px}
+.pdr a{display:inline-block;margin-top:12px;font-weight:700;color:var(--oxblood)}
+
+@media (max-width:980px){
+  .menu-head,.gal-head{flex-direction:column;align-items:flex-start}
+  .spread{grid-template-columns:1fr;min-height:0}
+  .spread::after{display:none}
+  .pg{padding:24px 22px 50px}
+  .hero-dish img{min-height:240px;max-height:340px}
+  .pg.left .pnum{display:none}
+  .sig-grid{grid-template-columns:1fr 1fr}
+  .chef,.rv-top,.rsv-grid{grid-template-columns:1fr;gap:40px}
+  .chef{padding:90px 0}
+  .chef-pic{max-width:460px}
+  .rv-list{grid-template-columns:1fr 1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+  .gal .g1,.gal .g4,.gal .g6{grid-column:1/3;grid-row:auto/span 2}
+  .gal .g2{grid-column:1/2;grid-row:auto/span 2}.gal .g3,.gal .g5{grid-column:2/3;grid-row:auto/span 1}
+  .room-cap{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){
+  .ribbons{padding-left:8px;flex-wrap:nowrap;overflow-x:auto}
+  .ribbons button{flex:none;padding:10px 14px 14px;font-size:13px}
+  .bookwrap{padding:8px;border-radius:16px}
+  .it{grid-template-columns:52px 1fr auto;gap:12px}.it img{width:52px;height:52px}
+  .it h4{font-size:18px}.ch-title{font-size:36px}
+  .rv-list,.row2,.row3,.seats{grid-template-columns:1fr}
+  .sig-grid{gap:10px}.sig>div{padding:14px}.sig h3{font-size:18px}.sig p{font-size:13px}.sig b{position:static;display:block;margin-top:6px;font-size:17px}
+  .rcard{padding:24px 18px}
+  .chef-stats{grid-template-columns:1fr 1fr 1fr;gap:10px}.chef-stats b{font-size:24px}
+  .chef-fire{width:100%}
+  .rv-score .big>b{font-size:64px}
+}
+@media (prefers-reduced-motion:reduce){.flip-in .pg,.flip-back .pg{animation:none}}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Halte</span><a href="../../index.html#buy=halte" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0);var b=document.getElementById('svDemo');if(b&&b.scrollIntoView)b.scrollIntoView({block:'start'})}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">Halte</a>
+    <div class="links"><a href="#menu">Menu</a><a href="#story">Chef</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div>
+    <div style="display:flex;align-items:center;gap:22px"><span class="open" id="openState"><i></i><span>Open now</span></span><a class="book" href="#reserve">Book a table</a></div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Halte</h1>
+      <p class="intro">Everything on the menu touches the fire. Small plates, natural wine, and a long table for whoever walks in.</p>
+      <div class="meta"><div><b>Wed – Sun</b>from 17:30</div><div><b>Walk-ins welcome</b>bar seats every night</div><div><b>Jalan Kemang 12</b>Jakarta Selatan</div></div>
+    </div>
+    <div class="oven">
+      <div class="oven-photo"><img src="../../img/halte/oven.jpg" alt="Wood-fired oven with glowing flames"></div>
+    </div>
+  </header>
+</div>
+
+<div class="strip">
+  <div><b>Cooked over rambutan wood</b><span>Our oven runs at 450°C from 3pm every day</span></div>
+  <div><b>Twelve farms, one menu</b><span>Vegetables and meat from within 80 km</span></div>
+  <div><b>Ninety bottles open</b><span>Natural wine, by the glass or carafe</span></div>
+</div>
+
+<section class="room" aria-label="Inside Halte">
+  <img src="../../img/halte/interior.jpg" alt="Inside Halte: candlelit tables, a long teak bar and the wood-fired oven glowing at the back">
+  <div class="wrap room-cap">
+    <p><b>The dining room</b>Sixty seats, one oven, a teak bar you can eat at. Candles on every table from 17:30.</p>
+    <a class="book" href="#reserve">Book a table</a>
+  </div>
+</section>
+
+<section class="menu" id="menu"><div class="wrap">
+  <div class="menu-head">
+    <div><span class="kick">The menu</span><h2>Tonight, from the fire</h2></div>
+    <p>Changes with what the farms bring in. Order three or four plates to share between two people. Turn the pages, or tap a chapter.</p>
+  </div>
+
+  <div class="ribbons" role="tablist" aria-label="Menu chapters">
+    <button role="tab" aria-selected="true" data-ch="0">Small plates</button>
+    <button role="tab" aria-selected="false" data-ch="1">From the fire</button>
+    <button role="tab" aria-selected="false" data-ch="2">Something sweet</button>
+    <button role="tab" aria-selected="false" data-ch="3">To drink</button>
+  </div>
+
+  <div class="bookwrap">
+    <div class="book-spread" id="book">
+      <!-- chapter 0 -->
+      <div class="spread" data-ch="0">
+        <div class="pg left">
+          <div class="run"><span>Halte</span><span>Menu · I</span></div>
+          <figure class="hero-dish"><img src="../../img/halte/aubergine.jpg" alt="Smoked aubergine with tahini and pomegranate"><figcaption><em>Chef's pick</em>Smoked aubergine, tahini, pomegranate</figcaption></figure>
+          <p class="pnum">2</p>
+        </div>
+        <div class="pg right">
+          <div class="run"><span>Chapter one</span><span>Small plates</span></div>
+          <h3 class="ch-title">Small plates</h3><p class="ch-sub">To share, to start, to order twice</p>
+          <div class="it"><img src="../../img/halte/flatbread.jpg" alt=""><div><h4>Charred flatbread <span class="tag">Veg</span></h4><p>Whipped garlic, burnt honey, wild herbs</p></div><b>65</b></div>
+          <div class="it"><img src="../../img/halte/aubergine.jpg" alt=""><div><h4>Smoked aubergine <span class="tag">Vegan</span></h4><p>Tahini, pomegranate, crispy shallots</p></div><b>85</b></div>
+          <div class="it"><img src="../../img/halte/prawn.jpg" alt=""><div><h4>Grilled prawns</h4><p>Sambal butter, lime, toasted coconut</p></div><b>140</b></div>
+          <div class="it"><img src="../../img/halte/carrots.jpg" alt=""><div><h4>Ember-roasted carrots <span class="tag">Veg</span></h4><p>Labneh, dukkah, carrot-top salsa verde</p></div><b>75</b></div>
+          <p class="pnum">3</p>
+        </div>
+      </div>
+      <!-- chapter 1 -->
+      <div class="spread" data-ch="1" hidden>
+        <div class="pg left">
+          <div class="run"><span>Halte</span><span>Menu · II</span></div>
+          <figure class="hero-dish"><img src="../../img/halte/shortrib.jpg" alt="Dry-aged short rib with kecap glaze"><figcaption><em>Signature</em>Twelve-hour short rib, kecap glaze</figcaption></figure>
+          <p class="pnum">4</p>
+        </div>
+        <div class="pg right">
+          <div class="run"><span>Chapter two</span><span>From the fire</span></div>
+          <h3 class="ch-title">From the fire</h3><p class="ch-sub">Everything here spends time in the oven</p>
+          <div class="it"><img src="../../img/halte/shortrib.jpg" alt=""><div><h4>Dry-aged short rib</h4><p>Twelve-hour smoke, kecap glaze, charred greens</p></div><b>320</b></div>
+          <div class="it"><img src="../../img/halte/snapper.jpg" alt=""><div><h4>Whole snapper</h4><p>Banana-leaf wrapped, turmeric, green mango</p></div><b>280</b></div>
+          <div class="it"><img src="../../img/halte/chicken.jpg" alt=""><div><h4>Half chicken</h4><p>Brined for 24 hours, lemongrass glaze, pickled chilli</p></div><b>210</b></div>
+          <div class="it noimg"><div><h4>Fire-blistered cabbage <span class="tag">Veg</span></h4><p>Brown butter, miso, toasted hazelnuts</p></div><b>95</b></div>
+          <p class="pnum">5</p>
+        </div>
+      </div>
+      <!-- chapter 2 -->
+      <div class="spread" data-ch="2" hidden>
+        <div class="pg left">
+          <div class="run"><span>Halte</span><span>Menu · III</span></div>
+          <figure class="hero-dish"><img src="../../img/halte/dessert.jpg" alt="Dark chocolate pot and grilled pineapple with coconut sorbet"><figcaption><em>To finish</em>Chocolate pot &amp; grilled pineapple</figcaption></figure>
+          <p class="pnum">6</p>
+        </div>
+        <div class="pg right">
+          <div class="run"><span>Chapter three</span><span>Something sweet</span></div>
+          <h3 class="ch-title">Something sweet</h3><p class="ch-sub">Save room. Or share one, we won't tell</p>
+          <div class="it"><img src="../../img/halte/cake.jpg" alt=""><div><h4>Burnt basque cheesecake <span class="tag">Veg</span></h4><p>Palm sugar caramel, sea salt</p></div><b>75</b></div>
+          <div class="it"><img src="../../img/halte/dessert.jpg" alt="" style="object-position:80% 60%"><div><h4>Grilled pineapple <span class="tag">Vegan</span></h4><p>Coconut sorbet, lime leaf, chilli syrup</p></div><b>60</b></div>
+          <div class="it"><img src="../../img/halte/dessert.jpg" alt="" style="object-position:20% 50%"><div><h4>Dark chocolate pot <span class="tag">Veg</span></h4><p>Smoked cream, coffee crumb</p></div><b>70</b></div>
+          <p class="pnum">7</p>
+        </div>
+      </div>
+      <!-- chapter 3 -->
+      <div class="spread" data-ch="3" hidden>
+        <div class="pg left">
+          <div class="run"><span>Halte</span><span>Menu · IV</span></div>
+          <figure class="hero-dish"><img src="../../img/halte/drinks.jpg" alt="Orange natural wine, a carafe and a smoky cocktail at the bar"><figcaption><em>At the bar</em>Natural wine &amp; smoked cocktails</figcaption></figure>
+          <p class="pnum">8</p>
+        </div>
+        <div class="pg right">
+          <div class="run"><span>Chapter four</span><span>To drink</span></div>
+          <h3 class="ch-title">To drink</h3><p class="ch-sub">Ninety bottles open, by the glass or carafe</p>
+          <div class="it noimg"><div><h4>Skin-contact orange</h4><p>Glass 120 · carafe 330. Ask what's open tonight</p></div><b>120</b></div>
+          <div class="it noimg"><div><h4>Pét-nat rosé</h4><p>Light, a little fizzy, very easy to like</p></div><b>110</b></div>
+          <div class="it noimg"><div><h4>Smoked calamansi sour</h4><p>Gin, smoked calamansi, egg white, charred lime</p></div><b>130</b></div>
+          <div class="it noimg"><div><h4>Pandan cold brew tonic <span class="tag">0%</span></h4><p>House cold brew, pandan, tonic</p></div><b>55</b></div>
+          <p class="pnum">9</p>
+        </div>
+      </div>
+    </div>
+    <div class="book-nav">
+      <button class="pgbtn" id="prevPg" aria-label="Previous page">&#8592;</button>
+      <span id="pgInfo">Chapter 1 of 4</span>
+      <button class="pgbtn" id="nextPg" aria-label="Next page">&#8594;</button>
+    </div>
+  </div>
+  <div class="menu-foot"><span>Prices in thousand rupiah, service included. Tell us about allergies when you book.</span><a href="#">Download the full menu (PDF)</a></div>
+</div></section>
+
+<section class="sigs"><div class="wrap">
+  <div class="sig-head"><span class="kick" style="color:var(--mustard)">Most ordered</span><h2>The plates people come back for</h2></div>
+  <div class="sig-grid">
+    <article class="sig"><img src="../../img/halte/shortrib.jpg" alt="Dry-aged short rib" loading="lazy"><div><span>From the fire</span><h3>Dry-aged short rib</h3><p>Twelve-hour smoke, kecap glaze</p><b>320</b></div></article>
+    <article class="sig"><img src="../../img/halte/snapper.jpg" alt="Whole grilled snapper" loading="lazy"><div><span>From the fire</span><h3>Whole snapper</h3><p>Banana leaf, turmeric, green mango</p><b>280</b></div></article>
+    <article class="sig"><img src="../../img/halte/prawn.jpg" alt="Grilled prawns" loading="lazy"><div><span>Small plates</span><h3>Grilled prawns</h3><p>Sambal butter, lime, coconut</p><b>140</b></div></article>
+    <article class="sig"><img src="../../img/halte/carrots.jpg" alt="Ember-roasted carrots" loading="lazy"><div><span>Small plates</span><h3>Ember-roasted carrots</h3><p>Labneh, dukkah, salsa verde</p><b>75</b></div></article>
+  </div>
+</div></section>
+
+<div class="wrap">
+<section class="chef" id="story">
+  <figure class="chef-pic"><img src="../../img/halte/chef.jpg" alt="Chef Dewi Hartono in front of the wood-fired oven" loading="lazy"><figcaption>Dewi Hartono, chef &amp; owner</figcaption></figure>
+  <div>
+    <span class="kick" style="color:var(--mustard)">Meet the chef</span>
+    <blockquote>"We wanted the kind of place you stop at on the way home and stay until closing."</blockquote>
+    <p>Halte means stop. Chef Dewi Hartono opened it in 2022 with one oven, eighteen seats and a bar built from reclaimed teak. Before that she cooked for nine years in Jakarta and Melbourne. The oven's still the same. The seats aren't.</p>
+    <div class="chef-stats"><div><b>2022</b>opened in Kemang</div><div><b>450°C</b>oven, lit at 3pm daily</div><div><b>12</b>partner farms</div></div>
+    <figure class="chef-fire"><img src="../../img/halte/g-fire.jpg" alt="A cook sliding a tray into the wood-fired oven" loading="lazy"></figure>
+  </div>
+</section>
+</div>
+
+<section class="gallery" id="gallery"><div class="wrap">
+  <div class="gal-head"><div><span class="kick" style="color:var(--mustard)">A night at Halte</span><h2>Loud tables, long dinners</h2></div><p>Birthdays, first dates, Sunday family lunches. Tag <b>@haltejakarta</b> and we might share yours.</p></div>
+  <div class="gal">
+    <figure class="g1"><img src="../../img/halte/g-friends.jpg" alt="Friends laughing and sharing plates" loading="lazy"><figcaption>Friday, table 7</figcaption></figure>
+    <figure class="g2"><img src="../../img/halte/g-couple.jpg" alt="A couple toasting with natural wine at the bar" loading="lazy"><figcaption>Bar seats, 21:00</figcaption></figure>
+    <figure class="g3"><img src="../../img/halte/g-fire.jpg" alt="Cook at the wood-fired oven" loading="lazy"><figcaption>The oven at full heat</figcaption></figure>
+    <figure class="g4"><img src="../../img/halte/g-family.jpg" alt="A family sharing a long table lunch" loading="lazy"><figcaption>Sunday family lunch</figcaption></figure>
+    <figure class="g5"><img src="../../img/halte/oven.jpg" alt="Flames inside the oven" loading="lazy"><figcaption>Rambutan wood, always</figcaption></figure>
+    <figure class="g6"><img src="../../img/halte/drinks.jpg" alt="Orange wine and a smoked cocktail on the bar" loading="lazy"><figcaption>Natural wine hour</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="reviews" id="reviews"><div class="wrap">
+  <div class="rv-top">
+    <div class="rv-score">
+      <span class="kick">Reviews on Google</span>
+      <div class="big"><b>4.8</b><div><span class="st">★★★★★</span><small>from 1,240 reviews</small></div></div>
+      <ul class="bars">
+        <li><span>5</span><i style="--w:86%"></i></li><li><span>4</span><i style="--w:10%"></i></li><li><span>3</span><i style="--w:2%"></i></li><li><span>2</span><i style="--w:1%"></i></li><li><span>1</span><i style="--w:1%"></i></li>
+      </ul>
+      <a class="rv-link" href="#">Read all reviews &#8599;</a>
+    </div>
+    <div class="rv-list">
+      <article class="rv"><div class="who"><i style="background:#C9653B">R</i><div><b>Rania Putri</b><small>Local Guide · 2 weeks ago</small></div></div><span class="st">★★★★★</span><p>The short rib is unreal and the staff remembered it was my mum's birthday without us asking twice. Book the chef's counter if you can.</p></article>
+      <article class="rv"><div class="who"><i style="background:#2B6E57">D</i><div><b>Daniel K.</b><small>1 month ago</small></div></div><span class="st">★★★★★</span><p>Best date night in South Jakarta. Small plates, orange wine, candlelight. We stayed until they turned the lights up.</p></article>
+      <article class="rv"><div class="who"><i style="background:#8A5A1F">S</i><div><b>Sekar Ayu</b><small>Local Guide · 3 weeks ago</small></div></div><span class="st">★★★★★</span><p>Came for the whole snapper, came back for the burnt cheesecake. Vegetarian options are genuinely good, not an afterthought.</p></article>
+      <article class="rv"><div class="who"><i style="background:#6E1F24">M</i><div><b>Michael Tan</b><small>2 months ago</small></div></div><span class="st">★★★★☆</span><p>Busy and a bit loud on Fridays, but that's the fun. Flatbread with burnt honey is a must.</p></article>
+    </div>
+  </div>
+</div></section>
+
+<div class="wrap">
+<section class="visit" id="visit">
+  <div>
+    <h2>Come by</h2>
+    <ul class="hours" id="hours">
+      <li data-d="1"><span>Monday</span><span>Closed</span></li>
+      <li data-d="2"><span>Tuesday</span><span>Closed</span></li>
+      <li data-d="3"><span>Wednesday</span><span>17:30 – 23:00</span></li>
+      <li data-d="4"><span>Thursday</span><span>17:30 – 23:00</span></li>
+      <li data-d="5"><span>Friday</span><span>17:30 – 00:00</span></li>
+      <li data-d="6"><span>Saturday</span><span>12:00 – 00:00</span></li>
+      <li data-d="0"><span>Sunday</span><span>12:00 – 22:00</span></li>
+    </ul>
+  </div>
+  <div class="map" aria-label="Map showing Halte on Jalan Kemang">
+    <svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;position:absolute;inset:0">
+      <rect width="500" height="400" fill="#264536"/>
+      <g stroke="#3B5E4C" stroke-width="18" fill="none" stroke-linecap="round"><path d="M-20 120 L520 160"/><path d="M180 -20 L230 420"/><path d="M-20 300 Q200 260 520 320"/><path d="M380 -20 L340 420"/></g>
+      <g stroke="#EDE6D6" stroke-width="2" fill="none" opacity=".25" stroke-dasharray="6 8"><path d="M-20 120 L520 160"/><path d="M180 -20 L230 420"/></g>
+      <rect x="60" y="180" width="90" height="70" rx="10" fill="#2E5341"/><rect x="260" y="190" width="60" height="50" rx="10" fill="#2E5341"/><rect x="400" y="200" width="80" height="80" rx="10" fill="#2E5341"/><circle cx="420" cy="60" r="34" fill="#2E5341"/>
+      <g transform="translate(212 140)"><circle r="26" fill="#E3A93B" opacity=".3"/><circle r="12" fill="#E3A93B" stroke="#17251E" stroke-width="3"/></g>
+    </svg>
+    <div class="addr"><div><b>Jalan Kemang Raya 12</b>Jakarta Selatan, 12730</div><a href="#">Get directions</a></div>
+  </div>
+</section>
+</div>
+
+<section class="rsv" id="reserve"><div class="wrap">
+  <div class="rsv-head"><span class="kick" style="color:var(--mustard)">Reservations</span><h2>Save yourself a seat</h2><p>We hold half our tables for walk-ins. For the rest, book up to 30 days ahead. We confirm every booking on WhatsApp within the hour.</p></div>
+  <div class="rsv-grid">
+    <form class="rcard" id="rsvForm">
+      <div class="row2">
+        <div class="f"><label for="nm">Your name</label><input id="nm" type="text" placeholder="Ayu Lestari" required autocomplete="name"></div>
+        <div class="f"><label for="ph">WhatsApp number</label><input id="ph" type="tel" placeholder="0812 3456 7890" required autocomplete="tel"></div>
+      </div>
+      <div class="row3">
+        <div class="f"><label for="g">Guests</label><select id="g"><option>1 person</option><option selected>2 people</option><option>3 people</option><option>4 people</option><option>5 people</option><option>6 people</option><option>7–10 people</option></select></div>
+        <div class="f"><label for="dt">Date</label><input id="dt" type="date" required></div>
+        <div class="f"><label for="oc">Occasion</label><select id="oc"><option>Just dinner</option><option>Birthday</option><option>Anniversary</option><option>Date night</option><option>Business</option></select></div>
+      </div>
+      <fieldset class="f"><legend>Time</legend><div class="chips" id="times"></div></fieldset>
+      <fieldset class="f"><legend>Where would you like to sit?</legend>
+        <div class="seats" id="seats">
+          <label><input type="radio" name="seat" value="Dining room" checked><span><b>Dining room</b>Banquettes &amp; candlelit tables</span></label>
+          <label><input type="radio" name="seat" value="Chef's counter"><span><b>Chef's counter</b>Front row to the fire · max 4</span></label>
+          <label><input type="radio" name="seat" value="Bar seats"><span><b>Bar seats</b>Wine, small plates, chatty</span></label>
+          <label><input type="radio" name="seat" value="Private room"><span><b>Private room</b>10–24 guests, set menu</span></label>
+        </div>
+      </fieldset>
+      <div class="f"><label for="nt">Notes for the kitchen (optional)</label><textarea id="nt" rows="2" placeholder="Allergies, high chair, a birthday candle…"></textarea></div>
+      <button type="submit" class="go">Request booking on WhatsApp</button>
+      <p class="small">You'll be taken to WhatsApp with your booking details filled in. Just press send.</p>
+    </form>
+    <aside class="rside">
+      <div class="sum" aria-live="polite">
+        <span class="kick">Your table</span>
+        <h3 id="sumMain">2 people · Dining room</h3>
+        <p id="sumWhen">Choose a date and time</p>
+        <ul><li>Table held for 15 minutes</li><li>Free cancellation up to 3 hours before</li><li>Kitchen closes 30 minutes before close</li></ul>
+      </div>
+      <div class="pdr">
+        <img src="../../img/halte/g-family.jpg" alt="A long table set for a family celebration" loading="lazy">
+        <div><b>Private dining</b><p>The back room seats up to 24 for birthdays, arisan and company dinners. Set menus from 450 per person.</p><a href="#reserve" data-seat="Private room">Ask about private dining &#8594;</a></div>
+      </div>
+    </aside>
+  </div>
+</div></section>
+
+<footer><div class="wrap foot">
+  <a class="logo" href="#">Halte</a>
+  <nav><a href="#">Instagram</a><a href="#">Gift cards</a><a href="#">Jobs</a><a href="#">Press</a></nav>
+  <span>© 2026 Halte Jakarta</span>
+</div></footer>
+
+<script>
+// ===== your WhatsApp number for bookings (62 + number, no + or spaces) =====
+const WA_NUMBER='6281234567890';
+
+// menu book
+const spreads=[...document.querySelectorAll('.spread')],rib=[...document.querySelectorAll('.ribbons button')];
+const prev=document.getElementById('prevPg'),next=document.getElementById('nextPg'),info=document.getElementById('pgInfo');
+let cur=0;
+function showCh(n){if(n<0||n>=spreads.length||n===cur&&spreads[n].offsetParent)return;
+  const dir=n>cur?'flip-in':'flip-back';cur=n;
+  spreads.forEach((s,i)=>{s.hidden=i!==n;s.classList.remove('flip-in','flip-back')});
+  void spreads[n].offsetWidth;spreads[n].classList.add(dir);
+  rib.forEach((b,i)=>b.setAttribute('aria-selected',i===n));
+  prev.disabled=n===0;next.disabled=n===spreads.length-1;
+  info.textContent='Chapter '+(n+1)+' of '+spreads.length+' · '+rib[n].textContent;}
+rib.forEach((b,i)=>b.addEventListener('click',()=>showCh(i)));
+prev.addEventListener('click',()=>showCh(cur-1));next.addEventListener('click',()=>showCh(cur+1));
+prev.disabled=true;info.textContent='Chapter 1 of '+spreads.length+' · '+rib[0].textContent;
+// swipe on phones
+let sx=null;const bk=document.getElementById('book');
+bk.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+bk.addEventListener('touchend',e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>60)showCh(cur+(dx<0?1:-1));sx=null});
+
+// today + open state
+const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+const hrs={0:[12,22],3:[17.5,23],4:[17.5,23],5:[17.5,24],6:[12,24]};
+document.querySelector(`#hours li[data-d="${d}"]`)?.classList.add('today');
+const o=document.getElementById('openState'),r=hrs[d];
+if(!(r&&h>=r[0]&&h<r[1])){o.classList.add('closed');o.querySelector('span').textContent='Closed now';}
+
+// reservation
+const dt=document.getElementById('dt'),timesEl=document.getElementById('times');
+const pad=n=>String(n).padStart(2,'0');const iso=x=>x.getFullYear()+'-'+pad(x.getMonth()+1)+'-'+pad(x.getDate());
+const tomorrow=new Date(now.getTime()+86400000);dt.value=iso(tomorrow);dt.min=iso(now);dt.max=iso(new Date(now.getTime()+30*86400000));
+let time='19:00';
+function slots(){const day=new Date(dt.value+'T12:00').getDay(),rg=hrs[day];timesEl.innerHTML='';
+  if(!rg){timesEl.innerHTML='<p style="font-size:14px;color:#6E1F24;font-weight:700">Closed on Mondays and Tuesdays. Pick another day.</p>';time='';sum();return}
+  const list=[];for(let t=Math.max(rg[0],12);t<=rg[1]-1.5;t+=.5){if(rg[0]>=17&&t<17.5)continue;list.push(t)}
+  const keep=list.map(t=>pad(Math.floor(t))+':'+(t%1?'30':'00'));if(!keep.includes(time))time=keep.includes('19:00')?'19:00':keep[0];
+  keep.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.textContent=s;
+    const full=(s==='19:30'||s==='20:00')&&day===5;b.disabled=full;if(full)b.title='Fully booked';if(full&&time===s)time=keep.find(x=>x!=='19:30'&&x!=='20:00');
+    b.setAttribute('aria-pressed',s===time);b.addEventListener('click',()=>{time=s;timesEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));sum()});timesEl.appendChild(b)});
+  timesEl.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.textContent===time));sum()}
+function seat(){return document.querySelector('input[name=seat]:checked').value}
+function sum(){document.getElementById('sumMain').textContent=document.getElementById('g').value+' · '+seat();
+  const dd=new Date(dt.value+'T12:00');document.getElementById('sumWhen').textContent=time?dd.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})+' at '+time:'Choose another date';}
+dt.addEventListener('change',slots);document.getElementById('g').addEventListener('change',sum);
+document.querySelectorAll('input[name=seat]').forEach(x=>x.addEventListener('change',sum));
+document.querySelectorAll('[data-seat]').forEach(a=>a.addEventListener('click',()=>{const t=document.querySelector(`input[name=seat][value="${a.dataset.seat}"]`);if(t){t.checked=true;sum()}}));
+slots();
+document.getElementById('rsvForm').addEventListener('submit',e=>{e.preventDefault();if(!time){dt.focus();return}
+  const dd=new Date(dt.value+'T12:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  const msg=`Hi Halte, I'd like to book a table.\nName: ${document.getElementById('nm').value}\nGuests: ${document.getElementById('g').value}\nDate: ${dd}\nTime: ${time}\nSeating: ${seat()}\nOccasion: ${document.getElementById('oc').value}\nWhatsApp: ${document.getElementById('ph').value}`+(document.getElementById('nt').value?`\nNotes: ${document.getElementById('nt').value}`:'');
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg),'_blank','noopener');});
+</script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arunika Ubud — private pool villas</title>
+<style>
+@font-face{font-family:"Fraunces";src:url(../../fonts/fraunces-latin-300-normal.woff2);font-weight:300}
+@font-face{font-family:"Fraunces";src:url(../../fonts/fraunces-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Fraunces";src:url(../../fonts/fraunces-latin-400-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:"Hanken";src:url(../../fonts/hanken-grotesk-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Hanken";src:url(../../fonts/hanken-grotesk-latin-600-normal.woff2);font-weight:600}
+/* Layout: cinematic full-bleed valley view with a booking bar floating on it; villas as a slow editorial list; a stay calculator that prices itself. */
+:root{--jungle:#1F2E25;--jungle-2:#2B3D31;--linen:#F2EDE4;--stone:#D9D0C1;--brass:#B08A4F;--river:#5E7F78;--soft:#6D6A60;--line:rgba(31,46,37,.15);
+--serif:"Fraunces",Georgia,serif;--body:"Hanken",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--linen);color:var(--jungle);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 36px}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(42px,5.4vw,78px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h2 em{font-style:italic}
+.lead{color:var(--soft);font-size:18px;max-width:46ch;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:15.5px;border:0;white-space:nowrap}
+.btn.brass{background:var(--brass);color:#fff}
+.btn.jungle{background:var(--jungle);color:var(--linen)}
+.btn.line{border:1px solid var(--jungle)}
+.btn.line-lt{border:1px solid rgba(242,237,228,.5);color:var(--linen)}
+
+/* hero */
+.hero{position:relative;min-height:min(100vh,860px);color:var(--linen);display:flex;flex-direction:column}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,30,24,.55),rgba(20,30,24,0) 30%,rgba(20,30,24,0) 55%,rgba(20,30,24,.7))}
+.hero>*:not(img){position:relative;z-index:2}
+.hero>.wrap{width:100%}
+nav{display:flex;justify-content:space-between;align-items:center;height:92px}
+.logo{font-family:var(--serif);font-size:28px;letter-spacing:.02em}
+.logo small{font-family:var(--body);font-size:12px;letter-spacing:.2em;opacity:.8;margin-left:8px}
+.nl{display:flex;gap:30px;font-size:15px}
+nav .btn{height:44px;padding:0 20px;font-size:14.5px}
+.hero .copy{margin-top:auto;padding-bottom:40px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(52px,8vw,124px);line-height:.95;letter-spacing:-.03em;max-width:12ch}
+.hero h1 em{font-style:italic}
+.booking{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:0;background:var(--linen);color:var(--jungle);border-radius:22px;padding:8px;margin-bottom:40px;box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
+.bf{display:flex;flex-direction:column;padding:10px 18px;border-right:1px solid var(--line);min-width:0}
+.bf:nth-child(4){border-right:0}
+.bf label{font-size:12.5px;font-weight:600;color:var(--soft)}
+.bf input,.bf select{border:0;background:transparent;font-size:16.5px;padding:2px 0;width:100%;min-width:0;appearance:none;-webkit-appearance:none}
+.bf input::-webkit-date-and-time-value{text-align:left}
+.booking .btn{height:auto;min-height:58px;border-radius:16px}
+
+/* intro */
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:70px;padding-block:130px 110px;align-items:end}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--jungle);margin-top:36px}
+.stats div{padding:18px 16px 0 0}
+.stats b{display:block;font-family:var(--serif);font-weight:300;font-size:44px;line-height:1}
+.stats span{color:var(--soft);font-size:14.5px}
+
+/* villas */
+.villas{display:grid;gap:90px;margin-top:60px}
+.villa{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;align-items:center}
+.villa:nth-child(even){grid-template-columns:1fr 1.35fr}
+.villa:nth-child(even) figure{order:2}
+.villa figure{border-radius:26px;overflow:hidden;aspect-ratio:4/3}
+.villa figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.villa:hover figure img{transform:scale(1.03)}
+.villa h3{font-family:var(--serif);font-weight:300;font-size:46px;line-height:1.05;letter-spacing:-.02em}
+.villa p{color:var(--soft);margin-top:14px;max-width:42ch}
+.am{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.am span{border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:14px}
+.villa .rate{display:flex;align-items:baseline;gap:8px;margin-top:26px}
+.villa .rate b{font-family:var(--serif);font-weight:400;font-size:34px}
+.villa .rate span{color:var(--soft);font-size:15px}
+.villa .btn{margin-top:20px}
+
+/* experiences */
+.exp{background:var(--jungle);color:var(--linen);padding:130px 0}
+.exp .lead{color:#C7C9BC}
+.egrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:18px;margin-top:56px}
+.ec{border-radius:24px;overflow:hidden;position:relative;min-height:440px}
+.ec img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ec::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(15,22,18,.85))}
+.ec div{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
+.ec h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1}
+.ec p{color:#DCDCD0;font-size:15px;margin-top:6px}
+
+/* stay calc */
+.calc{display:grid;grid-template-columns:1fr 1.05fr;gap:60px;padding-block:130px;align-items:start}
+.sum{background:#fff;border-radius:28px;padding:34px;box-shadow:0 30px 70px -40px rgba(31,46,37,.45)}
+.sum h3{font-family:var(--serif);font-weight:400;font-size:30px}
+.opts{display:grid;gap:10px;margin-top:18px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:14px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;text-align:left;background:transparent;width:100%}
+.opt[aria-pressed="true"]{border-color:var(--jungle);background:var(--linen)}
+.opt b{font-weight:600}
+.opt span{color:var(--soft);font-size:14px;white-space:nowrap}
+.extras{display:grid;gap:8px;margin-top:18px}
+.ex{display:flex;align-items:center;gap:12px;font-size:15.5px;cursor:pointer}
+.ex input{width:20px;height:20px;accent-color:var(--jungle)}
+.ex span:last-child{margin-left:auto;color:var(--soft);font-size:14px;white-space:nowrap}
+.lines{margin-top:22px;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:6px;font-size:15.5px}
+.lines div{display:flex;justify-content:space-between;gap:12px}
+.lines .tot{font-family:var(--serif);font-size:30px;padding-top:10px;border-top:1px solid var(--line);margin-top:8px}
+.sum .btn{width:100%;margin-top:20px}
+.note{font-size:13.5px;color:var(--soft);margin-top:10px;text-align:center}
+
+/* reviews */
+.rev{display:grid;grid-template-columns:auto 1fr;gap:70px;align-items:start;padding-bottom:130px}
+.score{background:var(--jungle);color:var(--linen);border-radius:26px;padding:34px;min-width:260px}
+.score b{display:block;font-family:var(--serif);font-weight:300;font-size:90px;line-height:.9}
+.score small{color:#C7C9BC}
+.bars{display:grid;gap:8px;margin-top:20px;font-size:14px}
+.bars div{display:grid;grid-template-columns:90px 1fr 32px;gap:10px;align-items:center}
+.bars i{height:5px;border-radius:3px;background:rgba(242,237,228,.2);position:relative;overflow:hidden}
+.bars i::after{content:"";position:absolute;inset:0;width:var(--w);background:var(--brass)}
+.qs{display:grid;gap:30px}
+.qs blockquote{font-family:var(--serif);font-weight:300;font-size:clamp(24px,2.6vw,34px);line-height:1.25}
+.qs cite{display:block;font-style:normal;color:var(--soft);font-size:15px;margin-top:8px}
+
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.loc figure{border-radius:26px;overflow:hidden;min-height:420px;position:relative}
+.loc figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.loc .info{background:var(--stone);border-radius:26px;padding:44px;display:flex;flex-direction:column}
+.dist{list-style:none;margin-top:26px}
+.dist li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:16px}
+.dist li span:last-child{color:var(--soft)}
+.loc .btn{margin-top:auto;align-self:flex-start}
+
+footer{background:var(--jungle);color:var(--linen);padding:90px 0 40px;margin-top:130px}
+.fword{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(80px,14vw,210px);line-height:.9;letter-spacing:-.03em}
+.frow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid rgba(242,237,228,.18);font-size:15px;color:#C7C9BC}
+
+@media (max-width:1000px){
+  .nl{display:none}
+  .booking{grid-template-columns:1fr 1fr;gap:4px}
+  .bf:nth-child(2){border-right:0}
+  .bf{border-bottom:1px solid var(--line)}
+  .bf:nth-child(3),.bf:nth-child(4){border-bottom:0}
+  .booking .btn{grid-column:1/-1}
+  .intro,.villa,.villa:nth-child(even),.calc,.rev,.loc{grid-template-columns:1fr;gap:34px}
+  .villa:nth-child(even) figure{order:0}
+  .egrid{grid-template-columns:1fr 1fr}
+  .egrid .ec:first-child{grid-column:1/-1}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:18px}
+  nav .btn{display:none}
+  .hero{min-height:780px}
+  .hero::after{background:linear-gradient(180deg,rgba(20,30,24,.75),rgba(20,30,24,.45) 45%,rgba(20,30,24,.75))}
+  .booking{grid-template-columns:1fr;border-radius:18px}
+  .bf{border-right:0!important;border-bottom:1px solid var(--line)!important}
+  .bf:nth-child(4){border-bottom:0!important}
+  .egrid{grid-template-columns:1fr}
+  .ec{min-height:340px}
+  .villa h3{font-size:38px}
+  .sum{padding:24px 18px}
+  .loc .info{padding:28px 22px}
+  .stats b{font-size:34px}
+}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Arunika</span><a href="../../index.html#buy=arunika" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0)}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+<header class="hero">
+  <img src="../../img/villa/pool.jpg" alt="Infinity pool overlooking a misty jungle river valley in Ubud">
+  <div class="wrap"><nav>
+    <a class="logo" href="#">Arunika<small>UBUD</small></a>
+    <div class="nl"><a href="#villas">Villas</a><a href="#experiences">Experiences</a><a href="#stay">Plan your stay</a><a href="#location">Location</a></div>
+    <a class="btn line-lt" href="#stay">Book direct</a>
+  </nav></div>
+  <div class="wrap copy">
+    <h1>Wake up <em>above</em> the river.</h1>
+    <p style="max-width:40ch;margin:18px 0 30px;font-size:18px;opacity:.9">Seven private pool villas on the edge of the Ayung valley, ten minutes from Ubud. Breakfast floats to you.</p>
+    <form class="booking" id="bk" aria-label="Check availability">
+      <div class="bf"><label for="ci">Check-in</label><input id="ci" type="date"></div>
+      <div class="bf"><label for="co">Check-out</label><input id="co" type="date"></div>
+      <div class="bf"><label for="gs">Guests</label><select id="gs"><option>1 adult</option><option selected>2 adults</option><option>2 adults, 1 child</option><option>3 adults</option><option>4 adults</option></select></div>
+      <div class="bf"><label for="vt">Villa</label><select id="vt"><option value="0">River Pool Villa</option><option value="1">Jungle Suite</option><option value="2">Two-Bedroom Residence</option></select></div>
+      <button class="btn brass" type="submit">Check availability</button>
+    </form>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <h2>Seven villas, <em>one valley,</em> no neighbours.</h2>
+  <div>
+    <p class="lead" style="margin-top:0">Arunika means first light. Every villa faces east, so the sun rises over the jungle straight into your pool. We built with local teak, volcanic stone and alang-alang thatch, and kept every tree we could.</p>
+    <div class="stats"><div><b>7</b><span>private villas</span></div><div><b>4.97</b><span>guest rating</span></div><div><b>10 min</b><span>to central Ubud</span></div></div>
+  </div>
+</section>
+
+<section class="wrap" id="villas">
+  <h2>The villas</h2>
+  <div class="villas">
+    <article class="villa"><figure><img src="../../img/villa/pool.jpg" alt="River Pool Villa deck and infinity pool"></figure>
+      <div><h3>River Pool Villa</h3><p>Our signature. An open living pavilion, a 9-metre infinity pool and a daybed hanging over the valley.</p>
+        <div class="am"><span>1 king bed</span><span>85 m²</span><span>Infinity pool</span><span>Outdoor bath</span></div>
+        <div class="rate"><b>Rp 4.8jt</b><span>/ night, breakfast included</span></div><a class="btn jungle" href="#stay" data-v="0">Choose this villa</a></div></article>
+    <article class="villa"><figure><img src="../../img/villa/bed.jpg" alt="Jungle Suite four-poster bed with linen canopy"></figure>
+      <div><h3>Jungle Suite</h3><p>A four-poster teak bed under a high thatched roof, doors that fold away to the garden, and a plunge pool for two.</p>
+        <div class="am"><span>1 king bed</span><span>60 m²</span><span>Plunge pool</span><span>Garden view</span></div>
+        <div class="rate"><b>Rp 3.2jt</b><span>/ night, breakfast included</span></div><a class="btn jungle" href="#stay" data-v="1">Choose this villa</a></div></article>
+    <article class="villa"><figure><img src="../../img/villa/bath.jpg" alt="Outdoor stone bath filled with flower petals"></figure>
+      <div><h3>Two-Bedroom Residence</h3><p>For families and friends. Two suites, a shared kitchen and a long pool, with the flower bath set up on your first night.</p>
+        <div class="am"><span>2 bedrooms</span><span>160 m²</span><span>Private kitchen</span><span>Sleeps 5</span></div>
+        <div class="rate"><b>Rp 7.6jt</b><span>/ night, breakfast included</span></div><a class="btn jungle" href="#stay" data-v="2">Choose this villa</a></div></article>
+  </div>
+</section>
+
+<section class="exp" id="experiences" style="margin-top:130px"><div class="wrap">
+  <h2>Days at <em>Arunika</em></h2>
+  <p class="lead">Arrange anything with your villa host on WhatsApp, before you arrive or during your stay.</p>
+  <div class="egrid">
+    <div class="ec"><img src="../../img/villa/float.jpg" alt="Floating breakfast tray in the pool"><div><h3>Floating breakfast</h3><p>Served in your pool any morning, at the time you choose.</p></div></div>
+    <div class="ec"><img src="../../img/villa/rice.jpg" alt="Misty rice terraces at sunrise"><div><h3>Sunrise rice walk</h3><p>A guided walk through the terraces at 6am, back for coffee.</p></div></div>
+    <div class="ec"><img src="../../img/villa/bath.jpg" alt="Flower bath in a stone tub"><div><h3>Flower bath ritual</h3><p>Frangipani, warm water and a Balinese massage after.</p></div></div>
+  </div>
+</div></section>
+
+<section class="wrap calc" id="stay">
+  <div>
+    <h2>Plan your <em>stay</em></h2>
+    <p class="lead">Pick your villa and extras and see the total before you send a request. Booking direct is always our best price, with free airport pick-up.</p>
+  </div>
+  <div class="sum">
+    <h3 id="snights">2 nights · 2 adults</h3>
+    <div class="opts" id="opts"></div>
+    <div class="extras">
+      <label class="ex"><input type="checkbox" data-p="350000" data-per="night"><span>Floating breakfast</span><span>Rp 350k / day</span></label>
+      <label class="ex"><input type="checkbox" data-p="900000" data-per="stay"><span>Flower bath and massage for two</span><span>Rp 900k</span></label>
+      <label class="ex"><input type="checkbox" data-p="0" data-per="stay" checked><span>Airport pick-up</span><span>Free</span></label>
+    </div>
+    <div class="lines" id="lines"></div>
+    <a class="btn brass" id="req" href="#" target="_blank" rel="noopener">Request on WhatsApp</a>
+    <p class="note">No payment now. We'll confirm availability within an hour.</p>
+  </div>
+</section>
+
+<section class="wrap rev">
+  <div class="score"><b>4.97</b><small>from 412 guest reviews</small>
+    <div class="bars"><div><span>Location</span><i style="--w:98%"></i><span>5.0</span></div><div><span>Service</span><i style="--w:99%"></i><span>5.0</span></div><div><span>Rooms</span><i style="--w:94%"></i><span>4.9</span></div><div><span>Value</span><i style="--w:90%"></i><span>4.8</span></div></div></div>
+  <div class="qs">
+    <blockquote>"The view at 6am is the reason we're already planning to come back. Wayan made every day feel easy."<cite>Clara &amp; Tom, Melbourne · River Pool Villa</cite></blockquote>
+    <blockquote>"Quiet, private and beautifully made. The breakfast in the pool lived up to the photos."<cite>Anissa, Jakarta · Jungle Suite</cite></blockquote>
+  </div>
+</section>
+
+<section class="wrap loc" id="location">
+  <figure><img src="../../img/villa/rice.jpg" alt="Rice terraces near the villas"></figure>
+  <div class="info"><h2 style="font-size:clamp(36px,4vw,56px)">Getting here</h2>
+    <ul class="dist"><li><span>Ngurah Rai Airport</span><span>75 min</span></li><li><span>Ubud Palace and market</span><span>10 min</span></li><li><span>Tegallalang rice terraces</span><span>20 min</span></li><li><span>Campuhan Ridge Walk</span><span>8 min</span></li></ul>
+    <a class="btn jungle" style="margin-top:30px" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Sayan+Ubud+Bali">Open in Google Maps</a></div>
+</section>
+
+<footer><div class="wrap">
+  <div class="fword">Arunika</div>
+  <div class="frow"><span>Jl. Raya Sayan, Ubud, Bali 80571</span><span>stay@arunikaubud.com</span><span>+62 361 000 000</span><span>© 2026 Arunika Ubud</span></div>
+</div></footer>
+
+<script>
+const WA_NUMBER='6281234567890'; // replace with the villa's WhatsApp number
+const V=[['River Pool Villa',4800000],['Jungle Suite',3200000],['Two-Bedroom Residence',7600000]];
+const rp=n=>'Rp '+n.toLocaleString('id-ID');
+const ci=document.getElementById('ci'),co=document.getElementById('co'),gs=document.getElementById('gs'),vt=document.getElementById('vt');
+const iso=d=>d.toISOString().slice(0,10);const day=86400000;
+ci.value=iso(new Date(Date.now()+14*day));co.value=iso(new Date(Date.now()+16*day));ci.min=iso(new Date());
+let vi=0;
+const opts=document.getElementById('opts');
+opts.innerHTML=V.map((v,i)=>`<button type="button" class="opt" aria-pressed="${i==0}" data-i="${i}"><b>${v[0]}</b><span>${rp(v[1])} / night</span></button>`).join('');
+function nights(){const n=Math.round((new Date(co.value)-new Date(ci.value))/day);return isNaN(n)||n<1?1:n}
+function fmt(d){return new Date(d+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'})}
+function calc(){
+  if(new Date(co.value)<=new Date(ci.value))co.value=iso(new Date(new Date(ci.value).getTime()+day));
+  const n=nights(),base=V[vi][1]*n;let ex=0,exL=[];
+  document.querySelectorAll('.extras input').forEach(x=>{if(x.checked){const p=+x.dataset.p*(x.dataset.per==='night'?n:1);ex+=p;exL.push([x.nextElementSibling.textContent,p])}});
+  const tax=Math.round((base+ex)*0.21);
+  document.getElementById('snights').textContent=`${n} night${n>1?'s':''} · ${gs.value} · ${fmt(ci.value)} – ${fmt(co.value)}`;
+  document.getElementById('lines').innerHTML=`<div><span>${V[vi][0]} × ${n}</span><span>${rp(base)}</span></div>`+exL.map(e=>`<div><span>${e[0]}</span><span>${e[1]?rp(e[1]):'Free'}</span></div>`).join('')+`<div><span>Tax and service (21%)</span><span>${rp(tax)}</span></div><div class="tot"><span>Total</span><span>${rp(base+ex+tax)}</span></div>`;
+  const msg=`Hello Arunika, I'd like to book:\n${V[vi][0]}\n${fmt(ci.value)} – ${fmt(co.value)} (${n} nights)\nGuests: ${gs.value}\nExtras: ${exL.map(e=>e[0]).join(', ')||'none'}\nEstimated total: ${rp(base+ex+tax)}`;
+  document.getElementById('req').href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+  opts.querySelectorAll('.opt').forEach((o,i)=>o.setAttribute('aria-pressed',i===vi));vt.value=vi;}
+opts.addEventListener('click',e=>{const b=e.target.closest('.opt');if(b){vi=+b.dataset.i;calc()}});
+document.querySelectorAll('.extras input').forEach(x=>x.addEventListener('change',calc));
+[ci,co,gs].forEach(x=>x.addEventListener('change',calc));vt.addEventListener('change',()=>{vi=+vt.value;calc()});
+document.querySelectorAll('[data-v]').forEach(a=>a.addEventListener('click',()=>{vi=+a.dataset.v;calc()}));
+document.getElementById('bk').addEventListener('submit',e=>{e.preventDefault();vi=+vt.value;calc();document.getElementById('stay').scrollIntoView({behavior:'smooth'})});
+calc();
+</script>
+</body>
+</html>

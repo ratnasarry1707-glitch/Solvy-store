@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Biscuit &amp; Co. — dog grooming, café and playground</title>
+<style>
+@font-face{font-family:"Fredoka";src:url(../../fonts/fredoka-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Fredoka";src:url(../../fonts/fredoka-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Nunito Sans";src:url(../../fonts/nunito-sans-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Nunito Sans";src:url(../../fonts/nunito-sans-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Nunito Sans";src:url(../../fonts/nunito-sans-latin-800-normal.woff2);font-weight:800}
+/* Layout: peach studio hero with the dog as the headline, three service "rooms" behind tabs, a booking card that prices itself */
+:root{--peach:#F6D2BF;--apricot:#EBAE92;--navy:#1E2A4A;--steel:#4F8197;--grass:#4E9A62;--butter:#F6D68B;--paper:#FFF8F2;--soft:#5C6378;
+--disp:"Fredoka",system-ui,sans-serif;--body:"Nunito Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--paper);color:var(--navy);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--steel);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 26px;border-radius:999px;font-weight:800;font-size:16px;border:0;white-space:nowrap}
+.btn.navy{background:var(--navy);color:var(--paper)}
+.btn.white{background:#fff;color:var(--navy)}
+.btn.butter{background:var(--butter);color:var(--navy)}
+
+nav{display:flex;justify-content:space-between;align-items:center;height:88px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:600;font-size:26px}
+.logo svg{width:38px;height:38px}
+.nl{display:flex;gap:30px;font-weight:600;font-size:16px}
+.nl a:hover{color:var(--steel)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:center;padding:10px 0 80px}
+.hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:-.02em}
+.hero h1 span{display:inline-block;background:var(--butter);border-radius:22px;padding:0 .2em;transform:rotate(-2deg)}
+.hero p{font-size:20px;color:var(--soft);margin-top:22px;max-width:34ch}
+.hero .ctas{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.trio{display:flex;gap:10px;margin-top:36px;flex-wrap:wrap}
+.trio span{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:8px 16px 8px 8px;font-weight:700;font-size:15px;box-shadow:0 8px 20px -14px rgba(30,42,74,.5)}
+.trio i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:15px}
+.pic{position:relative;justify-self:end;width:100%;max-width:540px}
+.arch{border-radius:280px 280px 40px 40px;overflow:hidden;aspect-ratio:4/5;background:var(--apricot)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.bubble{position:absolute;background:#fff;border-radius:22px;padding:14px 18px;box-shadow:0 20px 40px -20px rgba(30,42,74,.45);font-size:15px;line-height:1.35}
+.bubble b{font-family:var(--disp);font-weight:600;font-size:19px;display:block}
+.b1{left:-34px;bottom:90px;transform:rotate(-4deg)}
+.b2{right:-18px;top:70px;transform:rotate(5deg);background:var(--navy);color:var(--paper)}
+
+/* rooms */
+.sec{padding:110px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(36px,4.4vw,60px);line-height:1;letter-spacing:-.02em}
+.sh p{color:var(--soft);max-width:38ch}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{border:2px solid var(--navy);background:transparent;border-radius:999px;padding:10px 22px;font-weight:800;font-size:16px}
+.tabs button[aria-selected="true"]{background:var(--navy);color:var(--paper)}
+.room{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;background:var(--peach);border-radius:40px;padding:20px}
+.room[hidden]{display:none}
+.room figure{border-radius:28px;overflow:hidden;min-height:440px}
+.room figure img{width:100%;height:100%;object-fit:cover}
+.room .txt{padding:26px 22px;display:flex;flex-direction:column}
+.room h3{font-family:var(--disp);font-weight:600;font-size:34px;line-height:1.05}
+.room .txt>p{color:var(--soft);margin-top:10px}
+.list{list-style:none;margin-top:22px;display:grid;gap:0}
+.list li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:2px dotted rgba(30,42,74,.25)}
+.list li b{font-weight:800;white-space:nowrap}
+.list small{display:block;color:var(--soft);font-size:14px}
+.room .btn{margin-top:auto;align-self:flex-start}
+.room .txt .btn{margin-top:26px}
+
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+.book .lead{color:var(--soft);margin-top:16px;max-width:38ch}
+.perks{list-style:none;margin-top:26px;display:grid;gap:12px}
+.perks li{display:flex;gap:12px;align-items:center;font-weight:600}
+.perks li::before{content:"";width:26px;height:26px;border-radius:50%;flex:none;background:var(--grass) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M8 13.5l3.5 3.5L18 10' stroke='%23fff' stroke-width='2.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
+.bcard{background:var(--navy);color:var(--paper);border-radius:36px;padding:36px}
+.bcard h3{font-family:var(--disp);font-weight:600;font-size:28px}
+.field{margin-top:22px}
+.field>span{display:block;font-size:14px;font-weight:700;color:#B9C1D6;margin-bottom:8px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg button{border:2px solid rgba(255,248,242,.25);background:transparent;border-radius:18px;padding:12px 8px;font-weight:800;text-align:center;color:var(--paper)}
+.seg button small{display:block;font-weight:400;font-size:12.5px;color:#B9C1D6}
+.seg button[aria-pressed="true"]{background:var(--butter);border-color:var(--butter);color:var(--navy)}
+.seg button[aria-pressed="true"] small{color:var(--navy)}
+.inp{display:block;-webkit-appearance:none;appearance:none;min-width:0;max-width:100%;width:100%;line-height:48px;text-align:left;height:52px;border-radius:16px;border:2px solid rgba(255,248,242,.25);background:transparent;padding:0 16px;color:var(--paper);color-scheme:dark}
+.inp::-webkit-date-and-time-value{text-align:left}
+.field{min-width:0}
+.bcard{min-width:0;overflow:hidden}
+.total{display:flex;justify-content:space-between;align-items:end;margin-top:26px;padding-top:20px;border-top:2px dashed rgba(255,248,242,.25)}
+.total b{font-family:var(--disp);font-weight:600;font-size:34px}
+.total small{color:#B9C1D6;display:block;font-size:14px}
+.ok{margin-top:14px;min-height:1.5em;color:var(--butter);font-weight:700}
+
+/* pass */
+.pass{background:var(--steel);color:#fff;border-radius:40px;padding:20px;display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:stretch}
+.pass figure{border-radius:28px;overflow:hidden}
+.pass img{width:100%;height:100%;object-fit:cover}
+.pass .txt{padding:30px 26px;display:flex;flex-direction:column;justify-content:center}
+.pass h2{color:#fff}
+.pass p{margin-top:14px;max-width:40ch;opacity:.9}
+.price{font-family:var(--disp);font-weight:600;font-size:44px;margin-top:22px}
+.price small{display:block;font-family:var(--body);font-size:16px;font-weight:600;opacity:.8}
+
+/* treats + quotes */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.treat{border-radius:36px;overflow:hidden;background:var(--apricot);position:relative;min-height:420px}
+.treat img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.treat .tag{position:absolute;left:20px;bottom:20px;right:20px;background:#fff;border-radius:22px;padding:18px 20px}
+.treat .tag b{font-family:var(--disp);font-weight:600;font-size:22px;display:block}
+.treat .tag span{color:var(--soft);font-size:15px}
+.quotes{background:var(--butter);border-radius:36px;padding:44px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.quotes blockquote{font-family:var(--disp);font-weight:500;font-size:clamp(24px,2.4vw,32px);line-height:1.25}
+.quotes .who{font-weight:700}
+.quotes .who small{display:block;font-weight:400;color:var(--soft)}
+
+/* style book */
+.cuts{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.cut{background:#fff;border-radius:28px;padding:10px;display:flex;flex-direction:column;box-shadow:0 20px 40px -30px rgba(30,42,74,.45);transition:transform .3s}
+.cut:hover{transform:translateY(-6px) rotate(-.6deg)}
+.cut figure{border-radius:22px;overflow:hidden;aspect-ratio:3/4}
+.cut img{width:100%;height:100%;object-fit:cover}
+.cut .ct{padding:14px 10px 8px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cut h3{font-family:var(--disp);font-weight:600;font-size:21px;line-height:1.1}
+.cut .br{font-size:13.5px;color:var(--soft)}
+.cut .meta{display:flex;justify-content:space-between;font-size:14px;font-weight:700;margin-top:auto;padding-top:10px;border-top:2px dotted rgba(30,42,74,.2)}
+.cut button{margin-top:10px;border:2px solid var(--navy);background:transparent;border-radius:999px;height:42px;font-weight:800;font-size:14px}
+.cut button:hover,.cut button[aria-pressed="true"]{background:var(--navy);color:var(--paper)}
+/* benefits inside rooms */
+.ben{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.ben li{background:rgba(255,255,255,.6);border-radius:14px;padding:10px 12px;font-size:14.5px;font-weight:700;display:flex;gap:8px;align-items:flex-start;line-height:1.3}
+.ben li::before{content:"✓";color:var(--grass);font-weight:800}
+/* look around */
+.look{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
+.look figure{position:relative;border-radius:28px;overflow:hidden}
+.look figure:first-child{grid-row:1/3}
+.look img{width:100%;height:100%;object-fit:cover}
+.look figcaption{position:absolute;left:14px;bottom:14px;background:#fff;border-radius:999px;padding:7px 14px;font-weight:800;font-size:14px}
+.look figure:nth-child(4){grid-column:2/4}
+/* party */
+.party{background:var(--butter);border-radius:44px;padding:56px}
+.party .sh p{color:var(--navy);opacity:.75}
+.pk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px}
+.pkg{background:#fff;border-radius:30px;padding:28px;display:flex;flex-direction:column;gap:12px;position:relative}
+.pkg.pop{background:var(--navy);color:var(--paper)}
+.pkg .badge{position:absolute;top:-12px;right:22px;background:var(--apricot);color:var(--navy);font-weight:800;font-size:13px;border-radius:999px;padding:5px 12px}
+.pkg h3{font-family:var(--disp);font-weight:600;font-size:28px}
+.pkg .facts{display:flex;gap:8px;flex-wrap:wrap}
+.pkg .facts span{background:var(--peach);color:var(--navy);border-radius:999px;padding:5px 12px;font-weight:800;font-size:13.5px}
+.pkg.pop .facts span{background:rgba(246,214,139,.2);color:var(--butter)}
+.pkg .pr{font-family:var(--disp);font-weight:600;font-size:34px;line-height:1}
+.pkg .pr small{font-family:var(--body);font-size:14px;font-weight:600;opacity:.7}
+.pkg ul{list-style:none;display:grid;gap:8px;font-size:15px}
+.pkg li{display:flex;gap:8px}
+.pkg li::before{content:"✦";color:var(--steel)}
+.pkg.pop li::before{color:var(--butter)}
+.pkg button{margin-top:auto;height:48px;border-radius:999px;border:2px solid var(--navy);background:transparent;font-weight:800}
+.pkg.pop button{background:var(--butter);border-color:var(--butter);color:var(--navy)}
+.pkg button[aria-pressed="true"]{background:var(--navy);color:var(--paper)}
+.moments{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px;margin-top:34px}
+.moments figure{border-radius:24px;overflow:hidden;aspect-ratio:4/3;position:relative}
+.moments img{width:100%;height:100%;object-fit:cover}
+.moments figcaption{position:absolute;left:12px;bottom:12px;background:#fff;border-radius:999px;padding:6px 12px;font-weight:800;font-size:13px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:34px;border-top:3px solid var(--navy)}
+.flow div{padding:14px 14px 0 0}
+.flow b{font-family:var(--disp);font-weight:600;font-size:22px;display:block}
+.flow span{font-size:14.5px}
+.pform{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:10px;margin-top:30px;background:#fff;border-radius:26px;padding:12px;align-items:end}
+.pform label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:800;padding:4px 8px;min-width:0}
+.pform input,.pform select{height:46px;border:2px solid rgba(30,42,74,.15);border-radius:14px;padding:0 12px;background:var(--paper);min-width:0;width:100%;-webkit-appearance:none;appearance:none}
+.pform .btn{height:50px}
+.pform .msg{grid-column:1/-1;padding:0 8px 6px;font-weight:700}
+.pform .msg a{color:var(--grass);text-decoration:underline}
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rev{background:#fff;border-radius:30px;padding:26px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 40px -32px rgba(30,42,74,.5)}
+.rev .st{color:#E0A33A;letter-spacing:2px;font-size:18px}
+.rev p{font-family:var(--disp);font-weight:500;font-size:21px;line-height:1.3}
+.rev .who{display:flex;align-items:center;gap:12px;margin-top:auto;font-weight:800}
+.rev .who img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.rev .who small{display:block;font-weight:400;color:var(--soft);font-size:14px}
+.score{display:flex;align-items:center;gap:14px;background:var(--navy);color:var(--paper);border-radius:999px;padding:10px 20px 10px 10px;font-weight:700}
+.score b{background:var(--butter);color:var(--navy);border-radius:999px;padding:6px 14px;font-family:var(--disp);font-size:22px}
+/* faq */
+details{border-bottom:2px solid rgba(30,42,74,.12);padding:20px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:var(--disp);font-weight:600;font-size:21px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;line-height:1;color:var(--steel)}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--soft);margin-top:8px;max-width:64ch}
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:60px}
+
+footer{background:var(--navy);color:var(--paper);padding:80px 0 40px;margin-top:40px;border-radius:40px 40px 0 0}
+.fgrid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:30px}
+.fgrid h5{font-size:14px;color:#B9C1D6;margin-bottom:12px}
+.fgrid ul{list-style:none;display:grid;gap:8px}
+.legal{display:flex;justify-content:space-between;margin-top:60px;padding-top:22px;border-top:1px solid rgba(255,248,242,.18);color:#B9C1D6;font-size:14px;flex-wrap:wrap;gap:10px}
+
+@media (max-width:1000px){
+  .nl{display:none}
+  .hero,.room,.book,.pass,.duo,.faq{grid-template-columns:1fr}
+  .pic{justify-self:center}
+  .b1{left:0}.b2{right:0}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .room figure{min-height:320px}
+  .cuts{grid-template-columns:repeat(3,1fr)}
+  .pk,.revs{grid-template-columns:1fr}
+  .look{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .look figure{aspect-ratio:4/3}
+  .look figure:first-child{grid-row:auto;grid-column:1/-1}
+  .look figure:nth-child(4){grid-column:auto}
+  .moments{grid-template-columns:1fr 1fr}
+  .moments figure:first-child{grid-column:1/-1}
+  .flow{grid-template-columns:1fr 1fr}
+  .pform{grid-template-columns:1fr 1fr}
+  .pform .btn{grid-column:1/-1}
+  .party{padding:36px 22px}
+}
+@media (max-width:560px){
+  .wrap{padding-inline:18px}
+  nav .btn{display:none}
+  .room,.pass{border-radius:28px;padding:12px}
+  .bcard{padding:26px 20px;border-radius:28px}
+  .quotes{padding:30px 24px}
+  .b1{bottom:40px}
+  .seg button{padding:10px 4px;font-size:15px}
+  .cuts{grid-template-columns:1fr 1fr;gap:10px}
+  .cut h3{font-size:18px}
+  .cut .meta{flex-direction:column;gap:2px}
+  .cut button{font-size:13px}
+  .ben{grid-template-columns:1fr}
+  .look,.moments{grid-template-columns:1fr}
+  .flow,.pform{grid-template-columns:1fr}
+  .party{border-radius:30px}
+}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Biscuit &amp; Co.</span><a href="../../index.html#buy=biscuit" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0);var b=document.getElementById('svDemo');if(b&&b.scrollIntoView)b.scrollIntoView({block:'start'})}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#"><svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="12" fill="#1E2A4A"/><path d="M11 22c0-4 3-7 8-7s8 3 8 7-3 6-8 6-8-2-8-6z" fill="#F6D68B"/><circle cx="12" cy="13" r="3" fill="#F6D68B"/><circle cx="19" cy="10" r="3" fill="#F6D68B"/><circle cx="26" cy="13" r="3" fill="#F6D68B"/></svg>Biscuit &amp; Co.</a>
+    <div class="nl"><a href="#rooms">Club</a><a href="#styles">Haircuts</a><a href="#party">Parties</a><a href="#pass">Pack Pass</a></div>
+    <a class="btn navy" href="#book" style="height:46px;padding:0 22px;font-size:15px">Book a visit</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Groomed, fed and <span>happily tired.</span></h1>
+      <p>A grooming salon, a café and an off-leash playground under one roof. Drop your dog off, grab a coffee, pick up a very fluffy friend.</p>
+      <div class="ctas"><a class="btn navy" href="#book">Book grooming</a><a class="btn white" href="#rooms">Explore the club</a></div>
+      <div class="trio"><span><i style="background:var(--peach)">✂</i>Grooming</span><span><i style="background:var(--butter)">☕</i>Café</span><span><i style="background:#CDE8D5">●</i>Playground</span></div>
+    </div>
+    <div class="pic">
+      <div class="arch"><img src="../../img/biscuit/hero.jpg" alt="Freshly groomed fluffy dog wearing a navy bow tie"></div>
+      <div class="bubble b1"><b>Mochi, 3 years</b>Full groom and a pup-cuccino</div>
+      <div class="bubble b2"><b>4.9 on Google</b>from 1,200 dog parents</div>
+    </div>
+  </header>
+</div>
+
+<section class="sec" id="rooms" style="padding-top:20px"><div class="wrap">
+  <div class="sh"><h2>Three rooms, one happy dog</h2>
+    <div class="tabs" role="tablist"><button role="tab" aria-selected="true" data-r="groom">Grooming</button><button role="tab" aria-selected="false" data-r="cafe">Café</button><button role="tab" aria-selected="false" data-r="play">Playground</button></div></div>
+
+  <div class="room" data-room="groom">
+    <figure><img src="../../img/biscuit/groom.jpg" alt="Groomer blow-drying a bichon frise"></figure>
+    <div class="txt"><h3>The salon</h3><p>Gentle, fear-free grooming by certified groomers. We use low-noise dryers and natural shampoos.</p>
+      <ul class="list"><li><span>Bath and brush<small>Shampoo, blow-dry, ears and nails</small></span><b>from Rp 150.000</b></li><li><span>Full groom<small>Bath plus breed-style haircut</small></span><b>from Rp 280.000</b></li><li><span>Spa add-on<small>Blueberry facial and paw balm</small></span><b>Rp 75.000</b></li></ul>
+      <ul class="ben"><li>Fear-free handling, no sedation</li><li>Low-noise dryers</li><li>Natural, vet-approved shampoos</li><li>Photo update on WhatsApp</li></ul>
+      <a class="btn navy" href="#book">Book grooming</a></div>
+  </div>
+  <div class="room" data-room="cafe" hidden>
+    <figure><img src="../../img/biscuit/cafe.jpg" alt="Friends with dogs at the café"></figure>
+    <div class="txt"><h3>The café</h3><p>Proper coffee for you, a menu for them. Dogs are welcome at every table, always.</p>
+      <ul class="list"><li><span>Iced oat latte<small>Our house espresso</small></span><b>Rp 38.000</b></li><li><span>Pup-cuccino<small>Whipped cream in a tiny cup</small></span><b>Rp 15.000</b></li><li><span>Barkday cake<small>Peanut butter and bone biscuits, order a day ahead</small></span><b>Rp 180.000</b></li></ul>
+      <ul class="ben"><li>Free water bar and treats</li><li>Leash hook at every table</li><li>Cool indoor seats and a shaded terrace</li><li>Fast Wi-Fi for working days</li></ul>
+      <a class="btn navy" href="#">See the full menu</a></div>
+  </div>
+  <div class="room" data-room="play" hidden>
+    <figure><img src="../../img/biscuit/play.jpg" alt="Dogs playing on the turf playground"></figure>
+    <div class="txt"><h3>The playground</h3><p>800 m² of soft turf with agility tunnels, a splash pool and shade all day. Always supervised.</p>
+      <ul class="list"><li><span>Day pass<small>Unlimited play, 08:00 – 18:00</small></span><b>Rp 120.000</b></li><li><span>Hour of play<small>Great while you're in the café</small></span><b>Rp 45.000</b></li><li><span>Puppy social<small>Saturdays, for dogs under 6 months</small></span><b>Rp 90.000</b></li></ul>
+      <ul class="ben"><li>1 supervisor for every 8 dogs</li><li>Separate small and big dog zones</li><li>Splash pool and shade all day</li><li>Turf cleaned every hour</li></ul>
+      <a class="btn navy" href="#book">Book playtime</a></div>
+  </div>
+</div></section>
+
+<section class="sec" id="styles" style="padding-top:0"><div class="wrap">
+  <div class="sh"><h2>Pick a cut,<br>we'll do the rest</h2><p>Every full groom includes a bath, nails, ears and the haircut you choose. Not sure? Our groomers will suggest one for your dog's coat.</p></div>
+  <div class="cuts" id="cuts">
+    <article class="cut"><figure><img src="../../img/biscuit/cut-teddy.jpg" alt="Apricot toy poodle with a teddy bear cut"></figure><div class="ct"><h3>Teddy bear</h3><span class="br">Poodle, Maltipoo, Bichon</span><div class="meta"><span>2 – 2.5 h</span><span>from Rp 320rb</span></div><button aria-pressed="false" data-cut="Teddy bear cut">Ask for this cut</button></div></article>
+    <article class="cut"><figure><img src="../../img/biscuit/cut-pom.jpg" alt="Pomeranian with a fluffy full coat and topknot"></figure><div class="ct"><h3>Pom puff</h3><span class="br">Pomeranian, Spitz</span><div class="meta"><span>2 h</span><span>from Rp 300rb</span></div><button aria-pressed="false" data-cut="Pom puff">Ask for this cut</button></div></article>
+    <article class="cut"><figure><img src="../../img/biscuit/cut-puppy.jpg" alt="Shih Tzu with a short puppy cut and topknot"></figure><div class="ct"><h3>Puppy cut</h3><span class="br">Shih Tzu, Yorkie, Lhasa</span><div class="meta"><span>1.5 – 2 h</span><span>from Rp 280rb</span></div><button aria-pressed="false" data-cut="Puppy cut">Ask for this cut</button></div></article>
+    <article class="cut"><figure><img src="../../img/biscuit/cut-schnauzer.jpg" alt="Schnauzer with a classic beard and eyebrows groom"></figure><div class="ct"><h3>Classic schnauzer</h3><span class="br">Schnauzer, Terriers</span><div class="meta"><span>2 – 3 h</span><span>from Rp 350rb</span></div><button aria-pressed="false" data-cut="Classic schnauzer">Ask for this cut</button></div></article>
+    <article class="cut"><figure><img src="../../img/biscuit/hero.jpg" alt="Fluffy dog with a round cloud cut and bow tie"></figure><div class="ct"><h3>Cloud round</h3><span class="br">Cavapoo, Goldendoodle</span><div class="meta"><span>2.5 – 3 h</span><span>from Rp 380rb</span></div><button aria-pressed="false" data-cut="Cloud round cut">Ask for this cut</button></div></article>
+  </div>
+</div></section>
+
+<section class="sec" id="look" style="padding-top:0"><div class="wrap">
+  <div class="sh"><h2>Take a look around</h2><p>Bright, cool and very easy to clean. Every space is open daily from 08:00 to 20:00.</p></div>
+  <div class="look">
+    <figure><img src="../../img/biscuit/cafe-inside.jpg" alt="Inside the dog-friendly café"><figcaption>The café</figcaption></figure>
+    <figure><img src="../../img/biscuit/groom.jpg" alt="Grooming salon with a groomer at work"><figcaption>The salon</figcaption></figure>
+    <figure><img src="../../img/biscuit/splash.jpg" alt="Dogs in the splash pool at the playground"><figcaption>Splash zone</figcaption></figure>
+    <figure><img src="../../img/biscuit/play.jpg" alt="Turf playground with agility tunnels"><figcaption>800 m² playground</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="sec" id="book" style="padding-top:0"><div class="wrap book">
+  <div>
+    <h2>Book in under a minute</h2>
+    <p class="lead">Pick a service and your dog's size. You'll see the price before you confirm, and you can reschedule anytime.</p>
+    <ul class="perks"><li>Free pup-cuccino on the first visit</li><li>Photo update sent while they're being groomed</li><li>Pick-up and drop-off within 5 km</li></ul>
+  </div>
+  <form class="bcard" id="bform">
+    <h3>Book a visit</h3>
+    <div class="field"><span>Service</span><div class="seg" data-g="svc"><button type="button" aria-pressed="true" data-v="Bath and brush">Bath<small>& brush</small></button><button type="button" aria-pressed="false" data-v="Full groom">Full<small>groom</small></button><button type="button" aria-pressed="false" data-v="Day pass">Play<small>day pass</small></button></div></div>
+    <div class="field"><span>Dog size</span><div class="seg" data-g="size"><button type="button" aria-pressed="true" data-v="small">Small<small>under 10 kg</small></button><button type="button" aria-pressed="false" data-v="medium">Medium<small>10 – 25 kg</small></button><button type="button" aria-pressed="false" data-v="large">Large<small>over 25 kg</small></button></div></div>
+    <div class="field"><span>Date</span><label for="bd" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Date</label><input class="inp" id="bd" type="date" required></div>
+    <div class="total"><div><small id="bsum">Bath and brush, small dog</small><b id="bprice">Rp 150.000</b></div><button class="btn butter" type="submit">Confirm</button></div>
+    <div class="ok" id="bok" role="status"></div>
+  </form>
+</div></section>
+
+<section class="sec" id="pass" style="padding-top:0"><div class="wrap">
+  <div class="pass">
+    <figure><img src="../../img/biscuit/corgi.jpg" alt="Happy corgi wrapped in a towel after a bath"></figure>
+    <div class="txt"><h2>The Pack Pass</h2><p>A monthly membership for dogs who'd live here if they could. Two baths, unlimited playground and 15% off the café.</p>
+      <div class="price">Rp 590.000 <small>per month</small></div>
+      <a class="btn butter" href="#" style="margin-top:22px;align-self:flex-start">Join the pack</a></div>
+  </div>
+</div></section>
+
+<section class="sec" id="party" style="padding-top:0"><div class="wrap">
+  <div class="party">
+    <div class="sh"><h2>Barkday parties</h2><p>We handle the cake, the decorations, the games and the photos. You just bring the birthday dog and their friends.</p></div>
+    <div class="pk">
+      <div class="pkg"><h3>Pup party</h3><div class="facts"><span>2 hours</span><span>up to 5 dogs</span></div><div class="pr">Rp 1.250.000 <small>all in</small></div>
+        <ul><li>Dog-safe cake with their name</li><li>Party hats and bandanas</li><li>Private corner of the playground</li><li>20 edited photos</li></ul><button data-pk="Pup party">Choose Pup party</button></div>
+      <div class="pkg pop"><span class="badge">Most booked</span><h3>Pack party</h3><div class="facts"><span>3 hours</span><span>up to 10 dogs</span></div><div class="pr">Rp 2.450.000 <small>all in</small></div>
+        <ul><li>Everything in Pup party</li><li>Balloon and banner set-up</li><li>Pup-cuccino for every dog</li><li>Coffee for up to 10 humans</li><li>Goodie bag for each guest dog</li><li>50 photos and a 30-second reel</li></ul><button data-pk="Pack party">Choose Pack party</button></div>
+      <div class="pkg"><h3>Royal paw-ty</h3><div class="facts"><span>4 hours</span><span>up to 20 dogs</span></div><div class="pr">Rp 4.200.000 <small>all in</small></div>
+        <ul><li>Whole playground, private</li><li>Two-tier cake and treat table</li><li>Games host and bubble machine</li><li>Birthday bath and blow-dry</li><li>Photographer and full video</li></ul><button data-pk="Royal paw-ty">Choose Royal paw-ty</button></div>
+    </div>
+    <div class="moments">
+      <figure><img src="../../img/biscuit/party-cake.jpg" alt="Birthday dog with a party hat in front of its cake"><figcaption>Cake and song</figcaption></figure>
+      <figure><img src="../../img/biscuit/party-group.jpg" alt="Group photo of dogs in party bandanas with their owners"><figcaption>The pack photo</figcaption></figure>
+      <figure><img src="../../img/biscuit/cake.jpg" alt="Peanut butter dog cake with bone biscuits"><figcaption>Peanut butter cake</figcaption></figure>
+    </div>
+    <div class="flow" aria-label="How a Pack party runs">
+      <div><b>0:00</b><span>Welcome and free play</span></div><div><b>0:45</b><span>Party games and sniff hunt</span></div><div><b>1:30</b><span>Cake, candles and song</span></div><div><b>2:00</b><span>Photo session for every dog</span></div><div><b>2:45</b><span>Goodie bags and goodbyes</span></div>
+    </div>
+    <form class="pform" id="pform">
+      <label>Birthday dog<input id="pdog" placeholder="Mochi"></label>
+      <label>Turning<input id="page" inputmode="numeric" placeholder="3"></label>
+      <label>Party date<input id="pdate" type="date"></label>
+      <label>Package<select id="ppk"><option>Pup party</option><option selected>Pack party</option><option>Royal paw-ty</option></select></label>
+      <button class="btn navy" type="submit">Plan on WhatsApp</button>
+      <div class="msg" id="pmsg" role="status"></div>
+    </form>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sh"><h2>Dog parents say</h2><div class="score"><b>4.9</b>1,200 reviews on Google</div></div>
+  <div class="revs">
+    <article class="rev"><div class="st">★★★★★</div><p>"Mochi pulls me to the door every Saturday. She comes home clean, calm and asleep before we reach the car."</p><div class="who"><img src="../../img/biscuit/hero.jpg" alt="Mochi"><span>Sarah W.<small>Pack Pass member</small></span></div></article>
+    <article class="rev"><div class="st">★★★★★</div><p>"The teddy cut is exactly the photo I showed them. They even sent me pictures halfway through so I could relax."</p><div class="who"><img src="../../img/biscuit/cut-teddy.jpg" alt="Kopi the poodle"><span>Nadia R.<small>Kopi's mum, Teddy bear cut</small></span></div></article>
+    <article class="rev"><div class="st">★★★★★</div><p>"We did Bruno's 5th birthday here. Ten dogs, zero stress, and the photos are now on our living room wall."</p><div class="who"><img src="../../img/biscuit/corgi.jpg" alt="Bruno"><span>Andre P.<small>Pack party</small></span></div></article>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap faq">
+  <div><h2>Good questions</h2><p style="color:var(--soft);margin-top:14px">Anything else? Message us on WhatsApp, we reply fast.</p></div>
+  <div>
+    <details open><summary>Does my dog need vaccinations?</summary><p>Yes. We ask for up-to-date rabies and core vaccines for the playground and grooming. Bring the vaccination book on your first visit.</p></details>
+    <details><summary>How long does a full groom take?</summary><p>Two to three hours depending on size and coat. We send a photo when they're done so you can finish your coffee.</p></details>
+    <details><summary>Can nervous dogs come?</summary><p>Of course. Book a quiet slot and we'll take it slow, with breaks and plenty of treats.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div><a class="logo" href="#">Biscuit &amp; Co.</a><p style="color:#B9C1D6;margin-top:10px">Jl. Cipete Raya 18, Jakarta Selatan<br>Open daily, 08:00 – 20:00</p></div>
+    <div><h5>Visit</h5><ul><li>Grooming</li><li>Café</li><li>Playground</li></ul></div>
+    <div><h5>Club</h5><ul><li>Pack Pass</li><li>Barkday parties</li><li>Gift cards</li></ul></div>
+    <div><h5>Say hi</h5><ul><li>Instagram</li><li>WhatsApp</li><li>TikTok</li></ul></div>
+  </div>
+  <div class="legal"><span>© 2026 Biscuit &amp; Co.</span><span>Made for dogs and their people</span></div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('.room').forEach(r=>r.hidden=r.dataset.room!==b.dataset.r);}));
+const prices={'Bath and brush':{small:150000,medium:190000,large:240000},'Full groom':{small:280000,medium:350000,large:450000},'Day pass':{small:120000,medium:120000,large:140000}};
+const WA_NUMBER='6281234567890'; // replace with your WhatsApp number
+const st={svc:'Bath and brush',size:'small',cut:''};
+const fmt=n=>'Rp '+n.toLocaleString('id-ID');
+function upd(){document.getElementById('bprice').textContent=fmt(prices[st.svc][st.size]);document.getElementById('bsum').textContent=`${st.svc}${st.svc==='Full groom'&&st.cut?' ('+st.cut+')':''}, ${st.size} dog`}
+function setSeg(g,v){const grp=document.querySelector(`.seg[data-g="${g}"]`);grp.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===v));st[g]=v}
+document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+  g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));st[g.dataset.g]=b.dataset.v;upd();})));
+// style book -> booking
+document.getElementById('cuts').addEventListener('click',e=>{const b=e.target.closest('button[data-cut]');if(!b)return;
+  document.querySelectorAll('#cuts button').forEach(x=>{x.setAttribute('aria-pressed',x===b);x.textContent=x===b?'Selected ✓':'Ask for this cut'});
+  st.cut=b.dataset.cut;setSeg('svc','Full groom');upd();document.getElementById('book').scrollIntoView({behavior:'smooth'})});
+const bd=document.getElementById('bd');bd.valueAsDate=new Date(Date.now()+86400000);
+document.getElementById('bform').addEventListener('submit',e=>{e.preventDefault();
+  const d=new Date(bd.value).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  const sum=document.getElementById('bsum').textContent;
+  const msg=`Hi Biscuit & Co.! I'd like to book: ${sum} on ${d}. Estimated ${document.getElementById('bprice').textContent}.`;
+  const ok=document.getElementById('bok');ok.innerHTML='';ok.append(`Ready: ${sum} on ${d}. `);
+  const a=document.createElement('a');a.href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);a.target='_blank';a.rel='noopener';a.textContent='Send on WhatsApp →';a.style.textDecoration='underline';ok.append(a);});
+upd();
+// parties
+const pdate=document.getElementById('pdate');pdate.valueAsDate=new Date(Date.now()+14*86400000);pdate.min=new Date().toISOString().slice(0,10);
+document.querySelectorAll('.pkg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.pkg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.getElementById('ppk').value=b.dataset.pk;document.getElementById('pform').scrollIntoView({behavior:'smooth',block:'center'});document.getElementById('pdog').focus({preventScroll:true})}));
+document.getElementById('pform').addEventListener('submit',e=>{e.preventDefault();
+  const dog=document.getElementById('pdog').value.trim(),age=document.getElementById('page').value.trim(),pk=document.getElementById('ppk').value,m=document.getElementById('pmsg');
+  if(!dog){m.textContent='Add the birthday dog\'s name first.';return}
+  const d=new Date(pdate.value).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'});
+  const msg=`Hi Biscuit & Co.! I'd like to plan a ${pk} for ${dog}${age?' turning '+age:''} on ${d}.`;
+  m.innerHTML='';m.append(`${pk} for ${dog} on ${d}. `);const a=document.createElement('a');a.href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);a.target='_blank';a.rel='noopener';a.textContent='Send on WhatsApp →';m.append(a)});
+</script>
+</body>
+</html>

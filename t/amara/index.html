@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Amara — links</title>
+<style>
+@font-face{font-family:"DM Serif";src:url(../../fonts/dm-serif-display-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"DM Serif";src:url(../../fonts/dm-serif-display-latin-400-italic.woff2);font-weight:400;font-style:italic}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-700-normal.woff2);font-weight:700}
+/* Layout: a single phone-width column that also looks deliberate on desktop, sitting on a pistachio field with the creator's name set large behind it. */
+:root{--pista:#DCE4C6;--pista-2:#C9D4AC;--plum:#3B2340;--plum-2:#5A3A60;--cream:#FBF8F1;--blush:#F2C9B8;--soft:#6F5F72;
+--serif:"DM Serif",Georgia,serif;--body:"Figtree",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--pista);color:var(--plum);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--plum);outline-offset:3px}
+.bg{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;overflow:hidden}
+.bg span{font-family:var(--serif);font-style:italic;font-size:34vw;line-height:.8;color:var(--pista-2);white-space:nowrap}
+main{position:relative;max-width:480px;margin:0 auto;padding:48px 20px 40px}
+.head{text-align:center}
+.av{width:118px;height:118px;border-radius:50%;overflow:hidden;margin:0 auto;border:4px solid var(--cream);box-shadow:0 14px 30px -14px rgba(59,35,64,.45)}
+.av img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1;margin-top:18px}
+h1 em{font-style:italic}
+.bio{color:var(--soft);margin-top:10px;font-size:16.5px}
+.loc{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:13.5px;font-weight:500;background:rgba(251,248,241,.6);border-radius:999px;padding:4px 12px}
+.loc i{width:7px;height:7px;border-radius:50%;background:#3FA34D}
+.soc{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.soc a{width:44px;height:44px;border-radius:50%;background:var(--plum);color:var(--cream);display:grid;place-items:center}
+.soc svg{width:20px;height:20px}
+
+.links{display:grid;gap:12px;margin-top:30px}
+.lk{display:flex;align-items:center;gap:14px;background:var(--cream);border-radius:20px;padding:12px 16px 12px 12px;box-shadow:0 2px 0 rgba(59,35,64,.08);transition:transform .2s}
+.lk:hover{transform:translateY(-2px)}
+.lk .ic{width:46px;height:46px;border-radius:14px;flex:none;display:grid;place-items:center;font-family:var(--serif);font-size:22px}
+.lk b{display:block;font-weight:700;font-size:16px}
+.lk span{font-size:14px;color:var(--soft)}
+.lk .ar{margin-left:auto;font-size:20px;color:var(--soft)}
+.lk.hero{background:var(--plum);color:var(--cream)}
+.lk.hero span,.lk.hero .ar{color:#D8C7DB}
+
+.feat{margin-top:26px;border-radius:24px;overflow:hidden;position:relative;aspect-ratio:4/5;background:var(--plum)}
+.feat img{width:100%;height:100%;object-fit:cover}
+.feat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(59,35,64,.85))}
+.feat .t{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:var(--cream)}
+.feat .t small{font-size:13px;opacity:.85}
+.feat .t b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);z-index:2;width:66px;height:66px;border-radius:50%;background:rgba(251,248,241,.9);display:grid;place-items:center}
+
+h2{font-family:var(--serif);font-weight:400;font-size:28px;margin:34px 0 12px}
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pr{background:var(--cream);border-radius:20px;overflow:hidden}
+.pr figure{aspect-ratio:1;overflow:hidden}
+.pr img{width:100%;height:100%;object-fit:cover}
+.pr div{padding:12px 14px 14px}
+.pr b{display:block;font-size:15px;line-height:1.3}
+.pr span{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:14px;color:var(--soft)}
+.pr span em{font-style:normal;font-weight:700;color:var(--plum)}
+
+.nl{background:var(--plum);color:var(--cream);border-radius:24px;padding:24px;margin-top:26px}
+.nl b{font-family:var(--serif);font-weight:400;font-size:26px;display:block;line-height:1.15}
+.nl p{color:#D8C7DB;font-size:14.5px;margin-top:6px}
+.nl form{display:flex;gap:8px;margin-top:16px}
+.nl input{flex:1;min-width:0;height:48px;border-radius:14px;border:0;padding:0 14px;background:var(--cream);color:var(--plum);font-size:16px}
+.nl button{height:48px;border-radius:14px;border:0;background:var(--blush);color:var(--plum);font-weight:700;padding:0 16px;white-space:nowrap}
+.nl .ok{margin-top:10px;font-size:14px;min-height:1em;color:var(--blush)}
+
+.foot{text-align:center;margin-top:30px;font-size:13px;color:var(--soft)}
+.foot a{text-decoration:underline}
+.share{position:fixed;right:18px;top:18px;width:44px;height:44px;border-radius:50%;background:var(--cream);border:0;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(59,35,64,.5);z-index:3}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);opacity:0;background:var(--plum);color:var(--cream);padding:12px 20px;border-radius:999px;font-size:14.5px;transition:.3s;z-index:9}
+.toast.show{transform:translate(-50%,0);opacity:1}
+@media (max-width:420px){h1{font-size:38px}.shop{gap:10px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Amara</span><a href="../../index.html#buy=amara" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Get free · Gratis</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0)}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+<div class="bg" aria-hidden="true"><span>Amara</span></div>
+<button class="share" id="share" aria-label="Copy link to this page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B2340" stroke-width="2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
+<main>
+  <div class="head">
+    <div class="av"><img src="../../img/bio/me.jpg" alt="Amara smiling with a cup of coffee"></div>
+    <h1>Amara <em>Lewis</em></h1>
+    <p class="bio">Slow mornings, small kitchens and honest product reviews. New video every Sunday.</p>
+    <span class="loc"><i></i>Open for brand collabs</span>
+    <div class="soc">
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.7 3.8 4 4v3c-1.5 0-2.9-.4-4-1.1V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-3-.3-4.6-1-5.3-.7-.7-2.5-.9-9-.9s-8.3.2-9 .9C2.3 7.4 2 9 2 12s.3 4.6 1 5.3c.7.7 2.5.9 9 .9s8.3-.2 9-.9c.7-.7 1-2.3 1-5.3zM10 15V9l5 3-5 3z"/></svg></a>
+      <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="links">
+    <a class="lk hero" href="#"><span class="ic" style="background:var(--blush);color:var(--plum)">★</span><div><b>My morning routine guide</b><span>Free 12-page PDF</span></div><span class="ar">→</span></a>
+    <a class="lk" href="#"><span class="ic" style="background:var(--pista)">▶</span><div><b>Latest video: tiny kitchen tour</b><span>YouTube · 14 min</span></div><span class="ar">→</span></a>
+    <a class="lk" href="#"><span class="ic" style="background:#EAD9F0">✿</span><div><b>Everything I use, in one place</b><span>Shop my favourites</span></div><span class="ar">→</span></a>
+    <a class="lk" href="#"><span class="ic" style="background:var(--blush)">✉</span><div><b>Work with me</b><span>Media kit and rates</span></div><span class="ar">→</span></a>
+  </div>
+
+  <a class="feat" href="#" aria-label="Watch: Sunday reset, slow morning edition">
+    <img src="../../img/bio/p1.jpg" alt="Croissant and pastry on a linen napkin">
+    <span class="play" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="#3B2340"><path d="M8 5v14l11-7z"/></svg></span>
+    <span class="t"><small>New this Sunday</small><b>Sunday reset, slow morning edition</b></span>
+  </a>
+
+  <h2>Shop my picks</h2>
+  <div class="shop">
+    <a class="pr" href="#"><figure><img src="../../img/bio/p2.jpg" alt="Cashmere knit detail"></figure><div><b>The only cardigan I wear</b><span>Knitwear <em>Rp 690k</em></span></div></a>
+    <a class="pr" href="#"><figure><img src="../../img/bio/p3.jpg" alt="Rice terraces at sunrise"></figure><div><b>Bali slow travel e-guide</b><span>Digital <em>Rp 79k</em></span></div></a>
+  </div>
+
+  <div class="nl">
+    <b>Sunday letters</b>
+    <p>One email a week with recipes, finds and what I'm reading. No spam, ever.</p>
+    <form id="nl"><label for="em" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email address</label><input id="em" type="email" placeholder="you@email.com" required><button type="submit">Subscribe</button></form>
+    <div class="ok" id="nlok" role="status"></div>
+  </div>
+
+  <p class="foot">© 2026 Amara Lewis · Template by <a href="#">solvy.studio</a></p>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const toast=document.getElementById('toast');let tt;function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2000)}
+{const b=document.getElementById('svDemo');if(b)document.getElementById('share').style.top=(b.offsetHeight+14)+'px'}
+document.getElementById('share').addEventListener('click',()=>{const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>say('Link copied')).catch(()=>say('Copy this page link from your browser bar'))});
+document.getElementById('nl').addEventListener('submit',e=>{e.preventDefault();document.getElementById('nlok').textContent='You\'re in. See you on Sunday.';e.target.reset()});
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Website Prep Checklist — Solvy</title>
+<style>
+@font-face{font-family:"IS";src:url(fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:"IS";src:url(fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+@font-face{font-family:"HG";src:url(fonts/hanken-grotesk-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"HG";src:url(fonts/hanken-grotesk-latin-600-normal.woff2);font-weight:600}
+:root{color-scheme:dark;--bg:#1C1315;--paper:#271B1D;--ink:#F6F0E7;--muted:#BDAEA5;--line:rgba(246,240,231,.13);--rose:#E9B7A6;--wine:#7A2E3E}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),transparent 60%),var(--bg);color:var(--ink);font:17px/1.6 "HG",system-ui,sans-serif}
+.bar{position:sticky;top:0;background:rgba(28,19,21,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+.bar .in{max-width:860px;margin:auto;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:"IS";font-size:26px;text-decoration:none;color:var(--ink)} .back{color:var(--rose);font-weight:600;text-decoration:none;font-size:15px}
+main{max-width:860px;margin:auto;padding:44px 16px 80px}
+.tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--rose);background:rgba(233,183,166,.14);border-radius:99px;padding:5px 12px}
+h1{font-family:"IS";font-weight:400;font-size:clamp(42px,9vw,68px);line-height:1;margin:16px 0 0} h1 em{color:var(--rose)}
+.lead{color:var(--muted);font-size:19px;margin-top:14px;max-width:620px}
+.prog{margin-top:26px;display:flex;align-items:center;gap:14px;font-weight:600;font-size:15px} .prog .t{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden} .prog .t i{display:block;height:100%;width:0;background:var(--rose);transition:width .3s}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px 22px 12px}
+h2{font-family:"IS";font-weight:400;font-size:28px;margin:0 0 10px;color:var(--rose)}
+label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);cursor:pointer;font-size:16px;line-height:1.45}
+input{appearance:none;flex:none;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--rose);margin:1px 0 0;display:grid;place-items:center;cursor:pointer}
+input:checked{background:var(--rose)} input:checked::after{content:"";width:9px;height:5px;border-left:2px solid #1C1315;border-bottom:2px solid #1C1315;transform:rotate(-45deg) translate(1px,-1px)}
+input:checked+span{color:var(--muted);text-decoration:line-through}
+.next{margin-top:30px;background:var(--wine);border-radius:24px;padding:26px} .next h3{font-family:"IS";font-weight:400;font-size:32px;margin:0} .next p{color:#F3DDD5;margin:8px 0 16px}
+.btn{display:inline-block;background:#FBF3EC;color:#231E1B;border-radius:99px;padding:13px 24px;font-weight:600;text-decoration:none;margin:4px 8px 4px 0} .btn.o{background:none;color:#FBF3EC;border:1px solid rgba(251,243,236,.5)}
+@media(max-width:680px){.grid{grid-template-columns:1fr}}
+@media print{.bar,.next,.prog{display:none}body{background:#fff;color:#000}section{background:#fff;border-color:#ccc}h2{color:#6E2E3A}}
+</style>
+<div class="bar"><div class="in"><a class="logo" href="index.html">Solvy</a><a class="back" href="index.html">← Kembali ke toko</a></div></div>
+<main>
+<span class="tag">GRATIS · CHECKLIST</span>
+<h1>Website Prep <em>Checklist</em></h1>
+<p class="lead">Siapkan ini sebelum membuka AI. Semakin lengkap datamu, semakin sedikit revisi, dan semakin hemat kreditmu. Centang yang sudah siap, progresmu tersimpan di HP ini.</p>
+<div class="prog"><span id="pc">0 / 26 siap</span><span class="t"><i id="pb"></i></span></div>
+<div class="grid"><section><h2>Tujuan website</h2><label><input type="checkbox" data-k="0"><span>Satu aksi utama yang kamu mau dari pengunjung (chat WhatsApp, booking, beli, datang)</span></label><label><input type="checkbox" data-k="1"><span>Siapa pelanggan idealmu, dalam 1 kalimat</span></label><label><input type="checkbox" data-k="2"><span>3 alasan orang memilih usahamu dibanding yang lain</span></label><label><input type="checkbox" data-k="3"><span>1–2 website atau akun Instagram yang gayanya kamu suka</span></label></section><section><h2>Data usaha</h2><label><input type="checkbox" data-k="4"><span>Nama usaha dan ejaan yang benar</span></label><label><input type="checkbox" data-k="5"><span>Alamat lengkap dan link Google Maps</span></label><label><input type="checkbox" data-k="6"><span>Jam buka, termasuk hari libur</span></label><label><input type="checkbox" data-k="7"><span>Daftar layanan atau produk beserta harga (atau 'mulai dari')</span></label><label><input type="checkbox" data-k="8"><span>Nomor WhatsApp dalam format 62xxxxxxxxxx</span></label></section><section><h2>Teks</h2><label><input type="checkbox" data-k="9"><span>Cerita singkat usaha (3–5 kalimat, bahasamu sendiri)</span></label><label><input type="checkbox" data-k="10"><span>Pertanyaan yang paling sering ditanyakan pelanggan</span></label><label><input type="checkbox" data-k="11"><span>Testimoni asli dari pelanggan, dengan izin</span></label><label><input type="checkbox" data-k="12"><span>Hal yang TIDAK boleh ditulis (klaim berlebihan, promo yang sudah habis)</span></label></section><section><h2>Foto & visual</h2><label><input type="checkbox" data-k="13"><span>Logo (PNG transparan bila ada)</span></label><label><input type="checkbox" data-k="14"><span>1 foto utama horizontal untuk bagian atas website</span></label><label><input type="checkbox" data-k="15"><span>5–10 foto produk, tempat, atau hasil kerja</span></label><label><input type="checkbox" data-k="16"><span>Foto pemilik atau tim (membuat website terasa manusiawi)</span></label><label><input type="checkbox" data-k="17"><span>Warna brand (kode hex) atau 2–3 warna yang kamu suka</span></label></section><section><h2>Akun & tools</h2><label><input type="checkbox" data-k="18"><span>Email aktif untuk mendaftar tools</span></label><label><input type="checkbox" data-k="19"><span>Akun AI chat gratis (cek batas gratis terbarunya)</span></label><label><input type="checkbox" data-k="20"><span>Akun Netlify untuk online gratis</span></label><label><input type="checkbox" data-k="21"><span>Instagram / TikTok / marketplace yang mau ditautkan</span></label></section><section><h2>Sebelum membuka AI</h2><label><input type="checkbox" data-k="22"><span>Semua data di atas dikumpulkan di satu catatan</span></label><label><input type="checkbox" data-k="23"><span>Tulis tujuan website di baris pertama prompt</span></label><label><input type="checkbox" data-k="24"><span>Minta AI menulis rencana dulu sebelum membuat kode</span></label><label><input type="checkbox" data-k="25"><span>Kerjakan satu proyek di satu chat supaya kredit lebih hemat</span></label></section></div>
+<div class="next"><h3>Sudah lengkap?</h3><p>Pakai template Solvy dan ganti isinya, atau ikuti prompt pack untuk membangun dengan AI.</p>
+<a class="btn" href="index.html#templates">Lihat template</a><a class="btn o" href="files/Solvy-Website-Prep-Checklist.pdf" download>Unduh versi PDF</a></div>
+</main>
+<script>
+const K='solvy-checklist',T=26;let st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+const bx=[...document.querySelectorAll('input[data-k]')];
+function upd(){const n=bx.filter(b=>b.checked).length;document.getElementById('pc').textContent=n+' / '+T+' siap';document.getElementById('pb').style.width=(n/T*100)+'%'}
+bx.forEach(b=>{b.checked=!!st[b.dataset.k];b.addEventListener('change',()=>{st[b.dataset.k]=b.checked;try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}upd()})});upd();
+</script>

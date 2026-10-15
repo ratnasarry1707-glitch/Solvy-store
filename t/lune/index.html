@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lune Aesthetic Clinic</title>
+<style>
+@font-face{font-family:"Italiana";src:url(../../fonts/italiana-latin-400-normal.woff2)}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-700-normal.woff2);font-weight:700}
+/* Layout: quiet porcelain clinic. A thin, very large Italiana wordmark meets an arched portrait; treatments read like a price list; a concern finder does the selling. */
+:root{--porcelain:#F5F0EA;--sand:#EAE1D6;--taupe:#B9A08A;--cocoa:#3A2A22;--soft:#7A6A5E;--champ:#B8955C;--sage:#9DA595;--line:rgba(58,42,34,.14);--white:#FFFDF9;
+--disp:"Italiana",Didot,serif;--body:"Figtree",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--porcelain);color:var(--cocoa);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--champ);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 36px}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(44px,5.6vw,80px);line-height:1;letter-spacing:.005em;text-wrap:balance}
+.lead{color:var(--soft);font-size:18px;max-width:44ch;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 30px;border-radius:999px;font-weight:500;font-size:15.5px;border:0;white-space:nowrap;letter-spacing:.01em}
+.btn.dark{background:var(--cocoa);color:var(--porcelain)}
+.btn.line{border:1px solid var(--cocoa)}
+.btn.champ{background:var(--champ);color:#fff}
+
+nav{display:flex;justify-content:space-between;align-items:center;height:88px;border-bottom:1px solid var(--line)}
+.logo{font-family:var(--disp);font-size:30px;letter-spacing:.06em}
+.logo small{font-family:var(--body);font-size:11px;letter-spacing:.18em;color:var(--soft);margin-left:8px;vertical-align:4px}
+.nl{display:flex;gap:34px;font-size:15px;color:var(--soft)}
+.nl a:hover{color:var(--cocoa)}
+nav .btn{height:46px;padding:0 22px;font-size:14.5px}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;padding:56px 0 100px;position:relative}
+.word{font-family:var(--disp);font-size:clamp(110px,17vw,260px);line-height:.78;letter-spacing:-.01em;margin-left:-.04em}
+.hero h1{font-family:var(--disp);font-weight:400;font-size:clamp(30px,3vw,44px);line-height:1.12;margin-top:40px;max-width:16ch}
+.hero .ctas{display:flex;gap:10px;margin-top:30px;flex-wrap:wrap}
+.creds{display:flex;gap:34px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--soft);flex-wrap:wrap}
+.creds b{display:block;font-family:var(--disp);font-weight:400;font-size:30px;color:var(--cocoa);line-height:1.1}
+.portrait{position:relative}
+.portrait .arch{border-radius:999px 999px 0 0;overflow:hidden;aspect-ratio:3/4}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .chip{position:absolute;right:-18px;bottom:60px;background:var(--white);border-radius:18px;padding:14px 18px;box-shadow:0 24px 50px -24px rgba(58,42,34,.45);font-size:14px;line-height:1.35}
+.portrait .chip b{display:block;font-family:var(--disp);font-weight:400;font-size:24px}
+
+/* treatments */
+.sec{padding:120px 0}
+.treat-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:70px;align-items:start}
+.treat-grid figure{border-radius:24px;overflow:hidden;aspect-ratio:4/3;position:sticky;top:30px}
+.treat-grid figure img{width:100%;height:100%;object-fit:cover}
+.cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.cats button{border:1px solid var(--line);background:transparent;border-radius:999px;padding:8px 18px;font-size:14.5px;color:var(--soft)}
+.cats button[aria-pressed="true"]{background:var(--cocoa);color:var(--porcelain);border-color:var(--cocoa)}
+.tl{list-style:none}
+.tl li{display:grid;grid-template-columns:1fr auto;gap:6px 24px;padding:22px 0;border-bottom:1px solid var(--line)}
+.tl li[hidden]{display:none}
+.tl h3{font-family:var(--disp);font-weight:400;font-size:30px;line-height:1.1}
+.tl .pr{font-family:var(--disp);font-size:26px;text-align:right;white-space:nowrap}
+.tl p{color:var(--soft);font-size:15.5px;grid-column:1}
+.tl .meta{font-size:13.5px;color:var(--soft);text-align:right;white-space:nowrap}
+
+/* finder */
+.finder{background:var(--cocoa);color:var(--porcelain);border-radius:36px;padding:70px;display:grid;grid-template-columns:1fr 1.1fr;gap:60px}
+.finder .lead{color:#CDBBAA}
+.concerns{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.concerns button{border:1px solid rgba(245,240,234,.25);background:transparent;color:var(--porcelain);border-radius:999px;padding:11px 20px;font-size:15px}
+.concerns button[aria-pressed="true"]{background:var(--porcelain);color:var(--cocoa);border-color:var(--porcelain)}
+.result{background:rgba(245,240,234,.06);border:1px solid rgba(245,240,234,.14);border-radius:26px;padding:34px;display:flex;flex-direction:column;gap:18px}
+.result small{color:#CDBBAA;font-size:13.5px}
+.result h3{font-family:var(--disp);font-weight:400;font-size:40px;line-height:1.05}
+.result p{color:#E4D7CB}
+.plan{list-style:none;display:grid;gap:10px}
+.plan li{display:flex;justify-content:space-between;gap:12px;border-top:1px solid rgba(245,240,234,.14);padding-top:10px;font-size:15px}
+.plan li span:last-child{color:#CDBBAA;white-space:nowrap}
+
+/* journey */
+.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;counter-reset:j}
+.step{border-top:1px solid var(--cocoa);padding-top:22px;counter-increment:j}
+.step::before{content:"0" counter(j);font-family:var(--disp);font-size:44px;line-height:1;color:var(--champ)}
+.step h3{font-family:var(--disp);font-weight:400;font-size:30px;margin:14px 0 8px}
+.step p{color:var(--soft)}
+
+/* doctors */
+.docs{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.docs figure{border-radius:24px;overflow:hidden;aspect-ratio:4/5}
+.docs figure img{width:100%;height:100%;object-fit:cover}
+.docs blockquote{font-family:var(--disp);font-size:clamp(28px,3vw,40px);line-height:1.2;margin-top:28px}
+.docs .who{margin-top:24px}
+.docs .who b{display:block;font-size:17px}
+.docs .who span{color:var(--soft);font-size:15px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.facts div{padding:18px 18px 0 0}
+.facts b{font-family:var(--disp);font-weight:400;font-size:34px;display:block;line-height:1.1}
+.facts span{font-size:14px;color:var(--soft)}
+
+/* reviews */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+.rv{background:var(--white);border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:16px}
+.rv .st{color:var(--champ);letter-spacing:3px}
+.rv p{font-family:var(--disp);font-size:24px;line-height:1.25}
+.rv .who{margin-top:auto;font-size:14px;color:var(--soft)}
+.rv .who b{color:var(--cocoa);font-weight:500}
+
+/* results: before / after */
+.ba-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:70px;align-items:center;margin-top:10px}
+.ba-tabs{display:flex;flex-direction:column;gap:0;margin-top:34px;border-top:1px solid var(--line)}
+.ba-tabs button{display:grid;grid-template-columns:1fr auto;gap:4px 20px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:20px 0;color:var(--soft)}
+.ba-tabs button b{font-family:var(--disp);font-weight:400;font-size:28px;color:var(--soft);transition:color .2s}
+.ba-tabs button span{font-size:14px;align-self:center}
+.ba-tabs button small{grid-column:1/-1;font-size:14.5px}
+.ba-tabs button[aria-selected="true"] b{color:var(--cocoa)}
+.ba-tabs button[aria-selected="true"]{color:var(--cocoa)}
+.ba{position:relative;aspect-ratio:1/1;border-radius:28px;overflow:hidden;background:var(--sand);user-select:none;touch-action:pan-y}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:54px;height:54px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);display:grid;place-items:center;box-shadow:0 10px 30px -10px rgba(58,42,34,.6);pointer-events:none;color:var(--cocoa);font-size:18px;letter-spacing:-2px}
+.ba .lab{position:absolute;top:18px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,253,249,.9);border-radius:999px;padding:6px 12px;pointer-events:none}
+.ba .lab.l{left:18px}.ba .lab.r{right:18px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba input:focus-visible+.knob{outline:2px solid var(--champ);outline-offset:4px}
+.fine{font-size:13px;color:var(--soft);margin-top:14px}
+/* skin scan */
+.scan{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.qs{display:grid;gap:22px;margin-top:34px}
+.q b{display:block;font-weight:500;font-size:15px;margin-bottom:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{border:1px solid var(--line);background:var(--white);border-radius:999px;padding:9px 16px;font-size:14.5px;color:var(--soft)}
+.opts button[aria-pressed="true"]{background:var(--cocoa);color:var(--porcelain);border-color:var(--cocoa)}
+.scanbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.stage{position:relative;aspect-ratio:3/4;border-radius:30px;overflow:hidden;background:#2B201A;box-shadow:0 40px 80px -40px rgba(58,42,34,.6)}
+.stage canvas,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage video{transform:scaleX(-1)}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.stage .oval{fill:none;stroke:rgba(255,253,249,.85);stroke-width:2;stroke-dasharray:6 8}
+.stage .shade{fill:rgba(30,20,14,.45)}
+.stage .zone{fill:none;stroke:#E9D3AE;stroke-width:2;opacity:0;transition:opacity .3s}
+.stage .zone.on{opacity:1}
+.stage .zdot{fill:#E9D3AE;opacity:0;transition:opacity .3s}
+.stage .zdot.on{opacity:1}
+.stage .zlab{fill:#fff;font:500 13px var(--body);opacity:0;transition:opacity .3s}
+.stage .zlab.on{opacity:1}
+.sline{position:absolute;left:0;right:0;height:120px;top:-120px;background:linear-gradient(180deg,transparent,rgba(233,211,174,.0) 30%,rgba(233,211,174,.55) 96%,#F3E3C4);pointer-events:none;opacity:0}
+.stage.scanning .sline{opacity:1;animation:sweep 1.4s ease-in-out infinite alternate}
+@keyframes sweep{from{top:-120px}to{top:calc(100% - 4px)}}
+.hud{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(255,253,249,.94);border-radius:20px;padding:16px 18px;font-size:14.5px;display:flex;align-items:center;gap:12px}
+.hud i{width:10px;height:10px;border-radius:50%;background:var(--champ);flex:none}
+.stage.scanning .hud i{animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.snap{position:absolute;left:50%;bottom:92px;transform:translateX(-50%);width:68px;height:68px;border-radius:50%;border:4px solid #fff;background:rgba(255,255,255,.3)}
+.report{background:var(--white);border-radius:30px;padding:30px;margin-top:18px;box-shadow:0 30px 70px -40px rgba(58,42,34,.4)}
+.report h3{font-family:var(--disp);font-weight:400;font-size:34px;line-height:1.1}
+.meters{display:grid;gap:14px;margin:20px 0}
+.meter{display:grid;grid-template-columns:110px 1fr 86px;gap:12px;align-items:center;font-size:14.5px}
+.meter .tr{height:8px;border-radius:99px;background:var(--sand);overflow:hidden}
+.meter .tr i{display:block;height:100%;border-radius:99px;background:var(--champ);width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.meter em{font-style:normal;color:var(--soft);font-size:13px;text-align:right;white-space:nowrap}
+.report .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.report .acts .btn{height:48px;padding:0 22px;font-size:14.5px}
+/* gallery */
+.gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:280px 280px;gap:14px;margin-top:50px}
+.gal figure{border-radius:22px;overflow:hidden;position:relative}
+.gal figure:first-child{grid-row:1/3}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:14px;bottom:14px;background:rgba(255,253,249,.92);border-radius:999px;padding:6px 14px;font-size:13px}
+.gal figure:nth-child(4){grid-column:2/4}
+/* review photos */
+.rv .ph{display:flex;align-items:center;gap:12px;margin-top:auto}
+.rv .ph img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.rv .ph .who{margin:0}
+.rv .shot{aspect-ratio:4/3;border-radius:16px;overflow:hidden;margin:-8px -8px 4px}
+.rv .shot img{width:100%;height:100%;object-fit:cover}
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:start}
+.book figure{border-radius:24px;overflow:hidden;aspect-ratio:4/3;margin-top:34px}
+.book figure img{width:100%;height:100%;object-fit:cover}
+form.card{background:var(--white);border-radius:30px;padding:36px;display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:0 30px 70px -40px rgba(58,42,34,.4)}
+.f{display:flex;flex-direction:column;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-size:13px;font-weight:500;color:var(--soft)}
+.f input,.f select,.f textarea{width:100%;min-width:0;height:52px;border-radius:14px;border:1px solid var(--line);background:var(--porcelain);padding:0 14px;font-size:16px;appearance:none;-webkit-appearance:none}
+.f select{background:var(--porcelain) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233A2A22' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 14px center/12px}
+.f input[type=date]{line-height:50px}
+.f input::-webkit-date-and-time-value{text-align:left}
+.f textarea{height:92px;padding:12px 14px;resize:vertical}
+form.card .btn{grid-column:1/-1}
+.err{grid-column:1/-1;color:#A2442E;font-size:14px;min-height:1em}
+.ok{grid-column:1/-1;background:var(--porcelain);border-radius:18px;padding:18px}
+.ok[hidden]{display:none}
+.ok b{font-family:var(--disp);font-weight:400;font-size:26px;display:block}
+.ok p{color:var(--soft);font-size:15px;margin:4px 0 12px}
+.wa{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 22px;border-radius:999px;background:#1F8F55;color:#fff;font-weight:700}
+
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--disp);font-size:26px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--champ);font-family:var(--body);font-weight:400;font-size:24px;line-height:1.2}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--soft);margin-top:8px;max-width:62ch}
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:70px}
+
+footer{background:var(--cocoa);color:var(--porcelain);padding:90px 0 40px;margin-top:40px}
+.fword{font-family:var(--disp);font-size:clamp(90px,16vw,230px);line-height:.85}
+.frow{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:22px;border-top:1px solid rgba(245,240,234,.18);font-size:15px;color:#CDBBAA}
+
+@media (max-width:1000px){
+  .nl{display:none}
+  .hero,.treat-grid,.finder,.docs,.book,.faq{grid-template-columns:1fr;gap:40px}
+  .treat-grid figure{position:static}
+  .portrait{max-width:480px}
+  .portrait .chip{right:12px}
+  .reviews{grid-template-columns:1fr}
+  .ba-wrap,.scan{grid-template-columns:1fr;gap:40px}
+  .gal{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gal figure{aspect-ratio:4/3}
+  .gal figure:first-child{grid-row:auto;grid-column:1/-1}
+  .gal figure:nth-child(4){grid-column:auto}
+  .finder{padding:44px 28px}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:18px}
+  nav .btn{display:none}
+  .journey{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .tl li{grid-template-columns:1fr}
+  .tl .pr,.tl .meta{text-align:left}
+  .tl h3{font-size:26px}
+  form.card{grid-template-columns:1fr;padding:24px 18px}
+  .finder{border-radius:26px}
+  .result{padding:24px}
+  .meter{grid-template-columns:92px 1fr 78px;font-size:14px}
+  .report{padding:22px}
+  .gal{grid-template-columns:1fr}
+  .ba-tabs button b{font-size:24px}
+}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Lune</span><a href="../../index.html#buy=lune" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0)}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">LUNE<small>AESTHETIC CLINIC</small></a>
+    <div class="nl"><a href="#treatments">Treatments</a><a href="#results">Results</a><a href="#scan">Skin scan</a><a href="#doctors">Doctors</a><a href="#book">Contact</a></div>
+    <a class="btn dark" href="#book">Book a consultation</a>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="word" aria-hidden="true">Lune</div>
+      <h1>Skin that looks like you, only rested.</h1>
+      <p class="lead">Doctor-led facials, lasers and injectables in a calm room in Senopati. Every treatment starts with a conversation, never a sales pitch.</p>
+      <div class="ctas"><a class="btn dark" href="#book">Book a free consultation</a><a class="btn line" href="#scan">Scan my skin</a></div>
+      <div class="creds"><div><b>12 yrs</b>doctor-led care</div><div><b>18,000</b>treatments done</div><div><b>4.9</b>on Google</div></div>
+    </div>
+    <div class="portrait">
+      <div class="arch"><img src="../../img/clinic/hero.jpg" alt="Woman with healthy glowing skin in a cream robe"></div>
+      <div class="chip"><b>Glass Skin Facial</b>Our most booked treatment</div>
+    </div>
+  </header>
+</div>
+
+<section class="sec" id="treatments" style="padding-top:40px"><div class="wrap treat-grid">
+  <figure><img src="../../img/clinic/facial.jpg" alt="Therapist applying serum during a facial"></figure>
+  <div>
+    <h2>Treatments</h2>
+    <p class="lead" style="margin-bottom:30px">Prices include a skin check with a doctor. Packages save up to 20%.</p>
+    <div class="cats" role="group" aria-label="Filter treatments"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="facial">Facials</button><button aria-pressed="false" data-f="laser">Laser</button><button aria-pressed="false" data-f="inj">Injectables</button></div>
+    <ul class="tl" id="tl">
+      <li data-c="facial"><h3>Glass Skin Facial</h3><span class="pr">Rp 850k</span><p>Deep cleanse, gentle peel, hydrating infusion and LED.</p><span class="meta">75 min</span></li>
+      <li data-c="facial"><h3>Acne Clarifying Facial</h3><span class="pr">Rp 750k</span><p>Extraction by a nurse, blue light and a calming mask.</p><span class="meta">60 min</span></li>
+      <li data-c="laser"><h3>Pico Laser Toning</h3><span class="pr">Rp 2.4jt</span><p>Fades dark spots and evens tone with no downtime.</p><span class="meta">30 min</span></li>
+      <li data-c="laser"><h3>Fractional Resurfacing</h3><span class="pr">Rp 3.2jt</span><p>Softens acne scars and texture over three sessions.</p><span class="meta">45 min</span></li>
+      <li data-c="inj"><h3>Skin Booster</h3><span class="pr">Rp 4.5jt</span><p>Hyaluronic acid micro-injections for deep hydration and glow.</p><span class="meta">40 min</span></li>
+      <li data-c="inj"><h3>Anti-Wrinkle, Upper Face</h3><span class="pr">Rp 3.8jt</span><p>Softens frown lines and crow's feet, natural movement kept.</p><span class="meta">20 min</span></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="sec" id="results" style="padding-top:20px"><div class="wrap ba-wrap">
+  <div>
+    <h2>Real results, real skin</h2>
+    <p class="lead">Drag the line to compare. Same light, same angle, no filters.</p>
+    <div class="ba-tabs" role="tablist" aria-label="Choose a result">
+      <button role="tab" aria-selected="true" data-b="acne"><b>Acne Clarifying</b><span>4 sessions</span><small>Active breakouts calmed in 8 weeks</small></button>
+      <button role="tab" aria-selected="false" data-b="spots"><b>Pico Laser Toning</b><span>4 sessions</span><small>Melasma and sun spots faded in 12 weeks</small></button>
+      <button role="tab" aria-selected="false" data-b="dull"><b>Glass Skin Facial</b><span>2 sessions</span><small>Dull, dehydrated skin to glow in 4 weeks</small></button>
+    </div>
+  </div>
+  <div>
+    <div class="ba" id="ba" style="--x:50%">
+      <img id="baB" src="../../img/clinic/acne-before.jpg" alt="Before treatment">
+      <img id="baA" class="after" src="../../img/clinic/acne-after.jpg" alt="After treatment">
+      <span class="lab l">Before</span><span class="lab r">After</span>
+      <div class="bar"></div>
+      <input type="range" min="0" max="100" value="50" id="baR" aria-label="Compare before and after">
+      <div class="knob" aria-hidden="true">&#8249;&#8250;</div>
+    </div>
+    <p class="fine">Results vary from person to person. Photos shared with our patients' written consent.</p>
+  </div>
+</div></section>
+
+<section class="sec" id="scan" style="padding-top:20px"><div class="wrap scan">
+  <div>
+    <h2>Scan your skin in 30 seconds</h2>
+    <p class="lead">Take a selfie or upload a photo, answer three quick questions, and get a starting plan from our doctors. Your photo stays on your phone. Nothing is uploaded.</p>
+    <div class="qs">
+      <div class="q"><b>By midday, my skin feels</b><div class="opts" data-q="type"><button aria-pressed="false" data-v="oily">Oily</button><button aria-pressed="true" data-v="normal">Normal</button><button aria-pressed="false" data-v="dry">Dry or tight</button></div></div>
+      <div class="q"><b>What bothers me most</b><div class="opts" data-q="main"><button aria-pressed="false" data-v="acne">Breakouts</button><button aria-pressed="false" data-v="spots">Dark spots</button><button aria-pressed="false" data-v="glow">Dullness</button><button aria-pressed="false" data-v="scars">Texture or scars</button><button aria-pressed="false" data-v="lines">Fine lines</button><button aria-pressed="true" data-v="auto">Not sure</button></div></div>
+      <div class="q"><b>My skin is sensitive</b><div class="opts" data-q="sens"><button aria-pressed="false" data-v="yes">Yes</button><button aria-pressed="true" data-v="no">No</button></div></div>
+    </div>
+    <div class="scanbtns">
+      <button class="btn dark" id="camBtn">Take a selfie</button>
+      <label class="btn line" for="upl" style="cursor:pointer">Upload a photo</label><input type="file" id="upl" accept="image/*" hidden>
+      <button class="btn line" id="sampleBtn">Try a sample</button>
+    </div>
+    <p class="fine">This is a guided self-check, not a medical diagnosis. A doctor confirms everything at your free consultation.</p>
+  </div>
+  <div>
+    <div class="stage" id="stage">
+      <canvas id="sc" width="600" height="800" aria-label="Your photo"></canvas>
+      <video id="vid" playsinline muted hidden></video>
+      <svg viewBox="0 0 600 800" aria-hidden="true">
+        <defs><mask id="om"><rect width="600" height="800" fill="#fff"/><ellipse cx="300" cy="400" rx="190" ry="250" fill="#000"/></mask></defs>
+        <rect class="shade" width="600" height="800" mask="url(#om)"/>
+        <ellipse class="oval" cx="300" cy="400" rx="190" ry="250"/>
+        <g id="zones"></g>
+      </svg>
+      <div class="sline"></div>
+      <button class="snap" id="snap" aria-label="Take photo" hidden></button>
+      <div class="hud" id="hud"><i></i><span id="hudt">Line your face up inside the oval, in good light.</span></div>
+    </div>
+    <div class="report" id="report" hidden aria-live="polite">
+      <small style="color:var(--soft)">Your skin check</small>
+      <h3 id="rpT">Focus: calm and clear</h3>
+      <div class="meters" id="meters"></div>
+      <p id="rpD" style="color:var(--soft)"></p>
+      <div class="acts"><a class="btn champ" href="#finder" id="rpPlan">See my plan</a><a class="btn line" href="#book" id="rpBook">Book with this result</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="finder" style="padding-top:20px"><div class="wrap">
+  <div class="finder">
+    <div>
+      <h2>What would you like to change?</h2>
+      <p class="lead">Tap your main concern to see what our doctors usually recommend first.</p>
+      <div class="concerns" id="concerns" role="group" aria-label="Choose a skin concern">
+        <button aria-pressed="true" data-k="glow">Dull, tired skin</button><button aria-pressed="false" data-k="acne">Breakouts</button><button aria-pressed="false" data-k="spots">Dark spots</button><button aria-pressed="false" data-k="scars">Acne scars</button><button aria-pressed="false" data-k="lines">Fine lines</button>
+      </div>
+    </div>
+    <div class="result" aria-live="polite">
+      <small>Recommended plan</small>
+      <h3 id="rt">The Glow Plan</h3>
+      <p id="rd">Three monthly Glass Skin Facials with a Skin Booster in between. Most clients see brighter, bouncier skin after the second visit.</p>
+      <ul class="plan" id="rp"></ul>
+      <a class="btn champ" href="#book" id="rb" style="align-self:flex-start">Book this plan</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:20px"><div class="wrap">
+  <h2>Your first visit</h2>
+  <div class="journey">
+    <div class="step"><h3>Talk</h3><p>A 20-minute conversation and skin scan with a doctor. Free, and there's no pressure to book anything.</p></div>
+    <div class="step"><h3>Plan</h3><p>You get a written plan with prices, timings and what to expect, so you can decide at home.</p></div>
+    <div class="step"><h3>Glow</h3><p>Treatments by the same doctor each time, with a follow-up message two days after.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="doctors" style="padding-top:20px"><div class="wrap docs">
+  <figure><img src="../../img/clinic/doc.jpg" alt="Dr. Nadia Putri in a white coat"></figure>
+  <div>
+    <h2>Led by doctors who listen</h2>
+    <blockquote>"Good aesthetic work is the kind nobody notices. People should only say you look well."</blockquote>
+    <div class="who"><b>dr. Nadia Putri, Sp.D.V.E.</b><span>Dermatologist and founder</span></div>
+    <div class="facts"><div><b>4</b><span>dermatologists</span></div><div><b>12</b><span>years in practice</span></div><div><b>100%</b><span>registered devices</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="clinic" style="padding-top:20px"><div class="wrap">
+  <h2>Inside Lune</h2>
+  <p class="lead">A quiet, private clinic in Senopati. Every room is cleaned and reset between clients.</p>
+  <div class="gal">
+    <figure><img src="../../img/clinic/reception.jpg" alt="Lune reception with a travertine desk and boucle chairs"><figcaption>Reception</figcaption></figure>
+    <figure><img src="../../img/clinic/laser-room.jpg" alt="Laser treatment room with a treatment bed"><figcaption>Laser room</figcaption></figure>
+    <figure><img src="../../img/clinic/room.jpg" alt="Calm consultation room"><figcaption>Consultation</figcaption></figure>
+    <figure><img src="../../img/clinic/facial.jpg" alt="Facial treatment in progress"><figcaption>Facial suite</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:20px"><div class="wrap">
+  <h2>Clients say</h2>
+  <div class="reviews">
+    <article class="rv"><div class="shot"><img src="../../img/clinic/client-1.jpg" alt="Rania after her pico laser sessions"></div><div class="st">★★★★★</div><p>"Four sessions of pico and my melasma is finally lighter. They explained every step."</p><div class="ph"><div class="who"><b>Rania S.</b> · Pico Laser</div></div></article>
+    <article class="rv"><div class="shot"><img src="../../img/clinic/client-2.jpg" alt="Dewi relaxing at the clinic"></div><div class="st">★★★★★</div><p>"The calmest clinic I've been to. Nobody tried to upsell me, which is why I keep coming back."</p><div class="ph"><div class="who"><b>Dewi A.</b> · Glass Skin Facial</div></div></article>
+    <article class="rv"><div class="shot"><img src="../../img/clinic/client-3.jpg" alt="Kevin after his skin booster"></div><div class="st">★★★★★</div><p>"Natural result, exactly what I asked for. My friends just said I looked well rested."</p><div class="ph"><div class="who"><b>Kevin T.</b> · Skin Booster</div></div></article>
+  </div>
+</div></section>
+
+<section class="sec" id="book" style="padding-top:20px"><div class="wrap book">
+  <div>
+    <h2>Book a free consultation</h2>
+    <p class="lead">Choose a time and we'll confirm on WhatsApp within the hour. Jl. Senopati 18, Jakarta Selatan. Open Mon–Sat, 10:00–20:00.</p>
+    <figure><img src="../../img/clinic/room.jpg" alt="Treatment room with travertine walls and a cream bed"></figure>
+  </div>
+  <form class="card" id="bform" novalidate>
+    <div class="f"><label for="bn">Full name</label><input id="bn" autocomplete="name" placeholder="Rania Sari"></div>
+    <div class="f"><label for="bp">WhatsApp number</label><input id="bp" inputmode="tel" autocomplete="tel" placeholder="0812 3456 7890"></div>
+    <div class="f full"><label for="bt">Treatment</label><select id="bt"><option>Free consultation</option><option>Glass Skin Facial</option><option>Acne Clarifying Facial</option><option>Pico Laser Toning</option><option>Fractional Resurfacing</option><option>Skin Booster</option><option>Anti-Wrinkle, Upper Face</option></select></div>
+    <div class="f"><label for="bd">Date</label><input id="bd" type="date"></div>
+    <div class="f"><label for="bh">Time</label><select id="bh"><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option selected>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option></select></div>
+    <div class="f full"><label for="bnote">Anything we should know? (optional)</label><textarea id="bnote" placeholder="Skin concerns, allergies, medication…"></textarea></div>
+    <div class="err" id="berr" role="alert"></div>
+    <button class="btn dark" type="submit">Request appointment</button>
+    <div class="ok" id="bok" hidden><b id="bsum">Request ready</b><p>Send it on WhatsApp and we'll confirm your slot within the hour.</p><a class="wa" id="bwa" href="#" target="_blank" rel="noopener">Send on WhatsApp</a></div>
+  </form>
+</div></section>
+
+<section class="sec" style="padding-top:20px"><div class="wrap faq">
+  <h2>Questions</h2>
+  <div>
+    <details open><summary>Is the consultation really free?</summary><p>Yes. Your first 20-minute consultation and skin scan are free, with no obligation to book a treatment.</p></details>
+    <details><summary>Who performs the treatments?</summary><p>Injectables and lasers are performed only by our doctors. Facials are done by trained nurses under a doctor's supervision.</p></details>
+    <details><summary>Is there downtime?</summary><p>Most facials and pico toning have none. Fractional resurfacing can leave skin pink for two to three days. Your doctor will tell you before you book.</p></details>
+    <details><summary>Can I pay in instalments?</summary><p>Yes, packages can be paid with 0% instalments on most credit cards.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fword">Lune</div>
+  <div class="frow"><span>Jl. Senopati 18, Jakarta Selatan</span><span>Mon–Sat, 10:00–20:00</span><span>hello@luneclinic.id</span><span>© 2026 Lune Aesthetic Clinic</span></div>
+</div></footer>
+
+<script>
+const WA_NUMBER='6281234567890'; // replace with the clinic's WhatsApp number
+// treatment filter
+document.querySelectorAll('.cats button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.cats button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('#tl li').forEach(li=>li.hidden=!(b.dataset.f==='all'||li.dataset.c===b.dataset.f));}));
+// concern finder
+const P={
+ glow:{t:'The Glow Plan',d:'Three monthly Glass Skin Facials with a Skin Booster in between. Most clients see brighter, bouncier skin after the second visit.',p:[['Glass Skin Facial × 3','monthly'],['Skin Booster × 1','week 6'],['From','Rp 6.6jt']],tr:'Glass Skin Facial'},
+ acne:{t:'The Clear Plan',d:'Calm active breakouts first, then prevent new ones. We pair in-clinic facials with a simple routine you can keep.',p:[['Acne Clarifying Facial × 4','every 2 weeks'],['Doctor review','week 8'],['From','Rp 3.0jt']],tr:'Acne Clarifying Facial'},
+ spots:{t:'The Even Tone Plan',d:'Pico laser breaks up pigment gently, with no peeling. Daily sunscreen is part of the plan.',p:[['Pico Laser Toning × 4','every 3 weeks'],['Glass Skin Facial × 1','to finish'],['From','Rp 10.4jt']],tr:'Pico Laser Toning'},
+ scars:{t:'The Smooth Plan',d:'Fractional resurfacing remodels scar texture over time. Expect two to three pink days after each session.',p:[['Fractional Resurfacing × 3','monthly'],['Skin Booster × 1','after session 2'],['From','Rp 14.1jt']],tr:'Fractional Resurfacing'},
+ lines:{t:'The Soft Plan',d:'Relax expression lines and hydrate from within, so you still look like yourself, just rested.',p:[['Anti-Wrinkle, Upper Face','every 4 months'],['Skin Booster × 2','monthly'],['From','Rp 12.8jt']],tr:'Anti-Wrinkle, Upper Face'}};
+function showP(k){const x=P[k];document.getElementById('rt').textContent=x.t;document.getElementById('rd').textContent=x.d;
+  document.getElementById('rp').innerHTML=x.p.map(r=>`<li><span>${r[0]}</span><span>${r[1]}</span></li>`).join('');
+  document.getElementById('rb').onclick=()=>{document.getElementById('bt').value=x.tr}}
+document.querySelectorAll('#concerns button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#concerns button').forEach(x=>x.setAttribute('aria-pressed',x===b));showP(b.dataset.k)}));
+showP('glow');
+// ---------- before / after ----------
+const BA={acne:['acne-before.jpg','acne-after.jpg'],spots:['spots-before.jpg','spots-after.jpg'],dull:['dull-before.jpg','dull-after.jpg']};
+const IMGDIR='../../img/clinic/';
+const ba=document.getElementById('ba'),baR=document.getElementById('baR');
+baR.addEventListener('input',()=>ba.style.setProperty('--x',baR.value+'%'));
+document.querySelectorAll('.ba-tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.ba-tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  const [bf,af]=BA[b.dataset.b];document.getElementById('baB').src=IMGDIR+bf;document.getElementById('baA').src=IMGDIR+af;
+  baR.value=50;ba.style.setProperty('--x','50%')}));
+
+// ---------- skin scan (runs fully in the browser; the photo never leaves the device) ----------
+const SAMPLE=IMGDIR+'scan-sample.jpg';
+const sc=document.getElementById('sc'),cx=sc.getContext('2d',{willReadFrequently:true}),vid=document.getElementById('vid'),stage=document.getElementById('stage');
+const hudt=document.getElementById('hudt'),snap=document.getElementById('snap'),zonesG=document.getElementById('zones');
+const ZONES=[['Forehead',300,250],['Left cheek',212,445],['Right cheek',388,445],['Nose',300,410],['Chin',300,565]];
+const ANS={type:'normal',main:'auto',sens:'no'};
+let stream=null,busy=false;
+document.querySelectorAll('.opts').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));ANS[g.dataset.q]=b.dataset.v}));
+function drawCover(src,mirror){const w=src.videoWidth||src.naturalWidth,h=src.videoHeight||src.naturalHeight,W=600,H=800,k=Math.max(W/w,H/h),dw=w*k,dh=h*k;
+  cx.save();if(mirror){cx.translate(W,0);cx.scale(-1,1)}cx.drawImage(src,(W-dw)/2,(H-dh)/2,dw,dh);cx.restore()}
+function placeholder(){cx.fillStyle='#2B201A';cx.fillRect(0,0,600,800);const g=cx.createRadialGradient(300,380,40,300,380,320);g.addColorStop(0,'rgba(233,211,174,.18)');g.addColorStop(1,'rgba(233,211,174,0)');cx.fillStyle=g;cx.fillRect(0,0,600,800)}
+function loadImg(url){return new Promise((ok,no)=>{const i=new Image();i.onload=()=>ok(i);i.onerror=no;i.src=url})}
+function stopCam(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}vid.hidden=true;snap.hidden=true}
+function zoneMarks(n){zonesG.innerHTML=ZONES.slice(0,n).map(z=>`<circle class="zone on" cx="${z[1]}" cy="${z[2]}" r="34"/><circle class="zdot on" cx="${z[1]}" cy="${z[2]}" r="4"/><text class="zlab on" x="${z[1]}" y="${z[2]-44}" text-anchor="middle">${z[0]}</text>`).join('')}
+function measure(){
+  const d=cx.getImageData(0,0,600,800).data,r=30,out=[];
+  for(const z of ZONES){let n=0,red=0,L=[],tex=0;
+    for(let y=z[2]-r;y<z[2]+r;y+=2)for(let x=z[1]-r;x<z[1]+r;x+=2){const i=(y*600+x)*4,R=d[i],G=d[i+1],B=d[i+2],l=.299*R+.587*G+.114*B;
+      red+=(R-G)/(R+G+B+1);L.push(l);n++;const j=i+8;tex+=Math.abs(l-(.299*d[j]+.587*d[j+1]+.114*d[j+2]))}
+    const m=L.reduce((a,b)=>a+b,0)/n,sd=Math.sqrt(L.reduce((a,b)=>a+(b-m)*(b-m),0)/n);out.push({red:red/n,lum:m,sd,tex:tex/n})}
+  const cheeks=[out[1],out[2],out[4]],f=out[0];
+  const redRel=cheeks.reduce((a,z)=>a+z.red,0)/3-f.red*.6;
+  const clamp=v=>Math.max(8,Math.min(96,Math.round(v)));
+  return {
+    calm:clamp(100-(redRel-.03)*900),
+    even:clamp(100-(cheeks.reduce((a,z)=>a+z.sd,0)/3-6)*2.8),
+    smooth:clamp(100-(out.reduce((a,z)=>a+z.tex,0)/5-2.4)*14),
+    glow:clamp((out.reduce((a,z)=>a+z.lum,0)/5-95)*.9)};
+}
+const LABEL={calm:'Calmness',even:'Even tone',smooth:'Smoothness',glow:'Radiance'};
+const FOCUS={calm:'acne',even:'spots',smooth:'scars',glow:'glow'};
+const TITLE={acne:'Focus: calm and clear',spots:'Focus: even out the tone',scars:'Focus: smoother texture',glow:'Focus: bring back the glow',lines:'Focus: soften fine lines'};
+function report(m){
+  const keys=Object.keys(LABEL);let focus=ANS.main!=='auto'?ANS.main:m?FOCUS[keys.reduce((a,b)=>m[a]<m[b]?a:b)]:(ANS.type==='oily'?'acne':ANS.type==='dry'?'glow':'glow');
+  document.getElementById('meters').hidden=!m;if(!m)m={calm:0,even:0,smooth:0,glow:0};
+  const word=v=>v>=75?'Good':v>=55?'Fair':'Needs care';
+  document.getElementById('meters').innerHTML=keys.map(k=>`<div class="meter"><span>${LABEL[k]}</span><div class="tr"><i data-w="${m[k]}"></i></div><em>${word(m[k])}</em></div>`).join('');
+  requestAnimationFrame(()=>document.querySelectorAll('#meters i').forEach(i=>i.style.width=i.dataset.w+'%'));
+  const x=P[focus];document.getElementById('rpT').textContent=TITLE[focus];
+  let d=`We'd start with ${x.t}: ${x.d}`;if(ANS.sens==='yes')d+=' Because your skin is sensitive, your doctor will begin with a patch test and gentler settings.';
+  if(ANS.type==='oily'&&focus!=='acne')d+=' For oily skin we add a light clarifying step to every facial.';
+  if(ANS.type==='dry')d+=' For dry skin we add a hydrating booster mask at no extra cost.';
+  document.getElementById('rpD').textContent=d;
+  document.getElementById('rpPlan').onclick=()=>{const b=document.querySelector(`#concerns button[data-k="${focus}"]`);if(b)b.click()};
+  document.getElementById('rpBook').onclick=()=>{document.getElementById('bt').value=x.tr;
+    document.getElementById('bnote').value=`From my skin check: ${TITLE[focus].replace('Focus: ','')}. `+(document.getElementById('meters').hidden?'':keys.map(k=>`${LABEL[k]} ${word(m[k]).toLowerCase()}`).join(', ')+'.')+(ANS.sens==='yes'?' Sensitive skin.':'')};
+  const r=document.getElementById('report');r.hidden=false;
+}
+async function analyse(){
+  if(busy)return;busy=true;document.getElementById('report').hidden=true;stage.classList.add('scanning');zonesG.innerHTML='';
+  const steps=['Finding your face…','Mapping 5 skin zones…','Checking redness and tone…','Measuring texture…'];
+  for(let i=0;i<steps.length;i++){hudt.textContent=steps[i];zoneMarks(Math.min(ZONES.length,Math.round((i+1)*ZONES.length/steps.length)));await new Promise(r=>setTimeout(r,matchMedia('(prefers-reduced-motion: reduce)').matches?150:750))}
+  stage.classList.remove('scanning');let m=null;try{m=measure()}catch(e){}
+  hudt.textContent=m?'Done. Here is your skin check.':'Photo checks need the live website. This result uses your answers.';report(m);busy=false;
+  if(innerWidth<1000)document.getElementById('report').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+async function useImage(url){stopCam();try{const i=await loadImg(url);placeholder();drawCover(i,false);analyse()}catch(e){hudt.textContent='That photo could not be opened. Try a JPG or PNG.'}}
+document.getElementById('sampleBtn').addEventListener('click',()=>useImage(SAMPLE));
+document.getElementById('upl').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const u=URL.createObjectURL(f);useImage(u);e.target.value=''});
+document.getElementById('camBtn').addEventListener('click',async()=>{
+  if(busy)return;document.getElementById('report').hidden=true;
+  try{stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1280}},audio:false});
+    vid.srcObject=stream;vid.hidden=false;await vid.play();snap.hidden=false;hudt.textContent='Face inside the oval, then tap the button.';
+  }catch(e){stopCam();hudt.textContent='The camera is not available here. Upload a photo or try the sample instead.'}});
+snap.addEventListener('click',()=>{placeholder();drawCover(vid,true);stopCam();analyse()});
+placeholder();loadImg(SAMPLE).then(i=>{drawCover(i,false);cx.fillStyle='rgba(43,32,26,.35)';cx.fillRect(0,0,600,800)}).catch(()=>{});
+
+// booking
+const bd=document.getElementById('bd');const t=new Date(Date.now()+86400000);bd.value=t.toISOString().slice(0,10);bd.min=new Date().toISOString().slice(0,10);
+document.getElementById('bform').addEventListener('submit',e=>{e.preventDefault();
+  const n=document.getElementById('bn').value.trim(),ph=document.getElementById('bp').value.trim(),err=document.getElementById('berr');
+  if(!n){err.textContent='Add your name so we know who is coming.';return}
+  if(ph.replace(/\D/g,'').length<9){err.textContent='Add a WhatsApp number so we can confirm your slot.';return}
+  err.textContent='';
+  const d=new Date(bd.value+'T00:00:00').toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'}),tr=document.getElementById('bt').value,h=document.getElementById('bh').value,note=document.getElementById('bnote').value.trim();
+  const msg=`Hello Lune, I'd like to book an appointment.\nName: ${n}\nWhatsApp: ${ph}\nTreatment: ${tr}\nDate: ${d}\nTime: ${h}`+(note?`\nNote: ${note}`:'');
+  document.getElementById('bsum').textContent=`${tr}, ${d} at ${h}`;
+  document.getElementById('bwa').href='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+  document.getElementById('bok').hidden=false;});
+</script>
+</body>
+</html>

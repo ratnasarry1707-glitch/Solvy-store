@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loud Hours — independent brand studio</title>
+<style>
+@font-face{font-family:"Boldonse";src:url(../../fonts/Boldonse-Regular.ttf)}
+@font-face{font-family:"Archivo";src:url(../../fonts/archivo-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Archivo";src:url(../../fonts/archivo-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Archivo";src:url(../../fonts/archivo-latin-800-normal.woff2);font-weight:800}
+:root{--butter:#FFE45C;--black:#000;--violet:#6B4EFF;--pink:#FF8FCB;--paper:#FFF8D6;--mint:#7FE3B5;
+--display:"Boldonse",Impact,sans-serif;--body:"Archivo",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--butter);color:var(--black);font-family:var(--body);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--violet);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 32px}
+.d{font-family:var(--display);font-weight:400;line-height:1.12;letter-spacing:-.01em}
+
+nav{display:flex;justify-content:space-between;align-items:center;height:92px}
+.mark{font-family:var(--display);font-size:20px;display:flex;align-items:center;gap:10px}
+.mark i{width:22px;height:22px;border-radius:50%;background:var(--black);position:relative;display:block}
+.mark i::after{content:"";position:absolute;left:5px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--butter);clip-path:inset(0 0 50% 0)}
+.navl{display:flex;gap:6px}
+.navl a{padding:10px 18px;border-radius:999px;font-weight:600;font-size:16px;border:2px solid transparent}
+.navl a:hover{border-color:var(--black)}
+.navl a.talk{background:var(--black);color:var(--butter)}
+
+/* hero */
+.hero{padding:70px 0 0;position:relative}
+.hero h1{font-size:clamp(40px,7.6vw,118px);max-width:12.5ch;line-height:1.2}
+.hero h1 .pill{display:inline-block;background:var(--violet);color:var(--butter);border-radius:999px;padding:0 .28em;transform:rotate(-3deg);line-height:1.25}
+.hero h1 .blob{display:inline-block;width:1.25em;height:.82em;border-radius:999px;background:var(--pink);vertical-align:-.02em;border:4px solid var(--black)}
+.hero-foot{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;margin-top:56px;padding-bottom:70px}
+.hero-foot p{font-size:22px;max-width:34ch;font-weight:600;line-height:1.4}
+.sticker{width:180px;height:180px;border-radius:50%;background:var(--black);color:var(--butter);display:grid;place-items:center;position:absolute;right:32px;top:40px;transform:rotate(12deg)}
+.sticker svg{width:180px;height:180px;position:absolute;inset:0;animation:spin 18s linear infinite}
+.sticker b{font-family:var(--display);font-size:13px;text-align:center;line-height:1.3}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn{display:inline-flex;align-items:center;gap:12px;height:60px;padding:0 30px;border-radius:999px;font-weight:800;font-size:17px;border:2.5px solid var(--black);background:var(--black);color:var(--butter);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.out{background:transparent;color:var(--black)}
+
+/* ticker */
+.ticker{background:var(--black);color:var(--butter);overflow:hidden;border-block:2.5px solid var(--black);transform:rotate(-1.5deg);margin:10px -20px 0}
+.ticker-in{display:flex;gap:44px;white-space:nowrap;padding:22px 0;animation:tick 30s linear infinite;width:max-content}
+.ticker span{font-family:var(--display);font-size:26px;display:flex;align-items:center;gap:44px}
+.ticker span::after{content:"";width:18px;height:18px;border-radius:50%;background:var(--pink)}
+.ticker span:nth-child(3n)::after{background:var(--violet)}
+.ticker span:nth-child(3n+1)::after{background:var(--mint)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* work */
+.work{padding:150px 0 120px}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:50px}
+.sh h2{font-size:clamp(34px,4.6vw,66px)}
+.sh p{max-width:30ch;font-weight:600}
+.rows{border-top:2.5px solid var(--black)}
+.row{display:grid;grid-template-columns:1.2fr .9fr .4fr 300px;gap:30px;align-items:center;padding:26px 0;border-bottom:2.5px solid var(--black)}
+.row h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,2.6vw,36px);line-height:1.15}
+.row .what{font-weight:600}
+.row .what small{display:block;font-weight:400;font-size:15px;margin-top:2px}
+.row .yr{font-weight:800;font-size:16px}
+.art{height:190px;border-radius:22px;border:2.5px solid var(--black);overflow:hidden;position:relative}
+.art img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* services */
+.services{background:var(--black);color:var(--paper);padding:130px 0;border-radius:48px 48px 0 0}
+.services .sh p{color:var(--paper)}
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{border-radius:30px;padding:34px;min-height:430px;display:flex;flex-direction:column;color:var(--black)}
+.card h3{font-family:var(--display);font-weight:400;font-size:26px;line-height:1.15}
+.card p{margin-top:18px;font-size:17px}
+.card ul{list-style:none;margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.card li{border:2px solid var(--black);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
+.card .from{margin-top:auto;padding-top:30px;display:flex;justify-content:space-between;align-items:end;font-weight:600}
+.card .from b{font-family:var(--display);font-weight:400;font-size:30px}
+
+/* process */
+.process{background:var(--black);color:var(--paper);padding:0 0 140px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid rgba(255,248,214,.25)}
+.st{padding:34px 28px 0 0;border-right:2px solid rgba(255,248,214,.25);margin-right:28px}
+.st:last-child{border-right:0;margin-right:0}
+.st .n{font-family:var(--display);font-size:46px;color:var(--butter)}
+.st h4{font-size:22px;font-weight:800;margin:14px 0 8px}
+.st p{font-size:16px;color:rgba(255,248,214,.75)}
+.st em{display:inline-block;margin-top:14px;font-style:normal;font-weight:600;font-size:14px;background:rgba(255,248,214,.12);border-radius:999px;padding:4px 12px}
+
+/* quote */
+.quote{padding:150px 0}
+.quote blockquote{font-family:var(--display);font-size:clamp(26px,3.3vw,48px);line-height:1.36;max-width:21ch}
+.quote blockquote::before{content:"\201C";display:block;font-size:2.4em;line-height:.6;color:var(--violet)}
+.who{display:flex;align-items:center;gap:16px;margin-top:40px;font-weight:600}
+.who i{width:58px;height:58px;border-radius:50%;background:var(--pink);border:2.5px solid var(--black);display:block}
+.who small{display:block;font-weight:400}
+.quote-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:60px;align-items:end}
+.nums{display:grid;gap:18px}
+.num{border:2.5px solid var(--black);border-radius:26px;padding:24px 28px;background:var(--paper)}
+.num b{font-family:var(--display);font-weight:400;font-size:44px;display:block;line-height:1.3}
+
+/* contact */
+.contact{background:var(--violet);color:var(--butter);padding:140px 0 60px;border-radius:48px 48px 0 0}
+.contact h2{font-size:clamp(34px,6.4vw,100px);line-height:1.4}
+.contact .row2{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px;align-items:end}
+.mail{font-family:var(--display);font-size:clamp(20px,2.6vw,36px);border-bottom:4px solid var(--butter);padding-bottom:6px;display:inline-block}
+.contact p{font-size:20px;max-width:32ch;font-weight:600}
+.contact .btn{background:var(--butter);color:var(--black);border-color:var(--butter)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:120px;padding-top:28px;border-top:2px solid rgba(255,228,92,.35);font-weight:600;font-size:16px}
+.foot nav{height:auto;gap:24px;justify-content:flex-start}
+
+@media (max-width:1000px){
+  .row{grid-template-columns:1fr 1fr;gap:14px 20px}
+  .row .art{grid-column:1/-1;height:180px}
+  .svc{grid-template-columns:1fr}
+  .card{min-height:0}
+  .steps{grid-template-columns:1fr 1fr;gap:30px 0}
+  .st:nth-child(2){border-right:0;margin-right:0}
+  .quote-grid,.contact .row2{grid-template-columns:1fr}
+  .sticker{display:none}
+}
+@media (max-width:620px){
+  .hero h1{line-height:1.32}
+  .wrap{padding-inline:20px}
+  .navl a:not(.talk){display:none}
+  .hero-foot{grid-template-columns:1fr}
+  .sh{flex-direction:column;align-items:flex-start}
+  .steps{grid-template-columns:1fr}
+  .st{border-right:0;margin-right:0;padding-right:0}
+  .row{grid-template-columns:1fr}
+  .services,.contact{border-radius:30px 30px 0 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Loud Hours</span><a href="../../index.html#buy=loudhours" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0);var b=document.getElementById('svDemo');if(b&&b.scrollIntoView)b.scrollIntoView({block:'start'})}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+
+<div class="wrap">
+  <nav>
+    <a class="mark" href="#"><i></i>Loud Hours</a>
+    <div class="navl"><a href="#work">Work</a><a href="#services">Services</a><a href="#about">Studio</a><a class="talk" href="#contact">Start a project</a></div>
+  </nav>
+
+  <header class="hero">
+    <div class="sticker" aria-hidden="true">
+      <svg viewBox="0 0 180 180"><defs><path id="c" d="M90,90 m-66,0 a66,66 0 1,1 132,0 a66,66 0 1,1 -132,0"/></defs><text font-family="Archivo" font-weight="800" font-size="14.5" letter-spacing="3" fill="#FFE45C"><textPath href="#c">BOOKING NEW PROJECTS • BOOKING NEW PROJECTS •</textPath></text></svg>
+      <b>Q3<br>open</b>
+    </div>
+    <h1 class="d">We make brands <span class="pill">too loud</span> to scroll <span class="blob" aria-hidden="true"></span> past.</h1>
+    <div class="hero-foot">
+      <p>An independent studio for identity, websites and campaigns. Eleven people, one very loud room in Rotterdam.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="#work">See our work</a><a class="btn out" href="#contact">Say hello</a></div>
+    </div>
+  </header>
+</div>
+
+<div style="overflow:hidden;padding:20px 0"><div class="ticker" aria-hidden="true"><div class="ticker-in">
+  <span>Brand identity</span><span>Websites</span><span>Motion</span><span>Packaging</span><span>Campaigns</span><span>Naming</span>
+  <span>Brand identity</span><span>Websites</span><span>Motion</span><span>Packaging</span><span>Campaigns</span><span>Naming</span>
+</div></div></div>
+
+<section class="work" id="work"><div class="wrap">
+  <div class="sh"><h2 class="d">Selected work</h2><p>Forty-two launches since 2019. Here are the ones we still talk about at lunch.</p></div>
+  <div class="rows">
+    <a class="row" href="#"><h3>Fizzbang Soda</h3><div class="what">Rebrand and packaging<small>Beverage, Amsterdam</small></div><div class="yr">2026</div>
+      <div class="art"><img src="../../img/loudhours/soda.jpg" alt="Fizzbang soda cans in pink, black and violet"></div></a>
+    <a class="row" href="#"><h3>Moto Mori</h3><div class="what">Identity and website<small>E-bikes, Tokyo</small></div><div class="yr">2025</div>
+      <div class="art"><img src="../../img/loudhours/bike.jpg" alt="Moto Mori e-bike in black with mint wheels"></div></a>
+    <a class="row" href="#"><h3>Common Ground</h3><div class="what">Campaign and motion<small>Climate nonprofit, Berlin</small></div><div class="yr">2025</div>
+      <div class="art"><img src="../../img/loudhours/poster.jpg" alt="Common Ground campaign poster on a city wall"></div></a>
+    <a class="row" href="#"><h3>Nightjar Radio</h3><div class="what">Naming and identity<small>Podcast network, London</small></div><div class="yr">2024</div>
+      <div class="art"><img src="../../img/loudhours/podcast.jpg" alt="Nightjar Radio studio microphone in neon light"></div></a>
+  </div>
+</div></section>
+
+<section class="services" id="services"><div class="wrap">
+  <div class="sh"><h2 class="d">What we do</h2><p>Hire us for one piece or the whole thing. Every project gets a senior team from day one.</p></div>
+  <div class="svc">
+    <div class="card" style="background:var(--butter)"><h3>Brand identity</h3><p>Strategy, naming, logo, type and colour systems that hold up from favicon to billboard.</p><ul><li>Strategy</li><li>Naming</li><li>Logo</li><li>Guidelines</li></ul><div class="from"><span>Projects from</span><b>$18k</b></div></div>
+    <div class="card" style="background:var(--pink)"><h3>Websites</h3><p>Design and build on Webflow or Framer, with motion that makes people stay a little longer.</p><ul><li>UX</li><li>Webflow</li><li>Framer</li><li>Motion</li></ul><div class="from"><span>Projects from</span><b>$12k</b></div></div>
+    <div class="card" style="background:var(--mint)"><h3>Campaigns</h3><p>Launch concepts, social content and out-of-home that people screenshot and send to friends.</p><ul><li>Concept</li><li>Social</li><li>OOH</li><li>Video</li></ul><div class="from"><span>Projects from</span><b>$9k</b></div></div>
+  </div>
+</div></section>
+
+<section class="process" id="about"><div class="wrap">
+  <div class="sh" style="padding-top:110px"><h2 class="d">How a project runs</h2><p style="color:var(--paper)">Most projects take six to ten weeks. You'll know what's happening every Friday.</p></div>
+  <div class="steps">
+    <div class="st"><div class="n">1</div><h4>Listen</h4><p>Workshops with your team and customers to find the thing only you can say.</p><em>Week 1–2</em></div>
+    <div class="st"><div class="n">2</div><h4>Make</h4><p>Three bold routes, then one we push until it feels inevitable.</p><em>Week 3–5</em></div>
+    <div class="st"><div class="n">3</div><h4>Build</h4><p>Guidelines, website and launch assets, ready for your team to use.</p><em>Week 6–8</em></div>
+    <div class="st"><div class="n">4</div><h4>Launch</h4><p>We stay on for launch week and the month after to tune what's live.</p><em>Week 9+</em></div>
+  </div>
+</div></section>
+
+<section class="quote"><div class="wrap quote-grid">
+  <div>
+    <blockquote>They gave us a brand our customers actually wear on T-shirts. Sales doubled in the first season.</blockquote>
+    <div class="who"><i></i><div>Sanne de Wit<small>Founder, Fizzbang Soda</small></div></div>
+  </div>
+  <div class="nums">
+    <div class="num"><b>42</b>brands launched since 2019</div>
+    <div class="num" style="background:var(--pink)"><b>9</b>design awards, zero ego</div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <h2 class="d">Got something to say? Let's make it loud.</h2>
+  <div class="row2">
+    <div><a class="mail" href="mailto:hello@loudhours.studio">hello@loudhours.studio</a></div>
+    <div><p>Tell us about your project and budget. We reply within two working days.</p><a class="btn" href="#" style="margin-top:22px">Start a project</a></div>
+  </div>
+  <div class="foot"><span>© 2026 Loud Hours Studio</span><nav><a href="#">Instagram</a><a href="#">LinkedIn</a><a href="#">Dribbble</a></nav><span>Rotterdam, NL</span></div>
+</div></section>
+</body>
+</html>

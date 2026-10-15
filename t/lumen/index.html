@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen — meeting notes that write themselves</title>
+<style>
+@font-face{font-family:"Bricolage";src:url(../../fonts/BricolageGrotesque-Regular.ttf);font-weight:400}
+@font-face{font-family:"Bricolage";src:url(../../fonts/BricolageGrotesque-Bold.ttf);font-weight:700}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"Figtree";src:url(../../fonts/figtree-latin-700-normal.woff2);font-weight:700}
+:root{
+  --cobalt:#2438E8; --cobalt-deep:#1A29B8; --night:#0B1240; --mist:#EEF0FB; --marker:#F2EC6B; --white:#fff;
+  --ink-2:#4A5180; --line:#D9DDF3;
+  --display:"Bricolage",system-ui,sans-serif; --body:"Figtree",system-ui,sans-serif;
+  --r-lg:28px; --r-md:16px; --r-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}html,body{overflow-x:clip}
+body{font-family:var(--body);color:var(--night);background:var(--white);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--marker);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 26px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-marker{background:var(--marker);color:var(--night)}
+.btn-line{border:1.5px solid rgba(255,255,255,.45);color:#fff}
+.btn-night{background:var(--night);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{background:var(--cobalt);color:#fff;position:relative;overflow:hidden;padding-bottom:120px}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:100% 34px;pointer-events:none}
+nav{display:flex;align-items:center;justify-content:space-between;height:88px;position:relative}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.02em}
+.brand svg{width:30px;height:30px}
+.navlinks{display:flex;gap:34px;font-weight:500;font-size:15px;opacity:.9}
+.navcta{display:flex;gap:10px;align-items:center}
+.navcta .btn{height:44px;padding:0 20px;font-size:15px}
+.signin{font-weight:500;font-size:15px;padding:0 12px}
+
+.hero-grid{display:grid;grid-template-columns:1.12fr 1fr;gap:56px;align-items:center;padding-top:56px;position:relative}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(44px,5.4vw,78px);line-height:.98;letter-spacing:-.04em}
+.hero h1 mark{background:linear-gradient(transparent 58%,var(--marker) 58%);color:inherit;padding:0 .04em}
+.hero p.lede{font-size:20px;line-height:1.55;max-width:30ch;margin-top:26px;color:rgba(255,255,255,.86)}
+.hero .ctas{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.trust{margin-top:34px;display:flex;align-items:center;gap:14px;font-size:14px;color:rgba(255,255,255,.75)}
+.faces{display:flex}
+.faces i{width:30px;height:30px;border-radius:50%;border:2px solid var(--cobalt);margin-left:-8px;display:block}
+.faces i:first-child{margin-left:0}
+
+/* app window */
+.app{background:#fff;color:var(--night);border-radius:var(--r-lg);box-shadow:0 50px 90px -30px rgba(5,10,60,.6),0 0 0 1px rgba(255,255,255,.2);overflow:hidden;transform:rotate(1.2deg)}
+.app-top{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line)}
+.app-top b{font-family:var(--display);font-size:16px}
+.rec{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#D6283A}
+.rec i{width:9px;height:9px;border-radius:50%;background:#D6283A;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.app-body{display:grid;grid-template-columns:1.25fr 1fr}
+.transcript{padding:22px;border-right:1px solid var(--line);display:grid;gap:16px;font-size:14px;line-height:1.5}
+.line{display:grid;grid-template-columns:30px 1fr;gap:10px;opacity:0;animation:in .5s forwards}
+.line:nth-child(1){animation-delay:.3s}.line:nth-child(2){animation-delay:1.1s}.line:nth-child(3){animation-delay:1.9s}.line:nth-child(4){animation-delay:2.7s}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+.who{font-weight:700;font-size:13px}
+.who span{color:var(--ink-2);font-weight:400;margin-left:6px}
+.hl{background:linear-gradient(var(--marker),var(--marker)) no-repeat 0 85%/0% 40%;animation:paint .7s forwards}
+.line:nth-child(2) .hl{animation-delay:1.7s}.line:nth-child(4) .hl{animation-delay:3.3s}
+@keyframes paint{to{background-size:100% 40%}}
+.summary{padding:22px;background:var(--mist);display:flex;flex-direction:column;gap:14px}
+.summary h4{font-family:var(--display);font-size:15px}
+.summary ul{list-style:none;display:grid;gap:10px;font-size:13.5px;line-height:1.45}
+.summary li{display:grid;grid-template-columns:18px 1fr;gap:8px}
+.box{width:16px;height:16px;border:1.5px solid var(--cobalt);border-radius:5px;margin-top:2px}
+.box.done{background:var(--cobalt);position:relative}
+.box.done::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.owner{display:inline-block;font-size:11.5px;font-weight:700;color:var(--cobalt);background:#fff;border-radius:6px;padding:1px 7px;margin-left:4px}
+.sent{margin-top:auto;font-size:12.5px;color:var(--ink-2);display:flex;align-items:center;gap:8px}
+.sent svg{width:16px;height:16px}
+
+/* ---------- logos ---------- */
+.logos{padding:56px 0;border-bottom:1px solid var(--line)}
+.logos p{text-align:center;color:var(--ink-2);font-size:15px}
+.logo-row{display:flex;justify-content:space-between;align-items:center;margin-top:26px;flex-wrap:wrap;gap:24px 40px;color:#8E93B8}
+.logo-row span{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.03em}
+
+/* ---------- sections ---------- */
+.sec{padding:130px 0}
+.sec-head{max-width:640px}
+.sec h2,.feature h2{font-family:var(--display);font-weight:700;font-size:clamp(36px,4.4vw,58px);line-height:1.02;letter-spacing:-.035em}
+.sec-head p{font-size:19px;color:var(--ink-2);margin-top:18px;max-width:52ch}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:64px;counter-reset:s}
+.step{border-top:2px solid var(--night);padding-top:24px;counter-increment:s}
+.step::before{content:counter(s);font-family:var(--display);font-weight:700;font-size:15px;width:34px;height:34px;border-radius:50%;background:var(--marker);display:grid;place-items:center}
+.step h3{font-family:var(--display);font-size:24px;letter-spacing:-.02em;margin:22px 0 10px}
+.step p{color:var(--ink-2)}
+
+/* search feature */
+.feature{background:var(--night);color:#fff;border-radius:40px;margin:0 20px;padding:110px 0;overflow:hidden}
+.feature-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center}
+.feature .sec-head p{color:rgba(255,255,255,.72)}
+.feature ul{list-style:none;margin-top:34px;display:grid;gap:14px}
+.feature li{display:flex;gap:12px;font-size:17px;color:rgba(255,255,255,.88)}
+.feature li::before{content:"";width:10px;height:10px;margin-top:9px;background:var(--marker);border-radius:3px;flex:none}
+.search{background:#fff;color:var(--night);border-radius:var(--r-lg);padding:22px}
+.sbar{display:flex;align-items:center;gap:12px;border:2px solid var(--cobalt);border-radius:14px;padding:14px 16px;font-size:16px;font-weight:500}
+.sbar svg{width:20px;height:20px;flex:none}
+.caret{width:2px;height:20px;background:var(--cobalt);animation:pulse 1s infinite}
+.answer{margin-top:18px;background:var(--mist);border-radius:var(--r-md);padding:18px;font-size:15px;line-height:1.55}
+.answer b{font-family:var(--display)}
+.cites{display:grid;gap:10px;margin-top:16px}
+.cite{display:grid;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px}
+.cite .d{font-family:var(--display);font-weight:700;text-align:center;line-height:1.05;font-size:18px}
+.cite .d small{display:block;font-family:var(--body);font-weight:500;font-size:11px;color:var(--ink-2)}
+.cite em{font-style:normal;color:var(--ink-2);font-size:13px}
+
+/* integrations */
+.integr{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:56px}
+.tile{aspect-ratio:1;border-radius:22px;border:1px solid var(--line);display:grid;place-items:center;align-content:center;gap:10px;font-weight:500;font-size:14px}
+.tile i{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:700;color:#fff;font-size:19px}
+
+/* pricing */
+.pricing{background:var(--mist)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px;align-items:stretch}
+.plan{background:#fff;border-radius:var(--r-lg);padding:34px;display:flex;flex-direction:column;border:1px solid var(--line)}
+.plan.pro{background:var(--cobalt);color:#fff;border-color:var(--cobalt);transform:translateY(-14px);box-shadow:0 30px 60px -25px rgba(36,56,232,.6)}
+.plan h3{font-family:var(--display);font-size:22px}
+.plan .desc{font-size:15px;color:var(--ink-2);margin-top:6px}
+.plan.pro .desc{color:rgba(255,255,255,.8)}
+.amt{font-family:var(--display);font-weight:700;font-size:56px;letter-spacing:-.04em;margin:26px 0 4px;line-height:1}
+.amt small{font-family:var(--body);font-size:16px;font-weight:500;letter-spacing:0;opacity:.7}
+.plan ul{list-style:none;display:grid;gap:12px;margin:26px 0 32px;font-size:15.5px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--mist) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.5 2.5L13 6.5' stroke='%232438E8' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")}
+.plan .btn{margin-top:auto}
+.tag{align-self:flex-start;background:var(--marker);color:var(--night);font-size:13px;font-weight:700;border-radius:999px;padding:4px 12px;margin-bottom:16px}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:72px}
+details{border-bottom:1px solid var(--line);padding:24px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.015em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:28px;line-height:1;color:var(--cobalt);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--ink-2);margin-top:12px;max-width:60ch}
+
+/* cta */
+.cta{background:var(--cobalt);color:#fff;border-radius:40px;margin:0 20px;padding:110px 32px;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:100% 34px}
+.cta h2{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,80px);line-height:1;letter-spacing:-.04em;position:relative;max-width:14ch;margin:0 auto}
+.cta p{position:relative;margin-top:20px;font-size:19px;color:rgba(255,255,255,.85)}
+.cta .ctas{position:relative;display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+
+footer{padding:80px 0 50px}
+.foot{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:40px}
+.foot h5{font-size:14px;font-weight:700;margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:10px;font-size:15px;color:var(--ink-2)}
+.foot .brand{color:var(--night)}
+.foot .brand + p{color:var(--ink-2);margin-top:14px;max-width:30ch;font-size:15px}
+.legal{display:flex;justify-content:space-between;margin-top:64px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+
+@media (max-width:960px){
+  .navlinks{display:none}
+  .hero-grid,.feature-grid,.faq-grid{grid-template-columns:1fr;gap:48px}
+  .app{transform:none}
+  .steps,.plans{grid-template-columns:1fr}
+  .plan.pro{transform:none}
+  .integr{grid-template-columns:repeat(3,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+  .sec{padding:90px 0}
+}
+@media (max-width:560px){
+  .wrap{padding-inline:20px}
+  .signin{display:none}
+  .app-body{grid-template-columns:1fr}
+  .transcript{border-right:0;border-bottom:1px solid var(--line)}
+  .feature,.cta{margin:0 10px;border-radius:28px}
+  .legal{flex-direction:column;gap:8px}
+  .logo-row{justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0s!important;animation-delay:0s!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Lumen</span><a href="../../index.html#buy=lumen" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0);var b=document.getElementById('svDemo');if(b&&b.scrollIntoView)b.scrollIntoView({block:'start'})}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+
+<header class="hero">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#"><svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="9" fill="#F2EC6B"/><path d="M9 8v14h12" stroke="#0B1240" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="11" r="2.6" fill="#2438E8"/></svg>Lumen</a>
+      <div class="navlinks"><a href="#how">How it works</a><a href="#search">Search</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+      <div class="navcta"><a class="signin" href="#">Sign in</a><a class="btn btn-marker" href="#pricing">Try it free</a></div>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Every meeting, <mark>written up</mark> before you leave the room.</h1>
+        <p class="lede">Lumen listens to your calls, writes the summary, and sends each person their action items. You just talk.</p>
+        <div class="ctas"><a class="btn btn-marker" href="#pricing">Start free for 14 days</a><a class="btn btn-line" href="#how">See how it works</a></div>
+        <div class="trust"><div class="faces"><i style="background:#F2B8A0"></i><i style="background:#9EC5F8"></i><i style="background:#F2EC6B"></i><i style="background:#B9A6F5"></i></div>Used by 18,000 teams to skip the note-taking</div>
+      </div>
+
+      <div class="app" role="img" aria-label="Lumen app showing a live transcript and auto-generated action items">
+        <div class="app-top"><b>Weekly product sync</b><span class="rec"><i></i>Recording 24:18</span></div>
+        <div class="app-body">
+          <div class="transcript">
+            <div class="line"><div class="av" style="background:#E3735E">MA</div><div><div class="who">Maya<span>24:02</span></div>The beta feedback is clear. People want the export button on every page, not buried in settings.</div></div>
+            <div class="line"><div class="av" style="background:#2438E8">JK</div><div><div class="who">Jonas<span>24:09</span></div>Agreed. <span class="hl">I'll ship export on all pages by Friday.</span></div></div>
+            <div class="line"><div class="av" style="background:#7A5AF5">RT</div><div><div class="who">Rina<span>24:13</span></div>Then marketing can announce it the Monday after.</div></div>
+            <div class="line"><div class="av" style="background:#E3735E">MA</div><div><div class="who">Maya<span>24:16</span></div><span class="hl">Rina, can you draft the launch email?</span> I'll review Thursday.</div></div>
+          </div>
+          <div class="summary">
+            <h4>Action items</h4>
+            <ul>
+              <li><span class="box done"></span><span>Move export into the page header <span class="owner">Jonas</span></span></li>
+              <li><span class="box"></span><span>Draft the export launch email <span class="owner">Rina</span></span></li>
+              <li><span class="box"></span><span>Review email before Thursday <span class="owner">Maya</span></span></li>
+            </ul>
+            <h4 style="margin-top:6px">Decided</h4>
+            <ul><li><span style="width:6px;height:6px;border-radius:50%;background:#2438E8;margin:8px 0 0 5px"></span><span>Export ships Friday, announced Monday</span></li></ul>
+            <div class="sent"><svg viewBox="0 0 16 16"><path d="M2 8l12-5-5 12-2-5z" fill="#2438E8"/></svg>Sent to 3 people when the call ends</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="logos"><div class="wrap">
+  <p>Teams at fast-moving companies run their meetings on Lumen</p>
+  <div class="logo-row"><span>northpeak</span><span>Halcyon</span><span>orbitra</span><span>Fernway</span><span>Kestrel&amp;Co</span><span>tidal.</span></div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <div class="sec-head"><h2>From conversation to clear next steps in three moves</h2><p>No bots to invite, no templates to fill. Lumen works quietly in the background of the tools you already use.</p></div>
+  <div class="steps">
+    <div class="step"><h3>Connect your calendar</h3><p>Lumen joins the meetings you choose on Zoom, Meet or Teams. One click, no setup.</p></div>
+    <div class="step"><h3>Talk like normal</h3><p>It transcribes in 30 languages and recognises who said what, even with crosstalk.</p></div>
+    <div class="step"><h3>Get the write-up</h3><p>Summary, decisions and owners land in Slack, email or Notion seconds after you hang up.</p></div>
+  </div>
+</div></section>
+
+<section class="feature" id="search"><div class="wrap feature-grid">
+  <div class="sec-head">
+    <h2>Ask anything your team has ever said</h2>
+    <p>Every meeting becomes searchable memory. Ask a question in plain words and get an answer with the exact moment it was discussed.</p>
+    <ul><li>Answers link back to the second it was said</li><li>Private meetings stay private to attendees</li><li>Works across months of calls at once</li></ul>
+  </div>
+  <div class="search">
+    <div class="sbar"><svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6" stroke="#2438E8" stroke-width="2.2" fill="none"/><path d="M13 13l5 5" stroke="#2438E8" stroke-width="2.2" stroke-linecap="round"/></svg>Why did we push the pricing launch?<span class="caret"></span></div>
+    <div class="answer"><b>Short answer:</b> the team delayed it two weeks so the new checkout could be tested with 50 beta customers first. Finance also asked for annual plans to be included at launch.</div>
+    <div class="cites">
+      <div class="cite"><div class="d">12<small>Mar</small></div><div><b>Pricing review</b><br><em>"Let's not launch without the checkout test"</em></div><span class="owner" style="background:#EEF0FB">31:40</span></div>
+      <div class="cite"><div class="d">19<small>Mar</small></div><div><b>Finance sync</b><br><em>"Annual plans need to be there day one"</em></div><span class="owner" style="background:#EEF0FB">08:12</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-head"><h2>Fits into the tools you already open every day</h2><p>Notes go where your team works. Nobody needs another tab.</p></div>
+  <div class="integr">
+    <div class="tile"><i style="background:#2D8CFF">Z</i>Zoom</div>
+    <div class="tile"><i style="background:#00AC47">M</i>Meet</div>
+    <div class="tile"><i style="background:#5B5FC7">T</i>Teams</div>
+    <div class="tile"><i style="background:#E01E5A">S</i>Slack</div>
+    <div class="tile"><i style="background:#0B1240">N</i>Notion</div>
+    <div class="tile"><i style="background:#F2EC6B;color:#0B1240">31</i>Calendar</div>
+  </div>
+</div></section>
+
+<section class="sec pricing" id="pricing"><div class="wrap">
+  <div class="sec-head"><h2>Simple pricing that grows with your team</h2><p>Every plan starts with a 14-day free trial. No card needed.</p></div>
+  <div class="plans">
+    <div class="plan"><h3>Starter</h3><p class="desc">For trying Lumen on your own calls</p><div class="amt">$0<small> /month</small></div>
+      <ul><li>10 meetings a month</li><li>Summaries and action items</li><li>7-day transcript history</li></ul><a class="btn btn-night" href="#">Start for free</a></div>
+    <div class="plan pro"><span class="tag">Most teams pick this</span><h3>Team</h3><p class="desc">For teams who meet every day</p><div class="amt">$14<small> /seat /month</small></div>
+      <ul><li>Unlimited meetings</li><li>Ask-anything search</li><li>Slack, Notion and email delivery</li><li>Unlimited history</li></ul><a class="btn btn-marker" href="#">Start 14-day trial</a></div>
+    <div class="plan"><h3>Business</h3><p class="desc">For companies with security reviews</p><div class="amt">$29<small> /seat /month</small></div>
+      <ul><li>Everything in Team</li><li>SSO and audit log</li><li>Custom data retention</li><li>Dedicated success manager</li></ul><a class="btn btn-night" href="#">Talk to sales</a></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap faq-grid">
+  <div class="sec-head"><h2>Questions, answered</h2><p>Still curious? Our team replies within a few hours.</p></div>
+  <div>
+    <details open><summary>Do I need to invite a bot to my calls?</summary><p>No. Lumen connects to your calendar and records through the meeting platform's own API, so nobody sees an extra participant.</p></details>
+    <details><summary>Which languages does Lumen understand?</summary><p>Thirty languages, including English, Bahasa Indonesia, Spanish, Japanese and German. It can also handle calls that switch between languages.</p></details>
+    <details><summary>Who can see my meeting notes?</summary><p>Only the people who attended, unless you choose to share. Admins can set workspace-wide rules on the Business plan.</p></details>
+    <details><summary>Can I cancel anytime?</summary><p>Yes. Cancel from settings in two clicks and keep access until the end of your billing period.</p></details>
+  </div>
+</div></section>
+
+<section class="cta">
+  <h2>Stop taking notes. Start finishing meetings.</h2>
+  <p>Set up in two minutes. Your next call writes itself up.</p>
+  <div class="ctas"><a class="btn btn-marker" href="#pricing">Start free for 14 days</a><a class="btn btn-line" href="#">Book a demo</a></div>
+</section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><a class="brand" href="#"><svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="9" fill="#2438E8"/><path d="M9 8v14h12" stroke="#fff" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="11" r="2.6" fill="#F2EC6B"/></svg>Lumen</a><p>Meeting notes that write themselves, so your team can get back to the work.</p></div>
+    <div><h5>Product</h5><ul><li>How it works</li><li>Search</li><li>Integrations</li><li>Pricing</li></ul></div>
+    <div><h5>Company</h5><ul><li>About</li><li>Careers</li><li>Blog</li><li>Press</li></ul></div>
+    <div><h5>Support</h5><ul><li>Help center</li><li>Security</li><li>Status</li><li>Contact</li></ul></div>
+  </div>
+  <div class="legal"><span>© 2026 Lumen Labs</span><span>Privacy  ·  Terms</span></div>
+</div></footer>
+</body>
+</html>

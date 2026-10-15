@@ -1,0 +1,1140 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Solvy — Website Templates &amp; AI Prompts</title>
+<meta name="description" content="Premium website templates, AI prompt packs and brand kits for small businesses and freelancers. Instant download, Indonesian and English guides.">
+<meta property="og:title" content="Solvy — Website Templates & AI Prompts">
+<meta property="og:description" content="Beautiful websites for your brand: ready-made templates, a step-by-step AI prompt system, or a custom website made just for you. By Ratna.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#1C1315">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236E2E3A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-style='italic' text-anchor='middle' fill='%23F6F0E7'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"IS";src:url(fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:"IS";src:url(fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+@font-face{font-family:"HG";src:url(fonts/hanken-grotesk-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"HG";src:url(fonts/hanken-grotesk-latin-500-normal.woff2);font-weight:500}
+@font-face{font-family:"HG";src:url(fonts/hanken-grotesk-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"HG";src:url(fonts/hanken-grotesk-latin-700-normal.woff2);font-weight:700}
+/* Layout: a light editorial shop (ivory paper, wine accents, serif display) with one dark cinematic band for the showreel. Products read like a curated catalogue: templates, kits, prompt packs. */
+:root{color-scheme:light;
+--ivory:#F6F0E7;--paper:#FBF7F1;--sand:#EDE3D4;--ink:#231E1B;--muted:#6E655C;--line:#DDCFBD;
+--wine:#6E2E3A;--wine-2:#8A3E4C;--blush:#EAD3D2;--gold:#B88A4E;
+--night:#15110F;--night-2:#211A17;--night-line:rgba(246,240,231,.14);
+--serif:"IS",Georgia,"Times New Roman",serif;--sans:"HG",system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+img,video{display:block;max-width:100%}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:32px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;text-wrap:balance}
+h2{font-size:clamp(40px,5.2vw,74px);line-height:.98}
+h2 em,h1 em{font-style:italic;color:var(--wine)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--wine)}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:currentColor}
+.lead{font-size:19px;color:var(--muted);max-width:42ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:15.5px;border:1.5px solid transparent;white-space:nowrap;transition:transform .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn.wine{background:var(--wine);color:#FBF3EC}
+.btn.wine:hover{background:var(--wine-2)}
+.btn.ghost{border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--ivory)}
+.btn.sm{height:42px;padding:0 18px;font-size:14px}
+.sec{padding-block:120px}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:50px}
+.head .lead{margin-top:16px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(246,240,231,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.logo{display:flex;align-items:baseline;gap:10px}
+.logo b{font-family:var(--serif);font-style:italic;font-weight:400;font-size:32px;letter-spacing:-.02em}
+.logo small{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nl{display:flex;gap:30px;font-size:15px;color:var(--muted)}
+.nl a:hover{color:var(--ink)}
+.bar .btn{height:44px;padding:0 20px;font-size:14.5px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.08fr;gap:50px;align-items:center;padding-block:70px 90px}
+.hero h1{font-size:clamp(52px,6.6vw,104px);line-height:.92;margin-top:22px}
+.hero h1 em{display:block}
+.hero .lead{margin-top:24px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.proof{display:flex;gap:26px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+.proof div{font-size:14px;color:var(--muted)}
+.proof b{display:block;font-family:var(--serif);font-weight:400;font-size:34px;line-height:1;color:var(--ink)}
+.vis{position:relative;aspect-ratio:1/0.86;min-width:0}
+.vis .glow{position:absolute;inset:8% 4% 0 10%;background:radial-gradient(ellipse at 55% 45%,rgba(184,138,78,.28),transparent 65%);filter:blur(10px)}
+.lap{position:absolute;left:6%;top:16%;width:80%}
+.lap .lid{background:#1E1A18;border-radius:16px 16px 5px 5px;padding:2.2% 2.2% 2.6%;box-shadow:0 50px 80px -40px rgba(35,30,27,.55)}
+.lap .lid img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-radius:4px}
+.lap .base{height:14px;background:linear-gradient(#2a2522,#151210);border-radius:0 0 20px 20px;width:108%;margin-left:-4%}
+.phn{position:absolute;right:6%;top:36%;width:21%;background:#1E1A18;border-radius:24px;padding:1.2%;box-shadow:0 40px 60px -26px rgba(35,30,27,.6)}
+.phn img{width:100%;aspect-ratio:9/19;object-fit:cover;object-position:top;border-radius:19px}
+.cv{position:absolute;width:24%;border-radius:6px;box-shadow:0 30px 50px -22px rgba(35,30,27,.55)}
+.cv.a{left:-2%;bottom:2%;transform:rotate(-8deg)}
+.cv.b{right:-3%;top:-1%;transform:rotate(7deg);width:21%}
+.note{position:absolute;right:30%;top:-2%;font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.1;color:var(--wine);transform:rotate(-5deg);text-align:right}
+.note svg{position:absolute;right:-56px;top:20px;width:54px;height:44px}
+.chip{position:absolute;left:30%;bottom:-2%;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:13.5px;font-weight:600;box-shadow:0 18px 30px -18px rgba(35,30,27,.45);display:flex;gap:8px;align-items:center}
+.chip i{width:8px;height:8px;border-radius:50%;background:#3E9B5F}
+
+/* paths */
+.paths{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.path{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:28px;display:flex;flex-direction:column;gap:12px;min-height:300px;transition:transform .3s,box-shadow .3s}
+.path:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(35,30,27,.35)}
+.path .n{font-family:var(--serif);font-style:italic;font-size:44px;line-height:1;color:var(--wine)}
+.path h3{font-size:32px;line-height:1.02}
+.path p{color:var(--muted);font-size:15.5px}
+.path .from{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.path .from b{color:var(--ink);font-size:17px}
+.path.best{background:var(--wine);color:#FBF3EC;border-color:var(--wine)}
+.path.best .n{color:#F2C9B8}.path.best p,.path.best .from{color:#E9CFC6}.path.best .from b{color:#fff}
+.path.best .from{border-color:rgba(255,255,255,.2)}
+.path .tag{position:absolute;top:-12px;right:22px;background:var(--gold);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px}
+
+/* showreel (dark band) */
+.night{background:var(--night);color:#F6F0E7;position:relative;overflow:hidden}
+.night::before{content:"";position:absolute;left:50%;top:-40%;width:1400px;height:900px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(138,62,76,.45),transparent 62%);pointer-events:none}
+.night .wrap{position:relative}
+.night h2 em{color:#E9B7A6}
+.night .lead{color:#B9AEA4}
+.night .eyebrow{color:#E9B7A6}
+.screen{position:relative;border-radius:26px;overflow:hidden;background:#0B0909;aspect-ratio:16/9;box-shadow:0 0 0 1px var(--night-line),0 60px 120px -40px rgba(0,0,0,.9)}
+.screen video{width:100%;height:100%;object-fit:cover}
+.now{display:flex;margin-top:22px;justify-content:space-between;align-items:flex-end;gap:20px}
+.now .t{font-size:13px;color:#8F857C}
+.now h3{font-size:clamp(28px,3.2vw,44px);line-height:1.05;margin-top:4px}
+.now .go{display:flex;gap:10px}
+.icon{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid var(--night-line);flex:none}
+.icon:hover{background:rgba(255,255,255,.14)}
+.icon svg{width:18px;height:18px}
+.chapters{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;row-gap:14px;margin-top:18px}
+.ch{position:relative;text-align:left;background:transparent;border:0;padding:12px 2px 0;color:#8F857C;font-size:13px;line-height:1.3;min-width:0}
+.ch b{display:block;color:#CFC5BB;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ch::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:3px;background:rgba(255,255,255,.12)}
+.ch i{position:absolute;left:0;top:0;height:3px;border-radius:3px;background:#E9B7A6;width:0}
+.ch.on b,.ch:hover b{color:#fff}
+
+/* templates */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--muted);font-size:14.5px}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--ivory);border-color:var(--ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px 26px}
+.card[hidden]{display:none}
+.shot{position:relative;display:block;aspect-ratio:16/10;border-radius:18px;overflow:hidden;background:var(--sand);box-shadow:0 0 0 1px var(--line),0 30px 50px -34px rgba(35,30,27,.5);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.shot img,.shot video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.shot video{opacity:0;transition:opacity .35s}
+.card.playing .shot video{opacity:1}
+.card:hover .shot{transform:translateY(-6px);box-shadow:0 0 0 1px var(--line),0 40px 70px -34px rgba(110,46,58,.45)}
+.badge{position:absolute;top:14px;left:14px;z-index:2;font-size:12px;font-weight:700;border-radius:999px;padding:5px 11px;background:rgba(251,247,241,.92);color:var(--ink)}
+.badge.hot{background:var(--wine);color:#fff}
+.live{position:absolute;right:14px;top:14px;z-index:2;display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:999px;padding:5px 10px;background:rgba(251,247,241,.92);opacity:0;transition:opacity .3s}
+.live i{width:6px;height:6px;border-radius:50%;background:#3E9B5F}
+.card.playing .live{opacity:1}
+.meta{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-top:18px}
+.meta h3{font-size:30px;line-height:1}
+.meta p{color:var(--muted);font-size:15px;margin-top:6px}
+.price{font-size:18px;font-weight:700;white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;line-height:1.25}
+.price s{font-size:13px;font-weight:400;color:var(--muted)}
+.swatches{display:flex;gap:5px;margin-top:10px}
+.swatches i{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.acts{display:flex;gap:10px;margin-top:16px}
+.acts .btn{height:44px;padding:0 16px;font-size:14px;flex:1}
+
+/* kits */
+.kits{background:var(--sand)}
+.kitrow{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.kit{display:flex;flex-direction:column;gap:12px}
+.kit .cvr{border-radius:10px;overflow:hidden;box-shadow:0 30px 50px -30px rgba(35,30,27,.55);transition:transform .35s}
+.kit:hover .cvr{transform:translateY(-6px) rotate(-1deg)}
+.kit h3{font-size:24px;line-height:1.05}
+.kit .pr{display:flex;align-items:baseline;gap:8px;font-weight:700}
+.kit .pr s{font-weight:400;font-size:13px;color:var(--muted)}
+.inc{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:16px;margin-top:60px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:26px;min-width:0}
+.box .k{font-family:var(--serif);font-style:italic;font-size:40px;line-height:1;color:var(--wine)}
+.box h3{font-size:28px;margin-top:8px}
+.box>p{color:var(--muted);font-size:15px;margin-top:6px}
+.code{margin-top:18px;background:#1E1A18;color:#EDE3D6;border-radius:18px;padding:20px;font:400 13.5px/1.65 ui-monospace,Menlo,Consolas,monospace;position:relative;overflow-x:auto}
+.code b{color:#F2C9B8;font-weight:400}
+.code .cp{position:absolute;right:12px;top:12px;font:600 12px var(--sans);background:rgba(255,255,255,.1);border:0;border-radius:999px;padding:6px 12px;color:#fff}
+.steps{list-style:none;display:grid;gap:8px;margin-top:18px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;background:var(--ivory);border-radius:14px;padding:10px 12px;counter-increment:s}
+.steps li::before{content:counter(s);width:34px;height:34px;border-radius:10px;background:var(--blush);color:var(--wine);display:grid;place-items:center;font-weight:700;font-size:14px}
+.steps b{display:block;font-size:14.5px}
+.steps span{font-size:13px;color:var(--muted)}
+.tools{list-style:none;display:grid;gap:8px;margin-top:18px}
+.tools li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:9px 0;font-size:14.5px}
+.tools li b{font-family:var(--serif);font-weight:400;font-size:21px}
+.tools li span{color:var(--muted);font-size:13.5px;text-align:right}
+.extras{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.extras span{background:var(--ivory);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:13.5px;font-weight:600}
+.fine{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* prompt library */
+.lib{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px}
+.pk{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pk .cvr{border-radius:10px;overflow:hidden;box-shadow:0 26px 44px -28px rgba(35,30,27,.55);transition:transform .35s}
+.pk:hover .cvr{transform:translateY(-6px)}
+.pk h3{font-size:25px;line-height:1.05}
+.pk p{font-size:14.5px;color:var(--muted)}
+.pk .row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.pk .row b{font-size:17px}
+.pk .row a{font-size:14px;font-weight:600;color:var(--wine)}
+.pk .row a:hover{text-decoration:underline}
+.lang{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--wine);background:var(--blush);border-radius:999px;padding:3px 9px;align-self:flex-start}
+
+/* how */
+.how{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.how li{padding:28px 26px 0 0;margin-right:26px;border-right:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.how li:last-child{border-right:0;margin-right:0}
+.how .n{font-family:var(--serif);font-style:italic;font-size:44px;line-height:1;color:var(--wine)}
+.how h3{font-size:28px}
+.how p{color:var(--muted);font-size:15.5px}
+.how a{font-size:14px;text-decoration:underline;text-underline-offset:3px;color:var(--muted)}
+
+/* story */
+.story{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.arch{border-radius:999px 999px 18px 18px;overflow:hidden;aspect-ratio:4/5;box-shadow:-18px 18px 0 var(--blush);max-width:400px}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.story blockquote{font-family:var(--serif);font-size:clamp(30px,3.4vw,46px);line-height:1.12;margin-top:22px}
+.story blockquote em{color:var(--wine)}
+.story p{color:var(--muted);margin-top:20px;max-width:52ch}
+.sign{font-family:var(--serif);font-style:italic;font-size:30px;color:var(--wine);margin-top:22px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+.trust div{border-top:1px solid var(--line);padding-top:12px;font-size:14.5px;color:var(--muted)}
+.trust b{display:block;color:var(--ink);font-weight:600}
+
+/* pass */
+.pass{border-radius:36px;padding:64px;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;background:var(--wine);color:#FBF3EC;position:relative;overflow:hidden}
+.pass::after{content:"";position:absolute;right:-160px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(242,201,184,.35),transparent 65%)}
+.pass h2 em{color:#F2C9B8}
+.pass ul{list-style:none;margin-top:28px;display:grid;gap:12px}
+.pass li{display:flex;gap:12px;align-items:center;color:#F3DDD5}
+.pass li::before{content:"✓";width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;background:rgba(255,255,255,.14);font-size:13px}
+.plans{display:grid;gap:14px;position:relative;z-index:1}
+.plan{border-radius:22px;padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+.plan.best{background:#FBF3EC;color:var(--ink)}
+.plan small{display:block;font-size:14px;opacity:.75}
+.plan b{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.05}
+.plan b span{font-family:var(--sans);font-size:14px;opacity:.7}
+.plan .btn{height:46px}
+.plan .btn.light{background:transparent;border-color:#FBF3EC;color:#FBF3EC}
+.plan.best .btn{background:var(--wine);color:#fff}
+.worth{font-size:14px;opacity:.8;text-align:center}
+
+/* free */
+.free{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fcard{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:14px}
+.fcard h3{font-size:36px;line-height:1.02}
+.fcard p{color:var(--muted)}
+.fcard form{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap}
+.fcard input{flex:1;min-width:0;height:52px;border-radius:999px;border:1.5px solid var(--line);background:var(--ivory);padding:0 20px;font-size:15px}
+.fcard .ok{font-size:14px;color:#2F7A4A;font-weight:600;min-height:1.4em}
+.fcard.am{background:#E4EBD3;border-color:#D1DBBE;flex-direction:row;gap:24px;align-items:center}
+.fcard.am img{width:42%;border-radius:16px;box-shadow:0 24px 40px -24px rgba(35,30,27,.5);flex:none}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:70px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--serif);font-size:26px;line-height:1.2}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);color:var(--wine);font-size:24px}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--muted);margin-top:10px;max-width:62ch}
+details a{color:var(--wine);text-decoration:underline}
+
+.final{text-align:center;padding-block:120px;background:var(--night);color:#F6F0E7;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;left:50%;bottom:-60%;width:1200px;height:800px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(138,62,76,.55),transparent 62%)}
+.final .wrap{position:relative}
+.final h2{font-size:clamp(46px,6.4vw,96px);max-width:14ch;margin:0 auto}
+.final h2 em{color:#E9B7A6}
+.final .ctas{display:flex;gap:12px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.final .btn.ghost{border-color:#F6F0E7;color:#F6F0E7}
+.final .btn.ghost:hover{background:#F6F0E7;color:var(--night)}
+footer{background:var(--night);color:#B9AEA4;border-top:1px solid var(--night-line);padding-block:40px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:15px}
+.foot .logo b{color:#F6F0E7}
+.foot nav{display:flex;gap:10px 24px;flex-wrap:wrap}
+.foot nav a:hover{color:#fff}
+
+@media (max-width:1100px){
+  .kitrow{grid-template-columns:repeat(3,1fr)}
+  .lib{grid-template-columns:repeat(3,1fr)}
+  .paths{grid-template-columns:1fr 1fr}
+}
+@media (max-width:1000px){
+  .nl{display:none}
+  .hero,.story,.pass,.faq{grid-template-columns:1fr;gap:40px}
+  .hero{padding-block:40px 70px}
+  .vis{max-width:640px;width:100%;margin-inline:auto}
+  .grid{grid-template-columns:1fr 1fr}
+  .inc{grid-template-columns:1fr}
+  .how{grid-template-columns:1fr 1fr}
+  .how li:nth-child(2){border-right:0;margin-right:0}
+  .how li:nth-child(-n+2){border-bottom:1px solid var(--line);padding-bottom:26px}
+  .chapters{grid-template-columns:repeat(3,1fr);row-gap:12px}
+  .ch span{display:none}
+  .free{grid-template-columns:1fr}
+  .pass{padding:44px 30px}
+  .sec{padding-block:90px}
+}
+@media (max-width:640px){
+  .wrap{padding-inline:18px}
+  .bar .btn{display:none}
+  .logo small{display:none}
+  .hero h1{font-size:clamp(46px,13vw,64px)}
+  .note{font-size:16px;right:28%}
+  .note svg{display:none}
+  .chip{left:18%;font-size:12px}
+  .paths,.grid,.lib{grid-template-columns:1fr}
+  .kitrow{grid-template-columns:1fr 1fr;gap:12px}
+  .kit h3{font-size:20px}
+  .lib{grid-template-columns:1fr 1fr;gap:18px 12px}
+  .pk h3{font-size:20px}
+  .pk p{display:none}
+  .pk .row{flex-wrap:wrap;gap:4px}
+  .pk .row s{display:none}
+  .proof{gap:14px 22px}
+  .proof b{font-size:28px}
+  .how{grid-template-columns:1fr}
+  .how li{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:22px 0}
+  .how li:last-child{border-bottom:0}
+  .now .t{display:none}
+  .icon{width:42px;height:42px}
+  .plan{flex-direction:column;align-items:flex-start}
+  .pass{border-radius:26px;padding:36px 22px}
+  .fcard{padding:26px 22px}
+  .fcard.am{flex-direction:column;align-items:flex-start}
+  .fcard.am img{width:100%}
+  .trust{grid-template-columns:1fr}
+  .story .arch{max-width:300px}
+  .sec{padding-block:76px}
+  .head{margin-bottom:34px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* product modal */
+button.cvr{display:block;padding:0;border:0;background:none;cursor:pointer;position:relative;width:100%;text-align:left;font:inherit;color:inherit}
+button.cvr img{display:block;width:100%}
+.look{position:absolute;left:12px;bottom:12px;background:rgba(251,247,241,.94);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.06em;padding:7px 12px;border-radius:99px;opacity:0;transform:translateY(6px);transition:.25s}
+button.cvr:hover .look,button.cvr:focus-visible .look{opacity:1;transform:none}
+@media (hover:none){.look{opacity:1;transform:none}}
+.pk .lnk{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--wine);cursor:pointer}
+.kit .btn{align-self:flex-start}
+.pm{position:fixed;inset:0;z-index:1200;background:rgba(21,17,15,.62);display:flex;align-items:flex-start;justify-content:center;padding:48px 16px;overflow-y:auto;backdrop-filter:blur(4px)}
+.pm[hidden]{display:none!important}
+.pm-card{position:relative;background:var(--paper);border-radius:18px;max-width:980px;width:100%;padding:36px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.pm-x{position:absolute;right:14px;top:12px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--ivory);font-size:24px;line-height:1;cursor:pointer;color:var(--ink)}
+.pm-grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:36px;align-items:start}
+.pm-cv img{width:100%;border-radius:12px;box-shadow:0 30px 50px -30px rgba(35,30,27,.6)}
+.pm h2{font-family:"IS",serif;font-weight:400;font-size:42px;line-height:1;margin:10px 0 0}
+.pm-meta{margin-top:10px;font-weight:600;color:var(--wine);font-size:14px}
+.pm-for{margin-top:8px;color:var(--muted)}
+.pm h4{margin:22px 0 8px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.pm-inc{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.pm-inc li{padding-left:26px;position:relative;font-size:15px}
+.pm-inc li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:7px;border-left:2px solid var(--wine);border-bottom:2px solid var(--wine);transform:rotate(-45deg)}
+.pm-buy{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.pm-buy b{font-size:26px}
+.pm-buy s{font-size:14px;font-weight:400;color:var(--muted);margin-right:8px}
+.pm-note{margin-top:10px;font-size:13px;color:var(--muted)}
+.pm-look{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pm-look img{width:100%;border-radius:8px;border:1px solid var(--line);box-shadow:0 18px 30px -22px rgba(35,30,27,.5);background:#fff}
+@media(max-width:760px){.pm{padding:16px 12px}.pm-card{padding:24px 18px}.pm-grid{grid-template-columns:1fr;gap:20px}.pm-cv{max-width:220px}.pm h2{font-size:34px}.pm-look{grid-template-columns:1fr 1fr}.pm-look img:nth-child(3){display:none}}
+.foot .soc{display:flex;gap:16px;flex-wrap:wrap}
+.trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;font-weight:600;color:var(--muted)}.trust span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--wine);margin-right:9px;vertical-align:middle}
+
+/* ===== Dark wine theme (requested: like the final CTA band) ===== */
+:root{--ivory:#1C1315;--paper:#271B1D;--sand:#332326;--ink:#F6F0E7;--muted:#BDAEA5;--line:rgba(246,240,231,.13);--wine:#7A2E3E;--wine-2:#8F3A4B;--blush:rgba(233,183,166,.16);--rose:#E9B7A6;--night:#130D0E;--night-line:rgba(246,240,231,.12);color-scheme:dark}
+body{background:radial-gradient(1400px 900px at 78% -8%,rgba(138,62,76,.38),transparent 62%),radial-gradient(1100px 800px at 0% 40%,rgba(110,46,58,.22),transparent 60%),var(--ivory);background-attachment:fixed,fixed,scroll}
+h2 em,h1 em,.eyebrow,.note,.path .n,.box .k,.pk .row a,.lang,.how .n,.story blockquote em,.sign,summary::after,details a,.pk .lnk,.pm-meta,.steps li::before{color:var(--rose)}
+.bar{background:rgba(28,19,21,.82)}
+.badge,.live,.look{color:#231E1B}
+.plan.best{color:#231E1B}
+.plan.best .btn{background:var(--wine);color:#FBF3EC;border-color:var(--wine)}
+.lap .lid,.phn{box-shadow:0 0 0 1px rgba(246,240,231,.14),0 50px 80px -40px rgba(0,0,0,.8)}
+.code{background:#120C0D;border:1px solid var(--line)}
+.path,.box,.fcard,details,.pm-card{box-shadow:none}
+.path:hover{box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.pass{box-shadow:0 0 0 1px rgba(233,183,166,.18)}
+.night,.final,footer{background-color:var(--night)}
+.btn.ghost{color:var(--ink)}
+.pm{background:rgba(10,6,7,.72)}
+.pm-x{background:var(--sand)}
+.chip{color:var(--ink)}
+.fcard.am{background:var(--paper);border-color:var(--line)}
+
+.hr{display:flex;align-items:center;gap:12px}
+.lg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:rgba(246,240,231,.04)}
+.lg button{border:0;background:transparent;color:var(--muted);font:600 12.5px/1 var(--sans);letter-spacing:.06em;padding:8px 11px;border-radius:999px;cursor:pointer}
+.lg button[aria-pressed="true"]{background:var(--ink);color:var(--ivory)}
+.bo{display:grid;gap:10px;margin-top:4px}
+.bo-o{display:grid;grid-template-columns:1fr auto;grid-template-areas:"t p" "b b";gap:10px 14px;align-items:center;border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:rgba(246,240,231,.03)}
+.bo-o.main{border-color:rgba(233,183,166,.45);background:rgba(233,183,166,.07)}
+.bo-o>div{grid-area:t}.bo-o b{display:block;font-size:16px}.bo-o span{font-size:13.5px;color:var(--muted)}
+.bo-o strong{grid-area:p;font-size:22px;font-weight:700}
+.bo-o .btn,.bo-o .soon{grid-area:b;justify-content:center;width:100%}
+.bo-o .soon{display:block;text-align:center;padding:12px;border:1px dashed var(--line);border-radius:999px;font-weight:600;color:var(--muted)}
+.pm.narrow .pm-card{max-width:520px}
+.pm-buyonly h2{margin-top:10px}
+@media(max-width:760px){.lg button{padding:7px 9px}.bar .btn.wine{display:none}}
+
+.lz{opacity:0;transition:opacity .45s}.lz.ok{opacity:1}
+.brw img{background:#2A2023}.mk .ph img{background:#2A2023}
+/* ===== portfolio (custom websites) ===== */
+.pfs{padding-bottom:110px}
+.pf-head{display:grid;grid-template-columns:1.35fr 1fr;gap:48px;align-items:end;margin-bottom:44px}
+.me{display:flex;gap:18px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:16px}
+.me img{width:96px;height:120px;object-fit:cover;border-radius:16px;flex:none}
+.me b{display:block;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1}
+.me span{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose,var(--wine));margin-top:6px}
+.me p{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.45}
+.mk{display:block;position:relative;padding:0 6% 7% 0}
+.brw{border-radius:12px;overflow:hidden;background:#141012;box-shadow:0 30px 60px -28px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.08)}
+.brw .bt{display:flex;align-items:center;gap:6px;height:26px;padding:0 10px;background:#2A2023}
+.brw .bt i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22)}
+.brw .bt span{margin-left:10px;flex:1;max-width:60%;height:15px;border-radius:99px;background:rgba(255,255,255,.08);font-size:10px;line-height:15px;color:rgba(255,255,255,.6);padding:0 10px;overflow:hidden;white-space:nowrap}
+.brw img{display:block;width:100%;aspect-ratio:1100/649;object-fit:cover;object-position:top}
+.mk .ph{position:absolute;right:0;bottom:0;width:22%;border-radius:18px;border:4px solid #141012;box-shadow:0 24px 40px -14px rgba(0,0,0,.85);overflow:hidden;background:#141012}
+.mk .ph img{display:block;width:100%;aspect-ratio:300/592;object-fit:cover;object-position:top}
+.pf-feat{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:center;margin-bottom:56px}
+.pf-feat .mk .ph{width:20%}
+.pf-tx small{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pf-tx .no{font-family:var(--serif);font-style:italic;color:var(--rose,var(--wine));margin-right:8px;font-size:15px;letter-spacing:0;text-transform:none}
+.pf-tx h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05;margin-top:8px}
+.pf-feat .pf-tx h3{font-size:clamp(40px,4.4vw,60px)}
+.pf-tx .tg{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--rose,var(--wine));margin-top:6px;line-height:1.2}
+.pf-tx p{font-size:15.5px;color:var(--muted);margin-top:10px}
+.pf-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.pf-tags span{font-size:12px;font-weight:600;border:1px solid var(--line);border-radius:99px;padding:4px 10px;color:var(--muted)}
+.pf-act{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:18px}
+.pf-act a{font-size:14px;font-weight:700}
+.pf-act .dm{color:var(--ink);border-bottom:1px solid currentColor;padding-bottom:1px}
+.pf-act .wa{color:var(--rose,var(--wine))}
+.pf{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 30px}
+.pf article .mk{transition:transform .5s}
+.pf article:hover .mk{transform:translateY(-6px)}
+.pf .pf-tx{margin-top:16px}
+.cs-band{margin-top:72px;border-radius:32px;background:var(--wine);color:#FBF3EC;padding:44px;display:grid;grid-template-columns:1fr 1.4fr;gap:28px 48px;align-items:center}
+.cs-t h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.02}
+.cs-t p{margin-top:12px;color:#F3DDD5;font-size:16px}
+.cs-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0;margin:0}
+.cs-steps li{border:1px solid rgba(251,243,236,.22);border-radius:18px;padding:18px}
+.cs-steps .n{display:block;font-family:var(--serif);font-style:italic;font-size:34px;line-height:1;color:#F3C9BA}
+.cs-steps b{display:block;font-size:16px;margin-top:10px}
+.cs-steps p{font-size:14px;color:#F3DDD5;margin-top:4px;line-height:1.45}
+.cs-cta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px}
+.cs-cta .btn.light{background:#FBF3EC;color:#231E1B;border-color:#FBF3EC}
+.cs-cta .btn.line{border-color:rgba(251,243,236,.5);color:#FBF3EC}
+.cs-cta .btn.line:hover{background:#FBF3EC;color:#231E1B}
+@media(max-width:1000px){.pf-head,.pf-feat,.cs-band{grid-template-columns:1fr}.pf{grid-template-columns:1fr 1fr}.pf-feat{gap:24px}}
+@media(max-width:640px){.pf{grid-template-columns:1fr;gap:40px}.cs-steps{grid-template-columns:1fr}.cs-band{padding:28px 22px;border-radius:24px}.me img{width:76px;height:96px}.pfs{padding-bottom:80px}}
+
+/* ===== floating assistant + WhatsApp ===== */
+.fx{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:900;display:flex;flex-direction:column;align-items:flex-end;gap:10px;pointer-events:none}
+.fx>*{pointer-events:auto}
+.fx-bot{width:104px;height:120px;border:0;background:none;padding:0;cursor:pointer;filter:drop-shadow(0 12px 18px rgba(0,0,0,.4));animation:fxf 3.2s ease-in-out infinite}
+.fx-bot img{width:100%;height:100%;object-fit:contain}
+.fx-bot:hover{animation-play-state:paused;transform:scale(1.06)}
+@keyframes fxf{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.fx-wa{width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px -6px rgba(0,0,0,.5)}
+.fx-wa:hover{transform:scale(1.06)}
+.fx-bub{position:relative;max-width:220px;background:#FBF3EC;color:#231E1B;font-size:14px;font-weight:600;line-height:1.35;padding:12px 30px 12px 14px;border-radius:16px 16px 4px 16px;box-shadow:0 12px 30px -10px rgba(0,0,0,.5)}
+.fx-bx{position:absolute;right:6px;top:4px;border:0;background:none;font-size:18px;line-height:1;color:#6E655C;cursor:pointer;padding:2px 4px}
+.fx.open .fx-bot,.fx.open .fx-bub{display:none}
+.sol{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:950;width:380px;max-height:min(620px,calc(100vh - 110px));display:flex;flex-direction:column;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:24px;box-shadow:0 30px 70px -20px rgba(0,0,0,.7);overflow:hidden}
+.sol-h{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--wine);color:#FBF3EC}
+.sol-h img{width:44px;height:50px;object-fit:contain}
+.sol-h b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1}
+.sol-h span{font-size:12.5px;opacity:.85}
+.sol-x{margin-left:auto;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;font-size:22px;line-height:1;cursor:pointer}
+.sol-m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:180px}
+.sol-m .b{max-width:86%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.5;white-space:pre-line;word-wrap:break-word}
+.sol-m .b.a{background:var(--sand);border-bottom-left-radius:4px;align-self:flex-start}
+.sol-m .b.u{background:var(--wine);color:#FBF3EC;border-bottom-right-radius:4px;align-self:flex-end}
+.sol-m .b.t{opacity:.7;font-style:italic}
+.sol-m .pc{display:inline-flex;gap:6px;align-items:center;margin:6px 6px 0 0;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 11px;font:600 13px var(--sans);cursor:pointer;white-space:nowrap}
+.sol-m .pc em{font-style:normal;color:var(--rose,var(--wine))}
+.sol-q{display:flex;gap:8px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
+.sol-q button{flex:none;border:1px solid var(--line);background:none;color:var(--ink);border-radius:999px;padding:7px 12px;font:600 13px var(--sans);cursor:pointer}
+.sol-q button:hover{background:var(--sand)}
+.sol-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+.sol-f input{flex:1;min-width:0;border:1px solid var(--line);background:var(--ivory);color:var(--ink);border-radius:999px;padding:11px 16px;font:15px var(--sans)}
+.sol-f button{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--wine);color:#fff;cursor:pointer;display:grid;place-items:center}
+.sol-wa{display:block;text-align:center;font-size:13px;padding:0 12px 12px;color:var(--muted)}
+.sol-wa b{color:#4FD27E}
+@media(max-width:640px){.fx{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}.fx-bot{width:66px;height:76px}.fx-wa{width:50px;height:50px}
+ .sol{right:0;left:0;bottom:0;width:auto;max-height:calc(100dvh - 60px);border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
+@media(prefers-reduced-motion:reduce){.fx-bot{animation:none}}
+</style>
+<script>
+// always open at the top (or at the linked step), never where the previous page was scrolled
+(function(){
+  try{history.scrollRestoration='manual'}catch(e){}
+  var user=false;['wheel','touchstart','keydown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true},{passive:true,once:true})});
+  function go(){
+    if(user)return;
+    var id=(location.hash||'').slice(1),el=id&&document.getElementById(id);
+    var de=document.documentElement,sb=de.style.scrollBehavior;de.style.scrollBehavior='auto';
+    if(el){el.scrollIntoView({block:'start'})}else{window.scrollTo(0,0)}
+    de.style.scrollBehavior=sb;
+  }
+  go();
+  addEventListener('DOMContentLoaded',go);addEventListener('load',go);addEventListener('pageshow',go);
+  [60,250,600].forEach(function(t){setTimeout(go,t)});
+})();
+</script>
+<header class="bar"><div class="wrap">
+  <a class="logo" href="#"><b>Solvy</b><small>Templates · Prompts · Custom</small></a>
+  <nav class="nl"><a href="#templates">Templates</a><a href="#kits">Kits</a><a href="#prompts">AI Prompts</a><a href="guide.html">Guide</a><a href="#custom">Custom website</a></nav>
+  <div class="hr"><div class="lg" role="group" aria-label="Language"><button data-lang="id">ID</button><button data-lang="en">EN</button></div><a class="btn wine" href="#pass">Get All-Access</a></div>
+</div></header>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Templates · AI prompts · Custom websites</span>
+      <h1>Your brand deserves <em>a website people remember.</em></h1>
+      <p class="lead">Pick a ready-made template, build your own with our step-by-step prompt system, or let us design one just for you. No coding, no stress, live in days.</p>
+      <div class="ctas"><a class="btn wine" href="#templates">Browse templates →</a><a class="btn ghost" href="#custom">Order a custom website</a></div>
+      <div class="proof"><div><b>13</b>templates</div><div><b>8</b>prompt packs</div><div><b>5</b>brand kits</div><div><b>7</b>portfolio projects</div></div>
+    </div>
+    <div class="vis" aria-label="A Solvy template on a laptop and phone, with two kit covers">
+      <div class="glow"></div>
+      <div class="lap"><div class="lid"><img src="thumbs/lune.webp" fetchpriority="high" alt="Lune beauty clinic template on a laptop"></div><div class="base"></div></div>
+      <div class="phn"><img src="media/m-lune.webp" alt="Lune template on a phone"></div>
+      <img class="cv a" src="img/covers/kit-beauty.webp" alt="Beauty Clinic Kit cover">
+      <img class="cv b" src="img/covers/cv-ai-website.webp" alt="AI Website Tanpa Coding cover">
+      <div class="note">Ready-to-use<br>beautiful websites<svg viewBox="0 0 54 44" fill="none" stroke="#6E2E3A" stroke-width="1.6" stroke-linecap="round"><path d="M2 6c18 0 34 10 40 30"/><path d="M34 32l8 6 4-10"/></svg></div>
+      <div class="chip"><i></i>Desktop &amp; mobile, tested at every width</div>
+    </div>
+  </section>
+</div>
+
+<section class="sec" style="padding-top:20px"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">Choose your path</span><h2 style="margin-top:14px">Four ways to <em>launch</em></h2></div><p class="lead">Start small with a prompt pack, or get everything done for you. Every product is a download you keep forever.</p></div>
+  <div class="paths">
+    <a class="path" href="#templates"><span class="n">01</span><h3>Ready template</h3><p>A finished website with photos. Change the words, upload, done.</p><div class="from"><span>from</span> <b data-idr="129000"></b></div></a>
+    <a class="path" href="#prompts"><span class="n">02</span><h3>AI prompt pack</h3><p>Build your own site with AI, guided step by step.</p><div class="from"><span>from</span> <b data-idr="59000"></b></div></a>
+    <a class="path best" href="#kits"><span class="tag">Best value</span><span class="n">03</span><h3>Brand website kit</h3><p>A template plus the prompt system to make it fully yours.</p><div class="from"><span>from</span> <b data-idr="299000"></b></div></a>
+    <a class="path" href="#custom"><span class="n">04</span><h3>Custom website</h3><p>Tell us about your business. We design, write and launch a site made only for you.</p><div class="from"><span>ask us</span> <b>on WhatsApp</b></div></a>
+  </div>
+</div></section>
+
+<section class="night sec" id="reel" aria-label="Showreel of all templates"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">Showreel</span><h2 style="margin-top:14px">Every template, <em>in motion</em></h2></div><p class="lead">Thirteen complete websites in one minute. Tap a name to jump to it, or open its live demo.</p></div>
+  <div class="screen"><video id="reelv" src="media/showreel.mp4" poster="media/showreel-poster.webp" muted loop playsinline preload="none"></video></div>
+  <div class="now">
+    <div><div class="t" id="tc">00:00 / 01:07</div><h3 id="nowt">Noon to Night, luxury fashion</h3></div>
+    <div class="go"><a class="icon" id="nowlink" href="t/noontonight/index.html" aria-label="Open this live demo"><svg viewBox="0 0 18 18" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M6 12L12 6M7 6h5v5"/></svg></a><button class="icon" id="pp" aria-label="Pause showreel"><svg viewBox="0 0 18 18" fill="#fff"><rect x="4" y="3" width="3.5" height="12" rx="1"/><rect x="10.5" y="3" width="3.5" height="12" rx="1"/></svg></button></div>
+  </div>
+  <div class="chapters" id="chapters"></div>
+</div></section>
+
+<section class="sec" id="templates"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">The collection</span><h2 style="margin-top:14px">Website <em>templates</em></h2><p class="lead">Hover a card to watch it scroll. Every template is responsive, with photos, fonts and a guide in Bahasa Indonesia.</p></div>
+    <div class="tabs" role="group" aria-label="Filter templates"><button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="business">Business</button><button aria-pressed="false" data-f="shop">Shop &amp; food</button><button aria-pressed="false" data-f="stay">Stays</button><button aria-pressed="false" data-f="creative">Creative</button></div></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="sec kits" id="kits"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">Brand website kits</span><h2 style="margin-top:14px">Template <em>+ AI prompt system</em></h2><p class="lead">Everything in one box: the website, the prompts to rewrite it for your brand, and the planning sheets to get there.</p></div></div>
+  <div class="kitrow" id="kitrow"></div>
+  <div class="inc">
+    <div class="box"><span class="k">01</span><h3>Website template</h3><p>The full HTML template with photos and fonts, desktop and mobile.</p>
+      <h3 style="margin-top:26px"><span class="k" style="font-size:40px">02</span><br>AI master prompt</h3><p>One prompt that adapts the whole site to your brand.</p>
+      <div class="code" id="mp"><button class="cp" id="cp">Copy</button><b>/prompt</b><br>Create a premium website for <b>[brand name]</b>, a <b>[type of business]</b> in <b>[city]</b>. Keep the layout of this template. Rewrite every section in a <b>[tone]</b> voice for <b>[audience]</b>. Use my colours <b>[hex codes]</b>. Pages: home, about, services, gallery, contact.</div></div>
+    <div class="box"><span class="k">03</span><h3>Step-by-step prompts</h3><p>Six prompts that take you from idea to launch, plus fixes for when AI gets it wrong.</p>
+      <ol class="steps"><li><div><b>Website brief</b><span>Define your brand and goal</span></div></li><li><div><b>Sitemap</b><span>Plan the pages and sections</span></div></li><li><div><b>Copywriting</b><span>Write every section in your voice</span></div></li><li><div><b>Design direction</b><span>Colours, fonts and photo style</span></div></li><li><div><b>Build &amp; edit</b><span>Apply it all to the template</span></div></li><li><div><b>Fix &amp; optimise</b><span>Mobile, speed and SEO checks</span></div></li></ol></div>
+    <div class="box"><span class="k">04</span><h3>AI workflow guide</h3><p>Which free tool to use for each step.</p>
+      <ul class="tools"><li><b>ChatGPT</b><span>ideas, copy</span></li><li><b>Claude</b><span>code edits, fixes</span></li><li><b>Gemini</b><span>research, competitors</span></li><li><b>Lovable</b><span>prompt to website</span></li><li><b>Canva</b><span>visuals, social posts</span></li></ul>
+      <h3 style="margin-top:26px"><span class="k" style="font-size:40px">05</span><br>Extra resources</h3>
+      <div class="extras"><span>Client brief</span><span>Content planner</span><span>Launch checklist</span><span>8 bonus prompts</span></div>
+      <p class="fine">Tool names belong to their owners. Solvy isn't affiliated with them.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="prompts"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">AI prompt library</span><h2 style="margin-top:14px">Prompts that <em>actually work</em></h2><p class="lead">Structured prompt packs and guides, written while building real websites with AI. Sent to your email right after payment.</p></div></div>
+  <div class="lib" id="lib"></div>
+  <div class="trust"><span>Instant download</span><span>Pay in Rupiah (Lynk.id) or USD (Gumroad)</span><span>Copy-ready prompts.txt in every pack</span><span>Free updates</span></div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">How it works</span><h2 style="margin-top:14px">Live in <em>four steps</em></h2></div><a class="btn ghost" href="guide.html">Read the full guide →</a></div>
+  <ol class="how">
+    <li><span class="n">01</span><h3>Choose</h3><p>Pick a template, a kit or a prompt pack that fits what you're building.</p><a href="#templates">Browse</a></li>
+    <li><span class="n">02</span><h3>Make it yours</h3><p>Change the words, colours and photos, or paste the prompts into your AI.</p><a href="guide.html#words">Guide, steps 3–5</a></li>
+    <li><span class="n">03</span><h3>Connect WhatsApp</h3><p>One line, and every booking button sends you a ready-made message.</p><a href="guide.html#whatsapp">Guide, step 6</a></li>
+    <li><span class="n">04</span><h3>Go live free</h3><p>Drag the folder onto Netlify. Add your own domain whenever you're ready.</p><a href="guide.html#publish">Guide, steps 8–9</a></li>
+  </ol>
+</div></section>
+
+<section class="sec" id="story" style="background:var(--paper)"><div class="wrap story">
+  <figure class="arch"><img src="img/ratna.webp" loading="lazy" decoding="async" alt="Ratna, founder of Solvy"></figure>
+  <div>
+    <span class="eyebrow">Behind Solvy</span>
+    <blockquote>"I don't have a tech degree and I didn't start with code. I learned to build websites with AI, <em>one note at a time.</em>"</blockquote>
+    <p>Solvy started as my own notes: which prompts worked, which tools helped, and how to explain an idea so AI gets it right the first time. Every template and prompt here comes from that process, so you don't have to start from zero.</p>
+    <div class="sign">Ratna</div>
+    <div class="trust"><div><b>Made by one person</b>Not an agency. Built and tested by me.</div><div><b>No income promises</b>Good tools, honest results. The rest is your work.</div><div><b>Try it free first</b>Grab the checklist or Amara before you buy.</div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="pass"><div class="wrap">
+  <div class="pass">
+    <div><h2>Everything Solvy, <em>one payment</em></h2>
+      <p style="margin-top:16px;max-width:42ch;color:#F3DDD5">All templates, all kits and all prompt packs, plus everything we release next. Use them for yourself and for clients.</p>
+      <ul><li>13 templates and 5 brand kits</li><li>8 AI prompt packs and guides</li><li>Commercial licence for unlimited client sites</li><li>Lifetime updates and priority support</li></ul></div>
+    <div class="plans">
+      <div class="plan"><div><small>Yearly</small><b><i data-idr="599000"></i><span> / year</span></b></div><button class="btn light" data-buy="pass-yearly">Choose yearly</button></div>
+      <div class="plan best"><div><small style="color:var(--wine)">Lifetime, best value</small><b><i data-idr="999000"></i><span> once</span></b></div><button class="btn" data-buy="pass-lifetime">Get lifetime access</button></div>
+      <p class="worth"><span>Worth over</span> <i data-idr="4000000"></i> <span>bought one by one.</span></p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="head"><div><span class="eyebrow">Try before you buy</span><h2 style="margin-top:14px">Two things, <em>free</em></h2></div></div>
+  <div class="free">
+    <div class="fcard"><span class="lang">PDF · ID</span><h3>Website Prep Checklist</h3><p>What to prepare before you open AI, so the result is right on the first try. One page, free, no sign-up.</p>
+      <a class="btn wine" href="checklist.html" style="margin-top:18px">Open the checklist</a></div>
+    <div class="fcard am"><img src="thumbs/amara-tall.webp" loading="lazy" decoding="async" alt="Amara link-in-bio template"><div><span class="lang">Free template</span><h3 style="margin-top:12px">Amara, link-in-bio</h3><p style="margin-top:10px">A beautiful page for your Instagram and TikTok bio, with shop links and a newsletter box.</p><div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap"><a class="btn wine sm" href="t/amara/index.html">Live demo</a><button class="btn ghost sm" data-buy="amara">Get it free</button></div></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="faq" style="padding-top:0"><div class="wrap faq">
+  <div><span class="eyebrow">FAQ</span><h2 style="margin-top:14px">Good <em>questions</em></h2><p class="lead" style="margin-top:16px">Something else? Ask Sol, our assistant, or chat with us on WhatsApp.</p><a class="btn wine" href="#" data-wa style="margin-top:20px">Chat on WhatsApp</a></div>
+  <div>
+    <details open><summary>I can't code at all. Will this work for me?</summary><p>Yes. Templates are edited like a document, and the prompt packs tell you exactly what to paste into AI. Our <a href="guide.html">setup guide</a> walks you through it in English and Bahasa Indonesia.</p></details>
+    <details><summary>What's the difference between a template, a kit and a prompt pack?</summary><p>A template is a finished website. A prompt pack teaches AI to build one with you. A kit gives you both: the template plus the prompts and planning sheets to make it fully yours.</p></details>
+    <details><summary>How do I receive my files?</summary><p>Right after payment you get a download link on screen and by email, from Lynk.id or Gumroad. Check your spam folder if it doesn't arrive within a few minutes.</p></details>
+    <details><summary>Can I use a template for a client?</summary><p>Yes. Each purchase covers one website, yours or one client's. All-Access covers unlimited client sites.</p></details>
+    <details><summary>What can I do with my purchase?</summary><p>Use it for your own business or for one client website per purchase. You can't resell or share the files. The full terms are on our <a href="terms.html">licence and refund page</a>.</p></details>
+    <details><summary>Can I get a refund?</summary><p>Because files are delivered instantly, sales are final. If a file is broken or not what the page described, message us within 7 days and we'll fix it, replace it, or refund you.</p></details>
+    <details><summary>Can you build a website for me?</summary><p>Yes. Besides templates and prompts, Ratna designs custom websites for brands. Send your business type and goals on WhatsApp and we'll reply with options and a quote. See the portfolio below.</p></details>
+    <details><summary>Do I need a laptop?</summary><p>Prompts and guides work on your phone. Editing a template is much easier on a laptop.</p></details>
+  </div>
+</div></section>
+
+<section class="sec pfs" id="custom"><div class="wrap">
+  <div class="pf-head">
+    <div><span class="eyebrow">Portfolio · Custom websites</span><h2 style="margin-top:14px">Websites I <em>designed myself</em></h2><p class="lead">Besides templates and prompts, I design and build custom websites for brands. Every project below is a real, working site. Open the live demo and click around.</p></div>
+    <aside class="me"><img src="img/portfolio/ratna.webp" loading="lazy" decoding="async" alt="Ratna Sari"><div><b>Ratna Sari</b><span>AI website builder &amp; digital creator</span><p>I handle everything myself, from your brief to the day your website goes live.</p></div></aside>
+  </div>
+  <div class="pf-feat" id="pffeat"></div>
+  <div class="pf" id="pf"></div>
+  <div class="cs-band">
+    <div class="cs-t"><h3>Want a website like these?</h3><p>Free consultation on WhatsApp. Tell me your business and I'll suggest the right pages, style and budget.</p></div>
+    <ol class="cs-steps">
+      <li><span class="n">01</span><div><b>Chat on WhatsApp</b><p>Your business, goal and the style you like.</p></div></li>
+      <li><span class="n">02</span><div><b>Design &amp; words</b><p>I draft the look and copy, you give feedback.</p></div></li>
+      <li><span class="n">03</span><div><b>Go live</b><p>Online with your domain and WhatsApp button.</p></div></li>
+    </ol>
+    <div class="cs-cta"><a class="btn light" href="#" data-wa="custom">Free consultation on WhatsApp</a><a class="btn line" href="https://byratnasari.vercel.app" target="_blank" rel="noopener">See the full portfolio ↗</a></div>
+  </div>
+</div></section>
+<footer><div class="wrap foot">
+  <a class="logo" href="#"><b>Solvy</b></a>
+  <nav><a href="#templates">Templates</a><a href="#kits">Kits</a><a href="#prompts">AI Prompts</a><a href="guide.html">Setup guide</a><a href="#pass">All-Access</a><a href="#custom">Custom website</a></nav>
+  <nav class="soc"><a href="https://instagram.com/buildwithratna" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@ratnaa.s" target="_blank" rel="noopener">TikTok</a><a href="terms.html">Licence &amp; refunds</a><a href="terms.html#privacy">Privacy</a></nav>
+  <span>© 2026 Solvy</span>
+</div></footer>
+
+<div class="fx" id="fx">
+  <div class="fx-bub" id="fxbub" hidden><button class="fx-bx" aria-label="Close">×</button><span>Questions? Ask Sol, I reply right away.</span></div>
+  <button class="fx-bot" id="fxbot" aria-label="Open Sol, the Solvy assistant" aria-expanded="false"><img src="img/robot.webp" alt=""></button>
+  <a class="fx-wa" href="#" data-wa aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4s-1.1 1.1-1.1 2.7 1.2 3.1 1.3 3.3 2.3 3.5 5.6 4.9c2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg></a>
+</div>
+<div class="sol" id="sol" hidden role="dialog" aria-label="Sol, the Solvy assistant">
+  <div class="sol-h"><img src="img/robot.webp" alt=""><div><b>Sol</b><span id="solsub">Solvy assistant · replies instantly</span></div><button class="sol-x" id="solx" aria-label="Close">×</button></div>
+  <div class="sol-m" id="solm" aria-live="polite"></div>
+  <div class="sol-q" id="solq"></div>
+  <form class="sol-f" id="solf"><input id="soli" autocomplete="off" maxlength="400" placeholder="Type your question…" aria-label="Your question"><button aria-label="Send"><svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path d="M2.5 17.5 18 10 2.5 2.5v5.8L13 10 2.5 11.7z"/></svg></button></form>
+  <a class="sol-wa" id="solwa" href="#" target="_blank" rel="noopener">Prefer a human? <b>Ask on WhatsApp →</b></a>
+</div>
+<div class="pm" id="pm" hidden role="dialog" aria-modal="true" aria-labelledby="pmt"><div class="pm-card"><button class="pm-x" aria-label="Close">×</button><div id="pmb"></div></div></div>
+
+<script>
+/* ===================== CHECKOUT LINKS =====================
+   Paste each product's checkout link here.
+   lynk = Indonesia (Rupiah, Lynk.id)   gum = International (USD, Gumroad)
+   Leave '' if not ready: the button shows "Coming soon". */
+const LINKS={
+ 'noontonight':{lynk:'https://lynk.id/solyfinds/44zzeore63r5/checkout',gum:''},
+ 'arunika':{lynk:'https://lynk.id/solyfinds/yk88x7r4jgm6/checkout',gum:''},
+ 'lune':{lynk:'https://lynk.id/solyfinds/zg88o8vp8lyd/checkout',gum:''},'koma':{lynk:'https://lynk.id/solyfinds/m733r3r2m0vm/checkout',gum:''},'sekar':{lynk:'',gum:''},'form':{lynk:'https://lynk.id/solyfinds/oexx4d5y35q7/checkout',gum:''},
+ 'biscuit':{lynk:'https://lynk.id/solyfinds/w3rrlzkee4mz/checkout',gum:''},'lumen':{lynk:'https://lynk.id/solyfinds/00nnqd5zrd7z/checkout',gum:''},'loudhours':{lynk:'https://lynk.id/solyfinds/4k5529mz4j54/checkout',gum:''},'ivers':{lynk:'https://lynk.id/solyfinds/nozzm4rgw0dz/checkout',gum:''},
+ 'dewlab':{lynk:'https://lynk.id/solyfinds/k955p88786r5/checkout',gum:''},'halte':{lynk:'https://lynk.id/solyfinds/jpyy871jvv6q/checkout',gum:''},'sora':{lynk:'https://lynk.id/solyfinds/xyggd8j4xjog/checkout',gum:''},'amara':{lynk:'https://lynk.id/solyfinds/q933jd93j45w/checkout',gum:''},
+ 'kit-beauty':{lynk:'https://lynk.id/solyfinds/5g11xz5yodr1/checkout',gum:''},'kit-fashion':{lynk:'https://lynk.id/solyfinds/571198mwxg6x/checkout',gum:''},'kit-cafe':{lynk:'https://lynk.id/solyfinds/0wnn9dd3nnvm/checkout',gum:''},'kit-hotel':{lynk:'https://lynk.id/solyfinds/y533qxrjwdl1/checkout',gum:''},'kit-portfolio':{lynk:'https://lynk.id/solyfinds/zdzz08rw6gxk/checkout',gum:''},
+ 'ai-website':{lynk:'https://lynk.id/solyfinds/4myy8w2z0vd4/checkout',gum:''},'per-usaha':{lynk:'https://lynk.id/solyfinds/p2eev5gwerp6/checkout',gum:''},'katalog':{lynk:'https://lynk.id/solyfinds/m0jj1lmyjknl/checkout',gum:''},'gratis':{lynk:'https://lynk.id/solyfinds/8yll4dr22yly/checkout',gum:''},
+ 'canva':{lynk:'https://lynk.id/solyfinds/08ddgdy27gl2/checkout',gum:''},'starter-en':{lynk:'https://lynk.id/solyfinds/eqppo2l8gdz8/checkout',gum:''},'landing-en':{lynk:'https://lynk.id/solyfinds/1022epp2gyp9/checkout',gum:''},'bundle':{lynk:'https://lynk.id/solyfinds/kjxxm2qk8v2g/checkout',gum:''},
+ 'pass-yearly':{lynk:'https://lynk.id/solyfinds/n4ppmpwz5nn8/checkout',gum:''},'pass-lifetime':{lynk:'https://lynk.id/solyfinds/qqmmjmgywym4/checkout',gum:''}
+};
+/* Rupiah price -> USD price for Gumroad (edit freely) */
+const USD={0:0,59000:7,69000:9,79000:9,89000:9,99000:12,129000:15,149000:19,179000:19,199000:19,249000:24,299000:29,316000:35,349000:35,399000:39,429000:45,499000:49,549000:55,599000:49,999000:89,4000000:500};
+
+let LANG='id';
+try{const sv=localStorage.getItem('solvy-lang');if(sv==='id'||sv==='en')LANG=sv;else LANG=(navigator.language||'id').toLowerCase().startsWith('id')?'id':'en'}catch(e){LANG=(navigator.language||'id').toLowerCase().startsWith('id')?'id':'en'}
+const L=(en,id)=>LANG==='id'?id:en;
+const rp=n=>n>=1000000?'Rp'+(n/1000000).toString().replace('.',',')+' juta':'Rp'+Math.round(n/1000)+'rb';
+const money=n=>n===0?L('Free','Gratis'):LANG==='id'?rp(n):'$'+(USD[n]??Math.round(n/16000));
+const num=s=>s==='Free'?0:parseInt(String(s).replace(/\D/g,''),10)*1000;
+
+const T=[
+ {id:'noontonight',n:'Noon to Night',d:'Fashion store with catalogue, bag and WhatsApp orders',di:'Toko fashion dengan katalog, keranjang, dan order via WhatsApp',k:'luxury fashion',ki:'fashion mewah',c:'shop',p:249000,was:349000,b:['Featured','Unggulan'],hot:1,sw:['#EEE8DE','#2E241D','#1F2638','#B38E66']},
+ {id:'arunika',n:'Arunika',d:'Boutique villa and hotel with stay calculator',di:'Villa dan hotel butik dengan kalkulator menginap',k:'villa and hotel',ki:'villa dan hotel',c:'stay',p:199000,was:299000,b:['New','Baru'],sw:['#1F2B22','#EFE9DF','#B08A4E','#6F7F5E']},
+ {id:'lune',n:'Lune',d:'Beauty clinic with before/after, skin scan and booking',di:'Klinik kecantikan dengan before/after, cek kulit, dan booking',k:'beauty clinic',ki:'klinik kecantikan',c:'business',p:199000,was:299000,b:['New','Baru'],sw:['#F4EFEA','#3A2A22','#C9A27A','#E7D9CC']},
+ {id:'koma',n:'Koma',d:'Premium café with menu, gallery and reservations',di:'Kafe premium dengan menu, galeri, dan reservasi',k:'café, morning to night',ki:'kafe, pagi sampai malam',c:'shop',p:179000,was:249000,sw:['#EEF2F3','#241812','#B5651D','#6E9A3E']},
+ /* hidden for now (wedding version planned later): {id:'sekar',n:'Sekar & Raka',d:'Digital wedding invitation with RSVP and gifts',di:'Undangan pernikahan digital dengan RSVP dan amplop digital',k:'wedding invitation',ki:'undangan pernikahan',c:'stay',p:129000,was:179000,b:['New','Baru'],sw:['#F6F1E7','#3F4A35','#A88B4A','#C9D1BC']} */
+ {id:'form',n:'FORM',d:'Pilates and gym studio with live class booking',di:'Studio pilates dan gym dengan booking kelas',k:'pilates and gym',ki:'pilates dan gym',c:'business',p:179000,was:249000,b:['New','Baru'],sw:['#EDE8E1','#161616','#5C6B4A','#E8955A']},
+ {id:'biscuit',n:'Biscuit & Co.',d:'Dog salon with haircut picker, café, playground and parties',di:'Salon anjing dengan pilihan cukuran, kafe, playground, dan pesta',k:'dog salon and café',ki:'salon anjing dan kafe',c:'business',p:179000,was:249000,sw:['#F6D2BF','#1E2A4A','#4F8197','#F6D68B']},
+ {id:'lumen',n:'Lumen',d:'SaaS and app landing page',di:'Landing page untuk aplikasi dan SaaS',k:'SaaS landing page',ki:'landing page aplikasi',c:'business',p:179000,was:249000,sw:['#2438E8','#F2EC6B','#0B1240','#EEF0FB']},
+ {id:'loudhours',n:'Loud Hours',d:'Creative agency and studio',di:'Agensi dan studio kreatif',k:'creative agency',ki:'agensi kreatif',c:'creative',p:199000,was:299000,sw:['#FFE45C','#6B4EFF','#FF8FCB','#000']},
+ {id:'ivers',n:'Ivers',d:'Designer and developer portfolio',di:'Portofolio desainer dan developer',k:'designer portfolio',ki:'portofolio desainer',c:'creative',p:129000,was:179000,sw:['#F2F2EF','#161616','#1F7A4D','#FFB59E']},
+ {id:'dewlab',n:'Dewlab',d:'Skincare shop with before/after, ingredients and reviews',di:'Toko skincare dengan before/after, bahan aktif, dan review',k:'skincare shop',ki:'toko skincare',c:'shop',p:199000,was:299000,sw:['#ECE6F2','#3B1F3F','#CFE7E3','#F3E3A6']},
+ {id:'halte',n:'Halte',d:'Restaurant with menu book, chef, gallery, reviews and booking',di:'Restoran dengan buku menu, chef, galeri, review, dan reservasi',k:'restaurant',ki:'restoran',c:'shop',p:179000,was:249000,sw:['#1F3A2E','#E3A93B','#EDE6D6','#6E1F24']},
+ {id:'sora',n:'Sora',d:'Architecture and interior studio',di:'Studio arsitektur dan interior',k:'architecture studio',ki:'studio arsitektur',c:'business',p:179000,was:249000,sw:['#F4F2EE','#262624','#4F7D73','#C8B79A']},
+ {id:'amara',n:'Amara',d:'Link-in-bio page for creators. Free to download',di:'Halaman link-in-bio untuk kreator. Gratis',k:'link in bio, free',ki:'link in bio, gratis',c:'creative',p:0,b:['Free','Gratis'],free:1,sw:['#E4EBD3','#3B2440','#F2C6C2','#FAF7F0']}];
+
+const KINC=t=>L(['Template '+t+': full website with photos and fonts','Prompt Book: master prompt, 6 step prompts, 8 bonus prompts','AI Workflow Guide: tools, editing with AI, free publishing','Client Brief, 4-week Content Planner, Launch Checklist','prompts.txt and a CSV planner for Google Sheets'],
+ ['Template '+t+': website lengkap dengan foto dan font','Prompt Book: master prompt, 6 prompt langkah, 8 prompt bonus','AI Workflow Guide: tools, cara edit dengan AI, publish gratis','Client Brief, Content Planner 4 minggu, Launch Checklist','prompts.txt dan planner CSV untuk Google Sheets']);
+const K=[
+ {id:'beauty',n:'Beauty Clinic Kit',t:'Lune',p:349000,was:499000,f:'beauty clinics, skincare studios and facial salons',fi:'klinik kecantikan, skincare studio, dan salon wajah'},
+ {id:'fashion',n:'Fashion Store Kit',t:'Noon to Night',p:399000,was:549000,f:'fashion labels, boutiques and online clothing shops',fi:'brand fashion, butik, dan toko baju online'},
+ {id:'cafe',n:'Café & Resto Kit',t:'Koma',p:349000,was:499000,f:'cafés, coffee shops, bakeries and small restaurants',fi:'kafe, coffee shop, bakery, dan restoran kecil'},
+ {id:'hotel',n:'Villa & Hotel Kit',t:'Arunika',p:349000,was:499000,f:'villas, boutique hotels, guesthouses and glamping',fi:'villa, hotel butik, guesthouse, dan glamping'},
+ {id:'portfolio',n:'Portfolio Kit',t:'Ivers',p:299000,was:429000,f:'designers, photographers, developers and creative freelancers',fi:'desainer, fotografer, developer, dan freelancer kreatif'}];
+const P=[
+ {id:'ai-website',n:'AI Website Tanpa Coding',l:'ID',p:99000,
+  d:'40 prompts and a 45-page guide, from a blank page to a live website.',di:'40 prompt dan panduan 45 halaman, dari halaman kosong sampai website online.',
+  m:'40 prompts · 45 pages · PDF',mi:'40 prompt · 45 halaman · PDF',
+  inc:['10 chapters, from writing clear prompts to going live','40 ready-to-paste prompts with placeholders','Weak vs strong prompt examples','Credit-saving strategy','SEO, WhatsApp and Google Maps basics','prompts.txt for easy copying'],
+  inci:['10 bab, dari menulis prompt yang jelas sampai website online','40 prompt siap tempel dengan [kurung siku]','Contoh prompt lemah vs prompt kuat','Strategi hemat kredit AI','Dasar SEO, WhatsApp, dan Google Maps','prompts.txt supaya mudah disalin']},
+ {id:'per-usaha',n:'Prompt per Jenis Usaha',l:'ID',p:89000,
+  d:'39 prompts for 10 business types, from WhatsApp shops to cafés.',di:'39 prompt untuk 10 jenis usaha, dari toko WhatsApp sampai kafe.',
+  m:'39 prompts · 42 pages · PDF',mi:'39 prompt · 42 halaman · PDF',
+  inc:['10 business types, 3 prompts each','Home page, second page and pre-launch check for each type','Universal prompts: fact sheet, design lock, mobile and WhatsApp fixes','Business fact sheet and checklist','prompts.txt for easy copying'],
+  inci:['10 jenis usaha, masing-masing 3 prompt','Halaman utama, halaman kedua, dan cek sebelum publikasi untuk tiap jenis','Prompt universal: lembar fakta, kunci desain, perbaikan HP dan WhatsApp','Lembar fakta usaha dan checklist','prompts.txt supaya mudah disalin']},
+ {id:'katalog',n:'Katalog Referensi Landing Page',l:'ID',p:69000,
+  d:'20 layouts and 12 colour palettes to choose before you ask AI.',di:'20 layout dan 12 palet warna untuk dipilih sebelum minta AI.',
+  m:'20 layouts · 12 palettes · 37 pages',mi:'20 layout · 12 palet · 37 halaman',
+  inc:['20 landing page layouts with wireframes','Section order and notes for every layout','12 mood palettes with hex codes','12 prompts to combine layout, colour and font','prompts.txt for easy copying'],
+  inci:['20 layout landing page dengan sketsa','Urutan bagian dan catatan untuk tiap layout','12 palet mood lengkap dengan kode hex','12 prompt untuk menggabungkan layout, warna, dan font','prompts.txt supaya mudah disalin']},
+ {id:'gratis',n:'Website Gratis dengan AI',l:'ID',p:59000,
+  d:'A 14-day plan to build and publish with free tools.',di:'Rencana 14 hari untuk membangun dan publish dengan tools gratis.',
+  m:'14 prompts · 29 pages · PDF',mi:'14 prompt · 29 halaman · PDF',
+  inc:['14-day plan with one prompt per day','Map of free tools and what each is for','Credit-saving strategy','Free publishing on Netlify, step by step','prompts.txt for easy copying'],
+  inci:['Rencana 14 hari, satu prompt per hari','Peta tools gratis dan kegunaannya','Strategi hemat kredit AI','Publish gratis di Netlify, langkah demi langkah','prompts.txt supaya mudah disalin']},
+ {id:'canva',n:'Template Portofolio Canva',l:'ID · Canva',p:79000,
+  d:'A 12-page editorial portfolio. One click and it opens in your own Canva.',di:'Portofolio 12 halaman bergaya editorial. Sekali klik, langsung terbuka di Canva-mu.',
+  m:'12 pages · 16:9 · Canva template link',mi:'12 halaman · 16:9 · link template Canva',
+  inc:['12 pages: cover, about, services, skills, experience, 2 projects, gallery, more work, process & testimonials, packages, contact','One-click Canva template link: you get your own editable copy','Works with a free Canva account','Every text in [brackets], ready to replace','Step-by-step editing guide (PDF)'],
+  inci:['12 halaman: sampul, tentang, layanan, keahlian, pengalaman, 2 proyek, galeri, karya lainnya, cara kerja & testimoni, paket, kontak','Link template Canva sekali klik: kamu dapat salinan sendiri','Bisa dengan akun Canva gratis','Semua teks dalam [kurung siku], tinggal ganti','Panduan edit langkah demi langkah (PDF)']},
+ {id:'starter-en',n:'AI Website Starter Kit',l:'EN',p:149000,
+  d:'71 prompts and a 79-page guide, in English.',di:'71 prompt dan panduan 79 halaman, dalam bahasa Inggris.',
+  m:'71 prompts · 79 pages · PDF',mi:'71 prompt · 79 halaman · PDF',
+  inc:['11 sections from first idea to launch checklist','71 prompts with placeholders','Weak vs strong prompt comparisons','Building, fixing and launching with AI','prompts.txt for easy copying'],
+  inci:['11 bagian dari ide pertama sampai checklist launching','71 prompt dengan [kurung siku]','Perbandingan prompt lemah vs kuat','Membangun, memperbaiki, dan launching dengan AI','prompts.txt supaya mudah disalin']},
+ {id:'landing-en',n:'AI Landing Page Kit',l:'EN',p:199000,
+  d:'110 prompts plus 5 bonuses for one page that sells.',di:'110 prompt plus 5 bonus untuk satu halaman yang menjual.',
+  m:'110+ prompts · 128 pages · PDF',mi:'110+ prompt · 128 halaman · PDF',
+  inc:['13 sections: strategy, hero, sections, copy, design, audit','110 core prompts','20 niche landing page prompts','Bonuses: 20 AI image prompts, audit checklist, 10 styles, 5 master prompts','prompts.txt for easy copying'],
+  inci:['13 bagian: strategi, hero, bagian halaman, copy, desain, audit','110 prompt utama','20 prompt landing page per niche','Bonus: 20 prompt gambar AI, checklist audit, 10 gaya, 5 master prompt','prompts.txt supaya mudah disalin']},
+ {id:'bundle',n:'The Complete Path',l:'ID · bundle',p:199000,was:316000,
+  d:'All four Indonesian guides in one bundle.',di:'Empat panduan Bahasa Indonesia dalam satu paket.',
+  m:'4 guides · 153 pages · 105 prompts',mi:'4 panduan · 153 halaman · 105 prompt',
+  inc:['Website Gratis dengan AI','AI Website Tanpa Coding','Katalog Referensi Landing Page','Prompt per Jenis Usaha','A suggested reading order'],
+  inci:['Website Gratis dengan AI','AI Website Tanpa Coding','Katalog Referensi Landing Page','Prompt per Jenis Usaha','Urutan baca yang disarankan']}];
+const PASS={'pass-yearly':{n:'Solvy All-Access, yearly',ni:'Solvy All-Access, tahunan',p:599000},'pass-lifetime':{n:'Solvy All-Access, lifetime',ni:'Solvy All-Access, seumur hidup',p:999000}};
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function prod(id){if(PASS[id])return {n:L(PASS[id].n,PASS[id].ni),p:PASS[id].p};if(id.startsWith('kit-')){const k=K.find(x=>'kit-'+x.id===id);return k}return T.find(x=>x.id===id)||P.find(x=>x.id===id)}
+const priceHTML=(p,was)=>`${was?`<s>${money(was)}</s> `:''}${money(p)}`;
+
+/* buy options (Lynk for Indonesia, Gumroad for international) */
+function buyOpts(id){const x=prod(id),lk=LINKS[id]||{},free=x.p===0;
+  const o=[{k:'lynk',h:L('Indonesia','Indonesia'),d:free?L('Free, delivered by Lynk.id','Gratis, dikirim lewat Lynk.id'):L('Pay in Rupiah: QRIS, e-wallet or bank transfer','Bayar Rupiah: QRIS, e-wallet, atau transfer bank'),pr:free?L('Free','Gratis'):rp(x.p),u:lk.lynk,b:L('Checkout on Lynk.id','Beli di Lynk.id')},
+           {k:'gum',h:L('International','Internasional'),d:free?L('Free, delivered by Gumroad','Gratis, dikirim lewat Gumroad'):L('Pay in USD: card or PayPal','Bayar USD: kartu atau PayPal'),pr:free?L('Free','Gratis'):'$'+(USD[x.p]??''),u:lk.gum,b:L('Checkout on Gumroad','Beli di Gumroad')}];
+  if(LANG==='en')o.reverse();
+  return `<div class="bo">${o.map((q,i)=>`<div class="bo-o${i===0?' main':''}"><div><b>${q.h}</b><span>${q.d}</span></div><strong>${q.pr}</strong>${q.u?`<a class="btn ${i===0?'wine':'ghost'}" href="${q.u}" target="_blank" rel="noopener">${q.b}</a>`:`<span class="soon">${L('Coming soon','Segera hadir')}</span>`}</div>`).join('')}</div>
+  <p class="pm-note">${L('Your files arrive by email right after payment.','File dikirim ke emailmu langsung setelah pembayaran.')}</p>`}
+
+/* image preloader: starts loading well before images scroll into view */
+const lzLoad=i=>{if(!i.dataset.src)return;i.onload=()=>i.classList.add('ok');i.src=i.dataset.src;i.removeAttribute('data-src');if(i.complete)i.classList.add('ok')};
+const lzIO='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){lzIO.unobserve(e.target);lzLoad(e.target)}}),{rootMargin:'1600px 0px'}):null;
+function lazyImgs(){document.querySelectorAll('img[data-src]').forEach(i=>lzIO?lzIO.observe(i):lzLoad(i))}
+addEventListener('load',()=>setTimeout(()=>document.querySelectorAll('img[data-src]').forEach(lzLoad),1500));
+/* render */
+function renderAll(){
+ const g=document.getElementById('grid');
+ g.innerHTML=T.map(t=>`<article class="card" data-c="${t.c}">
+  <a class="shot" href="t/${t.id}/index.html" aria-label="${L('Open','Buka')} ${esc(t.n)} live demo"><img class="lz" data-src="thumbs/${t.id}.webp" alt="${esc(t.n)} template"><video muted loop playsinline preload="none" src="media/clip-${t.id}.mp4"></video>${t.b?`<span class="badge${t.hot?' hot':''}">${L(...t.b)}</span>`:''}<span class="live"><i></i>Preview</span></a>
+  <div class="meta"><div><h3>${esc(t.n)}</h3><p>${L(t.d,t.di)}</p><div class="swatches">${t.sw.map(c=>`<i style="background:${c}"></i>`).join('')}</div></div><span class="price">${t.was?`<s>${money(t.was)}</s>`:''}${money(t.p)}</span></div>
+  <div class="acts"><a class="btn ghost" href="t/${t.id}/index.html">Live demo</a><button class="btn wine" data-buy="${t.id}">${t.free?L('Get it free','Ambil gratis'):L('Buy template','Beli template')}</button></div></article>`).join('');
+ bindCards();lazyImgs();
+ const f=document.querySelector('.tabs button[aria-pressed="true"]');if(f&&f.dataset.f!=='all')document.querySelectorAll('.card').forEach(c=>c.hidden=c.dataset.c!==f.dataset.f);
+ document.getElementById('kitrow').innerHTML=K.map(k=>`<article class="kit"><button class="cvr" data-open="k:${k.id}" aria-label="${L('Look inside','Lihat isi')} ${esc(k.n)}"><img class="lz" data-src="img/covers/kit-${k.id}.webp" alt="${esc(k.n)} cover"><span class="look">${L('Look inside','Lihat isi')}</span></button><h3>${esc(k.n)}</h3><div class="pr">${money(k.p)} <s>${money(k.was)}</s></div><button class="btn wine sm" data-open="k:${k.id}">${L("See what's inside",'Lihat isinya')}</button></article>`).join('');
+ document.getElementById('lib').innerHTML=P.map(x=>`<article class="pk"><button class="cvr" data-open="p:${x.id}" aria-label="${L('Look inside','Lihat isi')} ${esc(x.n)}"><img class="lz" data-src="img/covers/cv-${x.id}.webp" alt="${esc(x.n)} cover"><span class="look">${L('Look inside','Lihat isi')}</span></button><span class="lang">${x.l}</span><h3>${esc(x.n)}</h3><p>${L(x.d,x.di)}</p><div class="row"><b>${x.was?`<s style="font-weight:400;font-size:13px;color:var(--muted);margin-right:6px">${money(x.was)}</s>`:''}${money(x.p)}</b><button class="lnk" data-open="p:${x.id}">${L('Details','Detail')} →</button></div></article>`).join('');
+ document.querySelectorAll('[data-idr]').forEach(e=>e.textContent=money(+e.dataset.idr));
+ chs.innerHTML=T.map((t,i)=>`<button class="ch" data-i="${i}"><i></i><b>${esc(t.n)}</b><span>${L(t.k,t.ki)}</span></button>`).join('');
+ btns=[...chs.children];cur=-1;
+ renderPF();
+ btns.forEach(b=>b.addEventListener('click',()=>{v.currentTime=+b.dataset.i*SHOT+.05;v.play().catch(()=>{})}));
+}
+function play(card,on){const v=card.querySelector('video');if(on){v.play().then(()=>card.classList.add('playing')).catch(()=>{})}else{v.pause();card.classList.remove('playing')}}
+const canHover=matchMedia('(hover:hover)').matches;let io=null;
+function bindCards(){document.querySelectorAll('.card').forEach(c=>{if(canHover){c.addEventListener('mouseenter',()=>play(c,true));c.addEventListener('mouseleave',()=>play(c,false))}});
+ if(!canHover&&'IntersectionObserver'in window){io&&io.disconnect();io=new IntersectionObserver(es=>es.forEach(e=>play(e.target,e.intersectionRatio>.6)),{threshold:[0,.6,1]});document.querySelectorAll('.card').forEach(c=>io.observe(c))}}
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('.card').forEach(c=>c.hidden=!(b.dataset.f==='all'||c.dataset.c===b.dataset.f))}));
+
+/* product modal + buy sheet */
+const pm=document.getElementById('pm'),pmb=document.getElementById('pmb');let lastFocus=null;
+function showPM(html){pmb.innerHTML=html;lastFocus=document.activeElement;pm.hidden=false;document.body.style.overflow='hidden';pm.querySelector('.pm-x').focus()}
+function openP(key){const [kind,id]=key.split(':');let x,cover,looks,inc,meta,forw,bid;
+  if(kind==='k'){x=K.find(k=>k.id===id);bid='kit-'+id;cover=`img/covers/kit-${id}.webp`;looks=[1,2,3].map(n=>`img/look/kit-${id}-${n}.jpg`);inc=KINC(x.t);meta=L('Template + 5 PDFs · guides in Bahasa Indonesia','Template + 5 PDF · panduan Bahasa Indonesia');forw=L(x.f,x.fi)}
+  else{x=P.find(p=>p.id===id);bid=id;cover=`img/covers/cv-${id}.webp`;looks=[1,2,3].map(n=>`img/look/${id}-${n}.jpg`);inc=L(x.inc,x.inci);meta=L(x.m,x.mi)}
+  showPM(`<div class="pm-grid"><div class="pm-cv"><img src="${cover}" alt=""></div><div><span class="eyebrow">${kind==='k'?L('Brand website kit','Kit website brand'):L('AI prompt pack','Prompt pack AI')}</span><h2 id="pmt">${esc(x.n)}</h2><p class="pm-meta">${meta}</p>${forw?`<p class="pm-for">${L('For','Untuk')} ${esc(forw)}.</p>`:''}
+  <h4>${L("What's inside",'Isi paket')}</h4><ul class="pm-inc">${inc.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
+  <h4>${L('Choose how to pay','Pilih cara bayar')}</h4>${buyOpts(bid)}</div></div>
+  <h4 style="margin-top:28px">${L('Look inside','Lihat isinya')}</h4><div class="pm-look">${looks.map(l=>`<img src="${l}" alt="${L('Sample page','Contoh halaman')}" loading="lazy">`).join('')}</div>`)}
+function openBuy(id){const x=prod(id);
+  showPM(`<div class="pm-buyonly"><span class="eyebrow">${L('Checkout','Pembayaran')}</span><h2 id="pmt">${esc(x.n)}</h2><p class="pm-meta">${x.p===0?L('Free download','Download gratis'):L('One payment, yours to keep','Sekali bayar, milikmu selamanya')}</p><h4>${L('Choose how to pay','Pilih cara bayar')}</h4>${buyOpts(id)}</div>`);pm.classList.add('narrow')}
+function closeP(){pm.hidden=true;pm.classList.remove('narrow');document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+document.addEventListener('click',e=>{const o=e.target.closest('[data-open]');if(o){e.preventDefault();openP(o.dataset.open);return}const b=e.target.closest('[data-buy]');if(b){e.preventDefault();openBuy(b.dataset.buy)}});
+pm.addEventListener('click',e=>{if(e.target===pm||e.target.closest('.pm-x'))closeP()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pm.hidden)closeP()});
+
+/* static text translation */
+const I18N={"Templates": "Template", "AI Prompts": "Prompt AI", "Guide": "Panduan", "Story": "Cerita", "Get All-Access": "Ambil All-Access", "Browse templates →": "Lihat template →", "See the kits": "Lihat kit", "<b>13</b>templates": "<b>13</b>template", "<b>8</b>prompt packs": "<b>8</b>prompt pack", "<b>5</b>brand kits": "<b>5</b>kit brand", "<b>ID/EN</b>guides": "<b>ID/EN</b>panduan", "Ready-to-use<br>beautiful websites<svg viewBox=\"0 0 54 44\" fill=\"none\" stroke=\"#6E2E3A\" stroke-width=\"1.6\" stroke-linecap=\"round\"><path d=\"M2 6c18 0 34 10 40 30\"></path><path d=\"M34 32l8 6 4-10\"></path></svg>": "Website siap pakai<br>yang cantik<svg viewBox=\"0 0 54 44\" fill=\"none\" stroke=\"#6E2E3A\" stroke-width=\"1.6\" stroke-linecap=\"round\"><path d=\"M2 6c18 0 34 10 40 30\"></path><path d=\"M34 32l8 6 4-10\"></path></svg>", "<i></i>Desktop &amp; mobile, tested at every width": "<i></i>Rapi di laptop &amp; HP, dicek di semua ukuran", "Choose your path": "Pilih jalurmu", "Four ways to <em>launch</em>": "Empat cara untuk <em>mulai</em>", "Start small with a prompt pack, or get everything done for you. Every product is a download you keep forever.": "Mulai kecil dengan prompt pack, atau biar kami yang kerjakan semuanya. Setiap produk adalah file yang jadi milikmu selamanya.", "Ready template": "Template siap pakai", "A finished website with photos. Change the words, upload, done.": "Website jadi lengkap dengan foto. Ganti teks, upload, selesai.", "from": "mulai", "AI prompt pack": "Prompt pack AI", "Build your own site with AI, guided step by step.": "Bangun website sendiri dengan AI, dipandu langkah demi langkah.", "Best value": "Paling hemat", "Brand website kit": "Kit website brand", "A template plus the prompt system to make it fully yours.": "Template plus sistem prompt untuk membuatnya benar-benar milikmu.", "Done for you": "Dibuatkan", "Send your photos and words. We set it up and put it online.": "Kirim foto dan teksmu. Kami pasang dan online-kan.", "ask us": "tanya kami", "Every template, <em>in motion</em>": "Semua template, <em>bergerak</em>", "Thirteen complete websites in one minute. Tap a name to jump to it, or open its live demo.": "Tiga belas website lengkap dalam satu menit. Ketuk nama untuk melompat, atau buka demonya.", "The collection": "Koleksi", "Website <em>templates</em>": "Template <em>website</em>", "Hover a card to watch it scroll. Every template is responsive, with photos, fonts and a guide in Bahasa Indonesia.": "Arahkan kursor ke kartu untuk melihatnya bergulir. Semua template responsif, lengkap dengan foto, font, dan panduan Bahasa Indonesia.", "All": "Semua", "Business": "Bisnis & jasa", "Shop &amp; food": "Toko &amp; kuliner", "Stays": "Penginapan", "Creative": "Kreatif", "Brand website kits": "Kit website brand", "Template <em>+ AI prompt system</em>": "Template <em>+ sistem prompt AI</em>", "Everything in one box: the website, the prompts to rewrite it for your brand, and the planning sheets to get there.": "Semua dalam satu paket: website-nya, prompt untuk menulis ulang sesuai brand-mu, dan lembar perencanaan untuk sampai ke sana.", "Website template": "Template website", "The full HTML template with photos and fonts, desktop and mobile.": "Template HTML lengkap dengan foto dan font, untuk laptop dan HP.", "<span class=\"k\" style=\"font-size:40px\">02</span><br>AI master prompt": "<span class=\"k\" style=\"font-size:40px\">02</span><br>Master prompt AI", "One prompt that adapts the whole site to your brand.": "Satu prompt yang menyesuaikan seluruh website dengan brand-mu.", "<button class=\"cp\" id=\"cp\">Copy</button><b>/prompt</b><br>Create a premium website for <b>[brand name]</b>, a <b>[type of business]</b> in <b>[city]</b>. Keep the layout of this template. Rewrite every section in a <b>[tone]</b> voice for <b>[audience]</b>. Use my colours <b>[hex codes]</b>. Pages: home, about, services, gallery, contact.": "<button class=\"cp\" id=\"cp\">Salin</button><b>/prompt</b><br>Buatkan website premium untuk <b>[nama brand]</b>, sebuah <b>[jenis usaha]</b> di <b>[kota]</b>. Pertahankan layout template ini. Tulis ulang setiap bagian dengan nada <b>[nada]</b> untuk <b>[target pelanggan]</b>. Pakai warna <b>[kode hex]</b>. Halaman: beranda, tentang, layanan, galeri, kontak.", "Step-by-step prompts": "Prompt langkah demi langkah", "Six prompts that take you from idea to launch, plus fixes for when AI gets it wrong.": "Enam prompt dari ide sampai launching, plus prompt penyelamat saat AI salah.", "Website brief": "Brief website", "Define your brand and goal": "Tentukan brand dan tujuanmu", "Plan the pages and sections": "Rencanakan halaman dan bagian", "Write every section in your voice": "Tulis setiap bagian dengan gayamu", "Design direction": "Arah desain", "Colours, fonts and photo style": "Warna, font, dan gaya foto", "Build &amp; edit": "Bangun &amp; edit", "Apply it all to the template": "Terapkan semuanya ke template", "Fix &amp; optimise": "Perbaiki &amp; optimalkan", "Mobile, speed and SEO checks": "Cek tampilan HP, kecepatan, dan SEO", "AI workflow guide": "Panduan alur kerja AI", "Which free tool to use for each step.": "Tool gratis mana yang dipakai di setiap langkah.", "ideas, copy": "ide, teks", "code edits, fixes": "edit kode, perbaikan", "research, competitors": "riset, kompetitor", "prompt to website": "prompt jadi website", "visuals, social posts": "visual, konten sosmed", "<span class=\"k\" style=\"font-size:40px\">05</span><br>Extra resources": "<span class=\"k\" style=\"font-size:40px\">05</span><br>Bonus tambahan", "Client brief": "Client brief", "Content planner": "Content planner", "Launch checklist": "Checklist launching", "8 bonus prompts": "8 prompt bonus", "Tool names belong to their owners. Solvy isn't affiliated with them.": "Nama tool milik pemiliknya masing-masing. Solvy tidak berafiliasi dengan mereka.", "AI prompt library": "Koleksi prompt AI", "Prompts that <em>actually work</em>": "Prompt yang <em>benar-benar jalan</em>", "Structured prompt packs and guides, written while building real websites with AI. Sent to your email right after payment.": "Prompt pack dan panduan terstruktur, ditulis sambil membangun website sungguhan dengan AI. Dikirim ke emailmu setelah pembayaran.", "Instant download": "Langsung bisa diunduh", "Pay in Rupiah (Lynk.id) or USD (Gumroad)": "Bayar Rupiah (Lynk.id) atau USD (Gumroad)", "Copy-ready prompts.txt in every pack": "prompts.txt siap salin di setiap pack", "Free updates": "Update gratis", "How it works": "Cara kerjanya", "Live in <em>four steps</em>": "Online dalam <em>empat langkah</em>", "Read the full guide →": "Baca panduan lengkap →", "Choose": "Pilih", "Pick a template, a kit or a prompt pack that fits what you're building.": "Pilih template, kit, atau prompt pack yang cocok dengan yang kamu bangun.", "Browse": "Lihat", "Make it yours": "Jadikan milikmu", "Change the words, colours and photos, or paste the prompts into your AI.": "Ganti teks, warna, dan foto, atau tempel prompt ke AI-mu.", "Guide, steps 3–5": "Panduan, langkah 3–5", "Connect WhatsApp": "Sambungkan WhatsApp", "One line, and every booking button sends you a ready-made message.": "Satu baris, dan semua tombol booking mengirim pesan siap pakai ke WhatsApp-mu.", "Guide, step 6": "Panduan, langkah 6", "Go live free": "Online gratis", "Drag the folder onto Netlify. Add your own domain whenever you're ready.": "Seret foldernya ke Netlify. Tambahkan domain sendiri kapan pun kamu siap.", "Guide, steps 8–9": "Panduan, langkah 8–9", "Behind Solvy": "Di balik Solvy", "\"I don't have a tech degree and I didn't start with code. I learned to build websites with AI, <em>one note at a time.</em>\"": "\"Aku tidak punya gelar IT dan tidak mulai dari coding. Aku belajar membuat website dengan AI, <em>satu catatan demi satu catatan.</em>\"", "Solvy started as my own notes: which prompts worked, which tools helped, and how to explain an idea so AI gets it right the first time. Every template and prompt here comes from that process, so you don't have to start from zero.": "Solvy berawal dari catatanku sendiri: prompt mana yang berhasil, tools mana yang membantu, dan cara menjelaskan ide supaya AI langsung paham. Setiap template dan prompt di sini lahir dari proses itu, jadi kamu tidak perlu mulai dari nol.", "<b>Made by one person</b>Not an agency. Built and tested by me.": "<b>Dibuat oleh satu orang</b>Bukan agensi. Dibuat dan diuji sendiri.", "<b>No income promises</b>Good tools, honest results. The rest is your work.": "<b>Tanpa janji penghasilan</b>Alat yang bagus, hasil yang jujur. Sisanya kerja kerasmu.", "<b>Try it free first</b>Grab the checklist or Amara before you buy.": "<b>Coba gratis dulu</b>Ambil checklist atau Amara sebelum membeli.", "Everything Solvy, <em>one payment</em>": "Semua Solvy, <em>sekali bayar</em>", "All templates, all kits and all prompt packs, plus everything we release next. Use them for yourself and for clients.": "Semua template, semua kit, dan semua prompt pack, plus semua rilisan berikutnya. Pakai untuk dirimu dan untuk klien.", "13 templates and 5 brand kits": "13 template dan 5 kit brand", "8 AI prompt packs and guides": "8 prompt pack dan panduan AI", "Commercial licence for unlimited client sites": "Lisensi komersial untuk website klien tanpa batas", "Lifetime updates and priority support": "Update seumur hidup dan bantuan prioritas", "Yearly": "Tahunan", "/ year": " / tahun", "Choose yearly": "Pilih tahunan", "Lifetime, best value": "Seumur hidup, paling hemat", "once": " sekali bayar", "Get lifetime access": "Ambil akses seumur hidup", "Worth over": "Senilai lebih dari", "bought one by one.": "jika dibeli satuan.", "Try before you buy": "Coba sebelum membeli", "Two things, <em>free</em>": "Dua hal, <em>gratis</em>", "What to prepare before you open AI, so the result is right on the first try. One page, free, no sign-up.": "Apa yang perlu disiapkan sebelum membuka AI, supaya hasilnya tepat sejak percobaan pertama. Satu halaman, gratis, tanpa daftar.", "Free template": "Template gratis", "A beautiful page for your Instagram and TikTok bio, with shop links and a newsletter box.": "Halaman cantik untuk bio Instagram dan TikTok-mu, dengan link toko dan kotak newsletter.", "Get it free": "Ambil gratis", "Good <em>questions</em>": "Pertanyaan <em>umum</em>", "I can't code at all. Will this work for me?": "Aku sama sekali tidak bisa coding. Apakah bisa?", "Yes. Templates are edited like a document, and the prompt packs tell you exactly what to paste into AI. Our <a href=\"guide.html\">setup guide</a> walks you through it in English and Bahasa Indonesia.": "Bisa. Template diedit seperti dokumen, dan prompt pack memberi tahu persis apa yang ditempel ke AI. <a href=\"guide.html\">Panduan setup</a> kami menuntunmu dalam Bahasa Indonesia dan English.", "What's the difference between a template, a kit and a prompt pack?": "Apa beda template, kit, dan prompt pack?", "A template is a finished website. A prompt pack teaches AI to build one with you. A kit gives you both: the template plus the prompts and planning sheets to make it fully yours.": "Template adalah website yang sudah jadi. Prompt pack mengajari AI membangun website bersamamu. Kit berisi keduanya: template plus prompt dan lembar perencanaan untuk membuatnya benar-benar milikmu.", "How do I receive my files?": "Bagaimana cara menerima file?", "Right after payment you get a download link on screen and by email, from Lynk.id or Gumroad. Check your spam folder if it doesn't arrive within a few minutes.": "Setelah pembayaran, link download langsung muncul di layar dan dikirim ke emailmu, dari Lynk.id atau Gumroad. Cek folder spam jika belum masuk dalam beberapa menit.", "Can I use a template for a client?": "Boleh dipakai untuk klien?", "Yes. Each purchase covers one website, yours or one client's. All-Access covers unlimited client sites.": "Boleh. Setiap pembelian berlaku untuk satu website, milikmu atau satu klien. All-Access berlaku untuk website klien tanpa batas.", "What can I do with my purchase?": "Apa saja yang boleh dilakukan dengan produk yang dibeli?", "Use it for your own business or for one client website per purchase. You can't resell or share the files. The full terms are on our <a href=\"terms.html\">licence and refund page</a>.": "Pakai untuk usahamu sendiri atau untuk satu website klien per pembelian. File tidak boleh dijual ulang atau dibagikan. Aturan lengkapnya ada di <a href=\"terms.html\">halaman lisensi dan refund</a>.", "Can I get a refund?": "Apakah bisa refund?", "Because files are delivered instantly, sales are final. If a file is broken or not what the page described, message us within 7 days and we'll fix it, replace it, or refund you.": "Karena file langsung terkirim, pembelian bersifat final. Jika file rusak atau tidak sesuai deskripsi, hubungi kami dalam 7 hari dan kami akan memperbaiki, mengganti, atau mengembalikan dana.", "Do I need a laptop?": "Apakah perlu laptop?", "Prompts and guides work on your phone. Editing a template is much easier on a laptop.": "Prompt dan panduan bisa dipakai di HP. Mengedit template jauh lebih mudah di laptop.", "Your next website is <em>one click away</em>": "Website-mu berikutnya <em>tinggal satu klik</em>", "Browse templates": "Lihat template", "Explore AI prompts": "Lihat prompt AI", "Setup guide": "Panduan setup", "Licence &amp; refunds": "Lisensi &amp; refund", "Privacy": "Privasi", "on Instagram": "di Instagram", "Kits": "Kit", "Templates · Prompts · Custom": "Template · Prompt · Custom", "Custom website": "Website custom", "Templates · AI prompts · Custom websites": "Template · Prompt AI · Website custom", "Your brand deserves <em>a website people remember.</em>": "Brand-mu layak punya <em>website yang diingat orang.</em>", "Pick a ready-made template, build your own with our step-by-step prompt system, or let us design one just for you. No coding, no stress, live in days.": "Pilih template siap pakai, bangun sendiri dengan sistem prompt kami yang dipandu langkah demi langkah, atau biar kami yang buatkan khusus untukmu. Tanpa coding, tanpa ribet, online dalam hitungan hari.", "Order a custom website": "Pesan website custom", "Tell us about your business. We design, write and launch a site made only for you.": "Ceritakan usahamu. Kami desain, tulis, dan online-kan website khusus untukmu.", "on WhatsApp": "di WhatsApp", "Something else? Ask Sol, our assistant, or chat with us on WhatsApp.": "Ada pertanyaan lain? Tanya Sol, asisten kami, atau chat kami di WhatsApp.", "Chat on WhatsApp": "Chat di WhatsApp", "Can you build a website for me?": "Bisa dibuatkan website?", "Yes. Besides templates and prompts, Ratna designs custom websites for brands. Send your business type and goals on WhatsApp and we'll reply with options and a quote. See the portfolio below.": "Bisa. Selain template dan prompt, Ratna juga membuat website custom untuk brand. Kirim jenis usaha dan tujuanmu lewat WhatsApp, nanti kami balas dengan pilihan dan penawaran harga. Lihat portofolio di bawah.", "Custom website service": "Jasa website custom", "Want it <em>made for you?</em>": "Mau <em>dibuatkan?</em>", "Tell us your business, your goal and the style you like.": "Ceritakan usahamu, tujuanmu, dan gaya yang kamu suka.", "Design &amp; words": "Desain &amp; teks", "We draft the look and the copy. You give feedback until it feels right.": "Kami buat tampilan dan teksnya. Kamu kasih masukan sampai pas.", "Launch": "Online", "We put it online with your domain and a WhatsApp order button.": "Kami online-kan dengan domainmu dan tombol order WhatsApp.", "DM on Instagram": "DM di Instagram", "Concept projects, designed by Ratna in 2026.": "Proyek konsep, didesain oleh Ratna di 2026.", "Questions? Ask Sol, I reply right away.": "Ada pertanyaan? Tanya Sol, langsung dijawab.", "Solvy assistant · replies instantly": "Asisten Solvy · balas seketika", "Prefer a human? <b>Ask on WhatsApp →</b>": "Mau ngobrol langsung? <b>Tanya di WhatsApp →</b>", "Besides templates and prompts, Ratna designs custom websites for brands, from shops and cafés to villas and clinics. Here is some recent concept work.": "Selain template dan prompt, Ratna juga mendesain website custom untuk brand, dari toko dan kafe sampai vila dan klinik. Ini beberapa karya konsep terbarunya.", "Portfolio · Custom websites": "Portofolio · Website custom", "Websites I <em>designed myself</em>": "Website yang <em>aku desain sendiri</em>", "Besides templates and prompts, I design and build custom websites for brands. Every project below is a real, working site. Open the live demo and click around.": "Selain template dan prompt, aku juga mendesain dan membangun website custom untuk brand. Semua proyek di bawah ini website sungguhan yang bisa dibuka. Coba buka demonya dan klik-klik sendiri.", "AI website builder &amp; digital creator": "AI website builder &amp; digital creator", "I handle everything myself, from your brief to the day your website goes live.": "Semua aku kerjakan sendiri, dari brief sampai website-mu online.", "Want a website like these?": "Mau website seperti ini?", "Free consultation on WhatsApp. Tell me your business and I'll suggest the right pages, style and budget.": "Konsultasi gratis di WhatsApp. Ceritakan usahamu, nanti aku sarankan halaman, gaya, dan budget yang pas.", "Your business, goal and the style you like.": "Usahamu, tujuanmu, dan gaya yang kamu suka.", "I draft the look and copy, you give feedback.": "Aku buat tampilan dan teksnya, kamu kasih masukan.", "Go live": "Online", "Online with your domain and WhatsApp button.": "Online dengan domainmu dan tombol WhatsApp.", "Free consultation on WhatsApp": "Konsultasi gratis di WhatsApp", "See the full portfolio ↗": "Lihat portofolio lengkap ↗", "<b>7</b>portfolio projects": "<b>7</b>proyek portofolio", "Open the checklist": "Buka checklist"};
+const i18nEls=[];
+(function collect(){const skip=new Set(['SCRIPT','STYLE','SVG','VIDEO','IMG']);
+  const walk=el=>{for(const c of el.children){if(skip.has(c.tagName.toUpperCase())||c.closest('#grid,#kitrow,#lib,#chapters,#pmb'))continue;
+    const direct=[...c.childNodes].some(n=>n.nodeType===3&&n.textContent.trim());
+    if(direct){const k=c.innerHTML.trim();if(I18N[k]!==undefined)i18nEls.push([c,k,c.innerHTML]);continue}walk(c)}};
+  walk(document.body)})();
+function setLang(l){LANG=l;try{localStorage.setItem('solvy-lang',l)}catch(e){}
+  document.documentElement.lang=l;
+  i18nEls.forEach(([el,k,o])=>{el.innerHTML=l==='id'?I18N[k]:o});
+  document.querySelectorAll('.lg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
+  document.title=L('Solvy — Website Templates & AI Prompts','Solvy — Template Website & Prompt AI');
+  renderAll();
+  if(!pm.hidden)closeP()}
+document.querySelectorAll('.lg button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+// showreel
+const SHOT=4.8,v=document.getElementById('reelv'),chs=document.getElementById('chapters');
+let btns=[],cur=-1;const f=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0');
+const nowt=document.getElementById('nowt'),nowlink=document.getElementById('nowlink'),tc=document.getElementById('tc');
+function tick(){const t=v.currentTime||0,i=Math.min(T.length-1,Math.floor(t/SHOT));
+  if(i!==cur&&btns.length){cur=i;btns.forEach((b,k)=>b.classList.toggle('on',k===i));nowt.textContent=T[i].n+', '+L(T[i].k,T[i].ki);nowlink.href='t/'+T[i].id+'/index.html';nowlink.setAttribute('aria-label',L('Open ','Buka ')+T[i].n+' live demo')}
+  btns.forEach((b,k)=>b.querySelector('i').style.width=(k<i?100:k>i?0:((t-i*SHOT)/SHOT*100))+'%');
+  tc.textContent=f(t)+' / '+f(v.duration||62.4);requestAnimationFrame(tick)}
+const pp=document.getElementById('pp'),PAUSE=pp.innerHTML,PLAY='<svg viewBox="0 0 18 18" fill="#fff"><path d="M5 3.5v11l9-5.5z"/></svg>';
+pp.addEventListener('click',()=>{v.paused?v.play().catch(()=>{}):v.pause()});
+v.addEventListener('play',()=>{pp.innerHTML=PAUSE;pp.setAttribute('aria-label','Pause showreel')});
+v.addEventListener('pause',()=>{pp.innerHTML=PLAY;pp.setAttribute('aria-label','Play showreel')});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&'IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){if(v.paused&&!v.dataset.user)v.play().catch(()=>{})}else if(!v.paused)v.pause()}),{rootMargin:'200px 0px'}).observe(v)}
+pp.addEventListener('click',()=>{v.dataset.user=v.paused?'':'1'});
+
+// copy master prompt
+document.addEventListener('click',e=>{if(e.target.closest('#cp'))copyMP(e)});
+function copyMP(e){const b=e.target.closest('#cp'),txt=document.getElementById('mp').innerText.replace(/^(Copy|Salin)\s*/,'');
+  const done=()=>{b.textContent=L('Copied','Tersalin');setTimeout(()=>b.textContent=L('Copy','Salin'),1400)};
+  if(navigator.clipboard)navigator.clipboard.writeText(txt).then(done).catch(()=>{});}
+
+/* ===== WhatsApp links ===== */
+const WA='85255127902';
+function waURL(kind,x){let m;
+  if(kind==='custom')m=L("Hi Solvy! 👋 I'd like a custom website for my business. Can we talk about it?","Halo Solvy! 👋 Aku mau tanya soal pembuatan website custom untuk usahaku. Bisa dibantu?");
+  else if(kind==='pf')m=L(`Hi Solvy! 👋 I love the ${x} concept. Could you make a website like that for my business?`,`Halo Solvy! 👋 Aku suka konsep ${x}. Bisa dibuatkan website seperti itu untuk usahaku?`);
+  else if(kind==='q')m=L(`Hi Solvy! 👋 I have a question: ${x}`,`Halo Solvy! 👋 Aku mau tanya: ${x}`);
+  else m=L("Hi Solvy! 👋 I'd like to ask about your templates, AI prompts or custom websites.","Halo Solvy! 👋 Aku mau tanya tentang template, prompt AI, atau website custom. Bisa dibantu?");
+  return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m)}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-wa]');if(!a)return;a.href=waURL(a.dataset.wa,a.dataset.x);a.target='_blank';a.rel='noopener'});
+
+/* ===== portfolio ===== */
+const PF=[
+ {id:'kanaya',no:'07',n:'Kanaya',u:'kanayavillas.com',c:['Luxury villa & hospitality','Vila mewah & hospitality'],t:['Where the jungle meets the sea.','Tempat hutan bertemu laut.'],d:['A cinematic booking website for a private villa estate above Uluwatu: film-first storytelling that sells the feeling before the floor plan.','Website booking sinematik untuk vila privat di atas Uluwatu: cerita lewat film yang menjual suasana sebelum denah.'],g:['Hospitality','Cinematic video','Direct booking']},
+ {id:'aurelia',no:'01',n:'Aurelia',u:'aurelia.studio',c:['Boutique e-commerce','Butik online'],t:['Luxury fashion, designed for the digital world.','Fashion mewah, didesain untuk dunia digital.'],d:['An editorial storefront where every product page reads like a magazine spread.','Etalase editorial, setiap halaman produk terasa seperti majalah.'],g:['Editorial','E-commerce']},
+ {id:'olea',no:'02',n:'Oléa',u:'olea-skin.com',c:['Beauty & skincare','Kecantikan & skincare'],t:['Botanical skincare, made with Mediterranean calm.','Skincare botani, setenang Mediterania.'],d:['A clean-luxury store where every bottle is shown like a still life.','Toko clean-luxury, setiap botol tampil seperti foto still life.'],g:['Beauty','E-commerce']},
+ {id:'lumen',no:'03',n:'Lumen',u:'lumen.ai',c:['SaaS & AI product','Produk SaaS & AI'],t:['Customer insight, explained by AI.','Insight pelanggan, dijelaskan oleh AI.'],d:['A launch site for an analytics product where the dashboard is the hero.','Website peluncuran produk analitik, dashboard jadi bintang utamanya.'],g:['SaaS','Landing page']},
+ {id:'sora',no:'04',n:'Sora',u:'sora-cafe.com',c:['Café & restaurant','Kafe & restoran'],t:['Slow mornings, served beautifully.','Pagi yang santai, disajikan dengan indah.'],d:['A menu you want to read, and reservations without friction.','Menu yang enak dibaca, reservasi tanpa ribet.'],g:['Hospitality','Reservations']},
+ {id:'serenity-haven',no:'05',n:'Serenity Haven',u:'serenityhaven.studio',c:['Health & wellness','Kesehatan & wellness'],t:['A calm digital home for mindful movement.','Rumah digital yang tenang untuk gerak yang mindful.'],d:['Soft sage tones, unhurried motion and a booking flow that takes three taps.','Warna sage lembut, gerak yang pelan, dan booking cukup tiga tap.'],g:['Wellness','Booking']},
+ {id:'meridian',no:'06',n:'Meridian',u:'meridian-advisory.com',c:['Corporate & business','Perusahaan & bisnis'],t:['Quiet confidence for a modern advisory firm.','Percaya diri yang tenang untuk firma konsultan modern.'],d:['Structured services, readable insights and an easy consultation flow.','Layanan yang tertata, artikel yang mudah dibaca, dan alur konsultasi yang mudah.'],g:['Corporate','Lead generation']}];
+const mock=p=>`<a class="mk" href="https://byratnasari.vercel.app/demo.html?p=${p.id}" target="_blank" rel="noopener" aria-label="${L('Open the','Buka')} ${esc(p.n)} live demo"><div class="brw"><div class="bt"><i></i><i></i><i></i><span>${p.u}</span></div><img class="lz" data-src="img/portfolio/${p.id}-d.webp" alt="${esc(p.n)} ${L('website on desktop','website di desktop')}"></div><div class="ph"><img class="lz" data-src="img/portfolio/${p.id}-m.webp" alt="${esc(p.n)} ${L('website on a phone','website di HP')}"></div></a>`;
+const ptx=(p,full)=>`<div class="pf-tx"><small><span class="no">${p.no}</span>${L(...p.c)} · ${L('Concept 2026','Konsep 2026')}</small><h3>${esc(p.n)}</h3><div class="tg">${L(...p.t)}</div>${full?`<p>${L(...p.d)}</p><div class="pf-tags">${p.g.map(x=>`<span>${x}</span>`).join('')}</div>`:`<p>${L(...p.d)}</p>`}<div class="pf-act"><a class="dm" href="https://byratnasari.vercel.app/demo.html?p=${p.id}" target="_blank" rel="noopener">${L('Live demo ↗','Lihat demo ↗')}</a><a class="wa" href="#" data-wa="pf" data-x="${esc(p.n)}">${L('Want one like this? →','Mau yang seperti ini? →')}</a></div></div>`;
+function renderPF(){const f=document.getElementById('pffeat'),g=document.getElementById('pf');if(!g)return;
+  f.innerHTML=mock(PF[0])+ptx(PF[0],1);
+  g.innerHTML=PF.slice(1).map(p=>`<article>${mock(p)}${ptx(p)}</article>`).join('');lazyImgs();
+  if(typeof solLang==='function')solLang()}
+
+/* ===== Sol, the assistant ===== */
+const $id=x=>document.getElementById(x);
+const fx=$id('fx'),sol=$id('sol'),solm=$id('solm'),solq=$id('solq'),solf=$id('solf'),soli=$id('soli'),solwa=$id('solwa'),fxbub=$id('fxbub'),fxbot=$id('fxbot');
+let hist=[],busy=false,lastQ='',sampleP=null,greeted=false;
+function getSample(){if(!sampleP)sampleP=(window.claude&&typeof claude.use==='function')?claude.use('sample').catch(()=>null):Promise.resolve(null);return sampleP}
+getSample();
+const QS=()=>[[L('Which template fits my business?','Template mana yang cocok untuk usahaku?')],[L("What's in a brand kit?",'Isi brand kit apa saja?')],[L('How do I get my files?','Gimana cara dapat filenya?')],[L('Can you make a custom website?','Bisa buatkan website custom?')],[L("What's free?",'Ada yang gratis?')]];
+function solLang(){soli.placeholder=L('Type your question…','Ketik pertanyaanmu…');solwa.href=waURL(lastQ?'q':'',lastQ);
+  solq.innerHTML=QS().map(q=>`<button type="button">${esc(q[0])}</button>`).join('')}
+solq.addEventListener('click',e=>{const b=e.target.closest('button');if(b)ask(b.textContent)});
+
+function catalog(){const r=n=>`${rp(n)} / $${USD[n]??Math.round(n/16000)}`;
+  return 'TEMPLATES (one-time price):\n'+T.map(x=>`[[${x.id}]] ${x.n} — ${x.d} (${x.k}). ${x.p===0?'FREE':r(x.p)+(x.was?', normally '+r(x.was):'')}. Live demo on the site.`).join('\n')+
+  '\n\nBRAND WEBSITE KITS (template + 13-page prompt book, AI workflow guide, client brief, content planner, launch checklist, planning sheets):\n'+K.map(k=>`[[kit-${k.id}]] ${k.n} — uses the ${k.t} template, for ${k.f}. ${r(k.p)}, normally ${r(k.was)}.`).join('\n')+
+  '\n\nAI PROMPT PACKS & GUIDES (PDF + copy-ready prompts.txt):\n'+P.map(x=>`[[${x.id}]] ${x.n} (${x.l}) — ${x.d}. ${x.m||''}. ${r(x.p)}.`).join('\n')+
+  `\n\nALL-ACCESS (every template, kit and pack + future releases, commercial licence for unlimited client sites): [[pass-yearly]] ${r(599000)} per year, [[pass-lifetime]] ${r(999000)} once.`}
+function sysPrompt(){return `You are Sol, the friendly assistant on the website of Solvy, a small studio run by Ratna. Solvy offers three things:
+1) Ready-made website templates (HTML, responsive on desktop and mobile, real photos, setup guide in Bahasa Indonesia, WhatsApp order buttons).
+2) AI prompt packs and brand website kits, so people can build or customise a website with AI, step by step, with no coding.
+3) A custom website service: Ratna designs, writes and launches a website made only for the client.
+
+FACTS (only use these):
+- Payment: in Indonesia via Lynk.id in Rupiah (QRIS, e-wallet, bank transfer). International checkout via Gumroad in USD is coming soon. Files arrive by email right after payment; check the spam folder.
+- Licence: one purchase covers one website (your own or one client's). All-Access covers unlimited client sites. Reselling or sharing the files is not allowed.
+- Refunds: downloads are instant, so sales are final; if a file is broken or not as described, message within 7 days for a fix, replacement or refund.
+- No coding needed. Prompts work on a phone; editing a template is easier on a laptop. Publish free on Netlify; the full setup guide is on the site (Guide page).
+- Free: the Amara link-in-bio template and the Website Prep Checklist PDF.
+- Custom websites: price depends on pages and features, so never quote a price; invite the visitor to chat on WhatsApp for options and a quote. Ratna's portfolio (self-initiated concepts with live demos, at the bottom of the page and at byratnasari.vercel.app): Kanaya (luxury villa), Aurelia (boutique e-commerce), Oléa (skincare), Lumen (SaaS/AI product), Sora (café), Serenity Haven (wellness), Meridian (corporate).
+- Contact: WhatsApp +852 5512 7902, Instagram @buildwithratna.
+
+MORE ANSWERS YOU CAN USE (true facts):
+${kbText()}
+
+CATALOGUE:
+${catalog()}
+
+HOW TO REPLY:
+- Language: ${L('English','Bahasa Indonesia (casual, friendly, use "kamu")')}, but if the visitor writes in another language, reply in theirs.
+- Warm, clear and short: at most 80 words. Plain text only: no markdown, no asterisks, no bullet symbols, no headings. At most one emoji.
+- When you recommend a product, include its tag exactly as written, like [[lune]] (it becomes a button). Recommend at most 3 products. Never invent tags.
+- If you don't know something or it isn't in the facts, say so kindly and suggest WhatsApp.
+- Remember what the visitor said earlier in this chat (their business, budget, products discussed) and build on it.
+- If the visitor hasn't said what their business is and it matters, ask one short question.
+- Help them choose: template = fastest, prompt pack = learn with AI, kit = both (best value), All-Access = 3+ products or client work, custom website = no time or wants something unique.
+- If the question is unrelated to websites or Solvy, answer briefly and kindly steer back.
+- Don't name third-party AI tools unless the visitor asks about them. Never promise income or results.
+- Prices: in Indonesian use Rupiah; in English give USD.`}
+
+/* ===== Sol's brain: knowledge base + matcher (works with or without AI) ===== */
+const KB=[
+ {k:['solvy','siapa kamu','who are you','tentang kamu','about you','ratna','siapa yang buat','who made','punya siapa'],
+  en:"Solvy is a small studio run by Ratna. She sells website templates, AI prompt packs and brand kits, and also designs custom websites. Everything is made and tested by her, not an agency.",
+  id:"Solvy itu studio kecil milik Ratna. Isinya template website, prompt pack AI, dan brand kit, plus jasa website custom. Semua dibuat dan dites sendiri oleh Ratna, bukan agensi."},
+ {k:['beda','bedanya','perbedaan','difference','different','compare','bandingkan','vs'],tag:'diff',
+  en:"A template is a finished website you edit. A prompt pack teaches AI to build a website with you, step by step. A kit gives you both: a template plus the prompt system and planning sheets to make it fully yours. A custom website means Ratna builds it for you.",
+  id:"Template = website jadi yang tinggal kamu edit. Prompt pack = panduan supaya AI bantu kamu bikin website langkah demi langkah. Kit = dua-duanya: template + sistem prompt dan lembar perencanaan. Website custom = Ratna yang buatkan untukmu."},
+ {k:['pilih yang mana','yang mana','which one','mana yang','bagusnya','sebaiknya','should i','saran','rekomendasi','recommend','cocok','fit','suggest'],tag:'choose',
+  en:"Quick guide: want it online this week, choose a template. Want to learn to build with AI, choose a prompt pack. Want both, choose a kit (best value). No time at all, ask Ratna for a custom website. Tell me your business and I'll pick the exact one.",
+  id:"Panduan cepat: mau cepat online minggu ini, pilih template. Mau belajar bikin sendiri pakai AI, pilih prompt pack. Mau dua-duanya, pilih kit (paling hemat). Nggak sempat sama sekali, minta Ratna buatkan website custom. Ceritakan usahamu, nanti aku pilihkan yang pas."},
+ {k:['edit','ubah','ganti teks','mengedit','cara pakai','how to use','gimana pakainya','cara edit','customize','kustom template','sesuaikan'],
+  en:"You edit the template like a document: open index.html in VS Code (free) or even Notepad, find the words with Ctrl+F, and change only the text between > and <. Colours sit in one place at the top, and photos are swapped by using the same file name. The setup guide shows every step with pictures.",
+  id:"Template diedit seperti dokumen: buka index.html di VS Code (gratis) atau Notepad, cari kata dengan Ctrl+F, lalu ganti teks di antara tanda > dan <. Warna ada di satu tempat di bagian atas, foto tinggal ditimpa dengan nama file yang sama. Panduan setup menjelaskan setiap langkah pakai gambar."},
+ {k:['online','hosting','publish','upload','netlify','vercel','live','onlinekan','taruh di internet','go live','server'],
+  en:"Putting it online is free: open app.netlify.com/drop, sign up with Google and drag the whole template folder in. About 10 seconds later you get a working link. Vercel, GitHub Pages or any hosting with a file manager also work.",
+  id:"Online-kan gratis: buka app.netlify.com/drop, daftar pakai Google, lalu drag satu folder template utuh ke sana. Sekitar 10 detik kemudian kamu dapat link yang sudah bisa dibuka. Vercel, GitHub Pages, atau hosting yang ada file manager-nya juga bisa."},
+ {k:['domain','.com','.id','alamat website','nama website','dot com'],
+  en:"A domain is optional and bought separately at any registrar (Niagahoster, Rumahweb, Namecheap, Cloudflare). A .com or .id is usually around Rp150–250k a year. Connecting it to Netlify takes about 10 minutes and the guide shows how.",
+  id:"Domain opsional dan dibeli terpisah di registrar mana pun (Niagahoster, Rumahweb, Namecheap, Cloudflare). Biasanya .com atau .id sekitar Rp150–250 ribu per tahun. Menyambungkannya ke Netlify sekitar 10 menit, langkahnya ada di panduan."},
+ {k:['whatsapp','wa ','nomor wa','tombol wa','order via','pesan otomatis','booking wa','reservasi wa'],
+  en:"Many templates have booking, reservation or order buttons that open WhatsApp with a ready-made message. You just put your number in one line (WA_NUMBER) and the guide even has a number fixer tool.",
+  id:"Banyak template punya tombol booking, reservasi, atau order yang langsung membuka WhatsApp dengan pesan otomatis. Kamu cukup isi nomormu di satu baris (WA_NUMBER), dan di panduan ada alat perapih nomornya."},
+ {k:['responsive','mobile','hp','handphone','tablet','layar hp','di hp'],
+  en:"Every template is responsive and tested on phones, tablets and desktops. Using the prompt packs works fine on a phone too, but editing a template is much easier on a laptop.",
+  id:"Semua template responsive dan sudah dites di HP, tablet, dan desktop. Prompt pack juga enak dipakai di HP, tapi untuk edit template lebih mudah pakai laptop."},
+ {k:['laptop','komputer','computer','pc','tanpa laptop','no laptop'],
+  en:"Prompts and guides work on your phone. To edit and upload a template, a laptop or computer makes it much easier.",
+  id:"Prompt dan panduan bisa dipakai di HP. Untuk edit dan upload template, lebih mudah pakai laptop atau komputer."},
+ {k:['warna','color','colour','font','huruf','logo','desain ulang','ganti warna'],
+  en:"Yes, colours live in one place at the top of the file, so changing a few codes recolours the whole site. Fonts are included and licensed. You can add your logo and swap every photo.",
+  id:"Bisa. Warna ada di satu tempat di bagian atas file, jadi ganti beberapa kode warna seluruh website ikut berubah. Font sudah termasuk dan berlisensi. Logo dan semua foto juga bisa diganti."},
+ {k:['foto','photo','gambar','image','picture'],
+  en:"Each template comes with its photos so it looks finished right away. For your own business, swap them for your photos: keep the same file name, about 2000px wide and under 400 KB.",
+  id:"Setiap template sudah ada fotonya, jadi langsung terlihat jadi. Untuk usahamu, ganti dengan fotomu sendiri: pakai nama file yang sama, lebar sekitar 2000px, ukuran di bawah 400 KB."},
+ {k:['coding','koding','code','programmer','pemula','beginner','gaptek','susah','sulit','ribet','hard','difficult'],
+  en:"No coding needed. You only change words, colours and photos, and the guide walks you through every step in Bahasa Indonesia and English. If you get stuck, message us.",
+  id:"Nggak perlu coding. Kamu cuma ganti teks, warna, dan foto, dan panduannya menjelaskan setiap langkah dalam Bahasa Indonesia dan Inggris. Kalau mentok, tinggal chat kami."},
+ {k:['wordpress','shopify','wix','blogger','elementor','cms'],
+  en:"The templates are plain HTML, not WordPress or Shopify themes. That makes them fast and free to host on Netlify or Vercel, with no plugins or monthly fees.",
+  id:"Template-nya HTML biasa, bukan tema WordPress atau Shopify. Jadi lebih cepat dan bisa di-hosting gratis di Netlify atau Vercel, tanpa plugin dan tanpa biaya bulanan."},
+ {k:['checkout','keranjang','cart','payment gateway','toko online','bayar di website','e-commerce','ecommerce','shopee','tokopedia'],
+  en:"The shop templates send orders to your WhatsApp (Noon to Night has a full bag). There's no built-in payment gateway; you can also link product buttons to Lynk.id, Shopee or Tokopedia.",
+  id:"Template toko mengirim pesanan ke WhatsApp kamu (Noon to Night punya keranjang lengkap). Tidak ada payment gateway bawaan; tombol produk juga bisa diarahkan ke Lynk.id, Shopee, atau Tokopedia."},
+ {k:['form','formulir','booking form','reservation form','email form','formspree'],
+  en:"Booking and reservation forms can send to your email for free with Formspree; the guide shows the 3 steps. Or point the buttons to WhatsApp instead.",
+  id:"Form booking dan reservasi bisa dikirim ke emailmu gratis pakai Formspree; langkahnya ada 3 di panduan. Atau arahkan tombolnya ke WhatsApp saja."},
+ {k:['seo','google','search','ranking','muncul di google'],
+  en:"Templates use clean HTML with proper headings and image descriptions, a good base for Google. Ranking still depends on your content and domain, so we never promise positions.",
+  id:"Template pakai HTML yang rapi dengan heading dan deskripsi gambar yang benar, dasar yang bagus untuk Google. Ranking tetap tergantung konten dan domainmu, jadi kami tidak menjanjikan posisi."},
+ {k:['figma'],
+  en:"Editing in Figma is optional. The guide's last step shows how, but you don't need Figma to use the templates.",
+  id:"Edit di Figma itu opsional. Langkah terakhir di panduan menjelaskan caranya, tapi kamu tidak butuh Figma untuk memakai template."},
+ {k:['file','download','unduh','email','dikirim','kirim','terima','receive','delivery','dapat file','kapan sampai','link download','zip'],
+  en:"Right after payment you get a download link on screen and by email. It's a .zip: unzip it and keep the folder together. If the email hasn't arrived after a few minutes, check spam or message us on WhatsApp.",
+  id:"Setelah bayar, link download langsung muncul di layar dan masuk ke email. Filenya .zip: ekstrak dan jangan pisahkan isi foldernya. Kalau email belum masuk beberapa menit, cek spam atau chat kami di WhatsApp."},
+ {k:['bayar','pay','payment','qris','transfer','dana','ovo','gopay','shopeepay','bank','metode','cara beli','how to buy','beli dimana','order'],
+  en:"In Indonesia you pay in Rupiah on Lynk.id: QRIS, e-wallet or bank transfer. Tap any Buy button on this page and choose Indonesia. International card and PayPal checkout via Gumroad is coming soon.",
+  id:"Di Indonesia bayarnya lewat Lynk.id dalam Rupiah: QRIS, e-wallet, atau transfer bank. Tap tombol Beli di halaman ini lalu pilih Indonesia. Pembayaran internasional lewat Gumroad segera hadir."},
+ {k:['luar negeri','international','abroad','usd','dollar','paypal','card','kartu kredit','overseas','singapore','malaysia','hong kong'],
+  en:"International checkout in USD (card and PayPal) via Gumroad is coming soon. For now, message us on WhatsApp and we'll help you buy.",
+  id:"Pembayaran internasional dalam USD (kartu dan PayPal) lewat Gumroad segera hadir. Sementara itu, chat kami di WhatsApp, nanti kami bantu."},
+ {k:['refund','uang kembali','garansi','guarantee','money back','balikin','kembalikan'],
+  en:"Files are delivered instantly, so sales are final. But if a file is broken or not what the page described, message us within 7 days and we'll fix it, replace it or refund you.",
+  id:"Karena file langsung terkirim, pembelian bersifat final. Tapi kalau file rusak atau tidak sesuai deskripsi, kabari kami dalam 7 hari, nanti kami perbaiki, ganti, atau refund."},
+ {k:['lisensi','license','licence','klien','client','resell','jual lagi','jual ulang','komersial','commercial','dipakai berapa'],
+  en:"One purchase covers one website, yours or one client's. All-Access covers unlimited client sites. Reselling or sharing the files isn't allowed.",
+  id:"Satu pembelian untuk satu website, punyamu atau satu klien. All-Access boleh untuk klien tanpa batas. File tidak boleh dijual ulang atau dibagikan."},
+ {k:['update','pembaruan','versi baru','new version','gratis update'],
+  en:"Updates to a product you bought are free. All-Access also includes every new template, kit and pack we release.",
+  id:"Update untuk produk yang kamu beli gratis. All-Access juga sudah termasuk semua template, kit, dan pack baru yang kami rilis."},
+ {k:['bantuan','help','support','stuck','mentok','error','tidak jalan','not working','rusak','broken','bingung'],
+  en:"Happy to help! Send a screenshot of what you see on WhatsApp, or email hello.solvystudio@gmail.com. Most issues are fixed by keeping the whole folder together (index.html with img and fonts).",
+  id:"Siap bantu! Kirim screenshot-nya lewat WhatsApp, atau email hello.solvystudio@gmail.com. Kebanyakan masalah beres kalau satu folder tetap utuh (index.html bersama folder img dan fonts)."},
+ {k:['diskon','discount','promo','voucher','kupon','coupon','murah','cheaper','potongan','sale'],
+  en:"There's no coupon code right now, but kits are already cheaper than buying the template and prompts separately, and All-Access lifetime gives you everything for one payment.",
+  id:"Saat ini belum ada kode kupon, tapi kit sudah lebih hemat dibanding beli template dan prompt terpisah, dan All-Access lifetime dapat semuanya dengan sekali bayar."},
+ {k:['all-access','all access','semua produk','everything','lifetime','seumur hidup','tahunan','yearly','langganan','subscription','pass'],p:['pass-lifetime','pass-yearly'],
+  en:"All-Access gives you every template, kit and prompt pack plus everything released next, with a licence for unlimited client sites. Yearly or lifetime (one payment).",
+  id:"All-Access berisi semua template, kit, dan prompt pack plus rilisan berikutnya, dengan lisensi untuk klien tanpa batas. Ada tahunan atau lifetime (sekali bayar)."},
+ {k:['gratis','free','cuma-cuma','free template','coba dulu','try'],p:['amara'],
+  en:"Two things are free: the Amara link-in-bio template and the Website Prep Checklist PDF, both in the Try before you buy section.",
+  id:"Ada dua yang gratis: template link-in-bio Amara dan PDF Website Prep Checklist, dua-duanya di bagian Coba dulu."},
+ {k:['kit','brand kit','isi kit','paket kit'],p:['kit-beauty','kit-cafe','kit-fashion'],
+  en:"A brand kit = template + prompt system: a 13-page prompt book, AI workflow guide, client brief, content planner and launch checklist, plus planning sheets. There are 5 kits: beauty, fashion, café, villa/hotel and portfolio.",
+  id:"Brand kit = template + sistem prompt: prompt book 13 halaman, panduan workflow AI, client brief, content planner, dan launch checklist, plus lembar perencanaan. Ada 5 kit: beauty, fashion, kafe, villa/hotel, dan portofolio."},
+ {k:['prompt','prompt pack','ai','chatgpt','gpt','claude','gemini','lovable','pakai ai','with ai','dengan ai'],p:['ai-website','per-usaha','bundle'],
+  en:"Prompt packs are PDFs plus a copy-ready prompts.txt that guide you to build a website with AI, no coding. They work with free versions of popular AI chat tools. Most are in Bahasa Indonesia; two are English editions.",
+  id:"Prompt pack berupa PDF plus prompts.txt siap salin yang memandu kamu bikin website pakai AI, tanpa coding. Bisa dipakai dengan versi gratis tool AI chat populer. Kebanyakan Bahasa Indonesia, dua edisi Bahasa Inggris."},
+ {k:['bahasa inggris','english','inggris','bahasa','language','indonesia'],p:['starter-en','landing-en'],
+  en:"Templates come with a setup guide in Bahasa Indonesia and English. Most prompt packs are in Bahasa Indonesia; the AI Website Starter Kit and AI Landing Page Kit are English editions.",
+  id:"Template ada panduan setup Bahasa Indonesia dan Inggris. Kebanyakan prompt pack Bahasa Indonesia; AI Website Starter Kit dan AI Landing Page Kit edisi Bahasa Inggris."},
+ {k:['canva'],p:['canva'],
+  en:"The Canva Portfolio Template is a 12-page portfolio you edit in Canva (a free account works). After payment you get the template link plus a guide.",
+  id:"Template Portofolio Canva berisi 12 halaman yang diedit di Canva (akun gratis bisa). Setelah bayar kamu dapat link template plus panduannya."},
+ {k:['demo','preview','contoh','lihat dulu','live demo','sample'],
+  en:"Every template has a live demo: open it from the template card and click around, on desktop or phone. Kits and prompt packs have Look inside pages with sample pages.",
+  id:"Setiap template punya live demo: buka dari kartu template dan coba klik-klik, di laptop atau HP. Kit dan prompt pack punya tombol Lihat isi dengan contoh halamannya."},
+ {k:['custom','jasa','dibuatkan','buatkan','bikinin','bikin website','made for me','build it for me','build my website','build a website for me','pesan website','order website','freelance'],
+  en:"Yes! Ratna designs custom websites made only for your business: you chat on WhatsApp, she drafts the design and copy, you give feedback, then she launches it with your domain and WhatsApp button. See the portfolio at the bottom of this page.",
+  id:"Bisa! Ratna bikin website custom khusus untuk usahamu: chat di WhatsApp, Ratna buatkan desain dan teksnya, kamu kasih masukan, lalu di-online-kan dengan domain dan tombol WhatsApp-mu. Lihat portofolionya di bagian paling bawah halaman ini."},
+ {tag:'cprice',k:['harga custom','biaya custom','berapa jasa','price for custom','custom price','quote','penawaran','budget','biaya website','biaya bikin'],
+  en:"Custom prices depend on the number of pages and features, so Ratna gives a quote after a free consultation on WhatsApp. Tell her your business type, pages you need and your budget.",
+  id:"Harga website custom tergantung jumlah halaman dan fitur, jadi Ratna kasih penawaran setelah konsultasi gratis di WhatsApp. Ceritakan jenis usaha, halaman yang dibutuhkan, dan budget-mu."},
+ {tag:'time',k:['berapa lama','lama pengerjaan','timeline','deadline','how long','kapan jadi','estimasi'],
+  en:"For templates, most people go live the same day (the guide says about 15 minutes after editing). For custom websites, the timeline depends on the scope; Ratna confirms it with the quote on WhatsApp.",
+  id:"Untuk template, kebanyakan orang bisa online di hari yang sama (sekitar 15 menit setelah selesai edit). Untuk website custom, lamanya tergantung skala proyek; Ratna konfirmasi bersama penawarannya di WhatsApp."},
+ {k:['siapkan','persiapan','prepare','yang dibutuhkan','what do i need','butuh apa','syarat'],
+  en:"Prepare your business name, short texts about what you offer, good photos, your logo if you have one, your WhatsApp number and 2–3 websites you like. The free Website Prep Checklist PDF lists it all.",
+  id:"Siapkan nama usaha, teks singkat tentang layananmu, foto yang bagus, logo kalau ada, nomor WhatsApp, dan 2–3 website yang kamu suka. PDF Website Prep Checklist (gratis) berisi daftar lengkapnya."},
+ {k:['revisi','revision','ubah lagi','perbaikan'],
+  en:"For custom websites, you give feedback on the design and copy until it feels right; the number of revision rounds is agreed in the quote. Templates you can edit as many times as you like.",
+  id:"Untuk website custom, kamu kasih masukan sampai desain dan teksnya pas; jumlah revisi disepakati di penawaran. Kalau template, bisa kamu edit sesukamu berkali-kali."},
+ {k:['portofolio','portfolio','karya','contoh website','hasil kerja','work samples'],
+  en:"Ratna's portfolio is at the bottom of this page: Kanaya, Aurelia, Oléa, Lumen, Sora, Serenity Haven and Meridian, each with a live demo. The full portfolio is at byratnasari.vercel.app.",
+  id:"Portofolio Ratna ada di bagian paling bawah halaman ini: Kanaya, Aurelia, Oléa, Lumen, Sora, Serenity Haven, dan Meridian, masing-masing ada live demo. Portofolio lengkap di byratnasari.vercel.app."},
+ {k:['kontak','contact','hubungi','instagram','ig','email','admin','cs','customer service','nomor'],
+  en:"You can reach Ratna on WhatsApp (+852 5512 7902), Instagram @buildwithratna or email hello.solvystudio@gmail.com. The fastest is WhatsApp: tap the link below.",
+  id:"Ratna bisa dihubungi lewat WhatsApp (+852 5512 7902), Instagram @buildwithratna, atau email hello.solvystudio@gmail.com. Paling cepat WhatsApp, tinggal tap link di bawah."},
+ {k:['aman','safe','trusted','terpercaya','penipuan','scam','legit','beneran'],
+  en:"Payments go through Lynk.id, and you get your files instantly by email. Solvy is run by Ratna, who you can message directly on WhatsApp or Instagram @buildwithratna. You can also try the free Amara template first.",
+  id:"Pembayaran lewat Lynk.id, dan file langsung dikirim ke email. Solvy dijalankan Ratna, yang bisa kamu chat langsung di WhatsApp atau Instagram @buildwithratna. Kamu juga bisa coba template gratis Amara dulu."},
+ {k:['halo','hai','hi','hello','hey','pagi','siang','sore','malam','assalamualaikum','permisi'],tag:'hi',
+  en:"Hi! 👋 Ask me anything about templates, prompt packs, kits or custom websites. What kind of business is your website for?",
+  id:"Hai! 👋 Tanya apa saja soal template, prompt pack, kit, atau website custom ya. Website-nya untuk usaha apa?"},
+ {k:['makasih','terima kasih','thanks','thank you','thx','oke','ok','sip','mantap'],tag:'thanks',
+  en:"You're welcome! If anything else comes up, I'm right here. 😊",
+  id:"Sama-sama! Kalau ada yang mau ditanyakan lagi, aku di sini ya. 😊"}
+];
+const KW=[[['fashion','baju','butik','boutique','clothing','hijab','pakaian','gamis'],['noontonight','kit-fashion']],[['villa','hotel','homestay','penginapan','resort','kost','guest house','airbnb'],['arunika','kit-hotel']],
+ [['klinik','clinic','beauty','kecantikan','salon','facial','spa','estetik','aesthetic','dokter kulit'],['lune','kit-beauty']],[['skincare','kosmetik','cosmetic','serum','makeup','make up'],['dewlab','lune']],
+ [['kafe','cafe','café','coffee','kopi','bakery','roti','kedai'],['koma','kit-cafe']],[['resto','restoran','restaurant','rumah makan','food','kuliner','catering','warung'],['halte','koma','kit-cafe']],
+ [['gym','pilates','yoga','fitness','olahraga'],['form']],[['anjing','dog','pet','kucing','grooming','hewan'],['biscuit']],[['saas','aplikasi','app','startup','software','produk digital'],['lumen','landing-en']],
+ [['agensi','agency','kreatif','creative','studio desain'],['loudhours']],[['portofolio saya','my portfolio','desainer','designer','freelancer','developer','cv','resume'],['ivers','kit-portfolio','canva']],
+ [['arsitek','architect','interior','kontraktor','properti'],['sora']],[['link in bio','linkinbio','bio instagram','kreator','creator','influencer','tiktok'],['amara']],
+ [['undangan','wedding','nikah','pernikahan'],[]],[['landing page','satu halaman','one page'],['landing-en','katalog']]];
+const ALIAS={noontonight:['noon to night','noontonight'],arunika:['arunika'],lune:['lune'],koma:['koma'],form:['template form','form studio','pilates form'],biscuit:['biscuit'],lumen:['template lumen'],loudhours:['loud hours','loudhours'],ivers:['ivers'],dewlab:['dewlab'],halte:['halte'],sora:['template sora'],amara:['amara'],
+ 'kit-beauty':['beauty kit','beauty clinic kit','kit beauty','kit kecantikan'],'kit-fashion':['fashion kit','kit fashion','fashion store kit'],'kit-cafe':['cafe kit','café kit','kit cafe','kit kafe','resto kit'],'kit-hotel':['hotel kit','villa kit','kit hotel','kit villa'],'kit-portfolio':['portfolio kit','kit portfolio','kit portofolio'],
+ 'ai-website':['ai website tanpa coding','tanpa coding'],'per-usaha':['per jenis usaha','per usaha'],katalog:['katalog'],gratis:['website gratis'],canva:['portofolio canva','canva portfolio'],'starter-en':['starter kit'],'landing-en':['landing page kit'],bundle:['complete path','bundle'],
+ 'pass-yearly':['tahunan','yearly'],'pass-lifetime':['lifetime','seumur hidup']};
+let ctx={ids:[],biz:''};
+const norm=s=>' '+s.toLowerCase().replace(/[^a-z0-9à-ÿ.+\- ]+/g,' ').replace(/\s+/g,' ')+' ';
+const hasW=(t,w)=>w.length<=3?t.includes(' '+w+' '):t.includes(w);
+function named(t){const out=[];for(const id in ALIAS)if(prod(id)&&ALIAS[id].some(a=>t.includes(a)))out.push(id);return out}
+function pinfo(id){const x=prod(id);if(!x)return '';
+  if(id.startsWith('pass-'))return L(`${x.n}: every template, kit and pack plus future releases.`,`${x.n}: semua template, kit, dan pack plus rilisan berikutnya.`);
+  if(id.startsWith('kit-')){const k=K.find(k=>'kit-'+k.id===id);return L(`${k.n}: the ${k.t} template + prompt book, AI workflow guide, client brief, content planner and launch checklist. For ${k.f}.`,`${k.n}: template ${k.t} + prompt book, panduan workflow AI, client brief, content planner, dan launch checklist. Untuk ${k.fi}.`)}
+  const p=P.find(p=>p.id===id);if(p)return `${p.n}: ${L(p.d,p.di)} (${L(p.m,p.mi)}).`;
+  const t=T.find(t=>t.id===id);return `${t.n}: ${L(t.d,t.di)}. ${L('Live demo on the template card.','Live demo ada di kartu template.')}`}
+const PRICEW=['harga','price','berapa','biaya','cost','how much','rp','mahal'];
+function localAns(q){const t=norm(q);
+  const ids=named(t),isPrice=PRICEW.some(w=>hasW(t,w))&&!/berapa lama|how long|berapa hari|berapa minggu/.test(t);
+  let biz=null;for(const [w,r] of KW)if(w.some(x=>hasW(t,x))){biz=r;break}
+  // score knowledge base
+  let best=null,bs=0;for(const e of KB){let s=0;for(const w of e.k)if(hasW(t,w))s+=w.includes(' ')?2:1;if(s>bs){bs=s;best=e}}
+  const kb=best&&bs?best:null,chips=a=>a&&a.length?' '+a.map(i=>`[[${i}]]`).join(' '):'';
+  // wedding: hidden product
+  if(hasW(t,'undangan')||hasW(t,'wedding')||hasW(t,'nikah'))return L("A wedding invitation template is coming later. For now, Ratna can make a custom invitation website for you, just ask on WhatsApp.","Template undangan pernikahan akan hadir nanti. Untuk sekarang, Ratna bisa buatkan website undangan custom, tinggal tanya di WhatsApp.");
+  if(isPrice&&(hasW(t,'custom')||hasW(t,'jasa')||hasW(t,'dibuatkan')||hasW(t,'buatkan'))){const e=KB.find(e=>e.tag==='cprice');return L(e.en,e.id)}
+  if(/berapa lama|how long|berapa hari|berapa minggu|kapan jadi|timeline/.test(t)){const e=KB.find(e=>e.tag==='time');return L(e.en,e.id)}
+  // compare two named products
+  if(ids.length>=2&&(kb&&kb.tag==='diff'||hasW(t,'atau')||hasW(t,'or')))return ids.slice(0,3).map(pinfo).join('\n')+chips(ids.slice(0,3));
+  // a specific product named
+  if(ids.length&&!(kb&&bs>=2&&!isPrice)){ctx.ids=ids;return ids.slice(0,3).map(pinfo).join('\n')+chips(ids.slice(0,3))}
+  // business type → recommendation
+  if(biz&&biz.length&&(!kb||['choose','hi','diff'].includes(kb.tag)||isPrice||bs<2)){ctx.ids=biz;ctx.biz=t;
+    return L('For that kind of business, these fit best: ','Untuk usaha seperti itu, ini yang paling cocok: ')+chips(biz)+(biz.some(i=>i.startsWith('kit-'))?L('\nA template is the fastest; the kit adds the prompt system to make it fully yours. Tap one for details.','\nTemplate paling cepat; kit sudah termasuk sistem prompt supaya benar-benar jadi milikmu. Tap untuk lihat detail.'):L('\nTap it to see the details, or open its live demo from the template list.','\nTap untuk lihat detail, atau buka live demo-nya dari daftar template.'))}
+  // price without product: use context
+  if(isPrice&&!kb&&ctx.ids.length)return L('Here are the prices: ','Ini harganya: ')+chips(ctx.ids);
+  if(isPrice&&(!kb||bs<2)&&!(kb&&kb.k.includes('custom')))return L('Templates start from ','Template mulai dari ')+money(129000)+L(', prompt packs from ',', prompt pack mulai ')+money(59000)+L(' and kits from ',', dan kit mulai ')+money(299000)+L('. Tell me your business and I\'ll pick the right one.','. Ceritakan usahamu, nanti aku pilihkan yang pas.');
+  if(kb){if(kb.p)ctx.ids=kb.p;return L(kb.en,kb.id)+chips(kb.p)}
+  return L("Hmm, I'm not sure about that one. Ratna can answer directly on WhatsApp, just tap the link below. You can also ask me about templates, prices, payment, licences or custom websites.","Hmm, untuk yang itu aku belum yakin. Ratna bisa jawab langsung di WhatsApp, tinggal tap link di bawah. Kamu juga bisa tanya aku soal template, harga, pembayaran, lisensi, atau website custom.")}
+function kbText(){return KB.filter(e=>!e.tag||e.tag==='diff'||e.tag==='choose').map(e=>'- '+e.en).join('\n')}
+
+function fmt(text){let h=esc(text).replace(/\*\*?/g,'');
+  h=h.replace(/\[\[([a-z0-9-]+)\]\]/g,(m,id)=>{const x=prod(id);return x?`<button type="button" class="pc" data-sol="${id}">${esc(x.n)} <em>${money(x.p)}</em></button>`:''});
+  return h.replace(/\[\[[^\]]*$/,'')}
+function bubble(cls,html){const d=document.createElement('div');d.className='b '+cls;d.innerHTML=html;solm.appendChild(d);solm.scrollTop=solm.scrollHeight;return d}
+solm.addEventListener('click',e=>{const b=e.target.closest('[data-sol]');if(!b)return;const id=b.dataset.sol;
+  if(id.startsWith('kit-'))openP('k:'+id.slice(4));else if(P.find(p=>p.id===id))openP('p:'+id);else openBuy(id)});
+
+async function ask(q){q=q.trim();if(!q||busy)return;busy=true;lastQ=q;solwa.href=waURL('q',q);
+  bubble('u',esc(q));soli.value='';const a=bubble('a t',L('Sol is thinking…','Sol sedang mengetik…'));
+  let ans='';
+  try{const sample=await getSample();
+    if(!sample)throw {code:'none'};
+    const msgs=hist.length?[...hist,{role:'user',content:q}]:[{role:'user',content:sysPrompt()+'\n\nVisitor question: '+q}];
+    const r=await sample(msgs,{cache:false,modelTier:'quick',onText:({text})=>{if(text){a.classList.remove('t');a.innerHTML=fmt(text);solm.scrollTop=solm.scrollHeight}}});
+    ans=(r&&r.text||'').trim();if(!ans)throw {code:'empty'};
+    if(!hist.length)hist.push({role:'user',content:sysPrompt()+'\n\nVisitor question: '+q});else hist.push({role:'user',content:q});
+    hist.push({role:'assistant',content:ans});if(hist.length>24)hist=[hist[0],hist[1],...hist.slice(-20)];
+  }catch(err){if(err&&err.code==='not_granted')sampleP=Promise.resolve(null);
+    ans=err&&err.code==='rate_limited'?L("I'm getting a lot of questions right now. Here's what I know: ","Lagi banyak yang tanya nih. Ini yang aku tahu: ")+localAns(q):localAns(q)}
+  a.classList.remove('t');a.innerHTML=fmt(ans);solm.scrollTop=solm.scrollHeight;busy=false}
+solf.addEventListener('submit',e=>{e.preventDefault();ask(soli.value)});
+
+function openSol(){sol.hidden=false;fx.classList.add('open');fxbot.setAttribute('aria-expanded','true');fxbub.hidden=true;try{sessionStorage.setItem('sol-seen','1')}catch(e){}
+  if(!greeted){greeted=true;bubble('a',fmt(L("Hi, I'm Sol 👋 I can help you pick a template, explain the prompt packs and kits, or connect you with Ratna for a custom website. What are you building?","Hai, aku Sol 👋 Aku bisa bantu pilih template, jelasin prompt pack dan kit, atau sambungkan kamu ke Ratna untuk website custom. Kamu mau bikin website apa?")))}
+  solLang();setTimeout(()=>soli.focus(),50)}
+function closeSol(){sol.hidden=true;fx.classList.remove('open');fxbot.setAttribute('aria-expanded','false');fxbot.focus()}
+fxbot.addEventListener('click',openSol);$id('solx').addEventListener('click',closeSol);
+fxbub.addEventListener('click',e=>{if(e.target.closest('.fx-bx')){fxbub.hidden=true;try{sessionStorage.setItem('sol-seen','1')}catch(e){}}else openSol()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!sol.hidden&&pm.hidden)closeSol()});
+let seen=false;try{seen=sessionStorage.getItem('sol-seen')==='1'}catch(e){}
+if(!seen){const showB=()=>{if(sol.hidden)fxbub.hidden=false};if(matchMedia('(max-width:640px)').matches){const onS=()=>{if(scrollY>innerHeight*1.2){removeEventListener('scroll',onS);showB()}};addEventListener('scroll',onS,{passive:true})}else setTimeout(showB,2500)}
+
+setLang(LANG);
+requestAnimationFrame(tick);
+if(location.hash.startsWith('#buy=')){const id=decodeURIComponent(location.hash.slice(5));if(prod(id))setTimeout(()=>openBuy(id),300)}
+
+</script>
+
+</body></html>

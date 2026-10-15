@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en" data-l="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Solvy Setup Guide</title>
+<style>
+@font-face{font-family:"IS";src:url(fonts/InstrumentSans-Regular.ttf);font-weight:400}
+@font-face{font-family:"IS";src:url(fonts/InstrumentSans-Bold.ttf);font-weight:700}
+@font-face{font-family:"Outfit";src:url(fonts/Outfit-Bold.ttf);font-weight:700}
+/* Layout: same dark gallery as the store. A sticky step rail on the left, one numbered step per block on the right; the visual for each step is a small working mock of the real thing (file tree, editor, drop zone). */
+:root{color-scheme:dark;--bg:#100D1C;--panel:#18142A;--panel-2:#211B37;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);
+--ink:#F6F0E6;--mute:#A49DB8;--soft:#D8D1E6;--amber:#F4A340;--coral:#E8654F;--magenta:#C2408F;--ok:#7BD88F;--code:#0C0A16;
+--ember:linear-gradient(100deg,#F4A340,#E8654F 45%,#C2408F);
+--mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"IS",system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px)}
+a{color:inherit}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+[hidden]{display:none!important}
+html[data-l="en"] [lang="id"],html[data-l="id"] [lang="en"]{display:none!important}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:32px}
+.grad{background:var(--ember);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* top */
+.top{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.glow{position:absolute;left:50%;top:-520px;transform:translateX(-50%);width:1500px;height:900px;background:radial-gradient(ellipse at 50% 45%,rgba(232,101,79,.32),rgba(194,64,143,.16) 40%,transparent 66%);pointer-events:none}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:84px;position:relative;z-index:2}
+.logo{display:flex;align-items:center;gap:11px;font-family:"Outfit";font-weight:700;font-size:22px;text-decoration:none}
+.logo .m{width:36px;height:36px;border-radius:10px;background:var(--ink);display:grid;place-items:center;flex:none}
+.logo .m i{width:16px;height:16px;border-radius:50% 50% 50% 4px;background:var(--ember)}
+.logo em{font-style:normal;color:var(--mute)}
+.navr{display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid var(--line-2);border-radius:999px;padding:3px}
+.lang button{border:0;background:transparent;border-radius:999px;height:34px;padding:0 14px;font-size:14px;color:var(--mute)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg);font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;font-weight:700;font-size:15px;white-space:nowrap;border:0;text-decoration:none;transition:transform .2s}
+.btn:active{transform:scale(.97)}
+.btn.ember{background:var(--ember);color:#1A0A10}
+.btn.light{background:var(--ink);color:var(--bg)}
+.btn.ghost{border:1px solid var(--line-2);background:transparent;font-weight:400}
+.btn.ghost:hover{border-color:rgba(255,255,255,.4)}
+.btn.sm{height:36px;padding:0 14px;font-size:13.5px}
+
+.hero{position:relative;z-index:2;padding:56px 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:end}
+.kicker{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line-2);border-radius:999px;padding:6px 14px 6px 7px;font-size:14px;color:var(--soft);background:rgba(255,255,255,.03)}
+.kicker b{background:var(--ember);color:#1A0A10;border-radius:999px;padding:2px 10px;font-size:12px}
+h1{font-weight:700;font-size:clamp(40px,5.6vw,80px);line-height:1;letter-spacing:-.045em;margin-top:22px;text-wrap:balance}
+.hero p.lead{font-size:19px;color:var(--mute);max-width:44ch}
+.need{display:grid;gap:10px;margin-top:22px}
+.need div{display:flex;gap:12px;align-items:baseline;font-size:15.5px;color:var(--soft)}
+.need b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);min-width:84px}
+
+/* body grid */
+.body{display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px;padding-block:64px 40px}
+.rail{position:sticky;top:24px;align-self:start}
+.rail small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.rail ol{list-style:none;display:grid;gap:2px;border-left:1px solid var(--line)}
+.rail a{display:flex;gap:12px;padding:8px 0 8px 16px;margin-left:-1px;border-left:2px solid transparent;text-decoration:none;color:var(--mute);font-size:15px;line-height:1.35}
+.rail a span{font-variant-numeric:tabular-nums;color:rgba(164,157,184,.6);font-size:13px;padding-top:2px}
+.rail a:hover{color:var(--ink)}
+.rail a.on{color:var(--ink);border-left-color:var(--amber)}
+.rail a.on span{color:var(--amber)}
+.rail .help{margin-top:26px;padding:18px;border:1px solid var(--line);border-radius:16px;font-size:14px;color:var(--mute)}
+.rail .help a{display:inline;padding:0;border:0;margin:0;color:var(--amber);font-size:14px}
+
+/* steps */
+.step{padding-bottom:72px;margin-bottom:72px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.step:last-of-type{border-bottom:0}
+.sn{display:flex;align-items:center;gap:14px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.sn b{font-family:"Outfit";font-size:15px;letter-spacing:0;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--panel-2);border:1px solid var(--line-2);color:var(--amber)}
+.sn i{font-style:normal;margin-left:auto;font-size:13px;letter-spacing:0;text-transform:none;border:1px solid var(--line-2);border-radius:999px;padding:3px 10px}
+h2{font-weight:700;font-size:clamp(28px,3.2vw,42px);line-height:1.08;letter-spacing:-.035em;text-wrap:balance}
+.step p,.step li{color:var(--soft);max-width:66ch}
+.step p strong,.step li strong{color:var(--ink)}
+.step ol.do,.step ul.do{padding-left:22px;display:grid;gap:8px}
+.step ol.do li::marker{color:var(--amber);font-weight:700}
+kbd,code{font-family:var(--mono);font-size:.86em;background:var(--panel-2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--ink);white-space:nowrap}
+.step p code,.step li code,.note code{white-space:normal;overflow-wrap:anywhere}
+.note{position:relative;padding:16px 18px 16px 52px;border-radius:14px;background:rgba(244,163,64,.07);border:1px solid rgba(244,163,64,.28);font-size:15.5px;color:var(--soft);max-width:72ch}
+.note::before{content:"!";position:absolute;left:18px;top:18px;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#1A0A10;font-weight:700;font-size:13px;display:grid;place-items:center}
+.note.tip{background:rgba(123,216,143,.06);border-color:rgba(123,216,143,.28)}
+.note.tip::before{content:"✓";background:var(--ok)}
+
+/* mock: window */
+.win{border-radius:16px;border:1px solid var(--line-2);background:var(--code);overflow:hidden;max-width:760px;box-shadow:0 30px 60px -40px rgba(0,0,0,.9)}
+.win .bar{display:flex;align-items:center;gap:7px;height:40px;padding:0 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+.win .bar i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.14)}
+.win .bar span{margin-left:10px;font-family:var(--mono);font-size:12.5px;color:var(--mute);background:var(--code);border:1px solid var(--line);border-bottom:0;border-radius:8px 8px 0 0;padding:5px 12px;align-self:flex-end}
+.code{overflow-x:auto;padding:16px 0;font-family:var(--mono);font-size:13.5px;line-height:1.75}
+.code div{display:flex;white-space:pre;padding-right:20px}
+.code div::before{content:attr(data-n);width:46px;flex:none;text-align:right;padding-right:16px;color:rgba(164,157,184,.4);user-select:none}
+.code .hl{background:rgba(244,163,64,.12);box-shadow:inset 3px 0 0 var(--amber)}
+.code .del{background:rgba(232,101,79,.12);box-shadow:inset 3px 0 0 var(--coral);text-decoration:line-through;text-decoration-color:rgba(232,101,79,.6)}
+.t{color:#E8A0C8}.a{color:#F4C27A}.s{color:#9FD8A8}.c{color:rgba(164,157,184,.6)}.v{color:#9EC3FF}
+
+/* file tree */
+.tree{font-family:var(--mono);font-size:14px;line-height:2;padding:18px 22px}
+.tree div{display:flex;gap:10px;align-items:center;white-space:nowrap}
+.tree .in{padding-left:26px}
+.tree .ic{width:16px;height:13px;border-radius:2px;flex:none;background:var(--amber);opacity:.9}
+.tree .ic.f{width:12px;height:15px;border-radius:2px;background:var(--soft);opacity:.5}
+.tree .ic.h{background:var(--coral);opacity:1}
+.tree em{font-style:normal;color:var(--mute);font-family:"IS",system-ui,sans-serif;font-size:13.5px;margin-left:8px;white-space:normal}
+
+/* tools */
+.tool{border-radius:20px;border:1px solid var(--line-2);background:var(--panel);padding:26px;max-width:760px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.tool h3{font-size:18px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.tool h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(123,216,143,.15)}
+.field{display:grid;gap:6px}
+.field label{font-size:13.5px;color:var(--mute)}
+.field input,.field textarea{width:100%;background:var(--code);border:1px solid var(--line-2);border-radius:12px;padding:12px 14px;font-size:15px;min-width:0}
+.field textarea{min-height:110px;resize:vertical;line-height:1.5}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.out{display:flex;align-items:center;gap:12px;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:10px 10px 10px 14px;min-width:0}
+.out code{background:none;border:0;padding:0;font-size:13.5px;white-space:nowrap;overflow-x:auto;flex:1;min-width:0}
+.msg{font-size:14px;color:var(--mute)}
+.msg.bad{color:#FF9C8A}.msg.good{color:var(--ok)}
+.links{display:grid;gap:8px;max-height:280px;overflow:auto}
+.links .out b{font-size:14px;white-space:nowrap;min-width:0;max-width:34%;overflow:hidden;text-overflow:ellipsis}
+
+/* colour demo */
+.cdemo{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.mini{border-radius:16px;padding:26px;background:var(--c-bg);color:var(--c-ink);display:grid;gap:12px;align-content:start;border:1px solid var(--line);transition:background .25s,color .25s}
+.mini small{letter-spacing:.14em;text-transform:uppercase;font-size:11px;opacity:.7}
+.mini b{font-family:Georgia,serif;font-weight:400;font-size:30px;line-height:1.05}
+.mini p{color:inherit!important;opacity:.75;font-size:14px}
+.mini span{justify-self:start;background:var(--c-acc);color:var(--c-bg);border-radius:999px;padding:9px 18px;font-size:13px;font-weight:700}
+.picks{display:grid;gap:10px}
+.pick{display:flex;align-items:center;gap:12px;background:var(--code);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+.pick input{width:38px;height:30px;border:0;background:none;padding:0;cursor:pointer;flex:none}
+.pick label{font-family:var(--mono);font-size:13.5px;flex:1}
+.pick output{font-family:var(--mono);font-size:13px;color:var(--mute)}
+
+/* photo rules */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:820px}
+.rules div{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--panel)}
+.rules b{display:block;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.rules span{display:block;color:var(--mute);font-size:14.5px;margin-top:6px}
+
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--soft);font-size:14px}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink);font-weight:700}
+.panel{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+
+/* drop zone */
+.drop{max-width:760px;border-radius:20px;border:1px solid var(--line-2);background:var(--panel);overflow:hidden}
+.drop .url{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:13px;color:var(--mute)}
+.drop .url i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.drop .zone{margin:22px;border:2px dashed rgba(255,255,255,.2);border-radius:16px;min-height:200px;display:grid;place-items:center;text-align:center;position:relative;padding:26px}
+.drop .zone p{color:var(--mute);font-size:15px}
+.folder{position:absolute;left:12%;top:24%;display:flex;align-items:center;gap:10px;background:var(--panel-2);border:1px solid var(--line-2);border-radius:12px;padding:10px 14px;font-family:var(--mono);font-size:13px;box-shadow:0 20px 40px -14px rgba(0,0,0,.8);animation:drag 5s cubic-bezier(.5,0,.2,1) infinite}
+.folder i{width:22px;height:17px;border-radius:3px;background:var(--amber)}
+.live{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:8px;background:var(--panel);border-radius:14px;opacity:0;animation:live 5s infinite}
+.live b{font-size:17px}
+.live code{font-size:13px}
+@keyframes drag{0%,10%{transform:translate(0,0);opacity:1}45%{transform:translate(min(28vw,190px),52px) scale(.96);opacity:1}55%,100%{transform:translate(min(28vw,190px),52px) scale(.9);opacity:0}}
+@keyframes live{0%,55%{opacity:0}62%,92%{opacity:1}100%{opacity:0}}
+
+/* dns table */
+.tbl{overflow-x:auto;max-width:760px;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:460px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:400;background:var(--panel)}
+tr:last-child td{border-bottom:0}
+td code{font-size:13px}
+
+/* faq + cta */
+.trouble details{border-bottom:1px solid var(--line);padding:18px 0;max-width:820px}
+.trouble details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:700;font-size:17.5px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--amber);font-size:22px;line-height:1}
+details[open] summary::after{content:"\2212"}
+details p{color:var(--mute);margin-top:8px;max-width:66ch}
+.cta{margin-top:20px;border-radius:28px;border:1px solid var(--line-2);padding:44px;display:grid;grid-template-columns:1.4fr auto;gap:30px;align-items:center;
+background:radial-gradient(circle at 100% 0%,rgba(194,64,143,.38),transparent 50%),radial-gradient(circle at 60% 140%,rgba(244,163,64,.22),transparent 50%),var(--panel)}
+.cta h2{font-size:clamp(26px,3vw,38px)}
+.cta p{color:var(--mute);margin-top:10px;max-width:52ch}
+footer{border-top:1px solid var(--line);padding:40px 0 50px;margin-top:80px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--mute);font-size:15px}
+.foot nav{height:auto;display:flex;gap:10px 22px;flex-wrap:wrap;justify-content:flex-start}
+.foot nav a{text-decoration:none}
+
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr;gap:26px;padding:40px 0 48px}
+  .body{grid-template-columns:minmax(0,1fr);gap:0;padding-top:0}
+  .rail{min-width:0}
+  .rail{position:sticky;top:0;z-index:5;margin-inline:-32px;padding:10px 32px;background:rgba(16,13,28,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-bottom:40px}
+  .rail small,.rail .help{display:none}
+  .rail ol{display:flex;gap:6px;overflow-x:auto;border:0;scrollbar-width:none}
+  .rail ol::-webkit-scrollbar{display:none}
+  .rail a{white-space:nowrap;border:1px solid var(--line-2);border-radius:999px;padding:6px 12px;margin:0;font-size:13.5px}
+  .rail a.on{border-color:var(--amber);border-left-color:var(--amber)}
+  .rail a span{padding-top:0}
+  html{scroll-padding-top:80px}
+}
+@media (max-width:640px){
+  .wrap{padding-inline:18px}
+  .rail{margin-inline:-18px;padding-inline:18px}
+  nav .btn.ghost{display:none}
+  .cdemo,.rules{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;padding:30px 22px}
+  .tool{padding:20px}
+  .step{padding-bottom:52px;margin-bottom:52px}
+  .folder{left:6%}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.live{opacity:1}.folder{display:none}}
+
+:root{--bg:#1C1315;--panel:#271B1D;--panel-2:#332326;--line:rgba(246,240,231,.11);--line-2:rgba(246,240,231,.18);--mute:#BDAEA5;--soft:#E3D6CF;--amber:#E9B7A6;--coral:#C9707E;--magenta:#8F3A4B;--code:#120C0D;--ember:linear-gradient(100deg,#E9B7A6,#C9707E 45%,#8F3A4B)}
+body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),transparent 60%),var(--bg)}
+</style>
+</head>
+<body>
+<script>
+// always open at the top (or at the linked step), never where the previous page was scrolled
+(function(){
+  try{history.scrollRestoration='manual'}catch(e){}
+  var user=false;['wheel','touchstart','keydown','mousedown'].forEach(function(e){addEventListener(e,function(){user=true},{passive:true,once:true})});
+  function go(){
+    if(user)return;
+    var id=(location.hash||'').slice(1),el=id&&document.getElementById(id);
+    var de=document.documentElement,sb=de.style.scrollBehavior;de.style.scrollBehavior='auto';
+    if(el){el.scrollIntoView({block:'start'})}else{window.scrollTo(0,0)}
+    de.style.scrollBehavior=sb;
+  }
+  go();
+  addEventListener('DOMContentLoaded',go);addEventListener('load',go);addEventListener('pageshow',go);
+  [60,250,600].forEach(function(t){setTimeout(go,t)});
+})();
+</script>
+<div class="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="index.html"><span class="m"><i></i></span><span>Solvy</span></a>
+      <div class="navr">
+        <div class="lang" role="group" aria-label="Language"><button id="l-en" aria-pressed="true" data-set="en">EN</button><button id="l-id" aria-pressed="false" data-set="id">ID</button></div>
+        <a class="btn ghost" href="index.html#templates"><span lang="en">All templates</span><span lang="id">Semua template</span></a>
+      </div>
+    </nav>
+    <header class="hero">
+      <div>
+        <span class="kicker"><b lang="en">Guide</b><b lang="id">Panduan</b><span lang="en">For every solvy template</span><span lang="id">Untuk semua template solvy</span></span>
+        <h1 lang="en">From download to a <span class="grad">live website</span> in 15 minutes</h1>
+        <h1 lang="id">Dari download sampai <span class="grad">website online</span> dalam 15 menit</h1>
+      </div>
+      <div>
+        <p class="lead" lang="en">No coding and no paid tools. Follow the ten steps in order. Each one has a picture of exactly what you will see.</p>
+        <p class="lead" lang="id">Tanpa coding dan tanpa aplikasi berbayar. Ikuti sepuluh langkah ini berurutan. Setiap langkah ada gambar persis seperti yang akan kamu lihat.</p>
+        <div class="need">
+          <div><b lang="en">Editor</b><b lang="id">Editor</b><span lang="en">VS Code, free at code.visualstudio.com. Notepad also works.</span><span lang="id">VS Code, gratis di code.visualstudio.com. Notepad juga bisa.</span></div>
+          <div><b lang="en">Hosting</b><b lang="id">Hosting</b><span lang="en">A free Netlify account (sign in with Google).</span><span lang="id">Akun Netlify gratis (daftar pakai Google).</span></div>
+          <div><b lang="en">Content</b><b lang="id">Konten</b><span lang="en">Your business name, texts, photos and WhatsApp number.</span><span lang="id">Nama usaha, teks, foto dan nomor WhatsApp kamu.</span></div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div class="wrap body">
+  <aside class="rail" aria-label="Steps">
+    <small lang="en">10 steps</small><small lang="id">10 langkah</small>
+    <ol id="toc">
+      <li><a href="#unzip"><span>01</span><b lang="en">Unzip the download</b><b lang="id">Ekstrak file zip</b></a></li>
+      <li><a href="#preview"><span>02</span><b lang="en">Open it on your computer</b><b lang="id">Buka di komputer</b></a></li>
+      <li><a href="#words"><span>03</span><b lang="en">Change the words</b><b lang="id">Ganti teks</b></a></li>
+      <li><a href="#colours"><span>04</span><b lang="en">Change the colours</b><b lang="id">Ganti warna</b></a></li>
+      <li><a href="#photos"><span>05</span><b lang="en">Swap the photos</b><b lang="id">Ganti foto</b></a></li>
+      <li><a href="#whatsapp"><span>06</span><b lang="en">Connect WhatsApp</b><b lang="id">Sambungkan WhatsApp</b></a></li>
+      <li><a href="#settings"><span>07</span><b lang="en">Settings for your template</b><b lang="id">Pengaturan per template</b></a></li>
+      <li><a href="#publish"><span>08</span><b lang="en">Put it online, free</b><b lang="id">Online-kan gratis</b></a></li>
+      <li><a href="#domain"><span>09</span><b lang="en">Use your own domain</b><b lang="id">Pakai domain sendiri</b></a></li>
+      <li><a href="#figma"><span>10</span><b lang="en">Edit in Figma (optional)</b><b lang="id">Edit di Figma (opsional)</b></a></li>
+      <li><a href="#help"><span>?</span><b lang="en">Something not working</b><b lang="id">Ada yang tidak jalan</b></a></li>
+    </ol>
+    <div class="help"><span lang="en">Stuck? Email <a href="#help">hello.solvystudio@gmail.com</a> with a screenshot.</span><span lang="id">Bingung? Email <a href="#help">hello.solvystudio@gmail.com</a> dengan screenshot.</span></div>
+  </aside>
+
+  <main>
+    <!-- 01 -->
+    <section class="step" id="unzip">
+      <div class="sn"><b>01</b><span lang="en">Unzip</span><span lang="id">Ekstrak</span><i>1 min</i></div>
+      <h2 lang="en">Unzip the download and keep the folder together</h2>
+      <h2 lang="id">Ekstrak zip dan jangan pisahkan isi foldernya</h2>
+      <p lang="en">After checkout you get a <code>.zip</code> file. Right-click it and choose <strong>Extract All</strong> (Windows) or double-click it (Mac). You will get one folder that looks like this:</p>
+      <p lang="id">Setelah bayar kamu dapat file <code>.zip</code>. Klik kanan lalu pilih <strong>Extract All</strong> (Windows) atau klik dua kali (Mac). Hasilnya satu folder seperti ini:</p>
+      <div class="win"><div class="bar"><i></i><i></i><i></i><span>solvy-lune</span></div>
+        <div class="tree">
+          <div><span class="ic"></span>lune/</div>
+          <div class="in"><span class="ic f h"></span>index.html<em lang="en">the whole website. This is the file you edit.</em><em lang="id">seluruh website. File ini yang kamu edit.</em></div>
+          <div class="in"><span class="ic"></span>img/<em lang="en">photos used on the page</em><em lang="id">foto-foto di halaman</em></div>
+          <div class="in"><span class="ic"></span>fonts/<em lang="en">the typefaces, already licensed</em><em lang="id">huruf (font), sudah berlisensi</em></div>
+          <div class="in"><span class="ic f"></span>README.txt<em lang="en">short notes for this template</em><em lang="id">catatan singkat template ini</em></div>
+          <div class="in"><span class="ic f"></span>preview.jpg</div>
+        </div>
+      </div>
+      <p class="note" lang="en">Always move or upload the whole folder. If index.html is separated from img/ and fonts/, photos disappear and the letters change.</p>
+      <p class="note" lang="id">Selalu pindahkan atau upload satu folder utuh. Kalau index.html dipisah dari img/ dan fonts/, foto akan hilang dan hurufnya berubah.</p>
+    </section>
+
+    <!-- 02 -->
+    <section class="step" id="preview">
+      <div class="sn"><b>02</b><span lang="en">Preview</span><span lang="id">Lihat hasil</span><i>1 min</i></div>
+      <h2 lang="en">Open it on your computer</h2>
+      <h2 lang="id">Buka di komputer kamu</h2>
+      <ol class="do" lang="en">
+        <li>Double-click <code>index.html</code>. It opens in Chrome, Safari or Edge, exactly like the live demo.</li>
+        <li>Right-click <code>index.html</code> and choose <strong>Open with → Visual Studio Code</strong>. This is where you edit.</li>
+        <li>Keep both windows side by side. After every change press <kbd>Ctrl</kbd> + <kbd>S</kbd> (Mac: <kbd>⌘</kbd> + <kbd>S</kbd>) in VS Code, then refresh the browser with <kbd>F5</kbd> (Mac: <kbd>⌘</kbd> + <kbd>R</kbd>).</li>
+      </ol>
+      <ol class="do" lang="id">
+        <li>Klik dua kali <code>index.html</code>. Website terbuka di Chrome, Safari atau Edge, sama persis seperti live demo.</li>
+        <li>Klik kanan <code>index.html</code>, pilih <strong>Open with → Visual Studio Code</strong>. Di sinilah kamu mengedit.</li>
+        <li>Taruh dua jendela berdampingan. Setiap selesai mengubah, tekan <kbd>Ctrl</kbd> + <kbd>S</kbd> (Mac: <kbd>⌘</kbd> + <kbd>S</kbd>) di VS Code, lalu refresh browser dengan <kbd>F5</kbd> (Mac: <kbd>⌘</kbd> + <kbd>R</kbd>).</li>
+      </ol>
+    </section>
+
+    <!-- 03 -->
+    <section class="step" id="words">
+      <div class="sn"><b>03</b><span lang="en">Text</span><span lang="id">Teks</span><i>5 min</i></div>
+      <h2 lang="en">Change the words</h2>
+      <h2 lang="id">Ganti teksnya</h2>
+      <p lang="en">In VS Code press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type a few words you see on the page, for example <code>Skin that looks like you</code>. VS Code jumps to that line. Change only the words <strong>between</strong> the <code>&gt;</code> and <code>&lt;</code>.</p>
+      <p lang="id">Di VS Code tekan <kbd>Ctrl</kbd> + <kbd>F</kbd> lalu ketik beberapa kata yang kamu lihat di halaman, misalnya <code>Skin that looks like you</code>. VS Code langsung lompat ke baris itu. Ganti hanya kata-kata <strong>di antara</strong> tanda <code>&gt;</code> dan <code>&lt;</code>.</p>
+      <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
+        <div class="code">
+          <div data-n="171"><span class="t">&lt;h1&gt;</span>Lune<span class="t">&lt;/h1&gt;</span></div>
+          <div data-n="172" class="del"><span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"sub"</span><span class="t">&gt;</span>Skin that looks like you, only rested.<span class="t">&lt;/p&gt;</span></div>
+          <div data-n="172" class="hl"><span class="t">&lt;p</span> <span class="a">class</span>=<span class="s">"sub"</span><span class="t">&gt;</span>Kulit sehat, hasil natural.<span class="t">&lt;/p&gt;</span></div>
+          <div data-n="173"><span class="t">&lt;a</span> <span class="a">class</span>=<span class="s">"btn"</span> <span class="a">href</span>=<span class="s">"#book"</span><span class="t">&gt;</span>Book a free consultation<span class="t">&lt;/a&gt;</span></div>
+        </div>
+      </div>
+      <ul class="do" lang="en">
+        <li>Don't delete the tags in pink (<code>&lt;p&gt;</code>, <code>&lt;/p&gt;</code>). They hold the design.</li>
+        <li>Made a mistake? Press <kbd>Ctrl</kbd> + <kbd>Z</kbd> to undo, as many times as you need.</li>
+        <li>To change a whole word everywhere at once (like a brand name), use <kbd>Ctrl</kbd> + <kbd>H</kbd> (Replace).</li>
+      </ul>
+      <ul class="do" lang="id">
+        <li>Jangan hapus tag yang berwarna pink (<code>&lt;p&gt;</code>, <code>&lt;/p&gt;</code>). Itu yang menjaga desainnya.</li>
+        <li>Salah edit? Tekan <kbd>Ctrl</kbd> + <kbd>Z</kbd> untuk membatalkan, berapa kali pun.</li>
+        <li>Untuk mengganti satu kata di semua tempat sekaligus (misalnya nama brand), pakai <kbd>Ctrl</kbd> + <kbd>H</kbd> (Replace).</li>
+      </ul>
+    </section>
+
+    <!-- 04 -->
+    <section class="step" id="colours">
+      <div class="sn"><b>04</b><span lang="en">Colours</span><span lang="id">Warna</span><i>2 min</i></div>
+      <h2 lang="en">Change the colours in one place</h2>
+      <h2 lang="id">Ganti warna di satu tempat</h2>
+      <p lang="en">Every template keeps its colours at the very top of the file, inside <code>:root{ … }</code>. Change a code there and the whole website follows. Try it here first:</p>
+      <p lang="id">Setiap template menyimpan warnanya di bagian paling atas file, di dalam <code>:root{ … }</code>. Ganti kode warna di sana dan seluruh website ikut berubah. Coba dulu di sini:</p>
+      <div class="cdemo">
+        <div class="mini" id="mini" style="--c-bg:#F5F0EA;--c-ink:#3A2A22;--c-acc:#B8955C">
+          <small lang="en">Preview</small><small lang="id">Contoh</small>
+          <b>Your brand</b>
+          <p lang="en">Pick colours on the right and copy the code.</p>
+          <p lang="id">Pilih warna di kanan lalu salin kodenya.</p>
+          <span>Book now</span>
+        </div>
+        <div class="picks">
+          <div class="pick"><input type="color" id="cbg" value="#F5F0EA" aria-label="Background colour"><label for="cbg">--porcelain</label><output id="obg">#F5F0EA</output></div>
+          <div class="pick"><input type="color" id="cink" value="#3A2A22" aria-label="Text colour"><label for="cink">--cocoa</label><output id="oink">#3A2A22</output></div>
+          <div class="pick"><input type="color" id="cacc" value="#B8955C" aria-label="Accent colour"><label for="cacc">--champ</label><output id="oacc">#B8955C</output></div>
+          <div class="out"><code id="rootcode">:root{--porcelain:#F5F0EA;--cocoa:#3A2A22;--champ:#B8955C}</code><button class="btn ghost sm" data-copy="rootcode"><span lang="en">Copy</span><span lang="id">Salin</span></button></div>
+        </div>
+      </div>
+      <p class="note tip" lang="en">Names differ per template (Lune uses --cocoa, Koma uses --dusk). Only change the part after the colon, like <code>#3A2A22</code>, and keep the semicolon.</p>
+      <p class="note tip" lang="id">Nama warnanya beda di tiap template (Lune pakai --cocoa, Koma pakai --dusk). Ganti hanya bagian setelah titik dua, misalnya <code>#3A2A22</code>, dan biarkan titik komanya.</p>
+    </section>
+
+    <!-- 05 -->
+    <section class="step" id="photos">
+      <div class="sn"><b>05</b><span lang="en">Photos</span><span lang="id">Foto</span><i>5 min</i></div>
+      <h2 lang="en">Swap the photos</h2>
+      <h2 lang="id">Ganti foto</h2>
+      <p lang="en">The easiest way: put your photo in the <code>img</code> folder with <strong>exactly the same file name</strong> as the one you replace (for example <code>hero.jpg</code>), and delete the old one. Nothing in the code needs to change.</p>
+      <p lang="id">Cara paling gampang: taruh fotomu di folder <code>img</code> dengan <strong>nama file yang persis sama</strong> dengan foto yang mau diganti (misalnya <code>hero.jpg</code>), lalu hapus yang lama. Kode tidak perlu diubah sama sekali.</p>
+      <div class="rules">
+        <div><b>.jpg</b><span lang="en">Same name, same lowercase letters. Hero.JPG is not hero.jpg.</span><span lang="id">Nama sama, huruf kecil sama. Hero.JPG beda dengan hero.jpg.</span></div>
+        <div><b>2000px</b><span lang="en">Wide enough for big screens. Bigger only makes the site slower.</span><span lang="id">Cukup lebar untuk layar besar. Lebih besar hanya bikin lambat.</span></div>
+        <div><b>&lt; 400 KB</b><span lang="en">Shrink photos free at squoosh.app before you add them.</span><span lang="id">Kecilkan ukuran foto gratis di squoosh.app sebelum dimasukkan.</span></div>
+      </div>
+      <p lang="en">Photos are cropped to fit, so the centre of your photo is what people see. Keep faces and products in the middle. To change the short description that screen readers and Google read, edit the <code>alt="…"</code> text next to the image.</p>
+      <p lang="id">Foto otomatis dipotong agar pas, jadi bagian tengah foto yang terlihat. Taruh wajah dan produk di tengah. Untuk mengganti deskripsi foto yang dibaca Google, edit teks <code>alt="…"</code> di sebelah gambar.</p>
+    </section>
+
+    <!-- 06 -->
+    <section class="step" id="whatsapp">
+      <div class="sn"><b>06</b>WhatsApp<i>1 min</i></div>
+      <h2 lang="en">Connect your WhatsApp number</h2>
+      <h2 lang="id">Sambungkan nomor WhatsApp kamu</h2>
+      <p lang="en">Booking and reservation buttons in Koma, Lune, Arunika and Sekar send a ready-made message to WhatsApp. Near the bottom of <code>index.html</code>, search for <code>WA_NUMBER</code> and replace the line with the one this tool makes for you.</p>
+      <p lang="id">Tombol booking dan reservasi di Koma, Lune, Arunika dan Sekar mengirim pesan otomatis ke WhatsApp. Di bagian bawah <code>index.html</code>, cari <code>WA_NUMBER</code> lalu ganti barisnya dengan hasil dari alat ini.</p>
+      <div class="tool">
+        <h3 lang="en">WhatsApp number fixer</h3><h3 lang="id">Perapih nomor WhatsApp</h3>
+        <div class="field"><label for="wa" lang="en">Your number, written any way you like</label><label for="wa" lang="id">Nomor kamu, ditulis seperti biasa</label><input id="wa" inputmode="tel" value="0812-3456-7890" autocomplete="off"></div>
+        <div class="out"><code id="wacode">const WA_NUMBER='6281234567890';</code><button class="btn light sm" data-copy="wacode"><span lang="en">Copy line</span><span lang="id">Salin baris</span></button></div>
+        <div class="row"><span class="msg" id="wamsg"></span><a class="btn ghost sm" id="watest" href="https://wa.me/6281234567890" target="_blank" rel="noopener"><span lang="en">Test the link</span><span lang="id">Coba link</span></a></div>
+      </div>
+      <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
+        <div class="code">
+          <div data-n="287"><span class="t">&lt;script&gt;</span></div>
+          <div data-n="288" class="hl"><span class="v">const</span> WA_NUMBER=<span class="s" id="waline">'6281234567890'</span>; <span class="c">// replace with your WhatsApp number</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 -->
+    <section class="step" id="settings">
+      <div class="sn"><b>07</b><span lang="en">Your template</span><span lang="id">Template kamu</span><i>2–10 min</i></div>
+      <h2 lang="en">Settings for your template</h2>
+      <h2 lang="id">Pengaturan khusus tiap template</h2>
+      <p lang="en">Some templates have menus, prices or schedules stored in one list near the bottom of the file, so you edit them once instead of hunting through the page. Pick yours:</p>
+      <p lang="id">Beberapa template menyimpan menu, harga atau jadwal di satu daftar di bagian bawah file, jadi cukup edit sekali tanpa mencari di seluruh halaman. Pilih template kamu:</p>
+      <div class="tabs" role="tablist" id="tabs">
+        <button role="tab" aria-selected="true" aria-controls="p-sekar" id="t-sekar">Sekar & Raka</button>
+        <button role="tab" aria-selected="false" aria-controls="p-koma" id="t-koma">Koma</button>
+        <button role="tab" aria-selected="false" aria-controls="p-arunika" id="t-arunika">Arunika</button>
+        <button role="tab" aria-selected="false" aria-controls="p-lune" id="t-lune">Lune</button>
+        <button role="tab" aria-selected="false" aria-controls="p-form" id="t-form">FORM</button>
+        <button role="tab" aria-selected="false" aria-controls="p-forms" id="t-forms">Biscuit · Halte</button>
+        <button role="tab" aria-selected="false" aria-controls="p-shop" id="t-shop">Noon to Night · Dewlab</button>
+        <button role="tab" aria-selected="false" aria-controls="p-other" id="t-other"><span lang="en">Others</span><span lang="id">Lainnya</span></button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-sekar" aria-labelledby="t-sekar">
+        <p lang="en">Each guest gets a personal link, and the cover greets them by name. Paste your website address and your guest list, one name per line, then copy the links into WhatsApp.</p>
+        <p lang="id">Setiap tamu dapat link pribadi, dan sampul undangan menyapa nama mereka. Tempel alamat website dan daftar tamu (satu nama per baris), lalu salin link-nya ke WhatsApp.</p>
+        <div class="tool">
+          <h3 lang="en">Guest link maker</h3><h3 lang="id">Pembuat link tamu</h3>
+          <div class="field"><label for="gbase" lang="en">Your invitation address</label><label for="gbase" lang="id">Alamat undangan kamu</label><input id="gbase" value="https://sekar-raka.netlify.app/" autocomplete="off"></div>
+          <div class="field"><label for="gnames" lang="en">Guest names, one per line</label><label for="gnames" lang="id">Nama tamu, satu per baris</label><textarea id="gnames">Bapak Hendra & Keluarga
+Ibu Dewi Lestari
+Teman Kantor Raka</textarea></div>
+          <div class="links" id="glinks"></div>
+          <div class="row"><button class="btn light sm" id="gcopy"><span lang="en">Copy all links</span><span lang="id">Salin semua link</span></button><span class="msg" id="gmsg"></span></div>
+        </div>
+        <ul class="do" lang="en">
+          <li><strong>Countdown:</strong> search <code>new Date('2026-12-20T08:00:00+07:00')</code> and change the date and time. <code>+07:00</code> is WIB, <code>+08:00</code> WITA, <code>+09:00</code> WIT.</li>
+          <li><strong>Bank accounts:</strong> in the "Tanda kasih" section change the bank, number and name. Also change <code>data-copy="1234567890"</code> to the same number without spaces, so the copy button copies the right one.</li>
+          <li><strong>Maps and calendar:</strong> replace the <code>google.com/maps</code> link on "Lihat lokasi" with the share link of your venue.</li>
+        </ul>
+        <ul class="do" lang="id">
+          <li><strong>Hitung mundur:</strong> cari <code>new Date('2026-12-20T08:00:00+07:00')</code> lalu ganti tanggal dan jamnya. <code>+07:00</code> untuk WIB, <code>+08:00</code> WITA, <code>+09:00</code> WIT.</li>
+          <li><strong>Rekening:</strong> di bagian "Tanda kasih" ganti nama bank, nomor dan nama pemilik. Ganti juga <code>data-copy="1234567890"</code> dengan nomor yang sama tanpa spasi, supaya tombol salin menyalin nomor yang benar.</li>
+          <li><strong>Lokasi:</strong> ganti link <code>google.com/maps</code> di tombol "Lihat lokasi" dengan link share lokasi acaramu.</li>
+        </ul>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-koma" aria-labelledby="t-koma" hidden>
+        <p lang="en">The whole menu (coffee, matcha, soda, desserts, snacks) lives in one list called <code>MENU</code>. Each drink or dish is one line: name, description, price in thousands, and an optional label.</p>
+        <p lang="id">Seluruh menu (kopi, matcha, soda, dessert, snack) ada di satu daftar bernama <code>MENU</code>. Setiap minuman atau makanan satu baris: nama, deskripsi, harga dalam ribuan, dan label (opsional).</p>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
+          <div class="code">
+            <div data-n="437"><span class="v">const</span> MENU=[</div>
+            <div data-n="438"> {k:<span class="s">'Coffee'</span>, img:<span class="s">'iced.jpg'</span>, items:[</div>
+            <div data-n="439" class="hl">  [<span class="s">'Es Kopi Gula Aren'</span>, <span class="s">'Double espresso, fresh milk, palm sugar'</span>, <span class="s">'38'</span>, <span class="s">'Signature'</span>],</div>
+            <div data-n="440">  <span class="c">// copy a line to add an item, delete one to remove it</span></div>
+          </div>
+        </div>
+        <p lang="en">For the map, open your café in Google Maps, tap <strong>Share → Embed a map</strong>, copy the link inside <code>src="…"</code> and paste it into the map's <code>&lt;iframe src="…"&gt;</code>. The README explains it step by step.</p>
+        <p lang="id">Untuk peta, buka café kamu di Google Maps, pilih <strong>Bagikan → Sematkan peta</strong>, salin link di dalam <code>src="…"</code> lalu tempel ke <code>&lt;iframe src="…"&gt;</code> peta. README menjelaskan langkahnya.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-arunika" aria-labelledby="t-arunika" hidden>
+        <p lang="en">Villa names and nightly rates are in one list. The stay calculator, the booking bar and the WhatsApp message all read from it.</p>
+        <p lang="id">Nama villa dan tarif per malam ada di satu daftar. Kalkulator menginap, form booking dan pesan WhatsApp semuanya mengambil dari sini.</p>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
+          <div class="code">
+            <div data-n="265" class="hl"><span class="v">const</span> V=[[<span class="s">'River Pool Villa'</span>,4800000],[<span class="s">'Jungle Suite'</span>,3200000],[<span class="s">'Two-Bedroom Residence'</span>,7600000]];</div>
+          </div>
+        </div>
+        <p lang="en">Extras are the checkboxes in the calculator: <code>data-p</code> is the price, <code>data-per="night"</code> charges it every night. Tax and service is 21%; search <code>0.21</code> to change it. Also update the matching prices written on the villa cards.</p>
+        <p lang="id">Layanan tambahan ada di checkbox kalkulator: <code>data-p</code> adalah harganya, <code>data-per="night"</code> artinya dihitung per malam. Pajak dan service 21%; cari <code>0.21</code> untuk mengubahnya. Jangan lupa ganti juga harga yang tertulis di kartu villa.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-lune" aria-labelledby="t-lune" hidden>
+        <p lang="en">Treatments are written straight in the page. The filter buttons read <code>data-c</code>: use <code>facial</code>, <code>laser</code> or <code>inj</code>. The "What would you like to change?" plans are in a list called <code>P</code> near the bottom: title, text, steps and starting price for each concern.</p>
+        <p lang="id">Daftar treatment ditulis langsung di halaman. Tombol filter membaca <code>data-c</code>: isi dengan <code>facial</code>, <code>laser</code> atau <code>inj</code>. Rekomendasi "What would you like to change?" ada di daftar <code>P</code> di bagian bawah: judul, teks, langkah dan harga mulai untuk tiap keluhan.</p>
+        <p class="note" lang="en">Before you publish a beauty clinic site, check that treatment names and claims follow your local health advertising rules.</p>
+        <p class="note" lang="id">Sebelum dipublikasikan, pastikan nama treatment dan klaimnya sesuai aturan iklan kesehatan yang berlaku.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-form" aria-labelledby="t-form" hidden>
+        <p lang="en">The schedule builds itself for the next 7 days. Change the classes and coaches in <code>C</code>, and the weekday class times in <code>TIMES</code>. Weekend times are in the line that starts with <code>const wk=</code>.</p>
+        <p lang="id">Jadwal otomatis dibuat untuk 7 hari ke depan. Ganti kelas dan coach di <code>C</code>, dan jam kelas hari kerja di <code>TIMES</code>. Jam akhir pekan ada di baris yang diawali <code>const wk=</code>.</p>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
+          <div class="code">
+            <div data-n="1"><span class="v">const</span> C=[[<span class="s">'Reformer Flow'</span>,<span class="s">'Maya'</span>],[<span class="s">'Reformer Burn'</span>,<span class="s">'Ayu'</span>], …];</div>
+            <div data-n="2" class="hl"><span class="v">const</span> TIMES=[<span class="s">'06:30'</span>,<span class="s">'08:00'</span>,<span class="s">'12:15'</span>,<span class="s">'17:30'</span>,<span class="s">'19:00'</span>];</div>
+          </div>
+        </div>
+        <p lang="en">The Book buttons are a demo. When you go live, point them and the membership buttons to your booking app or a WhatsApp link.</p>
+        <p lang="id">Tombol Book masih demo. Saat online, arahkan tombol ini dan tombol membership ke aplikasi booking kamu atau link WhatsApp.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-forms" aria-labelledby="t-forms" hidden>
+        <p lang="en">The booking (Biscuit) and reservation (Halte) forms show a thank-you message but don't send anything yet. The free way to receive them by email:</p>
+        <p lang="id">Form booking (Biscuit) dan reservasi (Halte) menampilkan pesan terima kasih tapi belum mengirim data ke mana pun. Cara gratis menerimanya lewat email:</p>
+        <ol class="do" lang="en">
+          <li>Create a free form at <strong>formspree.io</strong> and copy your address, like <code>https://formspree.io/f/abcdwxyz</code>.</li>
+          <li>Find the form tag (<code>id="bform"</code> or <code>id="rsvForm"</code>) and add <code>action="your-address" method="POST"</code>.</li>
+          <li>Near the bottom, delete the line that starts with <code>….addEventListener('submit'</code> for that form.</li>
+        </ol>
+        <ol class="do" lang="id">
+          <li>Buat form gratis di <strong>formspree.io</strong> lalu salin alamatnya, seperti <code>https://formspree.io/f/abcdwxyz</code>.</li>
+          <li>Cari tag form (<code>id="bform"</code> atau <code>id="rsvForm"</code>) lalu tambahkan <code>action="alamat-kamu" method="POST"</code>.</li>
+          <li>Di bagian bawah, hapus baris yang diawali <code>….addEventListener('submit'</code> untuk form itu.</li>
+        </ol>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-shop" aria-labelledby="t-shop" hidden>
+        <p lang="en"><strong>Noon to Night</strong> builds its whole shop from one list called <code>PRODUCTS</code>: category cards, filters, sorting, "Show more", quick view and the bag. To add a product, put the photo in <code>img</code> and copy one line:</p>
+        <p lang="id"><strong>Noon to Night</strong> membangun seluruh tokonya dari satu daftar bernama <code>PRODUCTS</code>: kartu kategori, filter, urutan harga, tombol "Show more", quick view dan keranjang. Untuk menambah produk, taruh fotonya di folder <code>img</code> lalu salin satu baris:</p>
+        <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
+          <div class="code">
+            <div data-n="1"><span class="v">let</span> PRODUCTS=[</div>
+            <div data-n="2" class="hl">  {name:<span class="s">'Abito Serena'</span>, cat:<span class="s">'Dresses'</span>, price:<span class="v">1890</span>, img:<span class="s">'black.jpg'</span>, desc:<span class="s">'Silk crepe, cowl neck'</span>, sizes:<span class="s">'36,38,40,42'</span>, tag:<span class="s">'New'</span>},</div>
+            <div data-n="3">  <span class="c">// copy the line above for every new product</span></div>
+          </div>
+        </div>
+        <p lang="en"><strong>Hundreds of products?</strong> Use a Google Sheet instead. Import the included <code>products.csv</code> into Google Sheets, then choose <strong>File → Share → Publish to web → CSV</strong> and paste that link into <code>sheet:''</code>. From then on you edit the spreadsheet and the website follows. The bag sends the order to your WhatsApp; set the number in <code>whatsapp:</code> and the currency with <code>currency:'IDR', locale:'id-ID'</code>.</p>
+        <p lang="id"><strong>Produknya ratusan?</strong> Pakai Google Sheet. Import file <code>products.csv</code> yang sudah disertakan ke Google Sheets, lalu pilih <strong>File → Bagikan → Publikasikan ke web → CSV</strong> dan tempel link-nya di <code>sheet:''</code>. Setelah itu cukup edit spreadsheet, website ikut berubah. Keranjang mengirim pesanan ke WhatsApp kamu; isi nomornya di <code>whatsapp:</code> dan ubah mata uang dengan <code>currency:'IDR', locale:'id-ID'</code>.</p>
+        <p lang="en"><strong>Dewlab</strong> shows a fixed set of products. Link each product button to where you already sell (Lynk.id, Shopee, Tokopedia or a WhatsApp message) by changing its <code>href="#"</code>.</p>
+        <p lang="id"><strong>Dewlab</strong> menampilkan produk tetap. Sambungkan tombol tiap produk ke tempat kamu berjualan (Lynk.id, Shopee, Tokopedia atau pesan WhatsApp) dengan mengganti <code>href="#"</code>-nya.</p>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p-other" aria-labelledby="t-other" hidden>
+        <p lang="en">Lumen, Loud Hours, Ivers, Sora and Amara have no hidden settings. Everything you see is plain text in the page: steps 03 to 05 are all you need. For Amara, paste your own links into each <code>href="#"</code>.</p>
+        <p lang="id">Lumen, Loud Hours, Ivers, Sora dan Amara tidak punya pengaturan tersembunyi. Semua yang terlihat adalah teks biasa di halaman, jadi cukup langkah 03 sampai 05. Untuk Amara, tempel link kamu di setiap <code>href="#"</code>.</p>
+      </div>
+    </section>
+
+    <!-- 08 -->
+    <section class="step" id="publish">
+      <div class="sn"><b>08</b><span lang="en">Go live</span><span lang="id">Online</span><i>1 min</i></div>
+      <h2 lang="en">Put it online, free, with Netlify Drop</h2>
+      <h2 lang="id">Online-kan gratis lewat Netlify Drop</h2>
+      <div class="drop" aria-hidden="true">
+        <div class="url"><i></i>app.netlify.com/drop</div>
+        <div class="zone">
+          <p lang="en">Drag and drop your site folder here</p><p lang="id">Drag and drop your site folder here</p>
+          <div class="folder"><i></i>lune</div>
+          <div class="live"><b lang="en">Your site is live</b><b lang="id">Website kamu sudah online</b><code>https://glowing-lune-4821.netlify.app</code></div>
+        </div>
+      </div>
+      <ol class="do" lang="en">
+        <li>Open <strong>app.netlify.com/drop</strong> and sign up free with Google.</li>
+        <li>Drag the <strong>whole folder</strong> (not the zip, not only index.html) onto the dotted box.</li>
+        <li>Wait about 10 seconds. You get a link ending in <code>.netlify.app</code>. Your website is live and works on every phone.</li>
+        <li>Go to <strong>Site configuration → Change site name</strong> to make the link readable, like <code>lune-clinic.netlify.app</code>.</li>
+        <li>Made changes later? Open your site in Netlify, choose <strong>Deploys</strong>, and drag the updated folder in again.</li>
+      </ol>
+      <ol class="do" lang="id">
+        <li>Buka <strong>app.netlify.com/drop</strong> lalu daftar gratis pakai Google.</li>
+        <li>Drag <strong>satu folder utuh</strong> (bukan file zip, bukan hanya index.html) ke kotak bergaris.</li>
+        <li>Tunggu sekitar 10 detik. Kamu dapat link berakhiran <code>.netlify.app</code>. Website sudah online dan bisa dibuka di semua HP.</li>
+        <li>Masuk ke <strong>Site configuration → Change site name</strong> supaya link-nya mudah dibaca, misalnya <code>lune-clinic.netlify.app</code>.</li>
+        <li>Ada perubahan nanti? Buka situsmu di Netlify, pilih <strong>Deploys</strong>, lalu drag folder yang sudah diperbarui ke sana.</li>
+      </ol>
+      <p class="note tip" lang="en">Vercel, GitHub Pages and any hosting with a file manager also work. Upload the contents of the folder into <code>public_html</code>.</p>
+      <p class="note tip" lang="id">Vercel, GitHub Pages dan hosting apa pun yang punya file manager juga bisa. Upload isi folder ke <code>public_html</code>.</p>
+    </section>
+
+    <!-- 09 -->
+    <section class="step" id="domain">
+      <div class="sn"><b>09</b>Domain<i>10 min + waiting</i></div>
+      <h2 lang="en">Use your own domain</h2>
+      <h2 lang="id">Pakai domain sendiri</h2>
+      <ol class="do" lang="en">
+        <li>Buy a domain at any registrar (Niagahoster, Rumahweb, Namecheap, Cloudflare). A <code>.com</code> or <code>.id</code> costs around Rp150–250k a year.</li>
+        <li>In Netlify open <strong>Domain management → Add a domain</strong> and type your domain.</li>
+        <li>In your registrar's <strong>DNS</strong> page, add the two records below. Netlify shows the exact values for your site.</li>
+        <li>Wait. It usually works within an hour, sometimes up to 24 hours. Netlify adds the free HTTPS padlock automatically.</li>
+      </ol>
+      <ol class="do" lang="id">
+        <li>Beli domain di registrar mana pun (Niagahoster, Rumahweb, Namecheap, Cloudflare). Domain <code>.com</code> atau <code>.id</code> sekitar Rp150–250 ribu per tahun.</li>
+        <li>Di Netlify buka <strong>Domain management → Add a domain</strong> lalu ketik domain kamu.</li>
+        <li>Di halaman <strong>DNS</strong> registrar, tambahkan dua record di bawah. Netlify menampilkan nilai yang tepat untuk situsmu.</li>
+        <li>Tunggu. Biasanya aktif dalam satu jam, kadang sampai 24 jam. Netlify otomatis memasang gembok HTTPS gratis.</li>
+      </ol>
+      <div class="tbl"><table>
+        <thead><tr><th>Type</th><th>Name / Host</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td><code>A</code></td><td><code>@</code></td><td><code>75.2.60.5</code></td></tr>
+          <tr><td><code>CNAME</code></td><td><code>www</code></td><td><code>your-site.netlify.app</code></td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <!-- 10 -->
+    <section class="step" id="figma">
+      <div class="sn"><b>10</b>Figma<i lang="en">optional</i><i lang="id">opsional</i></div>
+      <h2 lang="en">Edit the design in Figma</h2>
+      <h2 lang="id">Edit desainnya di Figma</h2>
+      <p lang="en">Useful if you design for clients and want to show changes before you code them.</p>
+      <p lang="id">Berguna kalau kamu mendesain untuk klien dan mau menunjukkan perubahan sebelum dikerjakan di kode.</p>
+      <ol class="do" lang="en">
+        <li>Put the site online first (step 08) and copy its link.</li>
+        <li>In Figma, open <strong>Plugins</strong> and run the free <strong>html.to.design</strong> plugin.</li>
+        <li>Paste the link, tick <strong>Desktop</strong> and <strong>Mobile</strong>, and import. Every section becomes editable layers.</li>
+      </ol>
+      <ol class="do" lang="id">
+        <li>Online-kan dulu websitenya (langkah 08) lalu salin link-nya.</li>
+        <li>Di Figma, buka <strong>Plugins</strong> lalu jalankan plugin gratis <strong>html.to.design</strong>.</li>
+        <li>Tempel link, centang <strong>Desktop</strong> dan <strong>Mobile</strong>, lalu import. Setiap bagian jadi layer yang bisa diedit.</li>
+      </ol>
+    </section>
+
+    <!-- help -->
+    <section class="step trouble" id="help">
+      <div class="sn"><b>?</b><span lang="en">Fixes</span><span lang="id">Solusi</span></div>
+      <h2 lang="en">Something not working?</h2>
+      <h2 lang="id">Ada yang tidak jalan?</h2>
+      <div>
+        <details open><summary><span lang="en">Photos are missing or the letters look different</span><span lang="id">Foto hilang atau hurufnya berubah</span></summary><p lang="en">index.html was moved away from its img and fonts folders. Put them back in the same folder, or upload the whole folder again.</p><p lang="id">index.html terpisah dari folder img dan fonts. Satukan lagi dalam satu folder, atau upload ulang folder utuhnya.</p></details>
+        <details><summary><span lang="en">One photo doesn't show</span><span lang="id">Satu foto tidak muncul</span></summary><p lang="en">The file name doesn't match exactly. Check uppercase letters and the ending: <code>hero.jpg</code>, <code>hero.JPG</code> and <code>hero.jpeg</code> are three different names online.</p><p lang="id">Nama file tidak persis sama. Cek huruf besar kecil dan akhirannya: <code>hero.jpg</code>, <code>hero.JPG</code> dan <code>hero.jpeg</code> dianggap tiga nama berbeda saat online.</p></details>
+        <details><summary><span lang="en">The layout broke after I edited</span><span lang="id">Tampilan berantakan setelah diedit</span></summary><p lang="en">A tag or quote mark was deleted by accident. Press Ctrl + Z in VS Code until the page looks right again, then edit only the words between the tags.</p><p lang="id">Ada tag atau tanda kutip yang tidak sengaja terhapus. Tekan Ctrl + Z di VS Code sampai tampilan normal lagi, lalu edit hanya kata-kata di antara tag.</p></details>
+        <details><summary><span lang="en">WhatsApp opens the wrong number</span><span lang="id">WhatsApp membuka nomor yang salah</span></summary><p lang="en">The number must start with the country code and have no +, spaces or dashes, for example 6281234567890. Use the fixer in step 06.</p><p lang="id">Nomor harus diawali kode negara tanpa +, spasi atau strip, contohnya 6281234567890. Pakai perapih nomor di langkah 06.</p></details>
+        <details><summary><span lang="en">My changes don't show on the live site</span><span lang="id">Perubahan tidak muncul di website online</span></summary><p lang="en">Drag the updated folder into Netlify again (Deploys tab), then refresh your phone with the browser's reload button. Old versions can stay cached for a minute.</p><p lang="id">Drag lagi folder terbaru ke Netlify (tab Deploys), lalu refresh browser di HP. Versi lama kadang masih tersimpan sekitar satu menit.</p></details>
+      </div>
+      <div class="cta">
+        <div>
+          <h2 lang="en">Rather not do it yourself?</h2><h2 lang="id">Tidak mau repot?</h2>
+          <p lang="en">Send us your texts, photos and WhatsApp number. We set up the template, connect your domain and hand you a live website, usually within 3 working days.</p>
+          <p lang="id">Kirim teks, foto dan nomor WhatsApp kamu. Kami pasangkan templatenya, sambungkan domain, dan serahkan website yang sudah online, biasanya dalam 3 hari kerja.</p>
+        </div>
+        <a class="btn ember" href="index.html#faq"><span lang="en">Ask about setup</span><span lang="id">Tanya jasa setup</span></a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer><div class="wrap foot">
+  <a class="logo" href="index.html"><span class="m"><i></i></span><span>Solvy</span></a>
+  <nav><a href="index.html#templates">Templates</a><a href="index.html#pass">All-Access</a><a href="guide.html">Guide</a></nav>
+  <span>hello.solvystudio@gmail.com</span>
+</div></footer>
+
+<script>
+// language
+const root=document.documentElement;
+function setL(l){root.dataset.l=l;root.lang=l;document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===l));try{localStorage.setItem('solvy-guide-lang',l)}catch(e){}}
+let saved=null;try{saved=localStorage.getItem('solvy-guide-lang')}catch(e){}
+setL(saved||((navigator.language||'').toLowerCase().startsWith('id')?'id':'en'));
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setL(b.dataset.set)));
+const T=(en,id)=>root.dataset.l==='id'?id:en;
+
+// copy helper
+function copyText(txt,btn){
+  const done=()=>{const o=btn.innerHTML;btn.textContent=T('Copied','Tersalin');setTimeout(()=>btn.innerHTML=o,1400)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done).catch(()=>sel(txt,btn,done))}else sel(txt,btn,done);
+}
+function sel(txt,btn,done){const t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy');done()}catch(e){}t.remove()}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const el=document.getElementById(b.dataset.copy);copyText(el?el.textContent:b.dataset.copy,b)});
+
+// colours
+const mini=document.getElementById('mini');
+[['cbg','obg','--c-bg'],['cink','oink','--c-ink'],['cacc','oacc','--c-acc']].forEach(([i,o,v])=>{
+  document.getElementById(i).addEventListener('input',e=>{const c=e.target.value.toUpperCase();document.getElementById(o).textContent=c;mini.style.setProperty(v,c);
+    document.getElementById('rootcode').textContent=`:root{--porcelain:${document.getElementById('cbg').value.toUpperCase()};--cocoa:${document.getElementById('cink').value.toUpperCase()};--champ:${document.getElementById('cacc').value.toUpperCase()}}`})});
+
+// whatsapp
+const wa=document.getElementById('wa');
+function fixWA(){
+  let d=wa.value.replace(/\D/g,'');
+  if(d.startsWith('0'))d='62'+d.slice(1);
+  else if(d.startsWith('8'))d='62'+d;
+  const m=document.getElementById('wamsg');
+  const ok=d.length>=10&&d.length<=15;
+  document.getElementById('wacode').textContent=`const WA_NUMBER='${d}';`;
+  document.getElementById('waline').textContent=`'${d}'`;
+  document.getElementById('watest').href='https://wa.me/'+d;
+  m.className='msg '+(ok?'good':'bad');
+  m.textContent=ok?T('Looks right: ','Format sudah benar: ')+'+'+d:T('This number looks too short or too long.','Nomor ini terlalu pendek atau terlalu panjang.');
+}
+wa.addEventListener('input',fixWA);
+
+// guest links
+const gb=document.getElementById('gbase'),gn=document.getElementById('gnames'),gl=document.getElementById('glinks');
+let LINKS=[];
+const escH=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function guests(){
+  let base=gb.value.trim()||'https://your-invitation.netlify.app/';base=base.split('?')[0];
+  LINKS=gn.value.split('\n').map(s=>s.trim()).filter(Boolean).slice(0,300).map(n=>[n,base+'?to='+encodeURIComponent(n)]);
+  gl.innerHTML=LINKS.map((l,i)=>`<div class="out"><b>${escH(l[0])}</b><code id="gl${i}">${escH(l[1])}</code><button class="btn ghost sm" data-copy="gl${i}">${T('Copy','Salin')}</button></div>`).join('');
+  document.getElementById('gmsg').textContent=LINKS.length+T(' guest links',' link tamu');
+}
+gb.addEventListener('input',guests);gn.addEventListener('input',guests);
+document.getElementById('gcopy').addEventListener('click',e=>copyText(LINKS.map(l=>l[0]+': '+l[1]).join('\n'),e.currentTarget));
+
+// tabs
+const tabs=[...document.querySelectorAll('#tabs [role=tab]')];
+function sel2(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+tabs.forEach((t,i)=>{t.addEventListener('click',()=>sel2(t));t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];sel2(n);n.focus()}})});
+sel2(tabs[0]);
+
+// re-render dynamic text when language changes
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{fixWA();guests()}));
+fixWA();guests();
+
+// step rail highlight
+const links=[...document.querySelectorAll('#toc a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+function spy(){let k=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<160)k=i});links.forEach((a,i)=>a.classList.toggle('on',i===k));
+  const on=links[k];if(innerWidth<=1000&&on){const ol=on.closest('ol');const x=on.offsetLeft-ol.clientWidth/2+on.clientWidth/2;if(Math.abs(ol.scrollLeft-x)>40)ol.scrollTo({left:x,behavior:'smooth'})}}
+addEventListener('scroll',spy,{passive:true});spy();
+</script>
+</body>
+</html>

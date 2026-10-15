@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dewlab — skincare that drinks like water</title>
+<style>
+@font-face{font-family:"Gloock";src:url(../../fonts/Gloock-Regular.ttf)}
+@font-face{font-family:"Hanken";src:url(../../fonts/hanken-grotesk-latin-400-normal.woff2);font-weight:400}
+@font-face{font-family:"Hanken";src:url(../../fonts/hanken-grotesk-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:"Hanken";src:url(../../fonts/hanken-grotesk-latin-700-normal.woff2);font-weight:700}
+:root{--lilac:#ECE6F2;--lilac-2:#DCD1E8;--aub:#3B1F3F;--aub-2:#6E5472;--dew:#CFE7E3;--butter:#F3E3A6;--white:#FFFFFF;
+--serif:"Gloock",Georgia,serif;--sans:"Hanken",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--lilac);color:var(--aub);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--aub);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 36px}
+
+.bar{background:var(--aub);color:var(--lilac);text-align:center;font-size:14px;padding:9px 16px}
+nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:84px}
+nav .l,nav .r{display:flex;gap:28px;font-weight:600;font-size:15px}
+nav .r{justify-content:flex-end;align-items:center}
+.logo{font-family:var(--serif);font-size:32px;letter-spacing:-.01em}
+.bag{display:inline-flex;align-items:center;gap:8px;background:var(--white);border-radius:999px;padding:8px 16px}
+.bag b{background:var(--aub);color:var(--white);border-radius:50%;width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;min-height:680px;padding:30px 0 80px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(48px,6.4vw,96px);line-height:.98;letter-spacing:-.02em}
+.hero p{font-size:20px;color:var(--aub-2);max-width:34ch;margin-top:26px}
+.btns{display:flex;gap:12px;margin-top:36px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 30px;border-radius:999px;font-weight:700;font-size:16px;border:1.5px solid var(--aub)}
+.btn.fill{background:var(--aub);color:var(--white)}
+.rating{display:flex;align-items:center;gap:12px;margin-top:34px;font-size:15px;font-weight:600}
+.stars{color:var(--aub);letter-spacing:2px}
+
+.stage-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stage{position:relative;height:620px;border-radius:300px 300px 40px 40px;background:radial-gradient(circle at 50% 85%,var(--dew) 0 5%,transparent 31%),linear-gradient(180deg,#F6F2FA,var(--lilac-2));overflow:hidden;display:grid;place-items:end center}
+.pool{position:absolute;bottom:58px;left:50%;transform:translateX(-50%);width:300px;height:60px;border-radius:50%;background:radial-gradient(ellipse,rgba(59,31,63,.22),transparent 70%)}
+/* bottle */
+.bottle{position:relative;width:170px;margin-bottom:76px;z-index:2}
+.cap{width:58px;height:120px;margin:0 auto;border-radius:30px 30px 6px 6px;background:linear-gradient(90deg,#2A1530,#5A3A60 40%,#2A1530)}
+.cap::before{content:"";display:block;width:26px;height:16px;margin:0 auto;transform:translateY(-14px);border-radius:12px 12px 0 0;background:#2A1530}
+.neck{width:70px;height:14px;margin:0 auto;background:#C9B8D8;border-radius:3px}
+.glass{height:250px;border-radius:26px;background:linear-gradient(90deg,rgba(255,255,255,.7),rgba(255,255,255,.25) 30%,rgba(255,255,255,.1) 60%,rgba(255,255,255,.55));border:1.5px solid rgba(255,255,255,.9);position:relative;overflow:hidden;box-shadow:0 30px 50px -20px rgba(59,31,63,.35)}
+.liquid{position:absolute;left:0;right:0;bottom:0;height:72%;background:linear-gradient(180deg,#F3D9A0,#E7B96B);opacity:.85}
+.liquid::before{content:"";position:absolute;left:-10%;right:-10%;top:-8px;height:16px;border-radius:50%;background:#F6E3B6}
+.label{position:absolute;left:16px;right:16px;top:70px;background:rgba(255,255,255,.88);border-radius:12px;padding:14px 12px;text-align:center;z-index:2}
+.label b{font-family:var(--serif);font-weight:400;font-size:20px;display:block;line-height:1.1}
+.label span{font-size:11px;font-weight:600;letter-spacing:.02em}
+.drop{position:absolute;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 35% 30%,#fff,rgba(207,231,227,.6) 50%,rgba(255,255,255,.2));border:1px solid rgba(255,255,255,.9)}
+.tagc{position:absolute;background:var(--white);border-radius:16px;padding:12px 16px;font-size:14px;line-height:1.3;box-shadow:0 20px 40px -20px rgba(59,31,63,.4);z-index:3}
+.tagc b{display:block;font-size:22px;font-family:var(--serif);font-weight:400}
+
+/* marquee benefits */
+.benefits{border-block:1.5px solid var(--aub);display:grid;grid-template-columns:repeat(4,1fr)}
+.benefits div{padding:22px 24px;font-weight:600;display:flex;align-items:center;gap:12px;border-right:1.5px solid var(--aub)}
+.benefits div:last-child{border-right:0}
+.benefits i{width:28px;height:28px;border-radius:50%;background:var(--dew);border:1.5px solid var(--aub);flex:none}
+
+/* shop */
+.sec{padding:120px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:46px}
+.head h2,.ingr h2,.routine h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.015em}
+.head p{max-width:34ch;color:var(--aub-2)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.prod{background:var(--white);border-radius:28px;padding:16px;display:flex;flex-direction:column}
+.pimg{height:300px;border-radius:20px;display:grid;place-items:end center;padding-bottom:30px;position:relative}
+.pimg{overflow:hidden;padding-bottom:0!important}
+.pimg-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pimg .badge{z-index:2;position:absolute;top:14px;left:14px;background:var(--aub);color:var(--white);font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px}
+.prod h3{font-family:var(--serif);font-weight:400;font-size:24px;margin:18px 6px 2px;line-height:1.15}
+.prod .sub{margin:0 6px;color:var(--aub-2);font-size:15px}
+.prod .buy{display:flex;justify-content:space-between;align-items:center;margin:20px 6px 6px}
+.prod .buy b{font-size:19px}
+.add{border:0;background:var(--aub);color:var(--white);border-radius:999px;height:42px;padding:0 18px;font-weight:700;font-size:14px}
+/* mini containers */
+.jar{width:120px;height:86px;border-radius:18px 18px 24px 24px;position:relative}
+.jar::before{content:"";position:absolute;left:-6px;right:-6px;top:-30px;height:32px;border-radius:12px;background:var(--aub)}
+.tube{width:72px;height:200px;border-radius:12px 12px 36px 36px/12px 12px 18px 18px;position:relative}
+.tube::after{content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:-26px;width:44px;height:28px;border-radius:6px;background:var(--aub)}
+.pump{width:96px;height:170px;border-radius:24px;position:relative}
+.pump::before{content:"";position:absolute;left:50%;top:-40px;transform:translateX(-50%);width:22px;height:40px;background:#2A1530;border-radius:4px}
+.pump::after{content:"";position:absolute;left:50%;top:-48px;width:44px;height:12px;background:#2A1530;border-radius:6px}
+.mini-label{position:absolute;left:10px;right:10px;top:40%;background:rgba(255,255,255,.85);border-radius:8px;padding:6px;text-align:center;font-family:var(--serif);font-size:13px}
+
+/* ingredients */
+.ingr{background:var(--aub);color:var(--lilac);border-radius:48px;padding:110px 0}
+.ingr .head p{color:#CDBFD3}
+.ing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ing{border:1.5px solid rgba(236,230,242,.25);border-radius:30px;padding:34px}
+.ring{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;position:relative}
+.ring::before{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--aub)}
+.ring b{position:relative;font-family:var(--serif);font-weight:400;font-size:34px}
+.ing h3{font-family:var(--serif);font-weight:400;font-size:28px;margin-top:28px}
+.ing p{color:#CDBFD3;margin-top:8px}
+
+/* routine */
+.routine-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:70px;align-items:start}
+.routine p.lead{color:var(--aub-2);margin-top:18px;max-width:34ch}
+.toggle{display:inline-flex;background:var(--white);border-radius:999px;padding:5px;margin-top:30px}
+.toggle button{border:0;background:transparent;border-radius:999px;padding:10px 22px;font-weight:700;color:var(--aub)}
+.toggle button[aria-pressed="true"]{background:var(--aub);color:var(--white)}
+.steps{list-style:none;counter-reset:s;display:grid;gap:14px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:center;background:var(--white);border-radius:24px;padding:20px 24px}
+.steps li::before{content:counter(s);width:52px;height:52px;border-radius:50%;background:var(--dew);display:grid;place-items:center;font-family:var(--serif);font-size:24px}
+.steps b{font-size:19px;display:block}
+.steps span{color:var(--aub-2);font-size:15px}
+.steps em{font-style:normal;font-weight:700;font-size:14px;background:var(--lilac);border-radius:999px;padding:6px 12px;white-space:nowrap}
+.hidden{display:none!important}
+
+/* review */
+.review{text-align:center;padding:40px 0 130px}
+.review blockquote{font-family:var(--serif);font-size:clamp(28px,3.6vw,48px);line-height:1.18;max-width:24ch;margin:22px auto 0}
+.review cite{display:block;font-style:normal;font-weight:600;margin-top:26px;color:var(--aub-2)}
+
+/* footer */
+footer{background:var(--white);border-radius:48px 48px 0 0;padding:90px 0 40px}
+.news{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:end;padding-bottom:70px;border-bottom:1.5px solid var(--lilac-2)}
+.news h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,4vw,56px);line-height:1.02}
+.news form{display:flex;gap:10px}
+.news input{flex:1;height:56px;border-radius:999px;border:1.5px solid var(--aub);padding:0 22px;font:inherit;background:transparent;color:var(--aub);min-width:0}
+.fcols{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:30px;padding-top:50px}
+.fcols h5{font-size:15px;margin-bottom:12px}
+.fcols ul{list-style:none;display:grid;gap:8px;color:var(--aub-2);font-size:15px}
+.copy{margin-top:60px;font-size:14px;color:var(--aub-2);display:flex;justify-content:space-between}
+
+/* shop filters + richer cards */
+.ftabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.ftabs button{border:1.5px solid var(--aub);background:transparent;color:var(--aub);border-radius:999px;height:42px;padding:0 18px;font-weight:700;font-size:14px}
+.ftabs button[aria-pressed="true"]{background:var(--aub);color:var(--white)}
+.prod[hidden]{display:none}
+.prod .skin{display:flex;gap:6px;flex-wrap:wrap;margin:10px 6px 0}
+.prod .skin span{font-size:12px;font-weight:700;background:var(--lilac);border-radius:999px;padding:4px 10px}
+.prod .kind{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--aub-2);margin:16px 6px 0}
+.prod h3{margin-top:4px}
+.pimg-photo{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.prod:hover .pimg-photo{transform:scale(1.05)}
+.prod .rate{margin:8px 6px 0;font-size:14px;font-weight:600;color:var(--aub-2)}
+.prod .rate i{font-style:normal;color:var(--aub);letter-spacing:1px}
+.buy s{font-size:14px;font-weight:400;color:var(--aub-2);margin-right:6px}
+.setband{display:grid;grid-template-columns:1.25fr 1fr;margin-top:34px;background:var(--white);border-radius:32px;overflow:hidden}
+.setband img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.setband>div{padding:48px;display:flex;flex-direction:column;justify-content:center}
+.setband .tag{align-self:flex-start;background:var(--butter);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700}
+.setband h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,46px);line-height:1.04;margin-top:16px}
+.setband p{color:var(--aub-2);margin-top:12px;max-width:36ch}
+.setband ul{list-style:none;display:grid;gap:6px;margin-top:18px;font-weight:600;font-size:15px}
+.setband li::before{content:"\2713";margin-right:10px;color:var(--aub-2)}
+.setband .pr{display:flex;align-items:baseline;gap:12px;margin-top:22px;font-size:30px;font-family:var(--serif)}
+.setband .pr s{font-family:var(--sans);font-size:16px;color:var(--aub-2)}
+
+/* before / after */
+.results{background:var(--white);border-radius:48px;padding:110px 0}
+.ba-wrap{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
+.ba{position:relative;aspect-ratio:640/714;border-radius:32px;overflow:hidden;background:var(--lilac-2);touch-action:pan-y;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .before{clip-path:inset(0 calc(100% - var(--p,50%)) 0 0)}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;margin-left:-1.5px;background:var(--white);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--p,50%);width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--white);display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(59,31,63,.5);pointer-events:none;font-weight:700;font-size:18px;color:var(--aub)}
+.ba .lb{position:absolute;bottom:18px;background:rgba(59,31,63,.78);color:var(--white);font-size:13px;font-weight:700;border-radius:999px;padding:6px 12px;pointer-events:none}
+.ba .lb.l{left:18px}.ba .lb.r{right:18px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cases{display:grid;gap:12px;margin-top:30px}
+.case{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;text-align:left;border:1.5px solid var(--lilac-2);background:var(--lilac);border-radius:22px;padding:12px 18px 12px 12px;color:var(--aub)}
+.case img{width:64px;height:64px;border-radius:16px;object-fit:cover}
+.case b{display:block;font-size:17px}
+.case span{font-size:14px;color:var(--aub-2)}
+.case em{font-style:normal;font-family:var(--serif);font-size:26px}
+.case[aria-pressed="true"]{background:var(--aub);color:var(--white);border-color:var(--aub)}
+.case[aria-pressed="true"] span{color:#CDBFD3}
+.results h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1;letter-spacing:-.015em}
+.results .lead{color:var(--aub-2);margin-top:16px;max-width:38ch}
+.note{font-size:13px;color:var(--aub-2);margin-top:18px}
+
+/* ingredient photo cards */
+.ing-grid.four{grid-template-columns:repeat(4,1fr);gap:18px}
+.ing.ph{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.ing.ph .pic{position:relative;aspect-ratio:1/1;overflow:hidden}
+.ing.ph .pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ing.ph:hover .pic img{transform:scale(1.06)}
+.ing.ph .pct{position:absolute;left:16px;bottom:16px;width:76px;height:76px;border-radius:50%;display:grid;place-items:center}
+.ing.ph .pct::before{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--aub)}
+.ing.ph .pct b{position:relative;font-family:var(--serif);font-weight:400;font-size:20px;color:var(--lilac)}
+.ing.ph .txt{padding:24px 26px 28px}
+.ing.ph h3{margin-top:0;font-size:25px}
+.ing.ph .in{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.ing.ph .in span{font-size:12px;font-weight:700;border:1px solid rgba(236,230,242,.3);border-radius:999px;padding:4px 10px;color:var(--lilac)}
+.free{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.free span{border:1.5px dashed rgba(236,230,242,.35);border-radius:999px;padding:8px 16px;font-weight:600;font-size:14px;color:#CDBFD3}
+
+/* reviews wall */
+.wall-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:40px}
+.wall-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,4.6vw,64px);line-height:1}
+.score{display:flex;align-items:center;gap:16px}
+.score b{font-family:var(--serif);font-weight:400;font-size:56px;line-height:1}
+.score span{font-size:14px;color:var(--aub-2)}
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rv{background:var(--white);border-radius:28px;overflow:hidden;display:flex;flex-direction:column}
+.rv .ph{aspect-ratio:4/5;overflow:hidden;position:relative}
+.rv .ph img{width:100%;height:100%;object-fit:cover}
+.rv .ph .tag{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.9);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.rv .bd{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.rv .stars{font-size:14px}
+.rv q{font-family:var(--serif);font-size:19px;line-height:1.3;quotes:"\201C" "\201D"}
+.rv .who{margin-top:auto;padding-top:12px;font-size:14px;font-weight:700}
+.rv .who small{display:block;font-weight:400;color:var(--aub-2)}
+
+@media (max-width:1000px){
+  .ftabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+  .ftabs button{flex:none}
+  .setband,.ba-wrap{grid-template-columns:1fr}
+  .setband>div{padding:32px}
+  .ing-grid.four{grid-template-columns:1fr 1fr}
+  .wall{grid-template-columns:1fr 1fr}
+  .wall-head{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){
+  .ing-grid.four{grid-template-columns:1fr}
+  .wall{grid-template-columns:1fr}
+  .results{border-radius:30px;padding:80px 0}
+  .case{grid-template-columns:52px 1fr auto;padding:10px 14px 10px 10px}
+  .case img{width:52px;height:52px}
+}
+
+@media (max-width:1000px){
+  nav .l{display:none}
+  nav{grid-template-columns:auto 1fr}
+  .hero,.routine-grid,.news{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+  .ing-grid{grid-template-columns:1fr}
+  .benefits{grid-template-columns:1fr 1fr}
+  .benefits div:nth-child(2){border-right:0}
+  .benefits div:nth-child(-n+2){border-bottom:1.5px solid var(--aub)}
+  .fcols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .wrap{padding-inline:18px}
+  .benefits div{padding:16px 12px;font-size:14px;gap:8px;min-width:0}
+  .benefits i{width:22px;height:22px}
+  nav .r a:not(.bag){display:none}
+  .stage{height:520px}
+  .grid{grid-template-columns:1fr}
+  .head{flex-direction:column;align-items:flex-start}
+  .ingr{border-radius:30px}
+  .steps li{grid-template-columns:52px 1fr;padding:16px}
+  .steps em{grid-column:2;justify-self:start}
+  .news form{flex-direction:column}
+  .news input{flex:none;width:100%}
+  .tagc.t2{display:none}
+}
+</style>
+</head>
+<body>
+<!--demo-bar--><div id="svDemo" style="position:sticky;top:0;z-index:999;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 16px;background:#1A1424;color:#FBF8F4;font:600 14px/1.2 system-ui,-apple-system,sans-serif"><a id="svBack" href="../../index.html" style="color:#FBF8F4;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 8px;border-radius:999px;background:rgba(255,255,255,.12);white-space:nowrap">&#8592; All templates</a><span style="opacity:.75;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0">Live demo: Dewlab</span><a href="../../index.html#buy=dewlab" style="color:#FBF3EC;background:linear-gradient(100deg,#8F3A4B,#6E2E3A);text-decoration:none;padding:7px 14px;border-radius:999px;white-space:nowrap">Buy · Beli</a></div>
+<script>(function(){try{history.scrollRestoration='manual'}catch(e){}function top(){window.scrollTo(0,0);var b=document.getElementById('svDemo');if(b&&b.scrollIntoView)b.scrollIntoView({block:'start'})}if(!location.hash){top();window.addEventListener('load',top);window.addEventListener('pageshow',top)}document.getElementById('svBack').addEventListener('click',function(e){if(document.referrer&&history.length>1){e.preventDefault();history.back()}})})();</script><!--/demo-bar-->
+<div class="bar">Free shipping over $50 and a travel-size serum with every order</div>
+<div class="wrap">
+  <nav>
+    <div class="l"><a href="#shop">Shop</a><a href="#results">Results</a><a href="#ingredients">Ingredients</a><a href="#reviews">Reviews</a></div>
+    <a class="logo" href="#">Dewlab</a>
+    <div class="r"><a href="#">Search</a><a href="#">Account</a><a class="bag" href="#">Bag <b>2</b></a></div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <h1>Skin that looks like it slept eight hours.</h1>
+      <p>Barrier-first serums and creams made with fermented rice water. Gentle enough for every day, strong enough to notice in a week.</p>
+      <div class="btns"><a class="btn fill" href="#shop">Shop bestsellers</a><a class="btn" href="#routine">Find your routine</a></div>
+      <div class="rating"><span class="stars" aria-hidden="true">★★★★★</span>4.9 from 12,400 reviews</div>
+    </div>
+    <div class="stage" aria-label="Dewlab Rice Water Serum bottle">
+      <img class="stage-img" src="../../img/dewlab/hero.jpg" alt="Dewlab Rice Water Serum bottle standing in water">
+      <div class="tagc" style="left:8%;bottom:150px"><b>+68%</b>hydration after 1 use</div>
+      <div class="tagc t2" style="right:7%;top:46%"><b>5 actives</b>no fragrance</div>
+    </div>
+  </header>
+</div>
+
+<div class="wrap"><div class="benefits">
+  <div><i></i>Fragrance free</div><div><i style="background:var(--butter)"></i>Dermatologist tested</div><div><i style="background:var(--lilac-2)"></i>Vegan and cruelty free</div><div><i style="background:var(--white)"></i>Refillable glass</div>
+</div></div>
+
+<section class="sec" id="shop"><div class="wrap">
+  <div class="head"><h2>Shop the routine</h2><p>Seven products, one gentle routine. Cleanse, tone, treat, moisturise, protect. Start with one, add the rest when you're ready.</p></div>
+  <div class="ftabs" role="group" aria-label="Filter products">
+    <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="cleanser">Facial wash</button><button aria-pressed="false" data-f="toner">Toner</button><button aria-pressed="false" data-f="serum">Serum</button><button aria-pressed="false" data-f="moist">Moisturiser</button><button aria-pressed="false" data-f="spf">Sunscreen</button>
+  </div>
+  <div class="grid" id="pgrid">
+    <article class="prod" data-c="cleanser"><div class="pimg" style="background:var(--lilac-2)">
+      <img class="pimg-photo" src="../../img/dewlab/tube.jpg" alt="Soft Foam Cleanser tube"></div>
+      <p class="kind">Step 1 · Facial wash</p><h3>Soft Foam Cleanser</h3><p class="sub">Low-pH gel to foam, 120 ml</p>
+      <div class="skin"><span>All skin</span><span>Sensitive</span></div><p class="rate"><i>★★★★★</i> 4.8 (2,140)</p>
+      <div class="buy"><b>$22</b><button class="add">Add to bag</button></div></article>
+    <article class="prod" data-c="toner"><div class="pimg" style="background:var(--lilac-2)"><span class="badge" style="background:var(--white);color:var(--aub)">New</span>
+      <img class="pimg-photo" src="../../img/dewlab/toner.jpg" alt="Rice Water Toner bottle"></div>
+      <p class="kind">Step 2 · Toner</p><h3>Rice Water Toner</h3><p class="sub">Hydrating milky toner, 150 ml</p>
+      <div class="skin"><span>Dry</span><span>Dull</span></div><p class="rate"><i>★★★★★</i> 4.9 (860)</p>
+      <div class="buy"><b>$26</b><button class="add">Add to bag</button></div></article>
+    <article class="prod" data-c="serum"><div class="pimg" style="background:var(--dew)"><span class="badge">Bestseller</span>
+      <img class="pimg-photo" src="../../img/dewlab/pump.jpg" alt="Rice Water Serum pump bottle"></div>
+      <p class="kind">Step 3 · Serum</p><h3>Rice Water Serum</h3><p class="sub">Repairs and plumps, 30 ml</p>
+      <div class="skin"><span>All skin</span><span>Dark spots</span></div><p class="rate"><i>★★★★★</i> 4.9 (5,310)</p>
+      <div class="buy"><b>$34</b><button class="add">Add to bag</button></div></article>
+    <article class="prod" data-c="serum"><div class="pimg" style="background:var(--butter)">
+      <img class="pimg-photo" src="../../img/dewlab/dropper.jpg" alt="Niacinamide Drops dropper bottle"></div>
+      <p class="kind">Step 3 · Serum</p><h3>Niacinamide 5% Drops</h3><p class="sub">Pores and redness, 30 ml</p>
+      <div class="skin"><span>Oily</span><span>Acne-prone</span></div><p class="rate"><i>★★★★★</i> 4.8 (1,920)</p>
+      <div class="buy"><b>$32</b><button class="add">Add to bag</button></div></article>
+    <article class="prod" data-c="moist"><div class="pimg" style="background:var(--butter)">
+      <img class="pimg-photo" src="../../img/dewlab/cream.jpg" alt="Cloud Barrier Cream jar"></div>
+      <p class="kind">Step 4 · Moisturiser</p><h3>Cloud Barrier Cream</h3><p class="sub">Rich ceramide cream, 50 ml</p>
+      <div class="skin"><span>Dry</span><span>Sensitive</span></div><p class="rate"><i>★★★★★</i> 4.9 (3,050)</p>
+      <div class="buy"><b>$38</b><button class="add">Add to bag</button></div></article>
+    <article class="prod" data-c="moist"><div class="pimg" style="background:var(--dew)"><span class="badge" style="background:var(--white);color:var(--aub)">New</span>
+      <img class="pimg-photo" src="../../img/dewlab/gel.jpg" alt="Hydration Gel moisturiser jar"></div>
+      <p class="kind">Step 4 · Moisturiser</p><h3>Hydration Gel</h3><p class="sub">Light water-gel, 50 ml</p>
+      <div class="skin"><span>Oily</span><span>Combination</span></div><p class="rate"><i>★★★★★</i> 4.8 (640)</p>
+      <div class="buy"><b>$30</b><button class="add">Add to bag</button></div></article>
+    <article class="prod" data-c="spf"><div class="pimg" style="background:#F6E2DA">
+      <img class="pimg-photo" src="../../img/dewlab/spf.jpg" alt="Daylight SPF 50 bottle"></div>
+      <p class="kind">Step 5 · Sunscreen</p><h3>Daylight SPF 50</h3><p class="sub">Invisible sunscreen, 50 ml</p>
+      <div class="skin"><span>All skin</span><span>No white cast</span></div><p class="rate"><i>★★★★★</i> 4.8 (2,770)</p>
+      <div class="buy"><b>$28</b><button class="add">Add to bag</button></div></article>
+    <article class="prod quiz" data-c="quiz" style="background:var(--aub);color:var(--lilac);justify-content:space-between;padding:30px">
+      <div><p class="kind" style="color:#CDBFD3;margin:0">Not sure where to start?</p><h3 style="font-size:32px;margin:14px 0 0">Find your routine in 60 seconds</h3>
+      <p style="color:#CDBFD3;margin-top:12px;font-size:15px">Answer four questions about your skin. We'll suggest three products, not seven.</p></div>
+      <a class="btn" href="#routine" style="background:var(--lilac);color:var(--aub);border-color:var(--lilac);margin-top:24px">Take the skin quiz</a></article>
+  </div>
+
+  <div class="setband">
+    <img src="../../img/dewlab/set.jpg" alt="Every Dewlab product laid out on lilac linen" loading="lazy">
+    <div><span class="tag">Most gifted</span><h3>The Full Routine, one box</h3><p>Every step in full size, in a refillable box. The easiest way to start, or the kindest gift.</p>
+      <ul><li>Soft Foam Cleanser + Rice Water Toner</li><li>Rice Water Serum + Niacinamide Drops</li><li>Cloud Barrier Cream + Daylight SPF 50</li></ul>
+      <div class="pr">$142 <s>$190</s></div>
+      <div class="btns" style="margin-top:20px"><a class="btn fill" href="#">Shop the set</a></div></div>
+  </div>
+</div></section>
+
+<section class="results" id="results"><div class="wrap ba-wrap">
+  <div class="ba" id="ba" style="--p:50%">
+    <img class="after" id="baA" src="../../img/dewlab/ba-spots-after.jpg" alt="Skin after 8 weeks">
+    <img class="before" id="baB" src="../../img/dewlab/ba-spots-before.jpg" alt="Skin before">
+    <span class="line"></span><span class="knob" aria-hidden="true">&#8596;</span>
+    <span class="lb l">Before</span><span class="lb r" id="baT">After 8 weeks</span>
+    <input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+  </div>
+  <div>
+    <h2>Real skin, real progress</h2>
+    <p class="lead">Drag the line to compare. Pick a concern to see what a few weeks of the routine can do.</p>
+    <div class="cases" role="group" aria-label="Choose a result">
+      <button class="case" aria-pressed="true" data-k="spots" data-w="After 8 weeks"><img src="../../img/dewlab/ba-spots-after.jpg" alt=""><div><b>Dark spots and dullness</b><span>Rice Water Serum, morning and night</span></div><em>8 wk</em></button>
+      <button class="case" aria-pressed="false" data-k="pores" data-w="After 6 weeks"><img src="../../img/dewlab/ba-pores-after.jpg" alt=""><div><b>Pores and texture</b><span>Niacinamide Drops + Hydration Gel</span></div><em>6 wk</em></button>
+      <button class="case" aria-pressed="false" data-k="red" data-w="After 4 weeks"><img src="../../img/dewlab/ba-red-after.jpg" alt=""><div><b>Redness and breakouts</b><span>Cleanser, toner and Barrier Cream</span></div><em>4 wk</em></button>
+    </div>
+    <p class="note">Individual results vary.</p>
+  </div>
+</div></section>
+
+<section class="ingr" id="ingredients"><div class="wrap">
+  <div class="head"><h2>What's inside, and why</h2><p>Every formula lists exact percentages. No mystery blends, no filler, nothing you need a dictionary for.</p></div>
+  <div class="ing-grid four">
+    <div class="ing ph"><div class="pic"><img src="../../img/dewlab/ing-rice.jpg" alt="Fermented rice water in a glass bowl with rice grains" loading="lazy"><div class="pct" style="background:conic-gradient(var(--butter) 0 40%,rgba(236,230,242,.35) 0)"><b>40%</b></div></div>
+      <div class="txt"><h3>Fermented rice water</h3><p>Brightens and softens texture, the reason your skin looks rested.</p><div class="in"><span>Toner</span><span>Rice Water Serum</span></div></div></div>
+    <div class="ing ph"><div class="pic"><img src="../../img/dewlab/ing-niacinamide.jpg" alt="Clear niacinamide serum drops" loading="lazy"><div class="pct" style="background:conic-gradient(var(--dew) 0 5%,rgba(236,230,242,.35) 0)"><b>5%</b></div></div>
+      <div class="txt"><h3>Niacinamide</h3><p>Calms redness and tightens the look of pores without stinging.</p><div class="in"><span>Niacinamide Drops</span><span>Hydration Gel</span></div></div></div>
+    <div class="ing ph"><div class="pic"><img src="../../img/dewlab/ing-ceramide.jpg" alt="Ceramide cream swatch" loading="lazy"><div class="pct" style="background:conic-gradient(var(--lilac-2) 0 2%,rgba(236,230,242,.35) 0)"><b>2%</b></div></div>
+      <div class="txt"><h3>Ceramide complex</h3><p>Rebuilds your skin barrier so moisture stays in all day.</p><div class="in"><span>Barrier Cream</span><span>Cleanser</span></div></div></div>
+    <div class="ing ph"><div class="pic"><img src="../../img/dewlab/ing-centella.jpg" alt="Fresh centella asiatica leaves and gel" loading="lazy"><div class="pct" style="background:conic-gradient(#BFE3C9 0 10%,rgba(236,230,242,.35) 0)"><b>10%</b></div></div>
+      <div class="txt"><h3>Centella asiatica</h3><p>Soothes irritated skin and helps blemishes heal faster.</p><div class="in"><span>Toner</span><span>SPF 50</span></div></div></div>
+  </div>
+  <div class="free"><span>No fragrance</span><span>No alcohol</span><span>No parabens</span><span>No essential oils</span><span>Safe for pregnancy</span><span>Halal certified</span></div>
+</div></section>
+
+<section class="sec routine" id="routine"><div class="wrap routine-grid">
+  <div><h2>A routine you'll actually keep</h2><p class="lead">Four steps in the morning, five at night. About five minutes in total.</p>
+    <div class="toggle" role="group" aria-label="Choose routine"><button aria-pressed="true" data-r="am">Morning</button><button aria-pressed="false" data-r="pm">Evening</button></div></div>
+  <div>
+    <ol class="steps" data-list="am">
+      <li><div><b>Soft Foam Cleanser</b><span>A quick rinse, no tightness</span></div><em>30 sec</em></li>
+      <li><div><b>Rice Water Toner</b><span>Pat in with your palms, no cotton pad needed</span></div><em>30 sec</em></li>
+      <li><div><b>Rice Water Serum</b><span>Two drops, press into damp skin</span></div><em>1 min</em></li>
+      <li><div><b>Daylight SPF 50</b><span>Two finger-lengths, even on cloudy days</span></div><em>1 min</em></li>
+    </ol>
+    <ol class="steps hidden" data-list="pm">
+      <li><div><b>Soft Foam Cleanser</b><span>Massage for a full minute to lift sunscreen</span></div><em>1 min</em></li>
+      <li><div><b>Rice Water Toner</b><span>Two layers on dry nights</span></div><em>30 sec</em></li>
+      <li><div><b>Niacinamide 5% Drops</b><span>On pores and red patches only</span></div><em>30 sec</em></li>
+      <li><div><b>Rice Water Serum</b><span>Three drops tonight, your skin repairs while you sleep</span></div><em>1 min</em></li>
+      <li><div><b>Cloud Barrier Cream</b><span>A pea-sized amount, sealed in until morning</span></div><em>30 sec</em></li>
+    </ol>
+  </div>
+</div></section>
+
+<section class="sec" id="reviews"><div class="wrap">
+  <div class="wall-head"><div><h2>#DewlabGlow</h2><p style="color:var(--aub-2);margin-top:14px;max-width:38ch">Real routines from our community. Tag us on Instagram to be featured.</p></div>
+    <div class="score"><b>4.9</b><div><span class="stars" aria-label="5 stars">★★★★★</span><br><span>from 12,400 verified reviews</span></div></div></div>
+  <div class="wall">
+    <article class="rv"><div class="ph"><img src="../../img/dewlab/ugc-1.jpg" alt="Customer mirror selfie holding Dewlab Rice Water Serum" loading="lazy"><span class="tag">Rice Water Serum</span></div>
+      <div class="bd"><span class="stars">★★★★★</span><q>My dark spots from old breakouts faded so much. I finally go out without concealer.</q><div class="who">Alya R.<small>Combination skin · 3 months</small></div></div></article>
+    <article class="rv"><div class="ph"><img src="../../img/dewlab/ugc-2.jpg" alt="Customer applying Dewlab Niacinamide Drops" loading="lazy"><span class="tag">Niacinamide Drops</span></div>
+      <div class="bd"><span class="stars">★★★★★</span><q>Two drops at night and my pores look half the size. No sting at all.</q><div class="who">Min-ji K.<small>Oily skin · 6 weeks</small></div></div></article>
+    <article class="rv"><div class="ph"><img src="../../img/dewlab/ugc-3.jpg" alt="Customer washing her face, Dewlab Soft Foam Cleanser on the sink" loading="lazy"><span class="tag">Soft Foam Cleanser</span></div>
+      <div class="bd"><span class="stars">★★★★★</span><q>Clean but never tight. My skin stopped feeling like it needs a moisturiser right away.</q><div class="who">Nadia P.<small>Sensitive skin · 2 months</small></div></div></article>
+    <article class="rv"><div class="ph"><img src="../../img/dewlab/ugc-4.jpg" alt="Customer holding Dewlab Cloud Barrier Cream" loading="lazy"><span class="tag">Cloud Barrier Cream</span></div>
+      <div class="bd"><span class="stars">★★★★★</span><q>The only cream that survived my office air-con. I wake up looking rested.</q><div class="who">Hannah S.<small>Dry skin · 5 months</small></div></div></article>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="news"><h2>Get 15% off your first order</h2>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed'"><label class="sr" for="em" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Email</label><input id="em" type="email" placeholder="Your email address" required><button class="btn fill" type="submit">Subscribe</button></form></div>
+  <div class="fcols">
+    <div><a class="logo" href="#">Dewlab</a><p style="color:var(--aub-2);margin-top:10px;max-width:30ch;font-size:15px">Skincare made in small batches in Seoul and Jakarta.</p></div>
+    <div><h5>Shop</h5><ul><li>Serums</li><li>Moisturisers</li><li>Cleansers</li><li>Sets</li></ul></div>
+    <div><h5>Help</h5><ul><li>Shipping</li><li>Returns</li><li>Skin quiz</li><li>Contact</li></ul></div>
+    <div><h5>Follow</h5><ul><li>Instagram</li><li>TikTok</li><li>Pinterest</li></ul></div>
+  </div>
+  <div class="copy"><span>© 2026 Dewlab Skincare</span><span>Privacy and terms</span></div>
+</div></footer>
+
+<script>
+document.querySelectorAll('.ftabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.ftabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('#pgrid .prod').forEach(p=>p.hidden=!(b.dataset.f==='all'||p.dataset.c===b.dataset.f));
+}));
+(function(){const ba=document.getElementById('ba'),r=ba.querySelector('input'),A=document.getElementById('baA'),B=document.getElementById('baB'),T=document.getElementById('baT');
+  r.addEventListener('input',()=>ba.style.setProperty('--p',r.value+'%'));
+  document.querySelectorAll('.case').forEach(c=>c.addEventListener('click',()=>{
+    document.querySelectorAll('.case').forEach(x=>x.setAttribute('aria-pressed',x===c));
+    A.src='../../img/dewlab/ba-'+c.dataset.k+'-after.jpg';B.src='../../img/dewlab/ba-'+c.dataset.k+'-before.jpg';T.textContent=c.dataset.w;
+    r.value=50;ba.style.setProperty('--p','50%')}));
+})();
+document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.toggle button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('.steps').forEach(l=>l.classList.toggle('hidden',l.dataset.list!==b.dataset.r));
+}));
+</script>
+</body>
+</html>

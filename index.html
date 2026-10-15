@@ -422,6 +422,26 @@ h2 em,h1 em,.eyebrow,.note,.path .n,.box .k,.pk .row a,.lang,.how .n,.story bloc
 .pf article .mk{transition:transform .5s}
 .pf article:hover .mk{transform:translateY(-6px)}
 .pf .pf-tx{margin-top:16px}
+.pkgs{margin-top:72px}
+.pkgs-h{text-align:center;max-width:640px;margin:0 auto 34px}
+.pkgs-h h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.6vw,48px);line-height:1.04;margin-top:12px}
+.pkgs-h p{margin-top:12px;color:#F3DDD5;font-size:16px}
+.pkg-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.pkg{position:relative;display:flex;flex-direction:column;border:1px solid rgba(35,30,27,.14);border-radius:26px;padding:30px 26px;background:#FBF7F1;color:#231E1B}
+.pkg.pop{background:var(--wine);color:#FBF3EC;border-color:var(--wine)}
+.pkg .bd{position:absolute;top:-13px;left:26px;background:#B5785F;color:#fff;font-size:12px;font-weight:600;letter-spacing:.04em;padding:5px 12px;border-radius:99px}
+.pkg h4{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1}
+.pkg .for{margin-top:8px;font-size:14px;opacity:.75;min-height:42px}
+.pkg .pr{margin:18px 0 4px;font-family:var(--serif);font-size:40px;line-height:1}
+.pkg .pr small{display:block;font-family:inherit;font-size:13px;opacity:.7;margin-bottom:4px;font-style:normal}
+.pkg .tm{font-size:13px;opacity:.7;margin-bottom:18px}
+.pkg ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:9px;flex:1}
+.pkg li{position:relative;padding-left:24px;font-size:15px;line-height:1.4}
+.pkg li:before{content:"";position:absolute;left:2px;top:6px;width:6px;height:11px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(40deg) scale(.75);opacity:.8}
+.pkg .btn{justify-content:center;text-align:center}
+.pkg.pop .btn{background:#FBF3EC;color:#231E1B;border-color:#FBF3EC}
+.pkgs-n{margin-top:20px;text-align:center;font-size:14px;color:#F3DDD5}
+@media(max-width:1000px){.pkg-g{grid-template-columns:1fr;max-width:480px;margin:0 auto}.pkg .for{min-height:0}}
 .cs-band{margin-top:72px;border-radius:32px;background:var(--wine);color:#FBF3EC;padding:44px;display:grid;grid-template-columns:1fr 1.4fr;gap:28px 48px;align-items:center}
 .cs-t h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.4vw,46px);line-height:1.02}
 .cs-t p{margin-top:12px;color:#F3DDD5;font-size:16px}
@@ -635,6 +655,7 @@ h2 em,h1 em,.eyebrow,.note,.path .n,.box .k,.pk .row a,.lang,.how .n,.story bloc
   </div>
   <div class="pf-feat" id="pffeat"></div>
   <div class="pf" id="pf"></div>
+  <div class="pkgs" id="pkgs"></div>
   <div class="cs-band">
     <div class="cs-t"><h3>Want a website like these?</h3><p>Free consultation on WhatsApp. Tell me your business and I'll suggest the right pages, style and budget.</p></div>
     <ol class="cs-steps">
@@ -859,11 +880,23 @@ function copyMP(e){const b=e.target.closest('#cp'),txt=document.getElementById('
 const WA='85255127902';
 function waURL(kind,x){let m;
   if(kind==='custom')m=L("Hi Solvy! 👋 I'd like a custom website for my business. Can we talk about it?","Halo Solvy! 👋 Aku mau tanya soal pembuatan website custom untuk usahaku. Bisa dibantu?");
+  else if(kind==='pkg'){const p=PKG.find(z=>z.n===x)||PKG[1];m=L(`Hi Solvy! 👋 I'm interested in the ${p.n} custom website package (from $${p.usd}). Can we talk about my business?`,`Halo Solvy! 👋 Aku tertarik paket website custom ${p.n} (mulai Rp${p.p.toLocaleString('id-ID')}). Bisa ngobrol soal usahaku?`)}
   else if(kind==='pf')m=L(`Hi Solvy! 👋 I love the ${x} concept. Could you make a website like that for my business?`,`Halo Solvy! 👋 Aku suka konsep ${x}. Bisa dibuatkan website seperti itu untuk usahaku?`);
   else if(kind==='q')m=L(`Hi Solvy! 👋 I have a question: ${x}`,`Halo Solvy! 👋 Aku mau tanya: ${x}`);
   else m=L("Hi Solvy! 👋 I'd like to ask about your templates, AI prompts or custom websites.","Halo Solvy! 👋 Aku mau tanya tentang template, prompt AI, atau website custom. Bisa dibantu?");
   return 'https://wa.me/'+WA+'?text='+encodeURIComponent(m)}
 document.addEventListener('click',e=>{const a=e.target.closest('[data-wa]');if(!a)return;a.href=waURL(a.dataset.wa,a.dataset.x);a.target='_blank';a.rel='noopener'});
+
+/* ===== custom website packages ===== */
+const PKG=[
+ {id:'launch',n:'Launch',p:1200000,usd:75,f:['One-page website for a new business or personal brand','Satu halaman website untuk usaha baru atau brand pribadi'],tm:['Ready in about 3–5 days','Selesai sekitar 3–5 hari'],i:[['Single-page design, mobile friendly','Desain satu halaman, rapi di HP'],['Copy and layout drafted by me','Teks dan layout saya buatkan'],['WhatsApp order button','Tombol pesan via WhatsApp'],['Social links and a simple contact section','Link sosmed dan kontak sederhana'],['1 round of revisions','1x revisi']]},
+ {id:'business',n:'Business',pop:1,p:2800000,usd:175,f:['For businesses that need a full website with several pages','Untuk usaha yang butuh website lengkap beberapa halaman'],tm:['Ready in about 7–10 days','Selesai sekitar 7–10 hari'],i:[['Up to 5 pages (Home, About, Services, Gallery, Contact)','Sampai 5 halaman (Beranda, Tentang, Layanan, Galeri, Kontak)'],['Custom design in your brand style','Desain custom sesuai gaya brand-mu'],['Copywriting for every page','Penulisan teks tiap halaman'],['Google Maps, contact form and basic SEO','Google Maps, form kontak, dan SEO dasar'],['2 rounds of revisions','2x revisi']]},
+ {id:'signature',n:'Signature',p:5500000,usd:345,f:['A premium, one-of-a-kind website like the portfolio above','Website premium yang unik seperti portofolio di atas'],tm:['Ready in about 2–3 weeks','Selesai sekitar 2–3 minggu'],i:[['Up to 10 pages with fully custom design','Sampai 10 halaman dengan desain full custom'],['Animations, video and booking or product pages','Animasi, video, dan halaman booking atau produk'],['Copywriting and a content structure plan','Penulisan teks dan rencana struktur konten'],['SEO setup and speed optimisation','Setup SEO dan optimasi kecepatan'],['3 rounds of revisions and 14 days of support after launch','3x revisi dan dukungan 14 hari setelah online']]}];
+const pkgPrice=p=>LANG==='id'?'Rp'+p.p.toLocaleString('id-ID'):'$'+p.usd;
+function renderPkg(){const el=document.getElementById('pkgs');if(!el)return;
+  el.innerHTML=`<div class="pkgs-h"><span class="eyebrow">${L('Custom website packages','Paket website custom')}</span><h3>${L('Pick a package, <em>or ask for a quote</em>','Pilih paket, <em>atau minta penawaran</em>')}</h3><p>${L('Clear starting prices so you know what to expect. The final price depends on your pages and features, and we confirm it together in a free consultation.','Harga awal yang jelas biar kamu tahu gambarannya. Harga akhir menyesuaikan halaman dan fitur, dan kita sepakati bareng di konsultasi gratis.')}</p></div>
+  <div class="pkg-g">${PKG.map(p=>`<article class="pkg${p.pop?' pop':''}">${p.pop?`<span class="bd">${L('Most popular','Paling dipilih')}</span>`:''}<h4>${p.n}</h4><div class="for">${L(...p.f)}</div><div class="pr"><small>${L('Starting from','Mulai dari')}</small>${pkgPrice(p)}</div><div class="tm">${L(...p.tm)}</div><ul>${p.i.map(x=>`<li>${L(...x)}</li>`).join('')}</ul><a class="btn ${p.pop?'':'wine'}" href="#" data-wa="pkg" data-x="${p.n}">${L('Choose '+p.n,'Pilih '+p.n)}</a></article>`).join('')}</div>
+  <p class="pkgs-n">${L('Domain and hosting are not included (I can help you set them up). Need something bigger? Ask for a custom quote.','Domain dan hosting belum termasuk (saya bantu pasangkan). Butuh yang lebih besar? Minta penawaran custom.')}</p>`}
 
 /* ===== portfolio ===== */
 const PF=[
@@ -878,7 +911,7 @@ const mock=p=>`<a class="mk" href="https://byratnasari.vercel.app/demo.html?p=${
 const ptx=(p,full)=>`<div class="pf-tx"><small><span class="no">${p.no}</span>${L(...p.c)} · ${L('Concept 2026','Konsep 2026')}</small><h3>${esc(p.n)}</h3><div class="tg">${L(...p.t)}</div>${full?`<p>${L(...p.d)}</p><div class="pf-tags">${p.g.map(x=>`<span>${x}</span>`).join('')}</div>`:`<p>${L(...p.d)}</p>`}<div class="pf-act"><a class="dm" href="https://byratnasari.vercel.app/demo.html?p=${p.id}" target="_blank" rel="noopener">${L('Live demo ↗','Lihat demo ↗')}</a><a class="wa" href="#" data-wa="pf" data-x="${esc(p.n)}">${L('Want one like this? →','Mau yang seperti ini? →')}</a></div></div>`;
 function renderPF(){const f=document.getElementById('pffeat'),g=document.getElementById('pf');if(!g)return;
   f.innerHTML=mock(PF[0])+ptx(PF[0],1);
-  g.innerHTML=PF.slice(1).map(p=>`<article>${mock(p)}${ptx(p)}</article>`).join('');lazyImgs();
+  g.innerHTML=PF.slice(1).map(p=>`<article>${mock(p)}${ptx(p)}</article>`).join('');lazyImgs();renderPkg();
   if(typeof solLang==='function')solLang()}
 
 /* ===== Sol, the assistant ===== */
@@ -908,7 +941,7 @@ FACTS (only use these):
 - Refunds: downloads are instant, so sales are final; if a file is broken or not as described, message within 7 days for a fix, replacement or refund.
 - No coding needed. Prompts work on a phone; editing a template is easier on a laptop. Publish free on Netlify; the full setup guide is on the site (Guide page).
 - Free: the Amara link-in-bio template and the Website Prep Checklist PDF.
-- Custom websites: price depends on pages and features, so never quote a price; invite the visitor to chat on WhatsApp for options and a quote. Ratna's portfolio (self-initiated concepts with live demos, at the bottom of the page and at byratnasari.vercel.app): Kanaya (luxury villa), Aurelia (boutique e-commerce), Oléa (skincare), Lumen (SaaS/AI product), Sora (café), Serenity Haven (wellness), Meridian (corporate).
+- Custom websites, packages (starting prices, final price confirmed after a free WhatsApp consultation; domain and hosting not included): Launch from Rp1.200.000 / $75 (one-page site, about 3-5 days, 1 revision); Business from Rp2.800.000 / $175 (up to 5 pages, copywriting, Maps, basic SEO, about 7-10 days, 2 revisions, most popular); Signature from Rp5.500.000 / $345 (up to 10 pages, fully custom, animations or booking pages, about 2-3 weeks, 3 revisions, 14 days support). Bigger needs get a custom quote on WhatsApp. Ratna's portfolio (self-initiated concepts with live demos, at the bottom of the page and at byratnasari.vercel.app): Kanaya (luxury villa), Aurelia (boutique e-commerce), Oléa (skincare), Lumen (SaaS/AI product), Sora (café), Serenity Haven (wellness), Meridian (corporate).
 - Contact: WhatsApp +852 5512 7902, Instagram @buildwithratna.
 
 MORE ANSWERS YOU CAN USE (true facts):
@@ -1031,8 +1064,8 @@ const KB=[
   en:"Yes! Ratna designs custom websites made only for your business: you chat on WhatsApp, she drafts the design and copy, you give feedback, then she launches it with your domain and WhatsApp button. See the portfolio at the bottom of this page.",
   id:"Bisa! Ratna bikin website custom khusus untuk usahamu: chat di WhatsApp, Ratna buatkan desain dan teksnya, kamu kasih masukan, lalu di-online-kan dengan domain dan tombol WhatsApp-mu. Lihat portofolionya di bagian paling bawah halaman ini."},
  {tag:'cprice',k:['harga custom','biaya custom','berapa jasa','price for custom','custom price','quote','penawaran','budget','biaya website','biaya bikin'],
-  en:"Custom prices depend on the number of pages and features, so Ratna gives a quote after a free consultation on WhatsApp. Tell her your business type, pages you need and your budget.",
-  id:"Harga website custom tergantung jumlah halaman dan fitur, jadi Ratna kasih penawaran setelah konsultasi gratis di WhatsApp. Ceritakan jenis usaha, halaman yang dibutuhkan, dan budget-mu."},
+  en:"Custom website packages: Launch from $75 (one-page site, ~3-5 days), Business from $175 (up to 5 pages with copywriting, ~7-10 days, most popular), Signature from $345 (up to 10 pages, fully custom, ~2-3 weeks). These are starting prices; the final price is confirmed in a free WhatsApp consultation. Domain and hosting are not included.",
+  id:"Paket website custom: Launch mulai Rp1,2 juta (satu halaman, ±3-5 hari), Business mulai Rp2,8 juta (sampai 5 halaman + penulisan teks, ±7-10 hari, paling dipilih), Signature mulai Rp5,5 juta (sampai 10 halaman, full custom, ±2-3 minggu). Itu harga mulai dari; harga akhir disepakati di konsultasi gratis via WhatsApp. Domain dan hosting belum termasuk."},
  {tag:'time',k:['berapa lama','lama pengerjaan','timeline','deadline','how long','kapan jadi','estimasi'],
   en:"For templates, most people go live the same day (the guide says about 15 minutes after editing). For custom websites, the timeline depends on the scope; Ratna confirms it with the quote on WhatsApp.",
   id:"Untuk template, kebanyakan orang bisa online di hari yang sama (sekitar 15 menit setelah selesai edit). Untuk website custom, lamanya tergantung skala proyek; Ratna konfirmasi bersama penawarannya di WhatsApp."},

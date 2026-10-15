@@ -450,25 +450,29 @@ h2 em,h1 em,.eyebrow,.note,.path .n,.box .k,.pk .row a,.lang,.how .n,.story bloc
 .fx-bx{position:absolute;right:6px;top:4px;border:0;background:none;font-size:18px;line-height:1;color:#6E655C;cursor:pointer;padding:2px 4px}
 .fx.open .fx-bot,.fx.open .fx-bub{display:none}
 .sol{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:950;width:380px;max-height:min(620px,calc(100vh - 110px));display:flex;flex-direction:column;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:24px;box-shadow:0 30px 70px -20px rgba(0,0,0,.7);overflow:hidden}
-.sol-h{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--wine);color:#FBF3EC}
+.sol-h{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--wine);color:#FBF3EC;flex:none}
 .sol-h img{width:44px;height:50px;object-fit:contain}
 .sol-h b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1}
 .sol-h span{font-size:12.5px;opacity:.85}
 .sol-x{margin-left:auto;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;font-size:22px;line-height:1;cursor:pointer}
-.sol-m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:180px}
+.sol-m{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:0;flex:1 1 auto}
 .sol-m .b{max-width:86%;padding:10px 13px;border-radius:16px;font-size:14.5px;line-height:1.5;white-space:pre-line;word-wrap:break-word}
 .sol-m .b.a{background:var(--sand);border-bottom-left-radius:4px;align-self:flex-start}
 .sol-m .b.u{background:var(--wine);color:#FBF3EC;border-bottom-right-radius:4px;align-self:flex-end}
-.sol-m .b.t{opacity:.7;font-style:italic}
+.sol-m .b.t{opacity:.85;font-style:normal;display:flex;align-items:center;gap:10px;white-space:normal}
+.dots{display:inline-flex;gap:4px;align-items:center}.dots i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.35;animation:dt 1.1s infinite ease-in-out}.dots i:nth-child(2){animation-delay:.18s}.dots i:nth-child(3){animation-delay:.36s}
+@keyframes dt{0%,70%,100%{opacity:.3;transform:translateY(0)}35%{opacity:1;transform:translateY(-4px)}}
+.sol-m .pcs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;white-space:normal}
+.sol-m .pcs .pc{margin:0}
 .sol-m .pc{display:inline-flex;gap:6px;align-items:center;margin:6px 6px 0 0;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 11px;font:600 13px var(--sans);cursor:pointer;white-space:nowrap}
 .sol-m .pc em{font-style:normal;color:var(--rose,var(--wine))}
-.sol-q{display:flex;gap:8px;overflow-x:auto;padding:0 16px 10px;scrollbar-width:none}
+.sol-q{display:flex;gap:8px;overflow-x:auto;padding:2px 16px 10px;scrollbar-width:none;flex:none}
 .sol-q button{flex:none;border:1px solid var(--line);background:none;color:var(--ink);border-radius:999px;padding:7px 12px;font:600 13px var(--sans);cursor:pointer}
 .sol-q button:hover{background:var(--sand)}
-.sol-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line)}
+.sol-f{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--line);flex:none}
 .sol-f input{flex:1;min-width:0;border:1px solid var(--line);background:var(--ivory);color:var(--ink);border-radius:999px;padding:11px 16px;font:15px var(--sans)}
 .sol-f button{width:44px;height:44px;flex:none;border-radius:50%;border:0;background:var(--wine);color:#fff;cursor:pointer;display:grid;place-items:center}
-.sol-wa{display:block;text-align:center;font-size:13px;padding:0 12px 12px;color:var(--muted)}
+.sol-wa{display:block;text-align:center;font-size:13px;padding:0 12px 12px;color:var(--muted);flex:none}
 .sol-wa b{color:#4FD27E}
 @media(max-width:640px){.fx{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}.fx-bot{width:66px;height:76px}.fx-wa{width:50px;height:50px}
  .sol{right:0;left:0;bottom:0;width:auto;max-height:calc(100dvh - 60px);border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
@@ -933,7 +937,7 @@ const KB=[
  {k:['beda','bedanya','perbedaan','difference','different','compare','bandingkan','vs'],tag:'diff',
   en:"A template is a finished website you edit. A prompt pack teaches AI to build a website with you, step by step. A kit gives you both: a template plus the prompt system and planning sheets to make it fully yours. A custom website means Ratna builds it for you.",
   id:"Template = website jadi yang tinggal kamu edit. Prompt pack = panduan supaya AI bantu kamu bikin website langkah demi langkah. Kit = dua-duanya: template + sistem prompt dan lembar perencanaan. Website custom = Ratna yang buatkan untukmu."},
- {k:['pilih yang mana','yang mana','which one','mana yang','bagusnya','sebaiknya','should i','saran','rekomendasi','recommend','cocok','fit','suggest'],tag:'choose',
+ {k:['pilih yang mana','yang mana','which one','mana yang','bagusnya','sebaiknya','should i','saran','rekomendasi','recommend','cocok','fit','fits','suggest','which template','template mana','pick a template','pilih template','what should i buy','beli yang mana'],tag:'choose',
   en:"Quick guide: want it online this week, choose a template. Want to learn to build with AI, choose a prompt pack. Want both, choose a kit (best value). No time at all, ask Ratna for a custom website. Tell me your business and I'll pick the exact one.",
   id:"Panduan cepat: mau cepat online minggu ini, pilih template. Mau belajar bikin sendiri pakai AI, pilih prompt pack. Mau dua-duanya, pilih kit (paling hemat). Nggak sempat sama sekali, minta Ratna buatkan website custom. Ceritakan usahamu, nanti aku pilihkan yang pas."},
  {k:['edit','ubah','ganti teks','mengedit','cara pakai','how to use','gimana pakainya','cara edit','customize','kustom template','sesuaikan'],
@@ -1099,15 +1103,23 @@ function localAns(q){const t=norm(q);
   return L("Hmm, I'm not sure about that one. Ratna can answer directly on WhatsApp, just tap the link below. You can also ask me about templates, prices, payment, licences or custom websites.","Hmm, untuk yang itu aku belum yakin. Ratna bisa jawab langsung di WhatsApp, tinggal tap link di bawah. Kamu juga bisa tanya aku soal template, harga, pembayaran, lisensi, atau website custom.")}
 function kbText(){return KB.filter(e=>!e.tag||e.tag==='diff'||e.tag==='choose').map(e=>'- '+e.en).join('\n')}
 
-function fmt(text){let h=esc(text).replace(/\*\*?/g,'');
-  h=h.replace(/\[\[([a-z0-9-]+)\]\]/g,(m,id)=>{const x=prod(id);return x?`<button type="button" class="pc" data-sol="${id}">${esc(x.n)} <em>${money(x.p)}</em></button>`:''});
-  return h.replace(/\[\[[^\]]*$/,'')}
+function fmt(text){const ids=[];
+  const t=text.replace(/\[\[([a-z0-9-]+)\]\]/g,(m,id)=>{if(prod(id)&&!ids.includes(id))ids.push(id);return ''}).replace(/\[\[[^\]]*$/,'');
+  let h=esc(t.replace(/[ \t]+\n/g,'\n').trim()).replace(/\*\*?/g,'');
+  if(ids.length)h+='<div class="pcs">'+ids.map(id=>{const x=prod(id);return `<button type="button" class="pc" data-sol="${id}">${esc(x.n)} <em>${money(x.p)}</em></button>`}).join('')+'</div>';
+  return h}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function typeOut(el,full){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches){el.innerHTML=fmt(full);return}
+  const n=full.length,step=Math.max(2,Math.ceil(n/70));
+  for(let i=step;i<n;i+=step){el.innerHTML=fmt(full.slice(0,i));solm.scrollTop=solm.scrollHeight;await sleep(16)}
+  el.innerHTML=fmt(full);solm.scrollTop=solm.scrollHeight}
 function bubble(cls,html){const d=document.createElement('div');d.className='b '+cls;d.innerHTML=html;solm.appendChild(d);solm.scrollTop=solm.scrollHeight;return d}
 solm.addEventListener('click',e=>{const b=e.target.closest('[data-sol]');if(!b)return;const id=b.dataset.sol;
   if(id.startsWith('kit-'))openP('k:'+id.slice(4));else if(P.find(p=>p.id===id))openP('p:'+id);else openBuy(id)});
 
 async function ask(q){q=q.trim();if(!q||busy)return;busy=true;lastQ=q;solwa.href=waURL('q',q);
-  bubble('u',esc(q));soli.value='';const a=bubble('a t',L('Sol is thinking…','Sol sedang mengetik…'));
+  bubble('u',esc(q));soli.value='';const a=bubble('a t',L('Sol is typing','Sol sedang mengetik')+'<span class="dots"><i></i><i></i><i></i></span>');let local=false;
   let ans='';
   try{const sample=await getSample();
     if(!sample)throw {code:'none'};
@@ -1117,8 +1129,10 @@ async function ask(q){q=q.trim();if(!q||busy)return;busy=true;lastQ=q;solwa.href
     if(!hist.length)hist.push({role:'user',content:sysPrompt()+'\n\nVisitor question: '+q});else hist.push({role:'user',content:q});
     hist.push({role:'assistant',content:ans});if(hist.length>24)hist=[hist[0],hist[1],...hist.slice(-20)];
   }catch(err){if(err&&err.code==='not_granted')sampleP=Promise.resolve(null);
-    ans=err&&err.code==='rate_limited'?L("I'm getting a lot of questions right now. Here's what I know: ","Lagi banyak yang tanya nih. Ini yang aku tahu: ")+localAns(q):localAns(q)}
-  a.classList.remove('t');a.innerHTML=fmt(ans);solm.scrollTop=solm.scrollHeight;busy=false}
+    ans=err&&err.code==='rate_limited'?L("I'm getting a lot of questions right now. Here's what I know: ","Lagi banyak yang tanya nih. Ini yang aku tahu: ")+localAns(q):localAns(q);local=true}
+  if(local)await sleep(650+Math.min(ans.length*2,500));
+  a.classList.remove('t');
+  try{if(local)await typeOut(a,ans);else{a.innerHTML=fmt(ans);solm.scrollTop=solm.scrollHeight}}finally{busy=false}}
 solf.addEventListener('submit',e=>{e.preventDefault();ask(soli.value)});
 
 function openSol(){sol.hidden=false;fx.classList.add('open');fxbot.setAttribute('aria-expanded','true');fxbub.hidden=true;try{sessionStorage.setItem('sol-seen','1')}catch(e){}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Solvy — links</title>
+<meta name="description" content="Template website, prompt AI, dan website custom oleh Ratna.">
+<meta property="og:title" content="Solvy — links"><meta property="og:image" content="../img/portfolio/ratna.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235C0F1A'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-style='italic' text-anchor='middle' fill='%23F4EEE4'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"IS";src:url(../fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:"IS";src:url(../fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+@font-face{font-family:"SA";src:url(../fonts/InstrumentSans-Regular.ttf)}
+@font-face{font-family:"SA";src:url(../fonts/InstrumentSans-Bold.ttf);font-weight:700}
+:root{--wine:#5C0F1A;--wine-2:#4A0B15;--cream:#F4EEE4;--sand:#E3D5C3;--copper:#B5785F;--rose:#E9B7A6;--soft:#8C837B}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--wine);color:var(--cream);font-family:"SA",system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+.bg{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;overflow:hidden}
+.bg span{font-family:"IS";font-style:italic;font-size:38vw;line-height:.8;color:var(--wine-2);white-space:nowrap}
+main{position:relative;max-width:480px;margin:0 auto;padding:48px 20px 40px}
+.head{text-align:center}
+.av{width:112px;height:112px;border-radius:50%;overflow:hidden;margin:0 auto;border:3px solid var(--cream);box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+.av img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+h1{font-family:"IS";font-weight:400;font-size:52px;line-height:1;margin-top:16px} h1 i{font-style:normal;color:var(--copper)}
+.bio{color:#E6D6CF;margin-top:8px;font-size:16.5px}
+.loc{display:inline-flex;align-items:center;gap:7px;margin-top:12px;font-size:13.5px;font-weight:700;background:rgba(244,238,228,.1);border-radius:999px;padding:5px 13px}
+.loc i{width:7px;height:7px;border-radius:50%;background:#4FD27E}
+.soc{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.soc a{width:44px;height:44px;border-radius:50%;background:var(--cream);color:var(--wine);display:grid;place-items:center}
+.soc svg{width:20px;height:20px}
+.links{display:grid;gap:12px;margin-top:30px}
+.lk{display:flex;align-items:center;gap:14px;background:var(--cream);color:var(--wine);border-radius:20px;padding:12px 16px 12px 12px;transition:transform .2s}
+.lk:hover{transform:translateY(-2px)}
+.lk .ic{width:46px;height:46px;border-radius:14px;flex:none;display:grid;place-items:center;font-family:"IS";font-size:24px;background:var(--sand)}
+.lk b{display:block;font-weight:700;font-size:16px} .lk span{font-size:14px;color:var(--soft)}
+.lk .ar{margin-left:auto;font-size:20px;color:var(--copper)}
+.lk.hero{background:var(--copper);color:#fff} .lk.hero .ic{background:var(--cream);color:var(--wine)} .lk.hero span,.lk.hero .ar{color:#FBEDE6}
+.feat{display:block;margin-top:26px;border-radius:24px;overflow:hidden;position:relative;aspect-ratio:16/11;background:#2a0a10}
+.feat img{width:100%;height:100%;object-fit:cover}
+.feat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(42,10,16,.9))}
+.feat .t{position:absolute;left:18px;right:18px;bottom:16px;z-index:2}
+.feat .t small{font-size:13px;opacity:.85} .feat .t b{display:block;font-family:"IS";font-weight:400;font-size:28px;line-height:1.1}
+.play{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);z-index:2;width:62px;height:62px;border-radius:50%;background:rgba(244,238,228,.92);display:grid;place-items:center}
+h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{color:var(--rose)}
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pr{background:var(--cream);color:var(--wine);border-radius:20px;overflow:hidden}
+.pr figure{aspect-ratio:4/5;overflow:hidden} .pr img{width:100%;height:100%;object-fit:cover}
+.pr div{padding:12px 14px 14px} .pr b{display:block;font-size:15px;line-height:1.3}
+.pr span{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:13.5px;color:var(--soft)} .pr span em{font-style:normal;font-weight:700;color:var(--wine)}
+.cta{background:var(--cream);color:var(--wine);border-radius:24px;padding:24px;margin-top:26px}
+.cta b{font-family:"IS";font-weight:400;font-size:30px;display:block;line-height:1.1}
+.cta p{color:#6E655C;font-size:15px;margin-top:6px}
+.cta a{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:var(--wine);color:var(--cream);font-weight:700;border-radius:999px;padding:12px 20px}
+.foot{text-align:center;margin-top:30px;font-size:13px;color:#D9C3BC} .foot a{text-decoration:underline}
+.share{position:fixed;right:18px;top:18px;width:44px;height:44px;border-radius:50%;background:var(--cream);border:0;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(0,0,0,.5);z-index:3;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);opacity:0;background:var(--cream);color:var(--wine);padding:12px 20px;border-radius:999px;font-size:14.5px;font-weight:700;transition:.3s;z-index:9}
+.toast.show{transform:translate(-50%,0);opacity:1}
+@media (max-width:420px){h1{font-size:46px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><span>Solvy</span></div>
+<button class="share" id="share" aria-label="Salin link halaman ini"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C0F1A" stroke-width="2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></button>
+<main>
+  <div class="head">
+    <div class="av"><img src="../img/portfolio/ratna.webp" alt="Ratna, pendiri Solvy"></div>
+    <h1>solvy<i>.</i></h1>
+    <p class="bio">Template website, prompt AI, dan website custom untuk usahamu. Dibuat oleh Ratna.</p>
+    <span class="loc"><i></i>Terima pesanan website custom</span>
+    <div class="soc">
+      <a href="https://instagram.com/buildwithratna" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://www.tiktok.com/@ratnaa.s" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.3 1.7 3.8 4 4v3c-1.5 0-2.9-.4-4-1.1V15a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V3h3z"/></svg></a>
+      <a href="https://wa.me/85255127902?text=Halo%20Solvy%21%20%F0%9F%91%8B%20Aku%20mau%20tanya%20tentang%20template%2C%20prompt%20AI%2C%20atau%20website%20custom." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4s-1.1 1.1-1.1 2.7 1.2 3.1 1.3 3.3 2.3 3.5 5.6 4.9c2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5s.3-1.4.2-1.5-.3-.2-.6-.4z"/></svg></a>
+      <a href="mailto:hello.solvystudio@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg></a>
+    </div>
+  </div>
+
+  <div class="links">
+    <a class="lk hero" href="../index.html"><span class="ic">S</span><div><b>Toko Solvy</b><span>13 template website + prompt AI</span></div><span class="ar">→</span></a>
+    <a class="lk" href="https://wa.me/85255127902?text=Halo%20Solvy%21%20%F0%9F%91%8B%20Aku%20mau%20tanya%20soal%20pembuatan%20website%20custom%20untuk%20usahaku.%20Bisa%20dibantu%3F" target="_blank" rel="noopener"><span class="ic">✦</span><div><b>Pesan website custom</b><span>Konsultasi gratis di WhatsApp</span></div><span class="ar">→</span></a>
+    <a class="lk" href="https://byratnasari.vercel.app" target="_blank" rel="noopener"><span class="ic">◐</span><div><b>Portofolio Ratna</b><span>7 website dengan live demo</span></div><span class="ar">→</span></a>
+    <a class="lk" href="../checklist.html"><span class="ic">✓</span><div><b>Checklist gratis</b><span>Siapkan ini sebelum bikin website</span></div><span class="ar">→</span></a>
+    <a class="lk" href="https://lynk.id/solyfinds" target="_blank" rel="noopener"><span class="ic">◇</span><div><b>Semua produk di Lynk.id</b><span>Bayar QRIS, e-wallet, transfer</span></div><span class="ar">→</span></a>
+  </div>
+
+  <a class="feat" href="../index.html#reel" aria-label="Lihat 13 template dalam 1 menit">
+    <img src="../media/showreel-poster.webp" alt="Cuplikan template website Solvy">
+    <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#5C0F1A"><path d="M8 5v14l11-7z"/></svg></span>
+    <span class="t"><small>Showreel</small><b>13 template, dalam 1 menit</b></span>
+  </a>
+
+  <h2>Paling <i>dicari</i></h2>
+  <div class="shop">
+    <a class="pr" href="../index.html#buy=kit-beauty"><figure><img src="../img/covers/kit-beauty.webp" alt="Cover Beauty Clinic Kit"></figure><div><b>Beauty Clinic Kit</b><span>Template + prompt <em>Rp349rb</em></span></div></a>
+    <a class="pr" href="../index.html#buy=ai-website"><figure><img src="../img/covers/cv-ai-website.webp" alt="Cover AI Website Tanpa Coding"></figure><div><b>AI Website Tanpa Coding</b><span>Prompt pack <em>Rp99rb</em></span></div></a>
+  </div>
+
+  <div class="cta">
+    <b>Coba gratis dulu</b>
+    <p>Template link-in-bio Amara, yang dipakai halaman ini, bisa kamu download gratis.</p>
+    <a href="../index.html#buy=amara">Ambil template gratis →</a>
+  </div>
+
+  <p class="foot">© 2026 Solvy · Halaman ini memakai template <a href="../t/amara/index.html">Amara</a></p>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const toast=document.getElementById('toast');let tt;function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2000)}
+document.getElementById('share').addEventListener('click',()=>{const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>say('Link disalin')).catch(()=>say('Salin link dari address bar'))});
+</script>
+</body>
+</html>

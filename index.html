@@ -497,6 +497,60 @@ h2 em,h1 em,.eyebrow,.note,.path .n,.box .k,.pk .row a,.lang,.how .n,.story bloc
 @media(max-width:640px){.fx{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}.fx-bot{width:66px;height:76px}.fx-wa{width:50px;height:50px}
  .sol{right:0;left:0;bottom:0;width:auto;max-height:calc(100dvh - 60px);border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}}
 @media(prefers-reduced-motion:reduce){.fx-bot{animation:none}}
+
+/* ===== Testimonials: "The Solvy Experience" (light cream band, scoped to .tst so the dark theme above cannot leak in) ===== */
+@font-face{font-family:"Playfair Display";src:url(fonts/playfair-display-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Playfair Display";src:url(fonts/playfair-display-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(fonts/dm-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(fonts/dm-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(fonts/dm-sans-latin-700-normal.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+.tst{--t-bg:#F5F0E8;--t-ink:#70243B;--t-soft:rgba(112,36,59,.84);--t-card:#FBF8F2;--t-line:rgba(112,36,59,.16);--t-accent:#244CCF;
+ --t-serif:"Playfair Display",var(--serif);--t-sans:"DM Sans",var(--sans);
+ background:var(--t-bg);color:var(--t-ink);font-family:var(--t-sans);position:relative}
+.tst :focus-visible{outline:2px solid var(--t-accent);outline-offset:3px}
+.tst-head{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:780px;margin:0 auto 64px}
+.tst .eyebrow{color:var(--t-ink);font-weight:700}
+.tst .eyebrow::after{content:"";width:22px;height:1.5px;background:currentColor}
+.tst h2,.tst h3{font-family:var(--t-serif);font-weight:400}
+.tst h2{margin-top:20px;font-size:clamp(36px,4.6vw,60px);line-height:1.08;letter-spacing:-.01em}
+.tst h2 em{font-style:italic;color:var(--t-accent)}
+.tst-lead{margin-top:22px;font-size:18px;line-height:1.65;color:var(--t-soft);max-width:56ch;text-wrap:pretty}
+.tst-demo{max-width:780px;margin:-28px auto 44px;text-align:center;font-size:13.5px;line-height:1.5;padding:10px 16px;border:1px dashed var(--t-ink);border-radius:12px;background:rgba(112,36,59,.05)}
+.tst-cols{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:36px;align-items:start}
+.tst-cat{display:flex;align-items:baseline;gap:12px;font-size:23px;line-height:1.15;letter-spacing:-.005em;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--t-line)}
+.tst-cat .n{font-style:italic;font-size:17px;color:var(--t-accent)}
+.tst-list{list-style:none;display:grid;gap:20px}
+.tst-item{display:flex;opacity:0;transform:translateY(18px);transition:opacity .8s ease var(--d,0ms),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}
+.tst-item.in{opacity:1;transform:none}
+.tst-card{position:relative;overflow:hidden;flex:1;background:var(--t-card);border:1px solid var(--t-line);border-radius:18px;padding:32px 30px 26px;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s,border-color .35s}
+.tst-card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--t-accent);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+@media(hover:hover){.tst-card:hover{transform:translateY(-4px);border-color:rgba(112,36,59,.34);box-shadow:0 26px 44px -30px rgba(112,36,59,.5)}.tst-card:hover::before{transform:scaleX(1)}}
+.tst-card figure{display:flex;flex-direction:column;height:100%}
+.tst-stars{display:inline-flex;gap:3px;color:var(--t-accent);margin-bottom:16px}
+.tst-stars svg{width:15px;height:15px;fill:currentColor}
+.tst-stars .off{opacity:.2}
+.tst-tag{align-self:flex-start;margin-bottom:18px;font-size:10.5px;font-weight:700;letter-spacing:.14em;padding:4px 9px;border-radius:99px;border:1px dashed var(--t-ink)}
+.tst-card blockquote{flex:1}
+.tst-card blockquote p{font-family:var(--t-serif);font-size:clamp(18px,1.5vw,20px);line-height:1.55;margin:0 0 26px;text-wrap:pretty}
+.tst-card blockquote p::before{content:"\201C"}
+.tst-card blockquote p::after{content:"\201D"}
+.tst-card figcaption{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--t-line)}
+.tst-card figcaption b{display:block;font-size:15px;font-weight:700;line-height:1.35}
+.tst-card figcaption small{display:block;margin-top:2px;font-size:11.5px;font-weight:700;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;color:var(--t-accent)}
+.tst-av{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--t-line);flex:none}
+.tst-close{display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;margin-top:76px;padding-top:56px;border-top:1px solid var(--t-line)}
+.tst-close p{font-family:var(--t-serif);font-style:italic;font-size:clamp(24px,2.8vw,34px);line-height:1.25;max-width:24ch;text-wrap:balance}
+.tst-btn{background:var(--t-ink);color:#FBF3EC;font-family:var(--t-sans)}
+.tst-btn:hover{background:var(--t-accent)}
+@media(max-width:1000px){
+ .tst-head{margin-bottom:48px}
+ .tst-demo{margin-top:-18px}
+ .tst-cols{grid-template-columns:1fr;gap:46px}
+ .tst-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tst-close{margin-top:60px;padding-top:44px}
+}
+@media(max-width:640px){.tst-list{grid-template-columns:1fr;gap:16px}.tst-card{padding:28px 22px 22px}.tst-cat{font-size:21px}.tst-lead{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.tst-item{opacity:1;transform:none;transition:none}.tst-card,.tst-card::before{transition:none}}
 </style>
 <script>
 // always open at the top (or at the linked step), never where the previous page was scrolled
@@ -611,6 +665,109 @@ h2 em,h1 em,.eyebrow,.note,.path .n,.box .k,.pk .row a,.lang,.how .n,.story bloc
     <div class="trust"><div><b>Made by one person</b>Not an agency. Built and tested by me.</div><div><b>No income promises</b>Good tools, honest results. The rest is your work.</div><div><b>Try it free first</b>Grab the checklist or Amara before you buy.</div></div>
   </div>
 </div></section>
+
+<!-- ===== TESTIMONIALS: "The Solvy Experience" =====
+  The six items below are DEMO / sample placeholder copy ("demo": true). They are NOT verified customer reviews.
+  They render on the homepage with a visible DEMO tag and note, so nobody mistakes them for real feedback.
+  HOW TO ADD REAL REVIEWS: edit the JSON in #tst-data below.
+  - Add an object to "reviews" with the customer's own words and their name (optionally a "product" line).
+  - Set "approved": true ONLY after the customer has agreed to be quoted.
+  - As soon as ONE approved real review exists, the DEMO items stop rendering automatically; delete them from the JSON when convenient.
+  - Add "rating": 1-5 ONLY if you actually collected a rating. With no "rating", no stars are shown.
+  - "photo" is optional and shows only when "photoConsent": true as well. -->
+<section class="sec tst" id="testimonials" aria-labelledby="tst-h" hidden><div class="wrap">
+  <header class="tst-head">
+    <span class="eyebrow" id="tst-eb">The Solvy Experience</span>
+    <h2 id="tst-h">Good things start with <em>Solvy.</em></h2>
+    <p class="tst-lead" id="tst-lead">From your first idea to your finished website, we’re here to make creating online feel simpler, more beautiful, and more achievable.</p>
+  </header>
+  <p class="tst-demo" id="tst-demo" role="note" hidden></p>
+  <div class="tst-cols" id="tst-cols"></div>
+  <div class="tst-close">
+    <p id="tst-close">Your idea deserves a beautiful place online.</p>
+    <a class="btn tst-btn" id="tst-cta" href="#templates">Explore Solvy</a>
+  </div>
+</div>
+<script type="application/json" id="tst-data">
+{
+ "categories":[
+  {"id":"templates","label":{"en":"Website Templates","id":"Template Website"}},
+  {"id":"custom","label":{"en":"Custom Website Design","id":"Desain Website Custom"}},
+  {"id":"prompts","label":{"en":"AI Prompts","id":"Prompt AI"}}
+ ],
+ "reviews":[
+  {"category":"templates","demo":true,"name":{"en":"Template Customer","id":"Pelanggan Template"},
+   "quote":"I finally have a website that looks as good as my brand feels. The layout is beautiful, easy to customize, and gives me a clear starting point."},
+  {"category":"templates","demo":true,"name":{"en":"Template Customer","id":"Pelanggan Template"},
+   "quote":"Everything feels thoughtfully designed. Instead of starting from a blank page, I can focus on making the website my own."},
+  {"category":"custom","demo":true,"name":{"en":"Custom Website Client","id":"Klien Website Custom"},
+   "quote":"I wanted a website that felt premium without being overly complicated. I love the clean design, thoughtful details, and cohesive look."},
+  {"category":"custom","demo":true,"name":{"en":"Custom Website Client","id":"Klien Website Custom"},
+   "quote":"My vision was transformed into a polished online experience. The result feels modern, professional, and much closer to the brand I want to build."},
+  {"category":"prompts","demo":true,"name":{"en":"AI Prompt User","id":"Pengguna Prompt AI"},
+   "quote":"I used to struggle with explaining my ideas to AI. Having a structured prompt gives me a much clearer direction to work with."},
+  {"category":"prompts","demo":true,"name":{"en":"AI Prompt User","id":"Pengguna Prompt AI"},
+   "quote":"These prompts make the website creation process feel less intimidating. They help me organize my ideas and get started with more confidence."}
+ ]
+}
+</script>
+<script>
+(function(){
+ var sec=document.getElementById('testimonials');if(!sec)return;
+ var data=null;try{data=JSON.parse(document.getElementById('tst-data').textContent)}catch(e){return}
+ var STR={
+  eb:{en:'The Solvy Experience',id:'Pengalaman Solvy'},
+  h:{en:'Good things start with <em>Solvy.</em>',id:'Hal baik dimulai dari <em>Solvy.</em>'},
+  lead:{en:'From your first idea to your finished website, we’re here to make creating online feel simpler, more beautiful, and more achievable.',id:'Dari ide pertamamu sampai website jadi, kami hadir agar berkarya di dunia online terasa lebih sederhana, lebih indah, dan lebih mudah diwujudkan.'},
+  close:{en:'Your idea deserves a beautiful place online.',id:'Idemu layak punya tempat yang indah di dunia online.'},
+  cta:{en:'Explore Solvy',id:'Jelajahi Solvy'},
+  demo:{en:'<b>Demo content.</b> These six testimonials are sample placeholder copy, not verified customer reviews.',id:'<b>Konten demo.</b> Enam testimoni ini hanya contoh teks, bukan ulasan pelanggan yang terverifikasi.'},
+  stars:{en:function(n){return n+' out of 5 stars'},id:function(n){return n+' dari 5 bintang'}},
+  portrait:{en:'Portrait of ',id:'Foto '}
+ };
+ var h=function(s){return String(s).replace(/[&<>"]/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]})};
+ var STAR='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>';
+ var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,rendered=false,io=null;
+ var cols=document.getElementById('tst-cols');
+ function lg(){try{return LANG==='en'?'en':'id'}catch(e){return 'id'}}
+ function tr(o,l){return o&&typeof o==='object'?(o[l]||o.en||o.id||''):(o||'')}
+ window.renderTst=function(){
+  var l=lg();
+  /* Approved real reviews take over automatically; until at least one exists, the labelled DEMO set is shown. */
+  var all=(data.reviews||[]).filter(function(r){return r&&r.quote&&r.name});
+  var real=all.filter(function(r){return !r.demo&&r.approved===true});
+  var ok=real.length?real:all.filter(function(r){return r.demo===true});
+  var cats=(data.categories||[]).map(function(c){return {id:c.id,label:tr(c.label,l),items:ok.filter(function(r){return r.category===c.id})}}).filter(function(c){return c.items.length});
+  if(!cats.length){sec.hidden=true;return}
+  document.getElementById('tst-eb').textContent=STR.eb[l];
+  document.getElementById('tst-h').innerHTML=STR.h[l];
+  document.getElementById('tst-lead').textContent=STR.lead[l];
+  document.getElementById('tst-close').textContent=STR.close[l];
+  document.getElementById('tst-cta').textContent=STR.cta[l];
+  var dm=document.getElementById('tst-demo'),anyDemo=ok.some(function(r){return r.demo});
+  dm.hidden=!anyDemo;if(anyDemo)dm.innerHTML=STR.demo[l];
+  cols.style.setProperty('--n',cats.length);
+  var d=0;
+  cols.innerHTML=cats.map(function(c,i){
+   return '<div class="tst-col" role="group" aria-labelledby="tst-c'+i+'"><h3 class="tst-cat" id="tst-c'+i+'"><span class="n" aria-hidden="true">0'+(i+1)+'</span>'+h(c.label)+'</h3><ul class="tst-list">'+c.items.map(function(r){
+    var hasRating=typeof r.rating==='number'&&r.rating>0,n=hasRating?Math.min(5,Math.round(r.rating)):0,st='';
+    if(hasRating){for(var k=0;k<5;k++)st+=k<n?STAR:STAR.replace('<svg','<svg class="off"');st='<span class="tst-stars" role="img" aria-label="'+h(STR.stars[l](n))+'">'+st+'</span>'}
+    var av=(r.photo&&r.photoConsent===true)?'<img class="tst-av" src="'+h(r.photo)+'" width="44" height="44" loading="lazy" decoding="async" alt="'+h(STR.portrait[l]+tr(r.name,l))+'">':'';
+    var sub=tr(r.product,l)||c.label;
+    var dly=(d++%3)*90;
+    return '<li class="tst-item" style="--d:'+dly+'ms"><article class="tst-card"><figure>'+(r.demo?'<span class="tst-tag">DEMO</span>':'')+st+'<blockquote><p>'+h(tr(r.quote,l))+'</p></blockquote><figcaption>'+av+'<span><b>— '+h(tr(r.name,l))+'</b><small>'+h(sub)+'</small></span></figcaption></figure></article></li>';
+   }).join('')+'</ul></div>';
+  }).join('');
+  sec.hidden=false;
+  var items=[].slice.call(cols.querySelectorAll('.tst-item'));
+  if(io){io.disconnect();io=null}
+  if(rendered||reduce||!('IntersectionObserver' in window)){items.forEach(function(e){e.classList.add('in')})}
+  else{io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});items.forEach(function(e){io.observe(e)})}
+  rendered=true;
+ };
+})();
+</script>
+</section>
 
 <section class="sec" id="pass"><div class="wrap">
   <div class="pass">
@@ -851,7 +1008,7 @@ function setLang(l){LANG=l;try{localStorage.setItem('solvy-lang',l)}catch(e){}
   i18nEls.forEach(([el,k,o])=>{el.innerHTML=l==='id'?I18N[k]:o});
   document.querySelectorAll('.lg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
   document.title=L('Solvy — Website Templates & AI Prompts','Solvy — Template Website & Prompt AI');
-  renderAll();
+  renderAll();if(window.renderTst)renderTst();
   if(!pm.hidden)closeP()}
 document.querySelectorAll('.lg button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 

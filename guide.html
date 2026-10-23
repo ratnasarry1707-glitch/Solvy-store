@@ -3,11 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Solvy Setup Guide</title>
+<title>Website Template Setup Guide: Live in 15 Minutes | Solvy</title>
+<meta name="description" content="Step-by-step guide to edit a Solvy website template and put it online for free with Netlify in about 15 minutes. No coding. Read it in English or Bahasa Indonesia.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://solvystudio.my.id/guide.html">
+<meta name="theme-color" content="#1C1315">
+<meta name="author" content="Ratna Sari">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Solvy Studio">
+<meta property="og:title" content="Website Template Setup Guide: Live in 15 Minutes | Solvy">
+<meta property="og:description" content="Step-by-step guide to edit a Solvy website template and put it online for free with Netlify in about 15 minutes. No coding. Read it in English or Bahasa Indonesia.">
+<meta property="og:url" content="https://solvystudio.my.id/guide.html">
+<meta property="og:image" content="https://solvystudio.my.id/media/showreel-poster.jpg">
+<meta property="og:image:alt" content="Solvy setup guide: from download to a live website">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Website Template Setup Guide: Live in 15 Minutes | Solvy">
+<meta name="twitter:description" content="Step-by-step guide to edit a Solvy website template and put it online for free with Netlify in about 15 minutes. No coding. Read it in English or Bahasa Indonesia.">
+<meta name="twitter:image" content="https://solvystudio.my.id/media/showreel-poster.jpg">
+<meta name="twitter:image:alt" content="Solvy setup guide: from download to a live website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://solvystudio.my.id/guide.html#webpage","url":"https://solvystudio.my.id/guide.html","name":"Website Template Setup Guide: Live in 15 Minutes | Solvy","description":"Step-by-step guide to edit a Solvy website template and put it online for free with Netlify in about 15 minutes. No coding. Read it in English or Bahasa Indonesia.","inLanguage":["en","id"],"isPartOf":{"@id":"https://solvystudio.my.id/#website"},"publisher":{"@id":"https://solvystudio.my.id/#organization"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Solvy Studio","item":"https://solvystudio.my.id/"},{"@type":"ListItem","position":2,"name":"Setup guide","item":"https://solvystudio.my.id/guide.html"}]}}</script>
 <style>
-@font-face{font-family:"IS";src:url(fonts/InstrumentSans-Regular.ttf);font-weight:400}
-@font-face{font-family:"IS";src:url(fonts/InstrumentSans-Bold.ttf);font-weight:700}
-@font-face{font-family:"Outfit";src:url(fonts/Outfit-Bold.ttf);font-weight:700}
+@font-face{font-display:swap;font-family:"IS";src:url(fonts/InstrumentSans-Regular.ttf);font-weight:400}
+@font-face{font-display:swap;font-family:"IS";src:url(fonts/InstrumentSans-Bold.ttf);font-weight:700}
+@font-face{font-display:swap;font-family:"Outfit";src:url(fonts/Outfit-Bold.ttf);font-weight:700}
 /* Layout: same dark gallery as the store. A sticky step rail on the left, one numbered step per block on the right; the visual for each step is a small working mock of the real thing (file tree, editor, drop zone). */
 :root{color-scheme:dark;--bg:#100D1C;--panel:#18142A;--panel-2:#211B37;--line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);
 --ink:#F6F0E6;--mute:#A49DB8;--soft:#D8D1E6;--amber:#F4A340;--coral:#E8654F;--magenta:#C2408F;--ok:#7BD88F;--code:#0C0A16;
@@ -182,6 +201,7 @@ details p{color:var(--mute);margin-top:8px;max-width:66ch}
 background:radial-gradient(circle at 100% 0%,rgba(194,64,143,.38),transparent 50%),radial-gradient(circle at 60% 140%,rgba(244,163,64,.22),transparent 50%),var(--panel)}
 .cta h2{font-size:clamp(26px,3vw,38px)}
 .cta p{color:var(--mute);margin-top:10px;max-width:52ch}
+.cta p a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 footer{border-top:1px solid var(--line);padding:40px 0 50px;margin-top:80px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--mute);font-size:15px}
 .foot nav{height:auto;display:flex;gap:10px 22px;flex-wrap:wrap;justify-content:flex-start}
@@ -247,8 +267,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <header class="hero">
       <div>
         <span class="kicker"><b lang="en">Guide</b><b lang="id">Panduan</b><span lang="en">For every solvy template</span><span lang="id">Untuk semua template solvy</span></span>
-        <h1 lang="en">From download to a <span class="grad">live website</span> in 15 minutes</h1>
-        <h1 lang="id">Dari download sampai <span class="grad">website online</span> dalam 15 menit</h1>
+        <h1><span lang="en">From download to a <span class="grad">live website</span> in 15 minutes</span><span lang="id">Dari download sampai <span class="grad">website online</span> dalam 15 menit</span></h1>
       </div>
       <div>
         <p class="lead" lang="en">No coding and no paid tools. Follow the ten steps in order. Each one has a picture of exactly what you will see.</p>
@@ -286,8 +305,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 01 -->
     <section class="step" id="unzip">
       <div class="sn"><b>01</b><span lang="en">Unzip</span><span lang="id">Ekstrak</span><i>1 min</i></div>
-      <h2 lang="en">Unzip the download and keep the folder together</h2>
-      <h2 lang="id">Ekstrak zip dan jangan pisahkan isi foldernya</h2>
+      <h2><span lang="en">Unzip the download and keep the folder together</span><span lang="id">Ekstrak zip dan jangan pisahkan isi foldernya</span></h2>
       <p lang="en">After checkout you get a <code>.zip</code> file. Right-click it and choose <strong>Extract All</strong> (Windows) or double-click it (Mac). You will get one folder that looks like this:</p>
       <p lang="id">Setelah bayar kamu dapat file <code>.zip</code>. Klik kanan lalu pilih <strong>Extract All</strong> (Windows) atau klik dua kali (Mac). Hasilnya satu folder seperti ini:</p>
       <div class="win"><div class="bar"><i></i><i></i><i></i><span>solvy-lune</span></div>
@@ -307,8 +325,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 02 -->
     <section class="step" id="preview">
       <div class="sn"><b>02</b><span lang="en">Preview</span><span lang="id">Lihat hasil</span><i>1 min</i></div>
-      <h2 lang="en">Open it on your computer</h2>
-      <h2 lang="id">Buka di komputer kamu</h2>
+      <h2><span lang="en">Open it on your computer</span><span lang="id">Buka di komputer kamu</span></h2>
       <ol class="do" lang="en">
         <li>Double-click <code>index.html</code>. It opens in Chrome, Safari or Edge, exactly like the live demo.</li>
         <li>Right-click <code>index.html</code> and choose <strong>Open with → Visual Studio Code</strong>. This is where you edit.</li>
@@ -324,8 +341,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 03 -->
     <section class="step" id="words">
       <div class="sn"><b>03</b><span lang="en">Text</span><span lang="id">Teks</span><i>5 min</i></div>
-      <h2 lang="en">Change the words</h2>
-      <h2 lang="id">Ganti teksnya</h2>
+      <h2><span lang="en">Change the words</span><span lang="id">Ganti teksnya</span></h2>
       <p lang="en">In VS Code press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type a few words you see on the page, for example <code>Skin that looks like you</code>. VS Code jumps to that line. Change only the words <strong>between</strong> the <code>&gt;</code> and <code>&lt;</code>.</p>
       <p lang="id">Di VS Code tekan <kbd>Ctrl</kbd> + <kbd>F</kbd> lalu ketik beberapa kata yang kamu lihat di halaman, misalnya <code>Skin that looks like you</code>. VS Code langsung lompat ke baris itu. Ganti hanya kata-kata <strong>di antara</strong> tanda <code>&gt;</code> dan <code>&lt;</code>.</p>
       <div class="win"><div class="bar"><i></i><i></i><i></i><span>index.html</span></div>
@@ -351,8 +367,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 04 -->
     <section class="step" id="colours">
       <div class="sn"><b>04</b><span lang="en">Colours</span><span lang="id">Warna</span><i>2 min</i></div>
-      <h2 lang="en">Change the colours in one place</h2>
-      <h2 lang="id">Ganti warna di satu tempat</h2>
+      <h2><span lang="en">Change the colours in one place</span><span lang="id">Ganti warna di satu tempat</span></h2>
       <p lang="en">Every template keeps its colours at the very top of the file, inside <code>:root{ … }</code>. Change a code there and the whole website follows. Try it here first:</p>
       <p lang="id">Setiap template menyimpan warnanya di bagian paling atas file, di dalam <code>:root{ … }</code>. Ganti kode warna di sana dan seluruh website ikut berubah. Coba dulu di sini:</p>
       <div class="cdemo">
@@ -377,8 +392,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 05 -->
     <section class="step" id="photos">
       <div class="sn"><b>05</b><span lang="en">Photos</span><span lang="id">Foto</span><i>5 min</i></div>
-      <h2 lang="en">Swap the photos</h2>
-      <h2 lang="id">Ganti foto</h2>
+      <h2><span lang="en">Swap the photos</span><span lang="id">Ganti foto</span></h2>
       <p lang="en">The easiest way: put your photo in the <code>img</code> folder with <strong>exactly the same file name</strong> as the one you replace (for example <code>hero.jpg</code>), and delete the old one. Nothing in the code needs to change.</p>
       <p lang="id">Cara paling gampang: taruh fotomu di folder <code>img</code> dengan <strong>nama file yang persis sama</strong> dengan foto yang mau diganti (misalnya <code>hero.jpg</code>), lalu hapus yang lama. Kode tidak perlu diubah sama sekali.</p>
       <div class="rules">
@@ -393,8 +407,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 06 -->
     <section class="step" id="whatsapp">
       <div class="sn"><b>06</b>WhatsApp<i>1 min</i></div>
-      <h2 lang="en">Connect your WhatsApp number</h2>
-      <h2 lang="id">Sambungkan nomor WhatsApp kamu</h2>
+      <h2><span lang="en">Connect your WhatsApp number</span><span lang="id">Sambungkan nomor WhatsApp kamu</span></h2>
       <p lang="en">Booking and reservation buttons in Koma, Lune, Arunika and Sekar send a ready-made message to WhatsApp. Near the bottom of <code>index.html</code>, search for <code>WA_NUMBER</code> and replace the line with the one this tool makes for you.</p>
       <p lang="id">Tombol booking dan reservasi di Koma, Lune, Arunika dan Sekar mengirim pesan otomatis ke WhatsApp. Di bagian bawah <code>index.html</code>, cari <code>WA_NUMBER</code> lalu ganti barisnya dengan hasil dari alat ini.</p>
       <div class="tool">
@@ -414,8 +427,7 @@ body{background:radial-gradient(1300px 800px at 80% -10%,rgba(138,62,76,.35),tra
     <!-- 07 -->
     <section class="step" id="settings">
       <div class="sn"><b>07</b><span lang="en">Your template</span><span lang="id">Template kamu</span><i>2–10 min</i></div>
-      <h2 lang="en">Settings for your template</h2>
-      <h2 lang="id">Pengaturan khusus tiap template</h2>
+      <h2><span lang="en">Settings for your template</span><span lang="id">Pengaturan khusus tiap template</span></h2>
       <p lang="en">Some templates have menus, prices or schedules stored in one list near the bottom of the file, so you edit them once instead of hunting through the page. Pick yours:</p>
       <p lang="id">Beberapa template menyimpan menu, harga atau jadwal di satu daftar di bagian bawah file, jadi cukup edit sekali tanpa mencari di seluruh halaman. Pilih template kamu:</p>
       <div class="tabs" role="tablist" id="tabs">
@@ -540,8 +552,7 @@ Teman Kantor Raka</textarea></div>
     <!-- 08 -->
     <section class="step" id="publish">
       <div class="sn"><b>08</b><span lang="en">Go live</span><span lang="id">Online</span><i>1 min</i></div>
-      <h2 lang="en">Put it online, free, with Netlify Drop</h2>
-      <h2 lang="id">Online-kan gratis lewat Netlify Drop</h2>
+      <h2><span lang="en">Put it online, free, with Netlify Drop</span><span lang="id">Online-kan gratis lewat Netlify Drop</span></h2>
       <div class="drop" aria-hidden="true">
         <div class="url"><i></i>app.netlify.com/drop</div>
         <div class="zone">
@@ -571,8 +582,7 @@ Teman Kantor Raka</textarea></div>
     <!-- 09 -->
     <section class="step" id="domain">
       <div class="sn"><b>09</b>Domain<i>10 min + waiting</i></div>
-      <h2 lang="en">Use your own domain</h2>
-      <h2 lang="id">Pakai domain sendiri</h2>
+      <h2><span lang="en">Use your own domain</span><span lang="id">Pakai domain sendiri</span></h2>
       <ol class="do" lang="en">
         <li>Buy a domain at any registrar (Niagahoster, Rumahweb, Namecheap, Cloudflare). A <code>.com</code> or <code>.id</code> costs around Rp150–250k a year.</li>
         <li>In Netlify open <strong>Domain management → Add a domain</strong> and type your domain.</li>
@@ -597,8 +607,7 @@ Teman Kantor Raka</textarea></div>
     <!-- 10 -->
     <section class="step" id="figma">
       <div class="sn"><b>10</b>Figma<i lang="en">optional</i><i lang="id">opsional</i></div>
-      <h2 lang="en">Edit the design in Figma</h2>
-      <h2 lang="id">Edit desainnya di Figma</h2>
+      <h2><span lang="en">Edit the design in Figma</span><span lang="id">Edit desainnya di Figma</span></h2>
       <p lang="en">Useful if you design for clients and want to show changes before you code them.</p>
       <p lang="id">Berguna kalau kamu mendesain untuk klien dan mau menunjukkan perubahan sebelum dikerjakan di kode.</p>
       <ol class="do" lang="en">
@@ -616,8 +625,7 @@ Teman Kantor Raka</textarea></div>
     <!-- help -->
     <section class="step trouble" id="help">
       <div class="sn"><b>?</b><span lang="en">Fixes</span><span lang="id">Solusi</span></div>
-      <h2 lang="en">Something not working?</h2>
-      <h2 lang="id">Ada yang tidak jalan?</h2>
+      <h2><span lang="en">Something not working?</span><span lang="id">Ada yang tidak jalan?</span></h2>
       <div>
         <details open><summary><span lang="en">Photos are missing or the letters look different</span><span lang="id">Foto hilang atau hurufnya berubah</span></summary><p lang="en">index.html was moved away from its img and fonts folders. Put them back in the same folder, or upload the whole folder again.</p><p lang="id">index.html terpisah dari folder img dan fonts. Satukan lagi dalam satu folder, atau upload ulang folder utuhnya.</p></details>
         <details><summary><span lang="en">One photo doesn't show</span><span lang="id">Satu foto tidak muncul</span></summary><p lang="en">The file name doesn't match exactly. Check uppercase letters and the ending: <code>hero.jpg</code>, <code>hero.JPG</code> and <code>hero.jpeg</code> are three different names online.</p><p lang="id">Nama file tidak persis sama. Cek huruf besar kecil dan akhirannya: <code>hero.jpg</code>, <code>hero.JPG</code> dan <code>hero.jpeg</code> dianggap tiga nama berbeda saat online.</p></details>
@@ -627,9 +635,11 @@ Teman Kantor Raka</textarea></div>
       </div>
       <div class="cta">
         <div>
-          <h2 lang="en">Rather not do it yourself?</h2><h2 lang="id">Tidak mau repot?</h2>
+          <h2><span lang="en">Rather not do it yourself?</span><span lang="id">Tidak mau repot?</span></h2>
           <p lang="en">Send us your texts, photos and WhatsApp number. We set up the template, connect your domain and hand you a live website, usually within 3 working days.</p>
           <p lang="id">Kirim teks, foto dan nomor WhatsApp kamu. Kami pasangkan templatenya, sambungkan domain, dan serahkan website yang sudah online, biasanya dalam 3 hari kerja.</p>
+          <p lang="en">Want the AI prompts as well? See the <a href="index.html#kits">brand website kits</a>: a template plus a prompt book, workflow guide and launch checklist.</p>
+          <p lang="id">Mau sekalian sistem prompt AI? Lihat <a href="index.html#kits">kit website brand</a>: template plus prompt book, panduan workflow, dan checklist launching.</p>
         </div>
         <a class="btn ember" href="index.html#faq"><span lang="en">Ask about setup</span><span lang="id">Tanya jasa setup</span></a>
       </div>
@@ -639,7 +649,7 @@ Teman Kantor Raka</textarea></div>
 
 <footer><div class="wrap foot">
   <a class="logo" href="index.html"><span class="m"><i></i></span><span>Solvy</span></a>
-  <nav><a href="index.html#templates">Templates</a><a href="index.html#pass">All-Access</a><a href="guide.html">Guide</a></nav>
+  <nav><a href="index.html#templates">Templates</a><a href="index.html#kits">Brand kits</a><a href="index.html#pass">All-Access</a><a href="guide.html">Guide</a></nav>
   <span>hello.solvystudio@gmail.com</span>
 </div></footer>
 

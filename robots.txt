@@ -21,4 +21,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://solvystudio.my.id/sitemap.xml
+Sitemap: https://www.solvystudio.my.id/sitemap.xml

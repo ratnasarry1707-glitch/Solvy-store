@@ -549,6 +549,7 @@ img{height:auto}
 .tst h2 em{font-style:italic;color:var(--t-accent)}
 .tst-lead{margin-top:22px;font-size:18px;line-height:1.65;color:var(--t-soft);max-width:56ch;text-wrap:pretty}
 .tst-demo{max-width:780px;margin:-28px auto 44px;text-align:center;font-size:13.5px;line-height:1.5;padding:10px 16px;border:1px dashed var(--t-ink);border-radius:12px;background:rgba(112,36,59,.05)}
+.tst-demo.is-src{border-style:solid;border-color:var(--t-line);background:transparent;color:var(--t-soft)}
 .tst-cols{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:36px;align-items:start}
 .tst-cat{display:flex;align-items:baseline;gap:12px;font-size:23px;line-height:1.15;letter-spacing:-.005em;padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--t-line)}
 .tst-cat .n{font-style:italic;font-size:17px;color:var(--t-accent)}
@@ -727,24 +728,152 @@ img{height:auto}
 </div>
 <script type="application/json" id="tst-data">
 {
- "categories":[
-  {"id":"templates","label":{"en":"Website Templates","id":"Template Website"}},
-  {"id":"custom","label":{"en":"Custom Website Design","id":"Desain Website Custom"}},
-  {"id":"prompts","label":{"en":"AI Prompts","id":"Prompt AI"}}
+ "categories": [
+  {
+   "id": "templates",
+   "label": {
+    "en": "Website Templates",
+    "id": "Template Website"
+   }
+  },
+  {
+   "id": "custom",
+   "label": {
+    "en": "Custom Website Design",
+    "id": "Desain Website Custom"
+   }
+  },
+  {
+   "id": "prompts",
+   "label": {
+    "en": "AI Prompts",
+    "id": "Prompt AI"
+   }
+  }
  ],
- "reviews":[
-  {"category":"templates","demo":true,"name":{"en":"Template Customer","id":"Pelanggan Template"},
-   "quote":"I finally have a website that looks as good as my brand feels. The layout is beautiful, easy to customize, and gives me a clear starting point."},
-  {"category":"templates","demo":true,"name":{"en":"Template Customer","id":"Pelanggan Template"},
-   "quote":"Everything feels thoughtfully designed. Instead of starting from a blank page, I can focus on making the website my own."},
-  {"category":"custom","demo":true,"name":{"en":"Custom Website Client","id":"Klien Website Custom"},
-   "quote":"I wanted a website that felt premium without being overly complicated. I love the clean design, thoughtful details, and cohesive look."},
-  {"category":"custom","demo":true,"name":{"en":"Custom Website Client","id":"Klien Website Custom"},
-   "quote":"My vision was transformed into a polished online experience. The result feels modern, professional, and much closer to the brand I want to build."},
-  {"category":"prompts","demo":true,"name":{"en":"AI Prompt User","id":"Pengguna Prompt AI"},
-   "quote":"I used to struggle with explaining my ideas to AI. Having a structured prompt gives me a much clearer direction to work with."},
-  {"category":"prompts","demo":true,"name":{"en":"AI Prompt User","id":"Pengguna Prompt AI"},
-   "quote":"These prompts make the website creation process feel less intimidating. They help me organize my ideas and get started with more confidence."}
+ "reviews": [
+  {
+   "category": "prompts",
+   "approved": true,
+   "source": "instagram-dm",
+   "name": {
+    "id": "Ibu rumah tangga",
+    "en": "Stay-at-home mum"
+   },
+   "product": {
+    "id": "Belajar bikin website dari rumah",
+    "en": "Learning to build websites from home"
+   },
+   "quote": {
+    "id": "Sebagai ibu rumah tangga, aku pengen banget punya penghasilan sendiri, tapi bingung harus mulai dari mana karena waktuku juga terbagi buat ngurus keluarga. Pas kenal AI template kamu, aku mulai belajar bikin website dari rumah. Pelan-pelan sekarang aku udah bisa bikin website sendiri dan mulai berani nawarin jasa ke orang lain. Seneng banget akhirnya punya skill yang bisa aku kerjain dari rumah tanpa harus ninggalin anak.",
+    "en": "As a stay-at-home mum I really wanted my own income, but didn't know where to start because my time is shared with looking after my family. When I found your AI template, I started learning to build websites from home. Little by little I can now build websites myself and I've started offering my services to others. I'm so happy to finally have a skill I can do from home without leaving my kids."
+   }
+  },
+  {
+   "category": "templates",
+   "approved": true,
+   "source": "instagram-dm",
+   "name": {
+    "id": "Pemilik usaha",
+    "en": "Small business owner"
+   },
+   "product": {
+    "id": "Template website",
+    "en": "Website template"
+   },
+   "quote": {
+    "id": "Semenjak pakai template website kamu, usaha aku jadi lebih gampang dikenal orang. Sekarang kalau ada yang nanya produk, tinggal kasih link website aja! Harganya juga affordable banget buat usaha yang baru mulai kayak aku. Jadi bisa punya website yang kelihatan profesional tanpa harus keluar budget gede.",
+    "en": "Since using your website template, my business is easier for people to discover. Now when someone asks about a product, I just send the website link! The price is really affordable for a business that's just starting like mine, so I can have a professional-looking website without a big budget."
+   }
+  },
+  {
+   "category": "templates",
+   "approved": true,
+   "source": "instagram-dm",
+   "name": {
+    "id": "Pemilik usaha baru",
+    "en": "New business owner"
+   },
+   "product": {
+    "id": "Template website",
+    "en": "Website template"
+   },
+   "quote": {
+    "id": "Berkat template website dari kamu, sekarang makin banyak orang yang tahu usaha aku lewat website! Harganya juga ngebantu banget, apalagi buat aku yang baru mulai usaha dan belum punya budget besar buat bikin website sendiri. Sekarang usaha aku jadi kelihatan lebih profesional dan orang juga lebih gampang cari info tentang produk aku.",
+    "en": "Thanks to your website template, more people now find my business through the website! The price helps a lot too, especially for me as I've just started and don't have a big budget for a website. My business looks more professional now and people can find information about my products more easily."
+   }
+  },
+  {
+   "category": "prompts",
+   "approved": true,
+   "source": "instagram-dm",
+   "name": {
+    "id": "Calon freelancer website",
+    "en": "Aspiring website freelancer"
+   },
+   "product": {
+    "id": "Belajar bikin website dengan AI",
+    "en": "Learning to build websites with AI"
+   },
+   "quote": {
+    "id": "Awalnya aku kira bikin website tuh harus jago coding, ternyata dibantu AI bisa jauh lebih gampang. Sekarang aku udah mulai bisa bikin website sendiri dan lagi nyiapin portfolio buat cari client pertamaku!",
+    "en": "I used to think building a website meant being good at coding, but with AI's help it's so much easier. Now I can build websites myself and I'm preparing a portfolio to find my first client!"
+   }
+  },
+  {
+   "category": "templates",
+   "demo": true,
+   "name": {
+    "en": "Template Customer",
+    "id": "Pelanggan Template"
+   },
+   "quote": "I finally have a website that looks as good as my brand feels. The layout is beautiful, easy to customize, and gives me a clear starting point."
+  },
+  {
+   "category": "templates",
+   "demo": true,
+   "name": {
+    "en": "Template Customer",
+    "id": "Pelanggan Template"
+   },
+   "quote": "Everything feels thoughtfully designed. Instead of starting from a blank page, I can focus on making the website my own."
+  },
+  {
+   "category": "custom",
+   "demo": true,
+   "name": {
+    "en": "Custom Website Client",
+    "id": "Klien Website Custom"
+   },
+   "quote": "I wanted a website that felt premium without being overly complicated. I love the clean design, thoughtful details, and cohesive look."
+  },
+  {
+   "category": "custom",
+   "demo": true,
+   "name": {
+    "en": "Custom Website Client",
+    "id": "Klien Website Custom"
+   },
+   "quote": "My vision was transformed into a polished online experience. The result feels modern, professional, and much closer to the brand I want to build."
+  },
+  {
+   "category": "prompts",
+   "demo": true,
+   "name": {
+    "en": "AI Prompt User",
+    "id": "Pengguna Prompt AI"
+   },
+   "quote": "I used to struggle with explaining my ideas to AI. Having a structured prompt gives me a much clearer direction to work with."
+  },
+  {
+   "category": "prompts",
+   "demo": true,
+   "name": {
+    "en": "AI Prompt User",
+    "id": "Pengguna Prompt AI"
+   },
+   "quote": "These prompts make the website creation process feel less intimidating. They help me organize my ideas and get started with more confidence."
+  }
  ]
 }
 </script>
@@ -758,6 +887,7 @@ img{height:auto}
   lead:{en:'From your first idea to your finished website, we’re here to make creating online feel simpler, more beautiful, and more achievable.',id:'Dari ide pertamamu sampai website jadi, kami hadir agar berkarya di dunia online terasa lebih sederhana, lebih indah, dan lebih mudah diwujudkan.'},
   close:{en:'Your idea deserves a beautiful place online.',id:'Idemu layak punya tempat yang indah di dunia online.'},
   cta:{en:'Explore Solvy',id:'Jelajahi Solvy'},
+  src:{en:'From customers’ Instagram messages. Names and photos are hidden for privacy.',id:'Dari pesan DM Instagram pelanggan. Nama dan foto disembunyikan demi privasi.'},
   demo:{en:'<b>Demo content.</b> These six testimonials are sample placeholder copy, not verified customer reviews.',id:'<b>Konten demo.</b> Enam testimoni ini hanya contoh teks, bukan ulasan pelanggan yang terverifikasi.'},
   stars:{en:function(n){return n+' out of 5 stars'},id:function(n){return n+' dari 5 bintang'}},
   portrait:{en:'Portrait of ',id:'Foto '}
@@ -782,7 +912,7 @@ img{height:auto}
   document.getElementById('tst-close').textContent=STR.close[l];
   document.getElementById('tst-cta').textContent=STR.cta[l];
   var dm=document.getElementById('tst-demo'),anyDemo=ok.some(function(r){return r.demo});
-  dm.hidden=!anyDemo;if(anyDemo)dm.innerHTML=STR.demo[l];
+  dm.hidden=false;dm.innerHTML=anyDemo?STR.demo[l]:h(STR.src[l]);dm.classList.toggle('is-src',!anyDemo);
   cols.style.setProperty('--n',cats.length);
   var d=0;
   cols.innerHTML=cats.map(function(c,i){

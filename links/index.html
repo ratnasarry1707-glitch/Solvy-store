@@ -61,35 +61,41 @@ h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{colo
 .share{position:fixed;right:18px;top:18px;width:44px;height:44px;border-radius:50%;background:var(--cream);border:0;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(0,0,0,.5);z-index:3;cursor:pointer}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);opacity:0;background:var(--cream);color:var(--wine);padding:12px 20px;border-radius:999px;font-size:14.5px;font-weight:700;transition:.3s;z-index:9}
 .toast.show{transform:translate(-50%,0);opacity:1}
-.cx{margin-top:34px}
-.cx h2{margin:0 0 6px}
-.cx-sub{color:#E6D6CF;font-size:15px}
-.cx-rail{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:16px -20px 0;padding:0 20px 4px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.cx-rail::-webkit-scrollbar{display:none}
-.cx-card{scroll-snap-align:start;background:var(--cream);color:var(--wine);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
-.cx-card figure{position:relative;aspect-ratio:16/10;overflow:hidden;background:#2a0a10}
-.cx-card figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.cx-card:hover figure img{transform:scale(1.03)}
-.cx-card .no{position:absolute;left:12px;top:12px;font-size:12px;font-weight:700;letter-spacing:.06em;background:rgba(244,238,228,.94);color:var(--wine);border-radius:999px;padding:5px 10px}
-.cx-card .bd{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
-.cx-card .ty{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper)}
-.cx-card b{font-family:"IS";font-weight:400;font-size:28px;line-height:1.05}
-.cx-card p{font-size:14.5px;line-height:1.5;color:#5E554D}
-.cx-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
-.cx-card li{font-size:12.5px;font-weight:700;background:var(--sand);color:var(--wine);border-radius:999px;padding:5px 10px}
-.cx-card .go{margin-top:auto;padding-top:6px;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px}
-.cx-card .go span{width:36px;height:36px;border-radius:50%;background:var(--wine);color:var(--cream);display:grid;place-items:center}
-.cx-card .go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.cx-ctl{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
-.cx-ctl output{font-size:13.5px;font-weight:700;color:#E6D6CF;font-variant-numeric:tabular-nums}
-.cx-ctl div{display:flex;gap:8px}
-.cx-ctl button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(244,238,228,.35);background:transparent;color:var(--cream);display:grid;place-items:center;cursor:pointer}
-.cx-ctl button:disabled{opacity:.35;cursor:default}
-.cx-ctl svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.cx-end{background:var(--copper);color:#fff;border-radius:22px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center;gap:10px;scroll-snap-align:start}
-.cx-end b{font-family:"IS";font-weight:400;font-size:32px;line-height:1.05}
-.cx-end p{font-size:15px;color:#FBEDE6}
-.cx-end a{align-self:flex-start;margin-top:6px;background:var(--cream);color:var(--wine);font-weight:700;border-radius:999px;padding:12px 18px}
+.pf{margin-top:40px}
+.pf-lbl{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--rose)}
+.pf-lbl::after{content:"";flex:1;height:1px;background:rgba(244,238,228,.22)}
+.pf-h{font-family:"IS";font-weight:400;font-size:46px;line-height:.98;margin:14px 0 0}
+.pf-h i{color:var(--rose)} .pf-h sup{font-family:"SA";font-size:13px;font-weight:700;letter-spacing:.06em;vertical-align:top;margin-left:6px;position:relative;top:8px;color:#E6D6CF}
+.pf-lead{color:#E6D6CF;font-size:15px;margin-top:12px}
+.pj{position:relative;height:170vh}
+.pj-st{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;gap:12px;overflow:hidden;padding-block:56px 20px}
+.pj-word{position:absolute;left:0;top:50%;transform:translate(calc(8% - var(--p,0)*60%),-50%);font-family:"IS";font-style:italic;font-size:150px;line-height:1;white-space:nowrap;color:var(--wine-2);pointer-events:none;z-index:0}
+.pj-st>*:not(.pj-word){position:relative;z-index:1}
+.pj-meta{display:flex;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E6D6CF;font-variant-numeric:tabular-nums}
+.pj-meta span:last-child{color:var(--rose)}
+.pj-t{font-family:"IS";font-weight:400;font-size:42px;line-height:1}
+.pj-fr{display:block;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -28px rgba(0,0,0,.65),0 0 0 1px rgba(244,238,228,.12);transform:scale(calc(.9 + .1*min(1,var(--p,0)*4)));transform-origin:50% 60%;will-change:transform}
+.pj-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;height:30px;padding:0 12px;background:#FBF8F3;border-bottom:1px solid rgba(92,15,26,.08)}
+.pj-bar .dots{display:flex;gap:5px} .pj-bar .dots i{width:8px;height:8px;border-radius:50%;background:#E3D5C3} .pj-bar .dots i:first-child{background:#C9B8A6}
+.pj-bar .url{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;background:rgba(92,15,26,.06);color:#6E655C;font-size:10.5px;white-space:nowrap;max-width:62vw;overflow:hidden;text-overflow:ellipsis}
+.pj-bar .meta{justify-self:end;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#A89C92}
+.pj-vp{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;background:#1a0a0d}
+.pj-vp img{position:absolute;left:0;top:0;width:100%;height:auto;will-change:transform}
+.pj-d{font-size:14.5px;line-height:1.5;color:#E6D6CF}
+.pj ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.pj li{font-size:12.5px;font-weight:700;border:1px solid rgba(244,238,228,.28);color:var(--cream);border-radius:999px;padding:5px 11px}
+.pj-ft{display:flex;align-items:center;gap:14px;margin-top:2px}
+.pj-pg{flex:1;display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;color:#E6D6CF;font-variant-numeric:tabular-nums}
+.pj-pg span{flex:1;height:2px;background:rgba(244,238,228,.18);position:relative;overflow:hidden;border-radius:2px}
+.pj-pg span i{position:absolute;inset:0;background:var(--rose);transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.pj-go{display:inline-flex;align-items:center;gap:8px;background:var(--cream);color:var(--wine);font-weight:700;font-size:14.5px;border-radius:999px;padding:11px 16px;flex:none}
+.pj-go svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pf-end{background:var(--copper);color:#fff;border-radius:24px;padding:26px 22px;margin-top:10px}
+.pf-end b{font-family:"IS";font-weight:400;font-size:34px;line-height:1.05;display:block}
+.pf-end p{font-size:15px;color:#FBEDE6;margin-top:8px}
+.pf-end a{display:inline-flex;margin-top:16px;background:var(--cream);color:var(--wine);font-weight:700;border-radius:999px;padding:12px 18px}
+@media (max-height:700px){.pj-t{font-size:34px}.pj-d{font-size:13.5px}.pj-st{gap:9px;padding-top:48px}}
+@media (prefers-reduced-motion:reduce){.pj{height:auto}.pj-st{position:static;height:auto;padding-block:28px}.pj-word{display:none}.pj-fr{transform:none}.pj-pg{visibility:hidden}}
 @media (max-width:420px){h1{font-size:46px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -120,22 +126,111 @@ h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{colo
   </div>
 
 
-  <section class="cx" id="contoh" aria-labelledby="cxh">
-    <h2 id="cxh">Contoh <i>website custom</i></h2>
-    <p class="cx-sub">7 konsep yang aku buat untuk berbagai jenis usaha. Geser, lalu buka demonya.</p>
-    <div class="cx-rail" id="cxr" tabindex="0" aria-label="Daftar contoh website custom">
-      <a class="cx-card" href="../demo/voltra/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/voltra.webp" alt="Tampilan website VOLTRA S1" width="960" height="600" loading="lazy"><span class="no">01 / 07</span></figure><div class="bd"><span class="ty">Motor listrik</span><b>VOLTRA S1</b><p>Scroll dan motornya berputar 360°. Pengunjung bisa pilih warna, hitung penghematan bensin, lalu daftar test ride lewat WhatsApp.</p><ul><li>Putar 360°</li><li>Pilih warna</li><li>Form test ride</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <a class="cx-card" href="../demo/arka/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/arka.webp" alt="Tampilan website ARKA Run" width="960" height="600" loading="lazy"><span class="no">02 / 07</span></figure><div class="bd"><span class="ty">Sepatu lari</span><b>ARKA Run</b><p>Sepatu terbuka lapis demi lapis saat di-scroll. Lengkap dengan koleksi 6 sepatu, pilihan warna & ukuran, dan asisten AI.</p><ul><li>Animasi scroll</li><li>Pilih ukuran</li><li>Pesan via WA</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <a class="cx-card" href="../demo/villa-senja/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/villa-senja.webp" alt="Tampilan website Villa Senja" width="960" height="600" loading="lazy"><span class="no">03 / 07</span></figure><div class="bd"><span class="ty">Villa & penginapan</span><b>Villa Senja</b><p>Video tur villa dari pintu depan sampai kolam, galeri kamar, fasilitas, dan cek tanggal menginap langsung ke WhatsApp.</p><ul><li>Video tur</li><li>Galeri kamar</li><li>Cek tanggal</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <a class="cx-card" href="../demo/elene/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/elene.webp" alt="Tampilan website ÉLÈNE Parfum" width="960" height="600" loading="lazy"><span class="no">04 / 07</span></figure><div class="bd"><span class="ty">Parfum & kecantikan</span><b>ÉLÈNE Parfum</b><p>Toko parfum bergaya butik mewah: produk unggulan, koleksi aroma, galeri, dan keranjang belanja.</p><ul><li>Toko online</li><li>Keranjang</li><li>Tampilan mewah</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <a class="cx-card" href="../demo/sekar/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/sekar.webp" alt="Tampilan website Sekar Wedding" width="960" height="600" loading="lazy"><span class="no">05 / 07</span></figure><div class="bd"><span class="ty">Wedding organizer</span><b>Sekar Wedding</b><p>Paket pernikahan dengan harga jelas, katalog tema dekorasi, baju adat, testimoni, dan form tanya via WhatsApp.</p><ul><li>Paket & harga</li><li>Katalog tema</li><li>Form WA</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <a class="cx-card" href="../demo/arunika/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/arunika.webp" alt="Tampilan website Arunika Studio" width="960" height="600" loading="lazy"><span class="no">06 / 07</span></figure><div class="bd"><span class="ty">Desain & renovasi interior</span><b>Arunika Studio</b><p>Ruangan berubah dari semen jadi rumah saat di-scroll, geser foto sebelum–sesudah, dan kalkulator biaya renovasi.</p><ul><li>Sebelum–sesudah</li><li>Kalkulator</li><li>Konsultasi</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <a class="cx-card" href="../demo/vitalis/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/vitalis.webp" alt="Tampilan website VITALIS" width="960" height="600" loading="lazy"><span class="no">07 / 07</span></figure><div class="bd"><span class="ty">Edukasi kesehatan</span><b>VITALIS</b><p>Laboratorium anatomi digital: organ bisa didekati satu per satu, kuis untuk belajar, dan sumber tepercaya.</p><ul><li>Interaktif</li><li>Kuis</li><li>Edukasi</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
-      <div class="cx-end"><b>Usahamu berikutnya?</b><p>Ceritakan usahamu, aku bantu rancang website yang pas. Konsultasi gratis, mulai Rp1,2 jt.</p><a href="https://wa.me/85255127902?text=Halo%20Solvy%21%20%F0%9F%91%8B%20Aku%20sudah%20lihat%20contoh%20website%20custom%20dan%20mau%20tanya%20untuk%20usahaku." target="_blank" rel="noopener">Konsultasi via WhatsApp →</a></div>
-    </div>
-    <div class="cx-ctl"><output id="cxo">1 / 7</output><div><button type="button" id="cxp" aria-label="Contoh sebelumnya"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="cxn" aria-label="Contoh berikutnya"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
-    <p class="note">Semua brand di contoh ini fiktif dan dibuat sebagai konsep. Foto dan visual produk dibuat dengan AI.</p>
+  <section class="pf" id="contoh" aria-labelledby="pfh">
+    <p class="pf-lbl">Portofolio</p>
+    <h2 class="pf-h" id="pfh">Contoh <i>website custom</i><sup>(07)</sup></h2>
+    <p class="pf-lead">Scroll pelan-pelan, tiap website ikut bergulir di dalam layar. Ketuk <b>Lihat demo</b> untuk mencobanya sendiri.</p>
   </section>
+  <section class="pj" aria-label="VOLTRA S1, Motor listrik">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">VOLTRA S1</p>
+      <p class="pj-meta"><span>01 / 07</span><span>Motor listrik</span></p>
+      <h3 class="pj-t">VOLTRA S1</h3>
+      <a class="pj-fr" href="../demo/voltra/index.html" target="_blank" rel="noopener" aria-label="Buka demo VOLTRA S1">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/voltra</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/voltra-scroll.webp" alt="Cuplikan halaman website VOLTRA S1 dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Scroll dan motornya berputar 360°. Pengunjung bisa pilih warna, hitung penghematan bensin, lalu daftar test ride lewat WhatsApp.</p>
+      <ul><li>Putar 360°</li><li>Pilih warna</li><li>Form test ride</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/voltra/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <section class="pj" aria-label="ARKA Run, Sepatu lari">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">ARKA Run</p>
+      <p class="pj-meta"><span>02 / 07</span><span>Sepatu lari</span></p>
+      <h3 class="pj-t">ARKA Run</h3>
+      <a class="pj-fr" href="../demo/arka/index.html" target="_blank" rel="noopener" aria-label="Buka demo ARKA Run">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/arka</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/arka-scroll.webp" alt="Cuplikan halaman website ARKA Run dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Sepatu terbuka lapis demi lapis saat di-scroll. Lengkap dengan koleksi 6 sepatu, pilihan warna & ukuran, dan asisten AI.</p>
+      <ul><li>Animasi scroll</li><li>Pilih ukuran</li><li>Pesan via WA</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/arka/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <section class="pj" aria-label="Villa Senja, Villa & penginapan">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">Villa Senja</p>
+      <p class="pj-meta"><span>03 / 07</span><span>Villa & penginapan</span></p>
+      <h3 class="pj-t">Villa Senja</h3>
+      <a class="pj-fr" href="../demo/villa-senja/index.html" target="_blank" rel="noopener" aria-label="Buka demo Villa Senja">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/villa-senja</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/villa-senja-scroll.webp" alt="Cuplikan halaman website Villa Senja dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Video tur villa dari pintu depan sampai kolam, galeri kamar, fasilitas, dan cek tanggal menginap langsung ke WhatsApp.</p>
+      <ul><li>Video tur</li><li>Galeri kamar</li><li>Cek tanggal</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/villa-senja/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <section class="pj" aria-label="ÉLÈNE Parfum, Parfum & kecantikan">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">ÉLÈNE Parfum</p>
+      <p class="pj-meta"><span>04 / 07</span><span>Parfum & kecantikan</span></p>
+      <h3 class="pj-t">ÉLÈNE Parfum</h3>
+      <a class="pj-fr" href="../demo/elene/index.html" target="_blank" rel="noopener" aria-label="Buka demo ÉLÈNE Parfum">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/elene</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/elene-scroll.webp" alt="Cuplikan halaman website ÉLÈNE Parfum dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Toko parfum bergaya butik mewah: produk unggulan, koleksi aroma, galeri, dan keranjang belanja.</p>
+      <ul><li>Toko online</li><li>Keranjang</li><li>Tampilan mewah</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/elene/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <section class="pj" aria-label="Sekar Wedding, Wedding organizer">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">Sekar Wedding</p>
+      <p class="pj-meta"><span>05 / 07</span><span>Wedding organizer</span></p>
+      <h3 class="pj-t">Sekar Wedding</h3>
+      <a class="pj-fr" href="../demo/sekar/index.html" target="_blank" rel="noopener" aria-label="Buka demo Sekar Wedding">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/sekar</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/sekar-scroll.webp" alt="Cuplikan halaman website Sekar Wedding dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Paket pernikahan dengan harga jelas, katalog tema dekorasi, baju adat, testimoni, dan form tanya via WhatsApp.</p>
+      <ul><li>Paket & harga</li><li>Katalog tema</li><li>Form WA</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/sekar/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <section class="pj" aria-label="Arunika Studio, Desain & renovasi interior">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">Arunika Studio</p>
+      <p class="pj-meta"><span>06 / 07</span><span>Desain & renovasi interior</span></p>
+      <h3 class="pj-t">Arunika Studio</h3>
+      <a class="pj-fr" href="../demo/arunika/index.html" target="_blank" rel="noopener" aria-label="Buka demo Arunika Studio">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/arunika</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/arunika-scroll.webp" alt="Cuplikan halaman website Arunika Studio dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Ruangan berubah dari semen jadi rumah saat di-scroll, geser foto sebelum–sesudah, dan kalkulator biaya renovasi.</p>
+      <ul><li>Sebelum–sesudah</li><li>Kalkulator</li><li>Konsultasi</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/arunika/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <section class="pj" aria-label="VITALIS, Edukasi kesehatan">
+    <div class="pj-st">
+      <p class="pj-word" aria-hidden="true">VITALIS</p>
+      <p class="pj-meta"><span>07 / 07</span><span>Edukasi kesehatan</span></p>
+      <h3 class="pj-t">VITALIS</h3>
+      <a class="pj-fr" href="../demo/vitalis/index.html" target="_blank" rel="noopener" aria-label="Buka demo VITALIS">
+        <span class="pj-bar" aria-hidden="true"><span class="dots"><i></i><i></i><i></i></span><span class="url"><svg viewBox="0 0 12 12" width="9" height="9" aria-hidden="true"><rect x="2" y="5.2" width="8" height="5.6" rx="1.2" fill="currentColor"/><path d="M4 5.4V4a2 2 0 0 1 4 0v1.4" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>solvystudio.my.id/demo/vitalis</span><span class="meta">Konsep</span></span>
+        <span class="pj-vp"><img src="../img/custom/vitalis-scroll.webp" alt="Cuplikan halaman website VITALIS dari atas sampai bawah" width="720" height="3698" loading="lazy" decoding="async"></span>
+      </a>
+      <p class="pj-d">Laboratorium anatomi digital: organ bisa didekati satu per satu, kuis untuk belajar, dan sumber tepercaya.</p>
+      <ul><li>Interaktif</li><li>Kuis</li><li>Edukasi</li></ul>
+      <div class="pj-ft"><div class="pj-pg" aria-hidden="true"><span><i></i></span><b>00%</b></div><a class="pj-go" href="../demo/vitalis/index.html" target="_blank" rel="noopener">Lihat demo <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+    </div>
+  </section>
+  <div class="pf-end"><b>Usahamu berikutnya?</b><p>Ceritakan usahamu, aku bantu rancang website yang pas. Konsultasi gratis, mulai Rp1,2 jt.</p><a href="https://wa.me/85255127902?text=Halo%20Solvy%21%20%F0%9F%91%8B%20Aku%20sudah%20lihat%20contoh%20website%20custom%20dan%20mau%20tanya%20untuk%20usahaku." target="_blank" rel="noopener">Konsultasi via WhatsApp →</a></div>
+  <p class="note">Semua brand di contoh ini fiktif dan dibuat sebagai konsep. Foto dan visual produk dibuat dengan AI.</p>
 
   <a class="feat" href="../index.html#reel" aria-label="Lihat 13 template dalam 1 menit">
     <img src="../media/showreel-poster.webp" alt="Cuplikan template website Solvy">
@@ -163,11 +258,13 @@ h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{colo
 <script>
 const toast=document.getElementById('toast');let tt;function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2000)}
 document.getElementById('share').addEventListener('click',()=>{const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>say('Link disalin')).catch(()=>say('Salin link dari address bar'))});
-(function(){const r=document.getElementById('cxr'),o=document.getElementById('cxo'),p=document.getElementById('cxp'),n=document.getElementById('cxn');if(!r)return;const items=[...r.children];const total=items.filter(c=>c.classList.contains('cx-card')).length;
-function cur(){const x=r.scrollLeft;let best=0,d=1e9;items.forEach((c,i)=>{const dd=Math.abs((c.offsetLeft-items[0].offsetLeft)-x);if(dd<d){d=dd;best=i}});return best}
-function upd(){const i=cur();o.textContent=(i<total?(i+1):total)+' / '+total;p.disabled=i<=0;n.disabled=i>=items.length-1}
-function go(k){const i=Math.max(0,Math.min(items.length-1,cur()+k));r.scrollTo({left:items[i].offsetLeft-items[0].offsetLeft,behavior:'smooth'})}
-p.addEventListener('click',()=>go(-1));n.addEventListener('click',()=>go(1));let t;r.addEventListener('scroll',()=>{cancelAnimationFrame(t);t=requestAnimationFrame(upd)},{passive:true});upd()})();
+(function(){const P=[...document.querySelectorAll('.pj')];if(!P.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+const S=P.map(el=>({el,img:el.querySelector('.pj-vp img'),vp:el.querySelector('.pj-vp'),pct:el.querySelector('.pj-pg b'),last:-1}));
+function tick(){const vh=innerHeight;for(const o of S){const r=o.el.getBoundingClientRect();if(r.bottom<-50||r.top>vh+50)continue;
+ const p=Math.min(1,Math.max(0,-r.top/(r.height-vh)));if(Math.abs(p-o.last)<.001)continue;o.last=p;o.el.style.setProperty('--p',p.toFixed(4));
+ const w=o.vp.clientWidth,h=o.vp.clientHeight,ih=w*o.img.naturalHeight/(o.img.naturalWidth||1);const q=Math.min(1,Math.max(0,(p-.08)/.88));
+ o.img.style.transform='translate3d(0,'+(-Math.max(0,ih-h)*q).toFixed(1)+'px,0)';o.pct.textContent=String(Math.round(p*100)).padStart(2,'0')+'%'}}
+let raf=0;const req=()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;tick()})};addEventListener('scroll',req,{passive:true});addEventListener('resize',()=>{S.forEach(o=>o.last=-1);req()});S.forEach(o=>o.img.addEventListener('load',()=>{o.last=-1;req()}));tick()})();
 </script>
 </body>
 </html>

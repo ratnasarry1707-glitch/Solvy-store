@@ -1,0 +1,599 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sekar Wedding</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: mobile-first single column. Photo hero, swipeable package cards, compact comparison, chips for bonuses, attire and gallery grids, WhatsApp chat testimonials, a package finder that writes the WhatsApp message, and a floating WhatsApp button. Desktop widens into two and four columns. */
+:root{
+  --ivory:#FBF8F2;
+  --linen:#F2EDE3;
+  --sage:#8E9C7E;
+  --sage-deep:#5E6B4F;
+  --olive:#2E3627;
+  --gold:#B58E52;
+  --ink:#24261F;
+  --muted:#6E6F64;
+  --line:rgba(36,38,31,.13);
+  --wa:#1F9D55;
+  --display:'Italiana','Didot','Times New Roman',serif;
+  --body:'Figtree','Helvetica Neue',Arial,sans-serif;
+  --gl:max(18px,env(safe-area-inset-left,0px));
+  --gr:max(18px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ivory)}
+h1,h2,h3,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+img{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sage-deep);outline-offset:3px}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--sage-deep)}
+.h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,7.5vw,56px);line-height:1.05;letter-spacing:.005em;text-wrap:balance}
+.sec{padding-block:56px}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.sec-head p.s{color:var(--muted);max-width:44ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 22px;border-radius:999px;border:1px solid var(--olive);background:var(--olive);color:var(--ivory);font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.btn:hover{background:var(--sage-deep);border-color:var(--sage-deep)}
+.btn.ghost{background:transparent;color:var(--olive)}
+.btn.ghost:hover{background:var(--olive);color:var(--ivory)}
+.btn.wa{background:var(--wa);border-color:var(--wa);color:#fff}
+.btn.wa:hover{background:#178246;border-color:#178246}
+.btn svg{width:18px;height:18px;flex:none}
+.note{font-size:12.5px;color:var(--muted)}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(251,248,242,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:var(--display);font-size:24px;letter-spacing:.06em}
+.logo svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.2}
+.nav nav{display:none;gap:26px;font-size:15px}
+.nav nav a{text-decoration:none;color:#4a4b42}
+.nav nav a:hover{color:var(--sage-deep)}
+.nav .btn{min-height:40px;padding:0 16px;font-size:14px}
+
+/* HERO */
+.hero{position:relative;color:#fff;background:var(--olive)}
+.slides{position:relative;height:clamp(460px,122vw,660px);overflow:hidden}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease,transform 7s linear}
+.slides img.on{opacity:1;transform:scale(1)}
+.theme{position:absolute;top:16px;left:var(--gl);z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(251,248,242,.88);color:var(--olive);font-size:13px;font-weight:600;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.theme i{width:12px;height:12px;border-radius:50%;background:var(--sw,#8E9C7E);box-shadow:0 0 0 2px #fff}
+.sdots{display:flex;gap:6px}
+.sdots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:rgba(255,255,255,.5);cursor:pointer;transition:width .3s,background .3s}
+.sdots button[aria-current=true]{width:22px;background:#fff}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,30,20,.05) 18%,rgba(25,30,20,.55) 52%,rgba(25,30,20,.88) 100%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;padding-bottom:30px;display:flex;flex-direction:column;gap:14px}
+.hero .eyebrow{color:#E3EAD6}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(42px,11vw,84px);line-height:1;text-shadow:0 2px 20px rgba(0,0,0,.25)}
+.hero p.t{font-size:16px;max-width:34ch;color:rgba(255,255,255,.9)}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.7)}
+.hero .btn.ghost:hover{background:#fff;color:var(--olive)}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--linen);border-bottom:1px solid var(--line)}
+.trust div{padding:16px 8px;text-align:center;display:flex;flex-direction:column;gap:2px}
+.trust div+div{border-left:1px solid var(--line)}
+.trust b{font-family:var(--display);font-weight:400;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.trust span{font-size:12px;color:var(--muted);line-height:1.35}
+
+/* EVENT TYPES */
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.type{border:1px solid var(--line);border-radius:18px;padding:16px 12px;display:flex;flex-direction:column;gap:6px;background:#fff;text-decoration:none;min-width:0}
+.type svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.3}
+.type div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.type b{font-weight:600;font-size:15px;line-height:1.25}
+.type span{font-size:12.5px;color:var(--muted)}
+
+/* PACKAGES */
+.pk-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gl) * -1);padding:4px var(--gr) 14px var(--gl);scrollbar-width:none}
+.pk-scroll::-webkit-scrollbar{display:none}
+.pk{flex:0 0 82%;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px 20px;display:flex;flex-direction:column;gap:14px;position:relative;min-width:0}
+.pk.fav{background:var(--olive);color:var(--ivory);border-color:var(--olive)}
+.pk-im{position:relative;margin:-10px -8px 2px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--linen)}
+.pk-im img{width:100%;height:100%;object-fit:cover}
+.pk-im span{position:absolute;left:10px;bottom:10px;padding:5px 10px;border-radius:999px;background:rgba(251,248,242,.9);color:var(--olive);font-size:12px;font-weight:600}
+.pk .tag{z-index:2;position:absolute;top:22px;right:22px;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:var(--gold);color:#fff}
+.pk h3{font-family:var(--display);font-weight:400;font-size:32px;line-height:1}
+.pk .for{font-size:14px;color:var(--muted);margin-top:-6px}
+.pk.fav .for{color:rgba(251,248,242,.7)}
+.price{display:flex;flex-direction:column;gap:0}
+.price s{font-size:14px;color:var(--muted)}
+.pk.fav .price s{color:rgba(251,248,242,.55)}
+.price b{font-family:var(--display);font-weight:400;font-size:40px;line-height:1.05;font-variant-numeric:tabular-nums}
+.icons{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;padding-block:14px;border-block:1px solid var(--line)}
+.pk.fav .icons{border-color:rgba(251,248,242,.18)}
+.icons li{display:flex;gap:8px;align-items:center;font-size:14px;min-width:0}
+.icons svg{width:18px;height:18px;stroke:var(--sage-deep);fill:none;stroke-width:1.5;flex:none}
+.pk.fav .icons svg{stroke:#C9D4B8}
+.pk details{font-size:14px}
+.pk summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;padding-block:4px}
+.pk summary::-webkit-details-marker{display:none}
+.pk summary::after{content:"+";font-size:20px;line-height:1}
+.pk details[open] summary::after{content:"−"}
+.pk details ul{display:flex;flex-direction:column;gap:6px;margin-top:10px;color:#4a4b42}
+.pk.fav details ul{color:rgba(251,248,242,.82)}
+.pk details li::before{content:"✓ ";color:var(--sage-deep);font-weight:600}
+.pk.fav details li::before{color:#C9D4B8}
+.pk .btn{margin-top:auto}
+.pk.fav .btn{background:var(--ivory);color:var(--olive);border-color:var(--ivory)}
+.dots{display:flex;justify-content:center;gap:6px;margin-top:4px}
+.dots i{width:6px;height:6px;border-radius:3px;background:var(--line);transition:width .25s,background .25s}
+.dots i.on{width:18px;background:var(--sage-deep)}
+.cmp-toggle{margin-top:18px;width:100%}
+.cmp{margin-top:14px;overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
+.cmp table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+.cmp th,.cmp td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cmp thead th{font-family:var(--display);font-weight:400;font-size:20px;background:var(--linen)}
+.cmp tbody th{font-weight:600;color:var(--muted);font-size:13px;position:sticky;left:0;background:#fff;min-width:118px}
+.cmp tr:last-child td,.cmp tr:last-child th{border-bottom:0}
+.cmp td.fav{background:#F4F6EF}
+
+/* BONUS */
+.bonus{background:var(--linen)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;gap:6px;min-height:42px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:14.5px;transition:background .2s,color .2s,border-color .2s}
+.chip input:checked+span{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff}
+.chip input:checked+span::before{content:"✓"}
+.chip input:focus-visible+span{outline:2px solid var(--olive);outline-offset:2px}
+.seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:16px;max-width:560px}
+.seg button{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;cursor:pointer;text-align:left;min-width:0}
+.seg b{font-weight:600;font-size:15px}
+.seg span{font-size:12px;color:var(--muted)}
+.seg button[aria-checked=true]{background:var(--olive);border-color:var(--olive);color:var(--ivory)}
+.seg button[aria-checked=true] span{color:#C9D4B8}
+.chip input:disabled+span{opacity:.45;cursor:not-allowed}
+.chip input:checked:disabled+span{opacity:1;cursor:default}
+.pk .bn{font-size:13.5px;display:flex;gap:8px;align-items:center;margin-top:-4px}
+.pk .bn svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5;flex:none}
+.pk.fav .bn svg{stroke:#E2C48F}
+.bonus .count{margin-top:14px;font-size:14px;color:var(--muted)}
+
+/* ATTIRE */
+.attire{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.attire figure{display:flex;flex-direction:column;gap:8px;min-width:0}
+.attire .im{aspect-ratio:3/4.4;border-radius:18px;overflow:hidden;background:var(--linen)}
+.attire img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.attire b{font-weight:600;font-size:15px}
+.attire span{display:block;font-size:13px;color:var(--muted);line-height:1.4}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gal button{padding:0;border:0;border-radius:14px;overflow:hidden;background:var(--linen);cursor:zoom-in;position:relative;aspect-ratio:1}
+.gal button.w{grid-column:span 2;aspect-ratio:16/9}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.gal button:hover img{transform:scale(1.05)}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(20,22,16,.94);display:flex;align-items:center;justify-content:center;padding:calc(56px + env(safe-area-inset-top,0px)) 12px calc(56px + env(safe-area-inset-bottom,0px))}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.lb button{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));right:max(10px,env(safe-area-inset-right,0px));width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:24px;cursor:pointer}
+
+/* MOMENTS */
+.moments{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gl) * -1);padding:0 var(--gr) 8px var(--gl);scrollbar-width:none}
+.moments::-webkit-scrollbar{display:none}
+.moments button{flex:0 0 70%;scroll-snap-align:start;aspect-ratio:4/5;padding:0;border:0;border-radius:18px;overflow:hidden;position:relative;cursor:zoom-in;background:var(--linen)}
+.moments img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.moments button:hover img{transform:scale(1.04)}
+.moments span{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(251,248,242,.9);color:var(--olive);font-size:13px;font-weight:600}
+
+/* TESTIMONIALS */
+.testi{background:var(--linen)}
+.chat{display:flex;flex-direction:column;gap:14px}
+.bubble{background:#fff;border-radius:4px 18px 18px 18px;padding:14px 16px 10px;box-shadow:0 1px 0 rgba(0,0,0,.06);max-width:560px;position:relative}
+.bubble.r{align-self:flex-end;background:#E3EED6;border-radius:18px 4px 18px 18px}
+.bubble .who{font-weight:600;font-size:13px;color:var(--sage-deep);margin-bottom:4px}
+.bubble p{font-size:15px;line-height:1.5}
+.bubble time{display:block;text-align:right;font-size:11px;color:var(--muted);margin-top:4px}
+.stars{color:var(--gold);letter-spacing:2px;font-size:13px}
+
+/* FINDER */
+.finder{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px 18px;display:flex;flex-direction:column;gap:22px}
+.fld{display:flex;flex-direction:column;gap:10px;min-width:0}
+.fld>label,.fld>.lbl{font-size:13px;font-weight:600;color:var(--muted)}
+.range-row{display:flex;align-items:center;gap:14px}
+.range-row input{flex:1;accent-color:var(--sage-deep);min-width:0}
+.range-row output{min-width:86px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.fld input[type=date],.fld input[type=text]{min-height:48px;border:1px solid var(--line);border-radius:12px;padding:0 14px;background:var(--ivory);width:100%;max-width:100%;min-width:0;font-size:16px;display:block}
+.fld input[type=date]{-webkit-appearance:none;appearance:none;height:48px;line-height:48px;text-align:left;color:var(--ink)}
+.fld input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0}
+.fld input[type=date]::-webkit-calendar-picker-indicator{opacity:.55;cursor:pointer}
+.date-wrap{position:relative;min-width:0}
+.date-wrap .ph{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:#9a9b90;font-size:16px;pointer-events:none}
+.date-wrap.has .ph{display:none}
+.date-wrap:not(.has) input[type=date]:not(:focus){color:transparent}
+.date-wrap:not(.has) input[type=date]:not(:focus)::-webkit-datetime-edit{color:transparent}
+.date-wrap input[type=date]:focus+.ph{display:none}
+.rec{background:var(--olive);color:var(--ivory);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px}
+.rec small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9D4B8;font-weight:600}
+.rec b{font-family:var(--display);font-weight:400;font-size:32px;line-height:1.1}
+.rec span{font-size:14px;color:rgba(251,248,242,.78)}
+
+/* CONTACT */
+.contact{display:flex;flex-direction:column;gap:18px}
+.info{display:flex;flex-direction:column;gap:14px}
+.info li{display:flex;gap:12px;align-items:flex-start}
+.info svg{width:20px;height:20px;stroke:var(--sage-deep);fill:none;stroke-width:1.5;flex:none;margin-top:2px}
+.info b{display:block;font-weight:600}
+.info span{color:var(--muted);font-size:15px}
+.socials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.soc{display:flex;align-items:center;gap:10px;min-height:54px;padding:0 14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;background:#fff;min-width:0}
+.soc svg{width:22px;height:22px;flex:none}
+.soc b{font-weight:600;font-size:14px;display:block;line-height:1.2}
+.soc span{font-size:12.5px;color:var(--muted);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.foot{background:var(--olive);color:rgba(251,248,242,.7);padding-block:34px calc(96px + env(safe-area-inset-bottom,0px));font-size:13px}
+.foot .logo{color:var(--ivory);margin-bottom:10px}
+.foot .r{display:flex;flex-direction:column;gap:6px}
+
+/* FLOATING WA */
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;display:flex;align-items:center;gap:8px;min-height:54px;padding:0 20px 0 16px;border-radius:999px;background:var(--wa);color:#fff;text-decoration:none;font-weight:600;box-shadow:0 8px 24px rgba(20,80,40,.35)}
+.fab svg{width:24px;height:24px}
+
+/* DESKTOP */
+@media (min-width:860px){
+  .nav nav{display:flex}
+  .nav .wrap{height:70px}
+  .slides{height:min(80vh,740px)}
+  .theme{top:24px}
+  .hero-copy{padding-bottom:56px}
+  .hero .shade{background:linear-gradient(90deg,rgba(25,30,20,.8) 0%,rgba(25,30,20,.45) 45%,rgba(25,30,20,0) 72%)}
+  .hero-copy .wrap{max-width:1180px}
+  .sec{padding-block:96px}
+  .sec-head{margin-bottom:36px}
+  .trust b{font-size:36px}
+  .trust span{font-size:14px}
+  .types{gap:16px}
+  .type{padding:24px 22px;flex-direction:row;align-items:center;gap:16px}
+  .type svg{width:36px;height:36px}
+  .type b{font-size:18px}
+  .type span{font-size:14px}
+  .type div{display:flex;flex-direction:column;gap:2px}
+  .pk-scroll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible;margin:0;padding:0}
+  .pk{flex:none}
+  .dots{display:none}
+  .cmp-toggle{width:auto}
+  .attire{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  .gal{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .moments{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible;margin:0;padding:0}
+  .moments button{flex:none}
+  .gal button.w{grid-column:span 2}
+  .chat{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  .bubble.r{align-self:auto}
+  .finder-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:start}
+  .finder{padding:32px}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .foot{padding-block:44px}
+  .foot .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition-duration:.01ms!important}}
+</style>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c0-6 0-9 0-13M12 8c-3-1-5-3-5-6 3 0 5 2 5 6Zm0 0c3-1 5-3 5-6-3 0-5 2-5 6ZM12 14c-3-1-6-3-6-6 3 0 6 2 6 6Zm0 0c3-1 6-3 6-6-3 0-6 2-6 6Z"/></svg>Sekar</a>
+    <nav aria-label="Menu"><a href="#paket">Paket</a><a href="#attire">Attire</a><a href="#galeri">Galeri</a><a href="#testimoni">Testimoni</a><a href="#kontak">Kontak</a></nav>
+    <a class="btn" href="#cek">Cek paket</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Sekar Wedding">
+  <div class="slides" id="slides">
+    <img class="on" src="img/t-sage.jpg" data-t="Sage Garden" data-c="#8E9C7E" alt="Tenda pernikahan hijau sage dan ivory dengan pelaminan bunga putih dan lampu kristal">
+    <img src="img/t-blue.jpg" data-t="Dusty Blue" data-c="#9BB3CC" alt="Pelaminan putih dengan bunga hydrangea biru dan kain biru dusty">
+    <img src="img/t-red.jpg" data-t="Merah Adat" data-c="#9E1B23" alt="Pelaminan gebyok ukir emas dengan bunga mawar merah dan karpet merah">
+    <img src="img/t-lilac.jpg" data-t="Lilac Crystal" data-c="#B49AD0" alt="Pelaminan mewah dengan bunga wisteria ungu menggantung, lampu kristal, dan lorong cermin">
+    <img src="img/t-pink.jpg" data-t="Blush Garden" data-c="#E8A9B4" alt="Pelaminan lengkung bunga mawar pink dengan sofa putih dan kursi berpita pink">
+    <img src="img/t-sage-arch.jpg" data-t="Ivory Arch" data-c="#C9B88E" alt="Pelaminan lengkung bunga putih dengan tenda ivory dan sage">
+  </div>
+  <span class="theme" id="theme" aria-live="polite"><i></i><span id="themeName">Sage Garden</span></span>
+  <div class="shade"></div>
+  <div class="hero-copy">
+    <div class="wrap" style="display:flex;flex-direction:column;gap:14px">
+      <p class="eyebrow">Wedding · Lamaran · Attire</p>
+      <h1>Pernikahan impian,<br>di rumah sendiri.</h1>
+      <p class="t">Satu paket untuk dekorasi, tenda, prasmanan, MUA, baju pengantin, dan dokumentasi. Tinggal pilih, kami yang urus.</p>
+      <div class="sdots" id="sdots" aria-label="Pilih tema dekorasi"></div>
+      <div class="row">
+        <a class="btn ghost" href="#paket">Lihat paket</a>
+        <a class="btn wa" data-wa="hero" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>Chat WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="trust">
+  <div><b>500+</b><span>pasangan sudah menikah bersama kami</span></div>
+  <div><b>4</b><span>paket all-in yang jelas isinya</span></div>
+  <div><b>1</b><span>chat untuk semua kebutuhan</span></div>
+</div>
+
+<!-- EVENT TYPES -->
+<section class="sec" style="padding-bottom:20px">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Pilih acaramu</p><h2 class="h2">Apa yang sedang kamu siapkan?</h2></div>
+    <div class="types">
+      <a class="type" href="#paket"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 28V14l12-9 12 9v14M4 28h24M12 28v-8h8v8"/><path d="M16 12c-1.5-1.6-4 .2-2 2.2l2 1.8 2-1.8c2-2-.5-3.8-2-2.2Z"/></svg><div><b>Pernikahan</b><span>Resepsi di rumah</span></div></a>
+      <a class="type" href="#lamaran"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="19" r="8"/><path d="M12 8l4-4 4 4-4 3-4-3Z"/></svg><div><b>Lamaran &amp; Akad</b><span>Intimate, di rumah</span></div></a>
+      <a class="type" href="#attire"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M12 4h8l-1 6 5 18H8l5-18-1-6Z"/><path d="M13 10h6"/></svg><div><b>Attire &amp; MUA</b><span>Adat dan modern</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="sec" id="paket">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Paket pernikahan</p><h2 class="h2">Semua sudah termasuk, tanpa biaya kejutan.</h2><p class="s">Geser untuk melihat paket lainnya. Semua paket sudah termasuk dekorasi, tenda, alat prasmanan, MUA, dan baju pengantin. Warna dan tema dekorasi bebas dipilih di semua paket.</p></div>
+    <div class="pk-scroll" id="pkScroll"></div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <button class="btn ghost cmp-toggle" id="cmpBtn" aria-expanded="false" aria-controls="cmp">Bandingkan semua paket</button>
+    <div class="cmp" id="cmp" hidden><table id="cmpTable"></table></div>
+  </div>
+</section>
+
+<!-- LAMARAN -->
+<section class="sec" id="lamaran" style="padding-top:0">
+  <div class="wrap">
+    <div class="pk" style="flex:none;max-width:760px;background:var(--linen)">
+      <div class="pk-im" style="margin:-10px -8px 2px"><img src="img/t-boho.jpg" alt="Dekorasi lamaran boho peach dengan arch kayu, pampas, dan seserahan" loading="lazy"><span>Tema Boho Peach</span></div>
+      <p class="eyebrow">Lamaran &amp; Akad</p>
+      <h3>Paket Intimate</h3>
+      <p class="for">Untuk lamaran, akad nikah, atau syukuran di ruang tamu dan teras rumah.</p>
+      <div class="price"><b>Rp4,9 jt</b></div>
+      <ul class="icons">
+        <li><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 11a3 3 0 1 0 0-6M21 20c0-2-1.5-4-4-4.6"/></svg>s.d. 50 tamu</li>
+        <li><svg viewBox="0 0 24 24"><path d="M12 21c0-6 0-9 0-13M12 8c-3-1-5-3-5-6 3 0 5 2 5 6Z"/></svg>Backdrop 3 m</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 20l5-5M14 6l4 4-8 8-4-4 8-8ZM14 6l2-2 4 4-2 2"/></svg>MUA pengantin</li>
+        <li><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 9h16"/></svg>Meja akad &amp; seserahan</li>
+      </ul>
+      <a class="btn" data-wa="lamaran" href="#" target="_blank" rel="noopener">Tanya paket intimate</a>
+    </div>
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="sec bonus" id="bonus">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Bonus paket</p><h2 class="h2">Bonus untuk paket Nyaman ke atas.</h2><p class="s">Makin lengkap paketnya, makin banyak bonus yang bisa kamu pilih. Paket Sederhana belum termasuk bonus, tapi bonus bisa ditambah dengan biaya terpisah.</p></div>
+    <div class="seg" id="bonusPk" role="radiogroup" aria-label="Pilih paket untuk bonus">
+      <button type="button" role="radio" aria-checked="true" data-b="Nyaman"><b>Nyaman</b><span>pilih 2 bonus</span></button>
+      <button type="button" role="radio" aria-checked="false" data-b="Istimewa"><b>Istimewa</b><span>pilih 4 bonus</span></button>
+      <button type="button" role="radio" aria-checked="false" data-b="Megah"><b>Megah</b><span>semua bonus</span></button>
+    </div>
+    <div class="chips" id="bonusChips"></div>
+    <p class="count" id="bonusCount">Belum ada bonus dipilih.</p>
+  </div>
+</section>
+
+<!-- ATTIRE -->
+<section class="sec" id="attire">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Attire &amp; MUA</p><h2 class="h2">Baju pengantin untuk setiap adat.</h2><p class="s">Baju pengantin, baju orang tua, dan aksesori sudah termasuk di setiap paket.</p></div>
+    <div class="attire">
+      <figure><div class="im"><img src="img/a-lampung.jpg" alt="Baju pengantin adat Lampung dengan siger emas dan kain tapis merah" loading="lazy"></div><figcaption><b>Adat Lampung</b><span>Siger emas dan kain tapis</span></figcaption></figure>
+      <figure><div class="im"><img src="img/a-jawa.jpg" alt="Kebaya beludru hitam adat Jawa dengan sulaman emas dan ronce melati" loading="lazy"></div><figcaption><b>Adat Jawa</b><span>Beludru hitam dan ronce melati</span></figcaption></figure>
+      <figure><div class="im"><img src="img/a-modern.jpg" alt="Kebaya modern brokat putih dengan veil tulle panjang" loading="lazy"></div><figcaption><b>Modern</b><span>Brokat putih dan veil panjang</span></figcaption></figure>
+      <figure><div class="im"><img src="img/a-akad.jpg" alt="Kebaya akad putih dengan hijab dan detail mutiara" loading="lazy"></div><figcaption><b>Akad</b><span>Kebaya putih berhijab</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="galeri" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Galeri dekorasi</p><h2 class="h2">Detail yang membuat tamu terkesan.</h2></div>
+    <div class="gal" id="gal">
+      <button class="w" data-src="img/hero.jpg" aria-label="Perbesar foto tenda dan pelaminan"><img src="img/hero.jpg" alt="Tenda dan pelaminan sage"></button>
+      <button data-src="img/d-chandelier.jpg" aria-label="Perbesar foto lampu kristal"><img src="img/d-chandelier.jpg" alt="Lampu kristal dan rangkaian bunga di plafon tenda"></button>
+      <button data-src="img/d-flower.jpg" aria-label="Perbesar foto bunga gerbang"><img src="img/d-flower.jpg" alt="Rangkaian bunga putih di tiang gerbang tenda"></button>
+      <button data-src="img/d-buffet.jpg" aria-label="Perbesar foto meja prasmanan"><img src="img/d-buffet.jpg" alt="Meja prasmanan dengan kain sage dan wadah emas"></button>
+      <button data-src="img/d-aisle.jpg" aria-label="Perbesar foto karpet jalan"><img src="img/d-aisle.jpg" alt="Karpet jalan ivory dengan bunga di kiri dan kanan"></button>
+      <button class="w" data-src="img/d-stage.jpg" aria-label="Perbesar foto pelaminan"><img src="img/d-stage.jpg" alt="Pelaminan putih dengan kursi emas dan bunga"></button>
+    </div>
+  </div>
+</section>
+
+<!-- MOMENTS -->
+<section class="sec" id="momen" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Momen pernikahan</p><h2 class="h2">Hari bahagia yang kami jaga.</h2><p class="s">Dari akad sampai resepsi, setiap detail kami siapkan supaya kamu tinggal menikmati harinya.</p></div>
+    <div class="moments" id="moments">
+      <button data-src="img/m-couple.jpg"><img src="img/m-couple.jpg" alt="Pengantin berjalan bergandengan tangan menuju pelaminan bunga putih" loading="lazy"><span>Menuju pelaminan</span></button>
+      <button data-src="img/m-akad.jpg"><img src="img/m-akad.jpg" alt="Prosesi akad nikah di meja akad dengan bunga putih dan seserahan" loading="lazy"><span>Akad nikah</span></button>
+      <button data-src="img/m-hands.jpg"><img src="img/m-hands.jpg" alt="Tangan pengantin dengan henna dan cincin emas di atas tangan suami" loading="lazy"><span>Henna &amp; cincin</span></button>
+      <button data-src="img/m-siger.jpg"><img src="img/m-siger.jpg" alt="Pengantin adat Lampung dengan siger emas dan kain tapis dari belakang" loading="lazy"><span>Adat Lampung</span></button>
+      <button data-src="img/m-table.jpg"><img src="img/m-table.jpg" alt="Meja tamu dengan mawar putih, lilin, serbet sage, dan alat makan emas" loading="lazy"><span>Meja tamu</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi" id="testimoni">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Kata klien</p><h2 class="h2">Cerita dari pasangan kami.</h2><p class="note">Contoh testimoni untuk tampilan website.</p></div>
+    <div class="chat">
+      <div class="bubble"><p class="who">Dinda &amp; Raka</p><p class="stars" aria-label="5 dari 5">★★★★★</p><p>Kak, makasih banyak ya! Dekorasinya persis kayak yang kita mau, tamu pada foto-foto terus di pelaminan 😭 Makeupnya juga awet sampai malam.</p><time>Paket Istimewa · 21.14</time></div>
+      <div class="bubble r"><p class="who">Ibu Sari</p><p class="stars" aria-label="5 dari 5">★★★★★</p><p>Alhamdulillah acara anak saya lancar. Tim datang tepat waktu, tenda rapi, prasmanan juga cukup untuk semua tamu. Recommended.</p><time>Paket Nyaman · 08.02</time></div>
+      <div class="bubble"><p class="who">Fira &amp; Bayu</p><p class="stars" aria-label="5 dari 5">★★★★★</p><p>Awalnya bingung pilih paket, tapi admin sabar banget jelasin. Harga sesuai, nggak ada biaya tambahan di akhir.</p><time>Paket Sederhana · 19.47</time></div>
+      <div class="bubble r"><p class="who">Nadia</p><p class="stars" aria-label="5 dari 5">★★★★★</p><p>Lamaran intimate di rumah jadi cantik banget padahal ruang tamunya kecil. Terima kasih tim!</p><time>Paket Intimate · 13.30</time></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINDER -->
+<section class="sec" id="cek">
+  <div class="wrap finder-grid">
+    <div class="sec-head"><p class="eyebrow">Cek paket yang cocok</p><h2 class="h2">Isi sebentar, langsung tanya via WhatsApp.</h2><p class="s">Geser jumlah tamu dan isi tanggal acara. Kami sarankan paket yang pas, lalu pesanmu tersusun otomatis.</p></div>
+    <form class="finder" id="finder" novalidate>
+      <div class="fld"><label for="guests">Perkiraan jumlah tamu</label><div class="range-row"><input type="range" id="guests" min="50" max="600" step="25" value="250"><output id="guestsOut" for="guests">250 tamu</output></div></div>
+      <div class="fld"><label for="date">Tanggal acara</label><div class="date-wrap" id="dateWrap"><input type="date" id="date" aria-describedby="datePh"><span class="ph" id="datePh">Pilih tanggal</span></div></div>
+      <div class="fld"><label for="name">Nama (opsional)</label><input type="text" id="name" autocomplete="name" placeholder="Nama kamu"></div>
+      <div class="rec" aria-live="polite"><small>Paket yang cocok</small><b id="recName">Nyaman</b><span id="recNote">s.d. 250 tamu · Rp14,9 jt</span></div>
+      <a class="btn wa" id="finderWa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>Tanya paket ini via WhatsApp</a>
+      <p class="note">Nomor WhatsApp di website ini masih contoh.</p>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="kontak" style="background:var(--linen)">
+  <div class="wrap contact">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="sec-head" style="margin:0"><p class="eyebrow">Kontak</p><h2 class="h2">Mampir ke galeri kami.</h2></div>
+      <ul class="info">
+        <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Galeri &amp; showroom attire</b><span>Jl. Melati Indah No. 12 (alamat contoh)</span></div></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Jam layanan</b><span>Senin–Sabtu 09.00–20.00 · Minggu dengan janji</span></div></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg><div><b>WhatsApp</b><span>0812-0000-0000 (nomor contoh)</span></div></li>
+      </ul>
+    </div>
+    <div class="socials">
+      <a class="soc" data-wa="kontak" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#1F9D55" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg><div><b>WhatsApp</b><span>Chat admin</span></div></a>
+      <a class="soc" href="https://www.instagram.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#B5507A" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#B5507A"/></svg><div><b>Instagram</b><span>@sekarwedding</span></div></a>
+      <a class="soc" href="https://www.tiktok.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#24261F" aria-hidden="true"><path d="M16 3c.4 2.4 1.9 3.9 4 4.1v3c-1.5 0-2.8-.4-4-1.2v6.4A5.7 5.7 0 1 1 10.3 10v3.1a2.7 2.7 0 1 0 2.7 2.7V3h3Z"/></svg><div><b>TikTok</b><span>@sekarwedding</span></div></a>
+      <a class="soc" href="https://www.threads.net/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#24261F" stroke-width="1.8" aria-hidden="true"><path d="M17 8.5C16.2 6 14.3 4.5 12 4.5c-4 0-6.5 3-6.5 7.5s2.5 7.5 6.5 7.5c3.3 0 5.5-2 5.5-4.6 0-2.4-2-3.9-5-3.9-1.8 0-3 .9-3 2.2 0 1.2 1 2 2.4 2 2.6 0 3.6-2.4 3.1-6.2"/></svg><div><b>Threads</b><span>@sekarwedding</span></div></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><a class="logo" href="#top">Sekar Wedding</a><p>Wedding · Lamaran · Attire · MUA</p></div>
+    <div class="r"><span>© 2026 Sekar Wedding</span><span>Website concept by solvystudio</span></div>
+  </div>
+</footer>
+
+<a class="fab" data-wa="fab" href="#" target="_blank" rel="noopener" aria-label="Chat WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4Z"/></svg>Chat</a>
+<div class="lb" id="lb" hidden><button type="button" id="lbX" aria-label="Tutup">×</button><img id="lbImg" alt=""></div>
+
+<script>
+(function(){
+  var WA='6281200000000';
+  var I={
+    guests:'<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 11a3 3 0 1 0 0-6M21 20c0-2-1.5-4-4-4.6"/></svg>',
+    tent:'<svg viewBox="0 0 24 24"><path d="M3 20 12 5l9 15M3 20h18M12 5v15"/></svg>',
+    deco:'<svg viewBox="0 0 24 24"><path d="M12 21c0-6 0-9 0-13M12 8c-3-1-5-3-5-6 3 0 5 2 5 6Zm0 0c3-1 5-3 5-6-3 0-5 2-5 6Z"/></svg>',
+    mua:'<svg viewBox="0 0 24 24"><path d="M5 20l5-5M14 6l4 4-8 8-4-4 8-8ZM14 6l2-2 4 4-2 2"/></svg>',
+    dress:'<svg viewBox="0 0 24 24"><path d="M9 3h6l-1 5 4 13H6l4-13-1-5Z"/></svg>',
+    cam:'<svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>'
+  };
+  var P=[
+    {id:'Sederhana',img:'img/t-pink.jpg',theme:'Blush Garden',bonus:0,max:150,price:9.9,old:10.9,for:'Untuk pernikahan sederhana dan hangat',
+      icons:[['guests','150 tamu'],['tent','Tenda 5 unit'],['deco','Pelaminan 4 m'],['mua','MUA pengantin'],['dress','Baju 1x'],['cam','Foto 1 hari']],
+      list:['Dekorasi pelaminan 4 m, kursi dan karpet pelaminan','Karpet jalan, lighting, meja tamu, 2 kotak uang','Tenda 5 unit, backdrop 10 m, 100 kursi bersarung','Alat prasmanan untuk 150 tamu','MUA pengantin dan ibu, melati sepasang','Baju pengantin 1x dan baju orang tua','Foto 1 hari, cetak 10R x2']},
+    {id:'Nyaman',bonus:2,img:'img/t-blue.jpg',theme:'Dusty Blue',max:250,price:14.9,old:16.5,fav:true,for:'Paling sering dipilih pasangan kami',
+      icons:[['guests','250 tamu'],['tent','Tenda 10 unit'],['deco','Pelaminan 6 m'],['mua','MUA + ibu & besan'],['dress','Baju 2x + adat'],['cam','Foto + album']],
+      list:['Dekorasi pelaminan 6 m dan mini garden','Gerbang masuk, karpet jalan, lighting, 2 meja tamu','Tenda 10 unit, backdrop 20 m, 200 kursi bersarung','Panggung pelaminan dan panggung musik','Alat prasmanan untuk 250 tamu','MUA pengantin, ibu dan besan, hennaart, softlens','Baju pengantin 2x, aksesori adat, baju orang tua','Foto 1 hari, album 120 lembar, cetak 16R berbingkai']},
+    {id:'Istimewa',bonus:4,img:'img/t-red.jpg',theme:'Merah Adat',max:400,price:19.9,old:22,for:'Untuk resepsi besar dengan video liputan',
+      icons:[['guests','400 tamu'],['tent','Tenda 15 unit'],['deco','Pelaminan 8 m'],['mua','MUA + keluarga'],['dress','Baju 2x + adat'],['cam','Foto + video']],
+      list:['Dekorasi pelaminan 8 m, mini garden, gazebo lorong','Gerbang masuk, karpet jalan, lighting dan chandelier','Tenda 15 unit, backdrop 40 m, 300 kursi bersarung','Panggung pelaminan dan panggung musik','Alat prasmanan untuk 400 tamu','MUA pengantin, ibu, besan, dan 2 keluarga','Baju pengantin 2x, aksesori adat, baju orang tua','Foto dan video liputan, album 120 lembar']},
+    {id:'Megah',bonus:8,img:'img/t-lilac.jpg',theme:'Lilac Crystal',max:600,price:27.5,old:30,for:'Untuk perayaan besar tanpa kompromi',
+      icons:[['guests','600 tamu'],['tent','Tenda 20 unit'],['deco','Pelaminan 10 m'],['mua','MUA keluarga'],['dress','Baju 3x'],['cam','Foto, video, cinematic']],
+      list:['Dekorasi pelaminan 10 m, plafon kain dan chandelier','Gazebo lorong, mini garden, gerbang bunga segar','Tenda 20 unit, backdrop 60 m, 500 kursi bersarung','Panggung pelaminan, panggung musik, dan sound','Alat prasmanan untuk 600 tamu','MUA pengantin dan 4 keluarga, hennaart','Baju pengantin 3x, aksesori adat lengkap','Foto, video liputan, dan video cinematic 3 menit']}
+  ];
+  var BONUS=['Lorong photobooth','Meja VIP','Meja akad','Standing photo','Kaca rias','Buket pengantin','Blower 2 unit','Hantaran 10 kotak'];
+  var $=function(s){return document.querySelector(s)};
+  function jt(n){return 'Rp'+String(n).replace('.',',')+' jt'}
+  function wa(text){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(text)}
+  var bonusPk='Nyaman';
+  function pkBy(id){return P.filter(function(x){return x.id===id})[0]}
+  function bonusTxt(p){return p.bonus===0?'Belum termasuk bonus':p.bonus>=BONUS.length?'Dapat semua '+BONUS.length+' bonus':'Pilih '+p.bonus+' dari '+BONUS.length+' bonus'}
+  function bonuses(){return [].map.call(document.querySelectorAll('#bonusChips input:checked'),function(i){return i.value})}
+  function bonusLine(p){if(p&&p.bonus===0)return '';if(p&&p.id!==bonusPk)return '';var b=bonuses();return b.length?'\nBonus yang saya pilih (Paket '+bonusPk+'): '+b.join(', ')+'.':''}
+
+  // packages
+  var sc=$('#pkScroll');
+  sc.innerHTML=P.map(function(p){
+    return '<article class="pk'+(p.fav?' fav':'')+'">'+(p.fav?'<span class="tag">Favorit</span>':'')+
+      '<div class="pk-im"><img src="'+p.img+'" alt="Contoh dekorasi tema '+p.theme+'" loading="lazy"><span>Tema '+p.theme+'</span></div><h3>'+p.id+'</h3><p class="for">'+p.for+'</p>'+
+      '<div class="price"><s>'+jt(p.old)+'</s><b>'+jt(p.price)+'</b></div>'+
+      '<ul class="icons">'+p.icons.map(function(x){return '<li>'+I[x[0]]+'<span>'+x[1]+'</span></li>'}).join('')+'</ul>'+
+      '<p class="bn"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1s6 1 6 1Zm0 0c2-4 6-4 6-1s-6 1-6 1Z"/></svg>'+bonusTxt(p)+'</p>'+'<details><summary>Lihat isi lengkap</summary><ul>'+p.list.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></details>'+
+      '<a class="btn" data-pk="'+p.id+'" href="#" target="_blank" rel="noopener">Pilih paket '+p.id+'</a></article>';
+  }).join('');
+  var dots=$('#dots');dots.innerHTML=P.map(function(_,i){return '<i'+(i?'':' class="on"')+'></i>'}).join('');
+  sc.addEventListener('scroll',function(){var w=sc.firstElementChild.offsetWidth+14,i=Math.round(sc.scrollLeft/w);[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)})},{passive:true});
+
+  // compare table
+  var rows=[['Harga',function(p){return '<b>'+jt(p.price)+'</b>'}],['Tamu',function(p){return 's.d. '+p.max}],['Bonus',function(p){return bonusTxt(p)}]].concat(['Tenda','Dekorasi','MUA','Baju','Dokumentasi'].map(function(n,k){var map=[1,2,3,4,5];return [n,function(p){return p.icons[map[k]][1]}]}));
+  $('#cmpTable').innerHTML='<thead><tr><th scope="col"></th>'+P.map(function(p){return '<th scope="col">'+p.id+'</th>'}).join('')+'</tr></thead><tbody>'+
+    rows.map(function(r){return '<tr><th scope="row">'+r[0]+'</th>'+P.map(function(p){return '<td'+(p.fav?' class="fav"':'')+'>'+r[1](p)+'</td>'}).join('')+'</tr>'}).join('')+'</tbody>';
+  $('#cmpBtn').addEventListener('click',function(){var c=$('#cmp'),o=c.hidden;c.hidden=!o;this.setAttribute('aria-expanded',String(o));this.textContent=o?'Tutup perbandingan':'Bandingkan semua paket'});
+
+  // bonus chips
+  $('#bonusChips').innerHTML=BONUS.map(function(b,i){return '<label class="chip"><input type="checkbox" id="b'+i+'" value="'+b+'"><span>'+b+'</span></label>'}).join('');
+  function syncBonus(){
+    var lim=pkBy(bonusPk).bonus,all=lim>=BONUS.length,ins=[].slice.call(document.querySelectorAll('#bonusChips input'));
+    if(all)ins.forEach(function(i){i.checked=true});
+    var n=bonuses().length;
+    ins.forEach(function(i){i.disabled=all||(!i.checked&&n>=lim)});
+    $('#bonusCount').textContent=all?'Paket Megah sudah termasuk semua bonus.':n+' dari '+lim+' bonus dipilih untuk Paket '+bonusPk+'.'+(n?' Ikut terkirim saat kamu chat WhatsApp.':'');
+    updateFinder();
+  }
+  $('#bonusChips').addEventListener('change',syncBonus);
+  $('#bonusPk').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    var was=pkBy(bonusPk).bonus>=BONUS.length;bonusPk=b.getAttribute('data-b');
+    [].forEach.call(this.children,function(x){x.setAttribute('aria-checked',String(x===b))});
+    var lim=pkBy(bonusPk).bonus,ins=[].slice.call(document.querySelectorAll('#bonusChips input'));
+    if(was&&lim<BONUS.length)ins.forEach(function(i){i.checked=false});
+    var c=0;ins.forEach(function(i){if(i.checked){c++;if(c>lim)i.checked=false}});
+    syncBonus()});
+
+  // whatsapp links
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-pk],[data-wa]');if(!a||a.id==='finderWa')return;
+    var t;
+    if(a.hasAttribute('data-pk')){var p=P.filter(function(x){return x.id===a.getAttribute('data-pk')})[0];t='Halo Sekar Wedding, saya tertarik dengan Paket '+p.id+' ('+jt(p.price)+', s.d. '+p.max+' tamu). Boleh minta info lebih lanjut?'+bonusLine(p)}
+    else if(a.getAttribute('data-wa')==='lamaran'){t='Halo Sekar Wedding, saya mau tanya Paket Intimate untuk lamaran/akad (Rp4,9 jt).'}
+    else{t='Halo Sekar Wedding, saya mau tanya paket pernikahan.'+bonusLine()}
+    a.href=wa(t);
+  });
+
+  // finder
+  function pick(g){for(var i=0;i<P.length;i++)if(g<=P[i].max)return P[i];return P[P.length-1]}
+  function fmtDate(v){if(!v)return '';var d=new Date(v+'T00:00:00');return d.toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'})}
+  function updateFinder(){
+    $('#dateWrap').classList.toggle('has',!!$('#date').value);
+    var g=+$('#guests').value,p=pick(g);
+    $('#guestsOut').value=g+' tamu';$('#guestsOut').textContent=g+' tamu';
+    $('#recName').textContent='Paket '+p.id;$('#recNote').textContent='s.d. '+p.max+' tamu · '+jt(p.price)+(p.fav?' · paling sering dipilih':'');
+    var n=$('#name').value.trim(),d=fmtDate($('#date').value);
+    var t='Halo Sekar Wedding'+(n?', saya '+n:'')+'. Saya sedang mencari paket pernikahan untuk sekitar '+g+' tamu'+(d?' pada '+d:'')+'. Website menyarankan Paket '+p.id+' ('+jt(p.price)+'). Apakah tanggalnya masih tersedia?'+bonusLine(p);
+    $('#finderWa').href=wa(t);
+  }
+  ['input','change'].forEach(function(ev){$('#finder').addEventListener(ev,updateFinder)});
+  $('#finder').addEventListener('submit',function(e){e.preventDefault()});
+  try{var t=new Date();t.setMonth(t.getMonth()+3);$('#date').min=new Date().toISOString().slice(0,10)}catch(e){}
+  updateFinder();syncBonus();
+
+  // hero slideshow
+  var sl=[].slice.call(document.querySelectorAll('#slides img')),si=0,sd=$('#sdots'),timer=null;
+  sd.innerHTML=sl.map(function(im,i){return '<button type="button" aria-label="Tema '+im.getAttribute('data-t')+'"'+(i?'':' aria-current="true"')+'></button>'}).join('');
+  function go(i){sl[si].classList.remove('on');si=(i+sl.length)%sl.length;sl[si].classList.add('on');
+    $('#themeName').textContent=sl[si].getAttribute('data-t');$('#theme').style.setProperty('--sw',sl[si].getAttribute('data-c'));
+    [].forEach.call(sd.children,function(b,k){b.setAttribute('aria-current',String(k===si))})}
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function play(){stop();if(!still)timer=setInterval(function(){go(si+1)},4500)}
+  function stop(){if(timer)clearInterval(timer);timer=null}
+  sd.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;go([].indexOf.call(sd.children,b));play()});
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():play()});
+  setTimeout(function(){sl.forEach(function(im){if(!im.complete){var x=new Image();x.src=im.src}})},800);
+  go(0);play();
+
+  // lightbox
+  var lb=$('#lb'),li=$('#lbImg');
+  document.addEventListener('click',function(e){if(!e.target.closest('#gal,#moments'))return;var b=e.target.closest('button');if(!b)return;li.src=b.getAttribute('data-src');li.alt=b.querySelector('img').alt;lb.hidden=false;$('#lbX').focus()});
+  function close(){lb.hidden=true}
+  $('#lbX').addEventListener('click',close);lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close()});
+})();
+</script>
+
+<!-- solvy-demo-badge -->
+<meta name="robots" content="noindex">
+<style>#solvy-demo-badge{position:fixed;left:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 6px;border-radius:999px;background:#5C0F1A;color:#F4EEE4;font:600 12px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(0,0,0,.5);white-space:nowrap}#solvy-demo-badge i{width:20px;height:20px;border-radius:50%;background:#F4EEE4;color:#5C0F1A;display:grid;place-items:center;font:italic 14px/1 Georgia,serif;flex:none}#solvy-demo-badge .l{display:none}@media (min-width:760px){#solvy-demo-badge .l{display:inline}}</style>
+<a href="/links/#contoh" id="solvy-demo-badge"><i>S</i><span>Demo · Solvy Studio</span><span class="l">&nbsp;· Mau yang seperti ini?</span></a>
+</body></html>

@@ -1,0 +1,373 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ARKA Run</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,300..900;1,62..125,300..900&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Layout: a pinned studio "stage" the shoe is built on while you scroll, then a catalogue that reads like a spec sheet. */
+:root{
+  --ink:#0F0C0C;          /* studio black */
+  --stage:#171212;        /* raised surface */
+  --line:#2C2422;         /* hairlines */
+  --bone:#F1EBE2;         /* knit white */
+  --mute:#A99D93;         /* secondary text */
+  --clay:#D9572A;         /* terracotta midsole */
+  --volt:#D7F23A;         /* used only on the volt colourway chip */
+  --f-display:"Archivo",system-ui,sans-serif;
+  --f-body:"Archivo",system-ui,sans-serif;
+  --f-accent:"Instrument Serif",Georgia,serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--bone);font:400 16px/1.6 var(--f-body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:1180px;margin:0 auto}
+.eyebrow{font:600 12px/1 var(--f-body);letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.serif{font-family:var(--f-accent);font-style:italic;font-weight:400;letter-spacing:0}
+:focus-visible{outline:2px solid var(--clay);outline-offset:3px;border-radius:4px}
+
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;padding-block:16px;background:linear-gradient(rgba(15,12,12,.85),rgba(15,12,12,0))}
+nav .inner{display:flex;align-items:center;gap:28px}
+.logo{font:900 22px/1 var(--f-display);font-stretch:125%;letter-spacing:.06em;text-decoration:none}
+.logo b{color:var(--clay)}
+nav .links{display:flex;gap:22px;margin-left:auto;font-size:14px}
+nav .links a{text-decoration:none;color:var(--mute)}
+nav .links a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;border:0;background:var(--clay);color:#fff;font:700 14px/1 var(--f-body);letter-spacing:.02em;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--bone)}
+.btn:hover{filter:brightness(1.08)}
+@media (max-width:720px){nav .links{display:none}nav .btn{margin-left:auto}}
+
+/* scroll stage */
+#build{position:relative;height:380vh}
+#stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--ink)}
+#cv{position:absolute;inset:0;width:100%;height:100%}
+#stage::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(rgba(15,12,12,.55) 0%,rgba(15,12,12,0) 28%,rgba(15,12,12,0) 52%,rgba(15,12,12,.85) 100%),radial-gradient(120% 90% at 50% 45%,rgba(15,12,12,0) 55%,rgba(15,12,12,.6) 100%)}
+.hero{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:3;transition:opacity .2s}
+.hero .hx{max-width:min(38vw,500px)}
+.hero h1{margin:14px 0 0;text-shadow:0 6px 40px rgba(0,0,0,.5);font:900 clamp(40px,5.4vw,84px)/.9 var(--f-display);font-stretch:125%;letter-spacing:-.01em}
+.hero h1 .serif{display:block;font-size:.56em;line-height:1;margin-top:.14em;color:var(--clay)}
+.hero p{margin:20px 0 0;max-width:34ch;color:var(--mute)}
+.chap{position:absolute;inset:0;z-index:3;pointer-events:none}
+.chap .inner{position:relative;height:100%}
+.chap .card{opacity:0;transition:opacity .35s,transform .35s;pointer-events:none}
+.chap .card.on{opacity:1;pointer-events:auto}
+.chap h2{margin:10px 0 8px;font:800 clamp(30px,3.6vw,50px)/1 var(--f-display);font-stretch:112%;text-wrap:balance}
+.chap h2 .serif{color:var(--clay)}
+.chap p{margin:0;color:var(--mute);max-width:40ch}
+.spec{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:6px;font-size:14px}
+.spec li{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:6px}
+.spec li span:last-child{color:var(--bone);font-variant-numeric:tabular-nums}
+.meter{position:absolute;right:0;bottom:6vh;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font:600 12px/1 var(--f-body);letter-spacing:.2em;color:var(--mute)}
+.meter .bar{width:min(240px,40vw);height:2px;background:var(--line);position:relative;overflow:hidden}
+.meter .bar i{position:absolute;inset:0 auto 0 0;width:0;background:var(--clay)}
+.cards{position:absolute;left:0;top:50%;width:min(38vw,440px);height:0}
+.cards .card{position:absolute;left:0;right:0;top:0;transform:translateY(calc(-50% + 16px))}
+.cards .card.on{transform:translateY(-50%)}
+@media (max-width:720px){.meter{display:none}.hero{top:11vh;transform:none}.hero .hx{max-width:none}.hero h1{font-size:clamp(36px,11vw,52px)}.hero p{margin-top:12px;font-size:15px}
+.cards{top:11vh;width:auto;right:0}.cards .card{transform:translateY(16px)}.cards .card.on{transform:none}.chap h2{font-size:28px}.spec{font-size:13px}.cards .row{display:none}}
+
+/* sections */
+section{padding-block:clamp(72px,10vw,140px)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:40px}
+.head h2{margin:12px 0 0;font:800 clamp(36px,5.4vw,72px)/.98 var(--f-display);font-stretch:118%;text-wrap:balance}
+.head h2 .serif{color:var(--clay)}
+.head p{margin:0;color:var(--mute);max-width:46ch;justify-self:end}
+@media (max-width:720px){.head{grid-template-columns:1fr}.head p{justify-self:start}}
+.lineup{border-radius:20px;overflow:hidden;border:1px solid var(--line)}
+.lineup img{display:block;width:100%;height:auto}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.grid{grid-template-columns:1fr}}
+.prod{background:var(--stage);border:1px solid var(--line);border-radius:16px;overflow:hidden;cursor:pointer;text-align:left;color:inherit;padding:0;font:inherit;display:flex;flex-direction:column}
+.prod img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .5s}
+.prod:hover img{transform:scale(1.04)}
+.prod .meta{padding:16px 18px 18px;display:grid;grid-template-columns:1fr auto;gap:2px 12px}
+.prod .nm{font:700 17px/1.2 var(--f-display);font-stretch:110%}
+.prod .pr{font:600 15px/1.2 var(--f-body);font-variant-numeric:tabular-nums}
+.prod .cw{grid-column:1/-1;color:var(--mute);font-size:13px}
+.tag{display:inline-block;margin-top:8px;grid-column:1/-1;justify-self:start;font:600 11px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;padding:6px 9px;border-radius:999px;border:1px solid var(--line);color:var(--mute)}
+
+/* configurator */
+.cfg{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;align-items:center}
+@media (max-width:860px){.cfg{grid-template-columns:1fr}}
+.shot{background:var(--stage);border:1px solid var(--line);border-radius:20px;overflow:hidden;position:relative}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:opacity .35s}
+.shot .lbl{position:absolute;left:18px;top:16px}
+.cfg h3{margin:10px 0 6px;font:800 clamp(30px,3.6vw,44px)/1 var(--f-display);font-stretch:115%}
+.cfg .price{font:600 22px/1 var(--f-body);font-variant-numeric:tabular-nums;color:var(--bone)}
+.cfg .desc{color:var(--mute);margin:14px 0 22px;max-width:42ch}
+.sw{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.sw button{width:44px;height:44px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;position:relative}
+.sw button[aria-pressed="true"]{border-color:var(--bone);box-shadow:0 0 0 3px var(--ink),0 0 0 5px var(--bone)}
+.sizes{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.sizes button{padding:12px 0;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--bone);font:600 14px var(--f-body);font-variant-numeric:tabular-nums;cursor:pointer}
+.sizes button[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* size finder */
+.fit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.fit{grid-template-columns:1fr}}
+.ruler{background:var(--stage);border:1px solid var(--line);border-radius:20px;padding:28px}
+.ruler label{display:block;font-size:14px;color:var(--mute);margin-bottom:12px}
+.ruler input[type=range]{width:100%;accent-color:var(--clay)}
+.ruler .big{display:flex;align-items:baseline;gap:14px;margin-top:20px}
+.ruler .big b{font:900 clamp(56px,8vw,96px)/.9 var(--f-display);font-stretch:120%;font-variant-numeric:tabular-nums}
+.ruler .big span{color:var(--mute)}
+.ticks{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums;margin-top:6px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:14px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--mute);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+tr.hit td{color:var(--ink);background:var(--bone)}
+.tbl{overflow-x:auto}
+
+/* assistant */
+.chat{background:var(--stage);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;max-width:760px}
+.chat header{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.av{width:38px;height:38px;border-radius:50%;background:var(--clay);display:grid;place-items:center;font:900 14px var(--f-display);font-stretch:125%;color:#fff}
+.chat header small{display:block;color:var(--mute);font-size:12px}
+.log{padding:18px;display:flex;flex-direction:column;gap:12px;min-height:260px;max-height:420px;overflow-y:auto}
+.msg{max-width:82%;padding:12px 15px;border-radius:16px;font-size:15px;line-height:1.5;white-space:pre-wrap}
+.msg.me{align-self:flex-end;background:var(--bone);color:var(--ink);border-bottom-right-radius:4px}
+.msg.ai{align-self:flex-start;background:#221B1A;border-bottom-left-radius:4px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 12px}
+.chips button{padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--bone);font:500 13px var(--f-body);cursor:pointer}
+.chat form{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--line)}
+.chat input{flex:1;min-width:0;padding:12px 14px;border-radius:999px;border:1px solid var(--line);background:var(--ink);color:var(--bone);font:400 15px var(--f-body)}
+.note{color:var(--mute);font-size:12px;padding:0 18px 14px}
+
+/* finale */
+.run{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line)}
+.run img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.run .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,4vw,48px);background:linear-gradient(rgba(15,12,12,0) 40%,rgba(15,12,12,.8))}
+.run h2{margin:0;font:900 clamp(34px,6vw,84px)/.92 var(--f-display);font-stretch:120%}
+.run h2 .serif{color:var(--clay)}
+footer{padding-block:40px;border-top:1px solid var(--line);color:var(--mute);font-size:13px}
+footer .inner{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+.marquee{overflow:hidden;border-block:1px solid var(--line);background:var(--ink);padding:18px 0;white-space:nowrap}
+.marquee .track{display:inline-flex;width:max-content;will-change:transform;animation:mq 26s linear infinite;backface-visibility:hidden}
+.marquee span{font:900 clamp(26px,4.4vw,56px)/1 var(--f-display);font-stretch:120%;text-transform:uppercase;padding-right:.6em;display:inline-flex;align-items:center;gap:.6em}
+.marquee span i{font:italic 400 1em/1 var(--f-accent);text-transform:none;color:var(--clay)}
+.marquee span b{width:.32em;height:.32em;border-radius:50%;background:var(--clay);display:inline-block}
+.marquee.rev{border-top:0;padding:12px 0}
+.marquee.rev .track{animation-direction:reverse;animation-duration:46s}
+.marquee.rev span{font-size:clamp(15px,1.8vw,22px);font-weight:600;letter-spacing:.18em;color:var(--mute)}
+@keyframes mq{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.marquee .track{animation:none}}
+</style>
+
+<nav class="wrap"><div class="inner">
+  <a class="logo" href="#top">ARKA<b>.</b></a>
+  <div class="links"><a href="#koleksi">Koleksi</a><a href="#warna">Pilih warna</a><a href="#ukuran">Ukuran</a><a href="#tanya">Tanya Arka</a></div>
+  <a class="btn" href="#warna">Pesan</a>
+</div></nav>
+
+<div id="top"></div>
+<div id="build">
+  <div id="stage">
+    <canvas id="cv" aria-label="Sepatu ARKA Run One terurai menjadi lapisan-lapisannya saat halaman di-scroll"></canvas>
+    <div class="hero wrap" id="hero"><div class="inner"><div class="hx">
+      <div class="eyebrow">Sepatu lari · Rilis 2026</div>
+      <h1>ARKA RUN<span class="serif">dibuat lapis demi lapis.</span></h1>
+      <p>Satu sepatu, lima lapisan. Scroll untuk melihat isi di dalamnya.</p>
+    </div></div></div>
+    <div class="chap wrap"><div class="inner">
+      <div class="cards">
+        <div class="card" data-a="0.12" data-b="0.48">
+          <div class="eyebrow">ARKA Run One</div>
+          <h2>Ringan. Empuk. <span class="serif">Siap jalan.</span></h2>
+          <ul class="spec">
+            <li><span>Berat</span><span>228 g (EU 42)</span></li>
+            <li><span>Drop</span><span>8 mm</span></li>
+            <li><span>Untuk</span><span>Latihan harian, 5–21 km</span></li>
+          </ul>
+        </div>
+        <div class="card" data-a="0.55" data-b="1.01">
+          <div class="eyebrow">Di dalamnya</div>
+          <h2>Setiap lapisan <span class="serif">punya tugas.</span></h2>
+          <ul class="spec">
+            <li><span>Tali</span><span>Rajut, tidak mudah lepas</span></li>
+            <li><span>Upper</span><span>Rajut 3D, 82 g</span></li>
+            <li><span>Insole</span><span>EVA 4 mm</span></li>
+            <li><span>Midsole</span><span>Busa PEBA, 36 mm</span></li>
+            <li><span>Outsole</span><span>Karet, pola segi enam</span></li>
+          </ul>
+          <div class="row" style="margin-top:18px"><a class="btn" href="#koleksi">Lihat koleksi</a></div>
+        </div>
+      </div>
+      <div class="meter"><span id="mlabel">01 / SEPATU</span><div class="bar"><i id="mbar"></i></div></div>
+    </div></div>
+  </div>
+</div>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq1"></div></div>
+<div class="marquee rev" aria-hidden="true"><div class="track" id="mq2"></div></div>
+<script>
+(function(){
+  const a='<span>Run One <i>harian</i><b></b></span><span>Trail <i>tanah & kerikil</i><b></b></span><span>Race <i>pelat karbon</i><b></b></span><span>Enam karakter <i>satu keluarga</i><b></b></span>';
+  const b='<span>Ringan 228 g · Drop 8 mm · Busa PEBA · Rajut 3D · EU 38–47 · Koleksi 2026 ·</span>';
+  document.getElementById('mq1').innerHTML=a+a;
+  document.getElementById('mq2').innerHTML=b+b+b+b;
+})();
+</script>
+<section id="koleksi" class="wrap"><div class="inner">
+  <div class="head">
+    <div><div class="eyebrow">Koleksi 2026</div><h2>Satu keluarga, <span class="serif">enam karakter.</span></h2></div>
+    <p>Empat warna ARKA Run One untuk latihan harian, ARKA Trail untuk tanah dan kerikil, dan ARKA Race dengan pelat karbon untuk hari lomba.</p>
+  </div>
+  <div class="lineup"><img src="img/lineup.webp" alt="Enam sepatu ARKA berjajar: putih-terakota, hitam-volt, sage, navy-koral, trail olive, dan race merah" width="1800" height="600"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="warna" class="wrap" style="background:var(--stage)"><div class="inner">
+  <div class="cfg">
+    <div class="shot"><span class="tag lbl" id="cfgTag">Run One</span><img id="cfgImg" src="img/s1.webp" alt="" width="1040" height="780"></div>
+    <div>
+      <div class="eyebrow">Pilih warna &amp; ukuran</div>
+      <h3 id="cfgName">ARKA Run One</h3>
+      <div class="price" id="cfgPrice">Rp1.490.000</div>
+      <p class="desc" id="cfgDesc"></p>
+      <div class="eyebrow" style="margin-bottom:10px">Warna · <span id="cfgCw" style="color:var(--bone)"></span></div>
+      <div class="sw" id="sw" role="group" aria-label="Pilih warna"></div>
+      <div class="eyebrow" style="margin-bottom:10px">Ukuran EU</div>
+      <div class="sizes" id="sizes" role="group" aria-label="Pilih ukuran"></div>
+      <div class="row"><a class="btn" id="waBtn" href="#" target="_blank" rel="noopener">Pesan via WhatsApp</a><a class="btn ghost" href="#ukuran">Cek ukuran</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="ukuran" class="wrap"><div class="inner">
+  <div class="head">
+    <div><div class="eyebrow">Panduan ukuran</div><h2>Ukur kakimu, <span class="serif">bukan tebak.</span></h2></div>
+    <p>Berdiri di atas kertas, tandai ujung tumit dan jari terpanjang, lalu ukur jaraknya dalam sentimeter. Geser penggaris di bawah ke angka itu.</p>
+  </div>
+  <div class="fit">
+    <div class="ruler">
+      <label for="cm">Panjang kaki: <b id="cmv" style="color:var(--bone)">26.0 cm</b></label>
+      <input id="cm" type="range" min="22.5" max="30" step="0.5" value="26">
+      <div class="ticks"><span>22.5</span><span>24</span><span>26</span><span>28</span><span>30 cm</span></div>
+      <div class="big"><b id="eu">41</b><span>ukuran EU yang disarankan<br>untuk ARKA Run One</span></div>
+    </div>
+    <div class="tbl"><table id="tbl"><thead><tr><th>Kaki (cm)</th><th>EU</th><th>US pria</th><th>US wanita</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</div></section>
+
+<section id="tanya" class="wrap" style="background:var(--stage)"><div class="inner">
+  <div class="head">
+    <div><div class="eyebrow">Asisten</div><h2>Tanya Arka, <span class="serif">kapan saja.</span></h2></div>
+    <p>Bingung pilih Run One, Trail, atau Race? Ceritakan cara kamu berlari, dan Arka bantu pilihkan.</p>
+  </div>
+  <div class="chat">
+    <header><div class="av">A</div><div><b>Arka</b><small>Asisten AI · ARKA Run</small></div></header>
+    <div class="log" id="log"><div class="msg ai">Halo, aku Arka. Kamu biasanya lari di mana, dan berapa kilometer seminggu?</div></div>
+    <div class="chips" id="chips">
+      <button type="button">Aku lari 10 km di aspal, cocok yang mana?</button>
+      <button type="button">Kakiku 26,5 cm, ukuran berapa?</button>
+      <button type="button">Bedanya Trail dan Run One?</button>
+    </div>
+    <form id="f"><label for="q" class="eyebrow" hidden>Pertanyaan</label><input id="q" placeholder="Tulis pertanyaanmu…" autocomplete="off"><button class="btn" type="submit">Kirim</button></form>
+    <div class="note">Jawaban dibuat AI berdasarkan info produk di halaman ini.</div>
+  </div>
+</div></section>
+
+<section class="wrap"><div class="inner">
+  <div class="run"><img src="img/run.webp" alt="Pelari memakai ARKA Run One di jalan aspal saat matahari terbit" width="1440" height="809">
+    <div class="ov"><div class="eyebrow">ARKA Run One</div><h2>Langkah pertamamu <span class="serif">dimulai di sini.</span></h2><div class="row" style="margin-top:18px"><a class="btn" href="#warna">Pilih sepatumu</a></div></div>
+  </div>
+</div></section>
+
+<footer class="wrap"><div class="inner"><span>ARKA Run adalah brand fiktif. Konsep website oleh Solvy Studio · solvystudio.my.id</span><span>Foto dan visual produk dibuat dengan AI.</span></div></footer>
+
+<script>
+// ---------- products ----------
+const P=[
+ {img:'img/s1.webp',name:'ARKA Run One',cw:'Bone / Terakota',hex:'#EDE5D8',price:1490000,line:'Run One',desc:'Warna asli ARKA. Rajut putih tulang dengan midsole terakota, untuk latihan harian di aspal.'},
+ {img:'img/s2.webp',name:'ARKA Run One',cw:'Midnight / Volt',hex:'#171717',ring:'#D7F23A',price:1490000,line:'Run One',desc:'Hitam pekat dengan midsole volt yang terlihat jelas di jalan pagi dan malam.'},
+ {img:'img/s3.webp',name:'ARKA Run One',cw:'Sage / Krem',hex:'#8FA07E',price:1490000,line:'Run One',desc:'Hijau sage yang tenang, enak dipakai lari dan juga untuk sehari-hari.'},
+ {img:'img/s4.webp',name:'ARKA Run One',cw:'Navy / Koral',hex:'#1F2D4E',ring:'#E8613A',price:1490000,line:'Run One',desc:'Navy dalam dengan midsole koral, klasik dan tidak mudah terlihat kotor.'},
+ {img:'img/s5.webp',name:'ARKA Trail',cw:'Olive / Gum',hex:'#4E5332',ring:'#B98543',price:1690000,line:'Trail',desc:'Sol bergerigi dalam dan karet gum untuk tanah, kerikil, dan jalur bukit.'},
+ {img:'img/s6.webp',name:'ARKA Race',cw:'Merah / Karbon',hex:'#C0161E',ring:'#222',price:2290000,line:'Race',desc:'Pelat karbon penuh dan busa paling responsif kami, khusus untuk hari lomba.'}];
+const rp=n=>'Rp'+n.toLocaleString('id-ID');
+const grid=document.getElementById('grid');
+grid.innerHTML=P.map((p,i)=>`<button class="prod" type="button" data-i="${i}"><img src="${p.img}" alt="${p.name} ${p.cw}" width="1040" height="780" loading="lazy"><div class="meta"><span class="nm">${p.name}</span><span class="pr">${rp(p.price)}</span><span class="cw">${p.cw}</span><span class="tag">${p.line}</span></div></button>`).join('');
+grid.addEventListener('click',e=>{const b=e.target.closest('.prod');if(!b)return;pick(+b.dataset.i);document.getElementById('warna').scrollIntoView({behavior:'smooth'})});
+const sw=document.getElementById('sw');
+sw.innerHTML=P.map((p,i)=>`<button type="button" aria-label="${p.name} ${p.cw}" data-i="${i}" style="background:${p.ring?`linear-gradient(135deg,${p.hex} 55%,${p.ring} 55%)`:p.hex}"></button>`).join('');
+sw.addEventListener('click',e=>{const b=e.target.closest('button');if(b)pick(+b.dataset.i)});
+const SIZES=[38,39,40,41,42,43,44,45,46,47];
+let cur=0,size=null;
+const sz=document.getElementById('sizes');
+sz.innerHTML=SIZES.slice(0,12).map(s=>`<button type="button" data-s="${s}" aria-pressed="false">${s}</button>`).join('');
+sz.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;size=+b.dataset.s;[...sz.children].forEach(c=>c.setAttribute('aria-pressed',String(+c.dataset.s===size)));updWA()});
+function pick(i){cur=i;const p=P[i];const im=document.getElementById('cfgImg');im.style.opacity=0;setTimeout(()=>{im.src=p.img;im.alt=p.name+' '+p.cw;im.style.opacity=1},160);
+ document.getElementById('cfgName').textContent=p.name;document.getElementById('cfgPrice').textContent=rp(p.price);document.getElementById('cfgDesc').textContent=p.desc;document.getElementById('cfgCw').textContent=p.cw;document.getElementById('cfgTag').textContent=p.line;
+ [...sw.children].forEach((c,j)=>c.setAttribute('aria-pressed',String(j===i)));updWA()}
+function updWA(){const p=P[cur];const t=`Halo ARKA, saya mau pesan ${p.name} warna ${p.cw}${size?`, ukuran EU ${size}`:''}. Apakah tersedia?`;document.getElementById('waBtn').href='https://wa.me/?text='+encodeURIComponent(t)}
+pick(0);
+
+// ---------- size guide ----------
+const T=[[22.5,36,4,5.5],[23,36.5,4.5,6],[23.5,37.5,5,6.5],[24,38,5.5,7],[24.5,39,6.5,8],[25,40,7,8.5],[25.5,40.5,7.5,9],[26,41,8,9.5],[26.5,42,8.5,10],[27,42.5,9,10.5],[27.5,43,9.5,11],[28,44,10,11.5],[28.5,44.5,10.5,12],[29,45,11,12.5],[29.5,45.5,11.5,13],[30,46,12,13.5]];
+const tb=document.querySelector('#tbl tbody');tb.innerHTML=T.map(r=>`<tr data-cm="${r[0]}"><td>${r[0].toFixed(1)}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('');
+const cm=document.getElementById('cm');
+function fit(){const v=+cm.value;const r=T.find(x=>x[0]>=v)||T[T.length-1];document.getElementById('cmv').textContent=v.toFixed(1)+' cm';document.getElementById('eu').textContent=r[1];[...tb.children].forEach(tr=>tr.classList.toggle('hit',+tr.dataset.cm===r[0]))}
+cm.addEventListener('input',fit);fit();
+
+// ---------- scroll-built shoe ----------
+const N=100,cv=document.getElementById('cv'),ctx=cv.getContext('2d');const imgs=new Array(N);let loaded=0;
+function src(i){return 'f2/'+String(i+1).padStart(3,'0')+'.webp'}
+function load(i){if(imgs[i])return;const im=new Image();im.decoding='async';im.onload=()=>{loaded++;if(i===want)draw()};im.src=src(i);imgs[i]=im}
+// load key frames first so scrubbing never shows black, then everything else
+[0,20,40,60,80,99].forEach(load);for(let i=0;i<N;i+=4)load(i);for(let i=0;i<N;i++)load(i);
+let want=0;
+function fitCanvas(){const r=devicePixelRatio>1?1.5:1;cv.width=Math.round(cv.clientWidth*r);cv.height=Math.round(cv.clientHeight*r);draw()}
+function nearest(i){for(let d=0;d<N;d++){if(imgs[i-d]&&imgs[i-d].complete&&imgs[i-d].naturalWidth)return imgs[i-d];if(imgs[i+d]&&imgs[i+d].complete&&imgs[i+d].naturalWidth)return imgs[i+d]}return null}
+function draw(){const im=nearest(want);if(!im)return;const cw=cv.width,ch=cv.height,iw=im.naturalWidth,ih=im.naturalHeight;
+ const tall=ch>cw*1.1;
+ // region the shoe (incl. exploded layers) must fit in: right side on desktop, lower half on phones
+ const R=tall?[.03*cw,.42*ch,.94*cw,.5*ch]:[.40*cw,.08*ch,.58*cw,.86*ch];
+ const bx=.192*iw,by=.066*ih,bw=.627*iw,bh=.833*ih;
+ const s=Math.min(R[2]/bw,R[3]/bh);const w=iw*s,h=ih*s;
+ const x=R[0]+R[2]/2-(bx+bw/2)*s,y=R[1]+R[3]/2-(by+bh/2)*s;
+ ctx.fillStyle='#0F0C0C';ctx.fillRect(0,0,cw,ch);ctx.drawImage(im,x,y,w,h);
+ const ink=a=>'rgba(15,12,12,'+a+')';const fade=(x0,y0,x1,y1,rx,ry,rw,rh)=>{const g=ctx.createLinearGradient(x0,y0,x1,y1);g.addColorStop(0,ink(1));g.addColorStop(1,ink(0));ctx.fillStyle=g;ctx.fillRect(rx,ry,rw,rh)};
+ const ex=w*.16,ey=h*(tall?.3:.16);
+ fade(x,0,x+ex,0,x-1,y,ex,h);fade(x+w,0,x+w-ex,0,x+w-ex,y,ex+1,h);fade(0,y,0,y+ey,x,y-1,w,ey);fade(0,y+h,0,y+h-ey,x,y+h-ey,w,ey+1)}
+const build=document.getElementById('build'),hero=document.getElementById('hero'),cards=[...document.querySelectorAll('.cards .card')];
+const LABELS=[[0,'01 / SEPATU'],[.5,'02 / LAPISAN']];
+function onScroll(){const r=build.getBoundingClientRect();const total=build.offsetHeight-innerHeight;const p=Math.min(1,Math.max(0,-r.top/total));
+ const f=Math.min(N-1,Math.round(p*(N-1)));if(f!==want){want=f;requestAnimationFrame(draw)}
+ hero.style.opacity=String(Math.max(0,1-p/.08));
+ cards.forEach(c=>c.classList.toggle('on',p>=+c.dataset.a&&p<+c.dataset.b));
+ document.getElementById('mbar').style.width=(p*100)+'%';document.getElementById('mlabel').textContent=LABELS.filter(l=>p>=l[0]).pop()[1]}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',fitCanvas);fitCanvas();onScroll();
+
+// ---------- assistant (Arka) ----------
+const log=document.getElementById('log'),form=document.getElementById('f'),q=document.getElementById('q');
+const hist=[];
+const INFO=`Kamu adalah Arka, asisten toko sepatu lari ARKA Run (brand fiktif untuk konsep website). Jawab dalam bahasa Indonesia yang santai dan singkat (maksimal 4 kalimat). Produk:
+- ARKA Run One (Rp1.490.000): latihan harian di aspal 5–21 km, upper rajut 3D, midsole busa PEBA 36 mm, drop 8 mm, berat 228 g (EU 42). Warna: Bone/Terakota, Midnight/Volt, Sage/Krem, Navy/Koral.
+- ARKA Trail (Rp1.690.000): Olive/Gum, sol bergerigi dalam untuk tanah, kerikil, bukit.
+- ARKA Race (Rp2.290.000): Merah/Karbon, pelat karbon penuh, untuk lomba 10K sampai maraton.
+Panduan ukuran (panjang kaki cm -> EU): 24=38, 24.5=39, 25=40, 25.5=40.5, 26=41, 26.5=42, 27=42.5, 27.5=43, 28=44, 28.5=44.5, 29=45. Kalau di antara dua ukuran, sarankan yang lebih besar. Untuk pesan, arahkan ke tombol "Pesan via WhatsApp" di bagian Pilih warna. Jangan mengarang stok, promo, atau janji pengiriman.`;
+function add(t,who){const d=document.createElement('div');d.className='msg '+who;d.textContent=t;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
+function local(t){t=t.toLowerCase();const m=t.match(/(\d{2}(?:[.,]\d)?)\s*cm/);if(m){const v=parseFloat(m[1].replace(',','.'));const r=T.find(x=>x[0]>=v)||T[T.length-1];return `Untuk kaki ${v} cm, ukuran EU ${r[1]} biasanya paling pas. Kalau kamu suka sedikit longgar, naik setengah ukuran.`}
+ if(t.includes('trail'))return 'Run One untuk aspal dan latihan harian. Trail punya sol bergerigi dalam dan karet gum, jadi lebih mencengkeram di tanah dan kerikil.';
+ if(t.includes('lomba')||t.includes('race')||t.includes('maraton'))return 'Untuk hari lomba, ARKA Race dengan pelat karbon paling responsif. Untuk latihan sehari-hari, tetap pakai Run One.';
+ return 'Untuk lari di aspal 5–21 km, ARKA Run One paling cocok: ringan, empuk, dan drop 8 mm. Mau aku bantu pilih warna atau ukurannya?'}
+let samp=null;(async()=>{try{samp=await window.claude?.use?.('sample')}catch(e){samp=null}})();
+async function ask(t){add(t,'me');hist.push({role:'user',content:t});const d=add('…','ai');
+ if(samp){try{const r=await samp([{role:'user',content:INFO+'\n\nPercakapan:\n'+hist.map(h=>(h.role==='user'?'Pembeli: ':'Arka: ')+h.content).join('\n')+'\nArka:'}],{cache:false,onText:({text})=>{d.textContent=text;log.scrollTop=log.scrollHeight}});d.textContent=r.text;hist.push({role:'assistant',content:r.text});return}catch(e){}}
+ const a=local(t);d.textContent=a;hist.push({role:'assistant',content:a})}
+form.addEventListener('submit',e=>{e.preventDefault();const t=q.value.trim();if(!t)return;q.value='';ask(t)});
+document.getElementById('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(b)ask(b.textContent)});
+</script>
+
+<!-- solvy-demo-badge -->
+<meta name="robots" content="noindex">
+<style>#solvy-demo-badge{position:fixed;left:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:2147483000;display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 6px;border-radius:999px;background:#5C0F1A;color:#F4EEE4;font:600 12px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;text-decoration:none;box-shadow:0 8px 24px -8px rgba(0,0,0,.5);white-space:nowrap}#solvy-demo-badge i{width:20px;height:20px;border-radius:50%;background:#F4EEE4;color:#5C0F1A;display:grid;place-items:center;font:italic 14px/1 Georgia,serif;flex:none}#solvy-demo-badge .l{display:none}@media (min-width:760px){#solvy-demo-badge .l{display:inline}}</style>
+<a href="/links/#contoh" id="solvy-demo-badge"><i>S</i><span>Demo · Solvy Studio</span><span class="l">&nbsp;· Mau yang seperti ini?</span></a>
+</body></html>

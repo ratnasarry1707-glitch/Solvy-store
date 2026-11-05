@@ -61,6 +61,35 @@ h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{colo
 .share{position:fixed;right:18px;top:18px;width:44px;height:44px;border-radius:50%;background:var(--cream);border:0;display:grid;place-items:center;box-shadow:0 8px 20px -10px rgba(0,0,0,.5);z-index:3;cursor:pointer}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);opacity:0;background:var(--cream);color:var(--wine);padding:12px 20px;border-radius:999px;font-size:14.5px;font-weight:700;transition:.3s;z-index:9}
 .toast.show{transform:translate(-50%,0);opacity:1}
+.cx{margin-top:34px}
+.cx h2{margin:0 0 6px}
+.cx-sub{color:#E6D6CF;font-size:15px}
+.cx-rail{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:16px -20px 0;padding:0 20px 4px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cx-rail::-webkit-scrollbar{display:none}
+.cx-card{scroll-snap-align:start;background:var(--cream);color:var(--wine);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.cx-card figure{position:relative;aspect-ratio:16/10;overflow:hidden;background:#2a0a10}
+.cx-card figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cx-card:hover figure img{transform:scale(1.03)}
+.cx-card .no{position:absolute;left:12px;top:12px;font-size:12px;font-weight:700;letter-spacing:.06em;background:rgba(244,238,228,.94);color:var(--wine);border-radius:999px;padding:5px 10px}
+.cx-card .bd{padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cx-card .ty{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper)}
+.cx-card b{font-family:"IS";font-weight:400;font-size:28px;line-height:1.05}
+.cx-card p{font-size:14.5px;line-height:1.5;color:#5E554D}
+.cx-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.cx-card li{font-size:12.5px;font-weight:700;background:var(--sand);color:var(--wine);border-radius:999px;padding:5px 10px}
+.cx-card .go{margin-top:auto;padding-top:6px;display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:15px}
+.cx-card .go span{width:36px;height:36px;border-radius:50%;background:var(--wine);color:var(--cream);display:grid;place-items:center}
+.cx-card .go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cx-ctl{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.cx-ctl output{font-size:13.5px;font-weight:700;color:#E6D6CF;font-variant-numeric:tabular-nums}
+.cx-ctl div{display:flex;gap:8px}
+.cx-ctl button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(244,238,228,.35);background:transparent;color:var(--cream);display:grid;place-items:center;cursor:pointer}
+.cx-ctl button:disabled{opacity:.35;cursor:default}
+.cx-ctl svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.cx-end{background:var(--copper);color:#fff;border-radius:22px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center;gap:10px;scroll-snap-align:start}
+.cx-end b{font-family:"IS";font-weight:400;font-size:32px;line-height:1.05}
+.cx-end p{font-size:15px;color:#FBEDE6}
+.cx-end a{align-self:flex-start;margin-top:6px;background:var(--cream);color:var(--wine);font-weight:700;border-radius:999px;padding:12px 18px}
 @media (max-width:420px){h1{font-size:46px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -90,6 +119,25 @@ h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{colo
     <a class="lk" href="https://lynk.id/solyfinds" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10.5h18"/><path d="M7 15.5h3.5"/></svg></span><div><b>Semua produk di Lynk.id</b><span>Bayar QRIS, e-wallet, transfer</span></div><span class="ar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span></a>
   </div>
 
+
+  <section class="cx" id="contoh" aria-labelledby="cxh">
+    <h2 id="cxh">Contoh <i>website custom</i></h2>
+    <p class="cx-sub">8 konsep yang aku buat untuk berbagai jenis usaha. Geser, lalu buka demonya.</p>
+    <div class="cx-rail" id="cxr" tabindex="0" aria-label="Daftar contoh website custom">
+      <a class="cx-card" href="../demo/voltra/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/voltra.webp" alt="Tampilan website VOLTRA S1" width="960" height="600" loading="lazy"><span class="no">01 / 08</span></figure><div class="bd"><span class="ty">Motor listrik</span><b>VOLTRA S1</b><p>Scroll dan motornya berputar 360°. Pengunjung bisa pilih warna, hitung penghematan bensin, lalu daftar test ride lewat WhatsApp.</p><ul><li>Putar 360°</li><li>Pilih warna</li><li>Form test ride</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/arka/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/arka.webp" alt="Tampilan website ARKA Run" width="960" height="600" loading="lazy"><span class="no">02 / 08</span></figure><div class="bd"><span class="ty">Sepatu lari</span><b>ARKA Run</b><p>Sepatu terbuka lapis demi lapis saat di-scroll. Lengkap dengan koleksi 6 sepatu, pilihan warna & ukuran, dan asisten AI.</p><ul><li>Animasi scroll</li><li>Pilih ukuran</li><li>Pesan via WA</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/villa-senja/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/villa-senja.webp" alt="Tampilan website Villa Senja" width="960" height="600" loading="lazy"><span class="no">03 / 08</span></figure><div class="bd"><span class="ty">Villa & penginapan</span><b>Villa Senja</b><p>Video tur villa dari pintu depan sampai kolam, galeri kamar, fasilitas, dan cek tanggal menginap langsung ke WhatsApp.</p><ul><li>Video tur</li><li>Galeri kamar</li><li>Cek tanggal</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/elene/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/elene.webp" alt="Tampilan website ÉLÈNE Parfum" width="960" height="600" loading="lazy"><span class="no">04 / 08</span></figure><div class="bd"><span class="ty">Parfum & kecantikan</span><b>ÉLÈNE Parfum</b><p>Toko parfum bergaya butik mewah: produk unggulan, koleksi aroma, galeri, dan keranjang belanja.</p><ul><li>Toko online</li><li>Keranjang</li><li>Tampilan mewah</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/sekar/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/sekar.webp" alt="Tampilan website Sekar Wedding" width="960" height="600" loading="lazy"><span class="no">05 / 08</span></figure><div class="bd"><span class="ty">Wedding organizer</span><b>Sekar Wedding</b><p>Paket pernikahan dengan harga jelas, katalog tema dekorasi, baju adat, testimoni, dan form tanya via WhatsApp.</p><ul><li>Paket & harga</li><li>Katalog tema</li><li>Form WA</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/arunika/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/arunika.webp" alt="Tampilan website Arunika Studio" width="960" height="600" loading="lazy"><span class="no">06 / 08</span></figure><div class="bd"><span class="ty">Desain & renovasi interior</span><b>Arunika Studio</b><p>Ruangan berubah dari semen jadi rumah saat di-scroll, geser foto sebelum–sesudah, dan kalkulator biaya renovasi.</p><ul><li>Sebelum–sesudah</li><li>Kalkulator</li><li>Konsultasi</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/vitalis/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/vitalis.webp" alt="Tampilan website VITALIS" width="960" height="600" loading="lazy"><span class="no">07 / 08</span></figure><div class="bd"><span class="ty">Edukasi kesehatan</span><b>VITALIS</b><p>Laboratorium anatomi digital: organ bisa didekati satu per satu, kuis untuk belajar, dan sumber tepercaya.</p><ul><li>Interaktif</li><li>Kuis</li><li>Edukasi</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <a class="cx-card" href="../demo/sova/index.html" target="_blank" rel="noopener"><figure><img src="../img/custom/sova.webp" alt="Tampilan website SOVA Coffee" width="960" height="600" loading="lazy"><span class="no">08 / 08</span></figure><div class="bd"><span class="ty">Kafe & kopi</span><b>SOVA Coffee</b><p>Satu hari di kafe dari subuh sampai tutup. Menu dan suasana berubah mengikuti jam saat halaman di-scroll.</p><ul><li>Cerita per jam</li><li>Menu</li><li>Suasana kafe</li></ul><span class="go">Lihat demo<span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></span></span></div></a>
+      <div class="cx-end"><b>Usahamu berikutnya?</b><p>Ceritakan usahamu, aku bantu rancang website yang pas. Konsultasi gratis, mulai Rp1,2 jt.</p><a href="https://wa.me/85255127902?text=Halo%20Solvy%21%20%F0%9F%91%8B%20Aku%20sudah%20lihat%20contoh%20website%20custom%20dan%20mau%20tanya%20untuk%20usahaku." target="_blank" rel="noopener">Konsultasi via WhatsApp →</a></div>
+    </div>
+    <div class="cx-ctl"><output id="cxo">1 / 8</output><div><button type="button" id="cxp" aria-label="Contoh sebelumnya"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="cxn" aria-label="Contoh berikutnya"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+    <p class="note">Semua brand di contoh ini fiktif dan dibuat sebagai konsep. Foto dan visual produk dibuat dengan AI.</p>
+  </section>
+
   <a class="feat" href="../index.html#reel" aria-label="Lihat 13 template dalam 1 menit">
     <img src="../media/showreel-poster.webp" alt="Cuplikan template website Solvy">
     <span class="play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="#5C0F1A"><path d="M8 5v14l11-7z"/></svg></span>
@@ -116,6 +164,11 @@ h2{font-family:"IS";font-weight:400;font-size:30px;margin:34px 0 12px} h2 i{colo
 <script>
 const toast=document.getElementById('toast');let tt;function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),2000)}
 document.getElementById('share').addEventListener('click',()=>{const u=location.href;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>say('Link disalin')).catch(()=>say('Salin link dari address bar'))});
+(function(){const r=document.getElementById('cxr'),o=document.getElementById('cxo'),p=document.getElementById('cxp'),n=document.getElementById('cxn');if(!r)return;const items=[...r.children];const total=items.filter(c=>c.classList.contains('cx-card')).length;
+function cur(){const x=r.scrollLeft;let best=0,d=1e9;items.forEach((c,i)=>{const dd=Math.abs((c.offsetLeft-items[0].offsetLeft)-x);if(dd<d){d=dd;best=i}});return best}
+function upd(){const i=cur();o.textContent=(i<total?(i+1):total)+' / '+total;p.disabled=i<=0;n.disabled=i>=items.length-1}
+function go(k){const i=Math.max(0,Math.min(items.length-1,cur()+k));r.scrollTo({left:items[i].offsetLeft-items[0].offsetLeft,behavior:'smooth'})}
+p.addEventListener('click',()=>go(-1));n.addEventListener('click',()=>go(1));let t;r.addEventListener('scroll',()=>{cancelAnimationFrame(t);t=requestAnimationFrame(upd)},{passive:true});upd()})();
 </script>
 </body>
 </html>
